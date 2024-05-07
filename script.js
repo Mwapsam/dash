@@ -62,62 +62,62 @@ $(function () {
 const data = [
   {
     name: 'Finance.pdf',
-    img: '/output/assets/files/docx1.png',
+    img: '/assets/files/docx1.png',
     date: 'June, 20, 2023',
   },
   {
     name: 'Study of rocks.pdf',
-    img: '/output/assets/files/pdf1.png',
+    img: '/assets/files/pdf1.png',
     date: 'June, 20, 2023',
   },
   {
     name: 'Sci-fi.pdf',
-    img: '/output/assets/files/pdf1.png',
+    img: '/assets/files/pdf1.png',
     date: 'June, 20, 2023',
   },
   {
     name: 'Machine learning.pdf',
-    img: '/output/assets/files/docx1.png',
+    img: '/assets/files/docx1.png',
     date: 'June, 20, 2023',
   },
   {
     name: 'Artificial Inteligence.pdf',
-    img: '/output/assets/files/docx1.png',
+    img: '/assets/files/docx1.png',
     date: 'June, 20, 2023',
   },
   {
     name: 'Robotic Fundamentals.docx1',
-    img: '/output/assets/files/pdf1.png',
+    img: '/assets/files/pdf1.png',
     date: 'June, 20, 2023',
   },
   {
     name: 'Mathematics.pdf',
-    img: '/output/assets/files/docx1.png',
+    img: '/assets/files/docx1.png',
     date: 'June, 20, 2023',
   },
   {
     name: 'Study of the Past.pdf',
-    img: '/output/assets/files/pdf1.png',
+    img: '/assets/files/pdf1.png',
     date: 'June, 20, 2023',
   },
   {
     name: 'Social Sciences.pdf',
-    img: '/output/assets/files/pdf1.png',
+    img: '/assets/files/pdf1.png',
     date: 'June, 20, 2023',
   },
   {
     name: 'Animal farm.pdf',
-    img: '/output/assets/files/docx1.png',
+    img: '/assets/files/docx1.png',
     date: 'June, 20, 2023',
   },
   {
     name: 'The Art of War.pdf',
-    img: '/output/assets/files/pdf1.png',
+    img: '/assets/files/pdf1.png',
     date: 'June, 20, 2023',
   },
   {
     name: 'Mathematics.pdf',
-    img: '/output/assets/files/docx1.png',
+    img: '/assets/files/docx1.png',
     date: 'June, 20, 2023',
   },
 ];
@@ -273,7 +273,7 @@ $(function () {
         <div class="quick-access-card">
           <div class="icons">
             <img class="icon-file" src="${element.img}" alt="file-img" />
-            <img class="group-icons" src="/output/assets/files/group-cons.png" alt="group-cons" />
+            <img class="group-icons" src="/assets/files/group-cons.png" alt="group-cons" />
           </div>
           <div class="text-container">
             <div class="card-text">
