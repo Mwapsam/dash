@@ -1031,6 +1031,17 @@
     gap: 2rem;
   }
 
+  .share-link {
+    cursor: pointer;
+    padding: 3px 12px;
+    border-radius: 8px;
+  }
+
+  .share-link:hover {
+    background: #000;
+    color: #fff;
+  }
+
   .file-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -1068,17 +1079,6 @@
       flex-direction: column;
       justify-content: center;
       gap: 6px;
-    }
-
-    .share-link {
-      cursor: pointer;
-      padding: 3px 12px;
-      border-radius: 8px;
-    }
-
-    .share-link:hover {
-      background: #000;
-      color: #fff;
     }
 
     .file-card:hover {
@@ -1197,7 +1197,7 @@
     flex-direction: column;
     justify-content: space-around;
     width: 179px;
-    height: 105px;
+    /* height: 105px; */
     background: #ffffff;
     border: 1px solid rgba(252, 167, 0, 0.5);
     border-radius: 10px;
@@ -1271,7 +1271,6 @@
     .inside-nav {
       margin-top: 2rem;
       margin-left: 1rem;
-      position: fixed;
 
       [data-active] {
         background-color: black;
@@ -1436,7 +1435,10 @@
     --tw-border-opacity: 1;
     border-color: rgb(229 231 235 / var(--tw-border-opacity));
     border: 1px solid #eaeaea;
-    height: calc(100dvh - var(--header-nav-height));
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 70px); 
+    overflow-y: auto; 
   }
 
   .sidebar-boundary {
@@ -1449,6 +1451,14 @@
   .select-text {
     color: #454444 !important;
   }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 70px); 
+    overflow-y: auto; 
+  }
+  
 }
 
 .fa-play {

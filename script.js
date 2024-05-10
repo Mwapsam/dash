@@ -221,9 +221,9 @@ $(function () {
         <span class="toggle-action-card" id="first-action">...</span>
       </div>
       <div class="action-card">
-        <p>Open</p>
-        <p id="share-card">Share</p>
-        <p>Delete</p>
+        <p class="share-link">Open</p>
+        <p class="share-card" id="share-card">Share</p>
+        <p class="share-link">Delete</p>
       </div>
       <div class="start-date">
         <p>June, 24, 2024</p>
@@ -308,9 +308,9 @@ $(function () {
             <span class="toggle-action-card" id="action-${i}">...</span>
           </div>
           <div class="action-card">
-            <p>Open</p>
-            <p id="share-card">Share</p>
-            <p>Delete</p>
+            <p class="share-link">Open</p>
+            <p class="share-link" id="share-card">Share</p>
+            <p class="share-link">Delete</p>
           </div>
         </div>
       `;
@@ -339,9 +339,9 @@ $(function () {
             <span class="toggle-action-card" id="action-${i}">...</span>
           </div>
           <div class="action-card">
-            <p>Open</p>
-            <p id="share-card">Share</p>
-            <p>Delete</p>
+            <p class="share-link">Open</p>
+            <p class="share-link" id="share-card">Share</p>
+            <p class="share-link">Delete</p>
           </div>
           <div class="start-date">
             <p>${element.date}</p>
@@ -361,18 +361,6 @@ $(function () {
 
   $('#quick-access-container-compact').hide();
   $('.heading').hide();
-});
-
-$(function () {
-  $('#share-card').on('click', function () {
-    $('#modal').css('display', 'block');
-  });
-
-  $('.close, #modal').on('click', function (event) {
-    if (event.target === $('#modal')[0] || event.target === $('.close')[0]) {
-      $('#modal').css('display', 'none');
-    }
-  });
 });
 
 $(document).ready(function () {
