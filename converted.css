@@ -848,6 +848,7 @@ svg[data-icon] {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
   border: 1px solid #f1f1f1;
+ 
 }
 #sidebar .sidebar_container__bordered > * {
   margin-top: 1rem;

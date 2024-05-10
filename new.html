@@ -17,6 +17,10 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
+    <link
+    rel="stylesheet"
+    href="/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css"
+  />
     <!-- external scripts -->
     <script src="./jquery.js"></script>
     <script src="./script.js"></script>
@@ -386,172 +390,42 @@
         </div>
       </aside>
       <section class="main-content">
-        <aside id="sidebar">
-          <div class="sidebar_container__bordered">
-            <div class="inside-nav sidebar_nav">
+        <aside>
+          <div class="sidebar_container">
+            <div class="inside-nav">
               <ul data-variant="bold" class="sub-menu-items">
                 <li>
-                  <a
-                    href="/paper.html"
-                    class="sidebar_nav__link"
-                    data-active
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M5 14.0585C5 13.0494 5 12.5448 5.22166 12.1141C5.44333 11.6833 5.8539 11.3901 6.67505 10.8035L10.8375 7.83034C11.3989 7.42938 11.6795 7.2289 12 7.2289C12.3205 7.2289 12.6011 7.42938 13.1625 7.83034L17.325 10.8035C18.1461 11.3901 18.5567 11.6833 18.7783 12.1141C19 12.5448 19 13.0494 19 14.0585V19C19 19.9428 19 20.4142 18.7071 20.7071C18.4142 21 17.9428 21 17 21H7C6.05719 21 5.58579 21 5.29289 20.7071C5 20.4142 5 19.9428 5 19V14.0585Z"
-                        fill="#7E869E"
-                        fill-opacity="0.25"
-                      />
-                      <path
-                        d="M3 12.3866C3 12.6535 3 12.7869 3.0841 12.8281C3.16819 12.8692 3.27352 12.7873 3.48418 12.6234L10.7721 6.95502C11.362 6.49625 11.6569 6.26686 12 6.26686C12.3431 6.26686 12.638 6.49625 13.2279 6.95502L20.5158 12.6234C20.7265 12.7873 20.8318 12.8692 20.9159 12.8281C21 12.7869 21 12.6535 21 12.3866V11.9782C21 11.4978 21 11.2576 20.8983 11.0497C20.7966 10.8418 20.607 10.6944 20.2279 10.3995L13.2279 4.95502C12.638 4.49625 12.3431 4.26686 12 4.26686C11.6569 4.26686 11.362 4.49625 10.7721 4.95502L3.77212 10.3995C3.39295 10.6944 3.20337 10.8418 3.10168 11.0497C3 11.2576 3 11.4978 3 11.9782V12.3866Z"
-                        fill="#222222"
-                      />
-                      <path
-                        d="M12.5 15H11.5C10.3954 15 9.5 15.8954 9.5 17V20.85C9.5 20.9328 9.56716 21 9.65 21H14.35C14.4328 21 14.5 20.9328 14.5 20.85V17C14.5 15.8954 13.6046 15 12.5 15Z"
-                        fill="#222222"
-                      />
-                      <rect
-                        x="16"
-                        y="5"
-                        width="2"
-                        height="4"
-                        rx="0.5"
-                        fill="#222222"
-                      />
-                    </svg>
+                  <a href="/paper.html" class="sidebar_nav__link">
+                    <i class="fa fa-home" aria-hidden="true"></i>
 
                     <span>Home</span>
                   </a>
                 </li>
                 <li>
                   <a href="/new.html" class="sidebar_nav__link">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M5 5C5 3.89543 5.89543 3 7 3H11.75C11.8881 3 12 3.11193 12 3.25V8C12 9.10457 12.8954 10 14 10H18.75C18.8881 10 19 10.1119 19 10.25V19C19 20.1046 18.1046 21 17 21H7C5.89543 21 5 20.1046 5 19V5Z"
-                        fill="#7E869E"
-                        fill-opacity="0.25"
-                      />
-                      <path
-                        d="M13 8V3.60355C13 3.38083 13.2693 3.26929 13.4268 3.42678L18.5732 8.57322C18.7307 8.73071 18.6192 9 18.3964 9H14C13.4477 9 13 8.55228 13 8Z"
-                        fill="#222222"
-                      />
-                      <path
-                        d="M12 11.5V17.5"
-                        stroke="#222222"
-                        stroke-linecap="round"
-                      />
-                      <path
-                        d="M9 14.5H15"
-                        stroke="#222222"
-                        stroke-linecap="round"
-                      />
-                    </svg>
+                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
                     <span>New</span>
                   </a>
                 </li>
                 <li>
                   <a href="/recycle-bin.html" class="sidebar_nav__link">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 7.5C4 7.2643 4 7.14645 4.07322 7.07322C4.14645 7 4.2643 7 4.5 7H19.5C19.7357 7 19.8536 7 19.9268 7.07322C20 7.14645 20 7.2643 20 7.5V7.75155C20 7.84249 20 7.88797 19.986 7.92806C19.974 7.96233 19.9547 7.99358 19.9294 8.01963C19.8998 8.0501 19.8591 8.07044 19.7778 8.11111C19.127 8.43649 18.8017 8.59917 18.565 8.84298C18.3626 9.0514 18.2082 9.30138 18.1122 9.57554C18 9.89627 18 10.2601 18 10.9876V16C18 17.8856 18 18.8284 17.4142 19.4142C16.8284 20 15.8856 20 14 20H10C8.11438 20 7.17157 20 6.58579 19.4142C6 18.8284 6 17.8856 6 16V10.9876C6 10.2601 6 9.89627 5.88778 9.57554C5.79185 9.30138 5.63735 9.0514 5.43503 8.84298C5.19835 8.59917 4.87297 8.43649 4.22222 8.11111C4.14088 8.07044 4.10021 8.0501 4.07062 8.01963C4.04533 7.99358 4.02602 7.96233 4.01403 7.92806C4 7.88797 4 7.84249 4 7.75155V7.5Z"
-                        fill="#7E869E"
-                        fill-opacity="0.25"
-                      />
-                      <path
-                        d="M10.0681 4.37059C10.1821 4.26427 10.4332 4.17033 10.7825 4.10332C11.1318 4.03632 11.5597 4 12 4C12.4403 4 12.8682 4.03632 13.2175 4.10332C13.5668 4.17033 13.8179 4.26427 13.9319 4.37059"
-                        stroke="#222222"
-                        stroke-linecap="round"
-                      />
-                      <rect
-                        x="14"
-                        y="11"
-                        width="1"
-                        height="6"
-                        rx="0.5"
-                        fill="#222222"
-                      />
-                      <rect
-                        x="9"
-                        y="11"
-                        width="1"
-                        height="6"
-                        rx="0.5"
-                        fill="#222222"
-                      />
-                    </svg>
+                    <i class="fa fa-trash" aria-hidden="true"></i>
 
                     <span>Recycle Bin</span>
                   </a>
                 </li>
                 <li id="my-file">
                   <a href="#" class="sidebar_nav__link my-file">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 7.5C4 7.2643 4 7.14645 4.07322 7.07322C4.14645 7 4.2643 7 4.5 7H19.5C19.7357 7 19.8536 7 19.9268 7.07322C20 7.14645 20 7.2643 20 7.5V7.75155C20 7.84249 20 7.88797 19.986 7.92806C19.974 7.96233 19.9547 7.99358 19.9294 8.01963C19.8998 8.0501 19.8591 8.07044 19.7778 8.11111C19.127 8.43649 18.8017 8.59917 18.565 8.84298C18.3626 9.0514 18.2082 9.30138 18.1122 9.57554C18 9.89627 18 10.2601 18 10.9876V16C18 17.8856 18 18.8284 17.4142 19.4142C16.8284 20 15.8856 20 14 20H10C8.11438 20 7.17157 20 6.58579 19.4142C6 18.8284 6 17.8856 6 16V10.9876C6 10.2601 6 9.89627 5.88778 9.57554C5.79185 9.30138 5.63735 9.0514 5.43503 8.84298C5.19835 8.59917 4.87297 8.43649 4.22222 8.11111C4.14088 8.07044 4.10021 8.0501 4.07062 8.01963C4.04533 7.99358 4.02602 7.96233 4.01403 7.92806C4 7.88797 4 7.84249 4 7.75155V7.5Z"
-                        fill="#7E869E"
-                        fill-opacity="0.25"
-                      />
-                      <path
-                        d="M10.0681 4.37059C10.1821 4.26427 10.4332 4.17033 10.7825 4.10332C11.1318 4.03632 11.5597 4 12 4C12.4403 4 12.8682 4.03632 13.2175 4.10332C13.5668 4.17033 13.8179 4.26427 13.9319 4.37059"
-                        stroke="#222222"
-                        stroke-linecap="round"
-                      />
-                      <rect
-                        x="14"
-                        y="11"
-                        width="1"
-                        height="6"
-                        rx="0.5"
-                        fill="#222222"
-                      />
-                      <rect
-                        x="9"
-                        y="11"
-                        width="1"
-                        height="6"
-                        rx="0.5"
-                        fill="#222222"
-                      />
-                    </svg>
+                    <i class="fa fa-folder-o" aria-hidden="true"></i>
 
                     <span>My File</span>
                     <small>
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.8079 14.7695L8.09346 10.3121C7.65924 9.79109 8.02976 9 8.70803 9L15.292 9C15.9702 9 16.3408 9.79108 15.9065 10.3121L12.1921 14.7695C12.0921 14.8895 11.9079 14.8895 11.8079 14.7695Z"
-                          fill="#222222"
-                        />
-                      </svg>
+                      <i class="fa fa-play" id="fa-play" aria-hidden="true"></i>
+                      <i
+                        class="fa fa-caret-down"
+                        id="fa-caret-down"
+                        aria-hidden="true"
+                      ></i>
                     </small>
                   </a>
                 </li>
@@ -559,54 +433,21 @@
               <ul data-variant="bold" class="sub-dropdown" id="sub-dropdown">
                 <li>
                   <a href="/recent.html" class="sidebar_nav__link">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M14.7695 11.8079L10.3121 8.09346C9.79109 7.65924 9 8.02976 9 8.70803V15.292C9 15.9702 9.79109 16.3408 10.3121 15.9065L14.7695 12.1921C14.8895 12.0921 14.8895 11.9079 14.7695 11.8079Z"
-                        fill="#222222"
-                      />
-                    </svg>
+                    <i class="fa fa-play" aria-hidden="true"></i>
 
                     <span>Recent</span>
                   </a>
                 </li>
                 <li>
                   <a href="/favourite.html" class="sidebar_nav__link">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M14.7695 11.8079L10.3121 8.09346C9.79109 7.65924 9 8.02976 9 8.70803V15.292C9 15.9702 9.79109 16.3408 10.3121 15.9065L14.7695 12.1921C14.8895 12.0921 14.8895 11.9079 14.7695 11.8079Z"
-                        fill="#222222"
-                      />
-                    </svg>
+                    <i class="fa fa-play" aria-hidden="true"></i>
 
                     <span>Favorite</span>
                   </a>
                 </li>
                 <li>
                   <a href="/shared.html" class="sidebar_nav__link">
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M14.7695 11.8079L10.3121 8.09346C9.79109 7.65924 9 8.02976 9 8.70803V15.292C9 15.9702 9.79109 16.3408 10.3121 15.9065L14.7695 12.1921C14.8895 12.0921 14.8895 11.9079 14.7695 11.8079Z"
-                        fill="#222222"
-                      />
-                    </svg>
+                    <i class="fa fa-play" aria-hidden="true"></i>
 
                     <span>Shared</span>
                   </a>
@@ -622,77 +463,84 @@
             <div class="items-center overflow-x-auto no-scrollba flex">
               <div class="flex gap-2">
                 <div class="paper-card">
-                  <img
-                    class="paper-img"
-                    src="/assets/Rectangle_24.png"
-                  />
+                  <img class="paper-img" src="/assets/Rectangle_24.png" />
                   <p>Blank Document</p>
                 </div>
 
                 <div class="paper-card">
-                  <img
-                    class="paper-img"
-                    src="/assets/Rectangle_25.png"
-                  />
+                  <img class="paper-img" src="/assets/Rectangle_25.png" />
                   <p>Slides</p>
                 </div>
 
                 <div class="paper-card">
-                  <img
-                    class="paper-img"
-                    src="/assets/Rectangle_27.png"
-                  />
+                  <img class="paper-img" src="/assets/Rectangle_27.png" />
                   <p>Spread sheet</p>
                 </div>
 
                 <div class="paper-card">
-                  <img
-                    class="paper-img"
-                    src="/assets/Rectangle_28.png"
-                  />
+                  <img class="paper-img" src="/assets/Rectangle_28.png" />
                   <p>Grid</p>
                 </div>
 
                 <div class="paper-card">
-                  <img
-                    class="paper-img"
-                    src="/assets/Rectangle_36.png"
-                  />
+                  <img class="paper-img" src="/assets/Rectangle_36.png" />
                   <p>Grid</p>
                 </div>
 
                 <div class="paper-card">
-                  <img
-                    class="paper-img"
-                    src="/assets/Rectangle_37.png"
-                  />
+                  <img class="paper-img" src="/assets/Rectangle_37.png" />
                   <p>Grid</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="paper-icons">
-            <img
-              class="paper-log"
-              src="/assets/hd_svg_logo.png"
-              alt="logo"
-            />
-            <img
-              class="paper-logo"
-              src="/assets/Video_file_light.png"
-              alt="file icon"
-            />
-          </div>
-
-          <div class="paper-create-button">
+          <div class="title-div">
+            <h3>Quick Access</h3>
             <div>
-              <p>Oops, seems like there are no files here</p>
-              <span>You may...</span>
+              <button id="quick-access-card-grid-buttun">
+                <img src="/assets/darhboard.png" alt="icon" />
+              </button>
+              <button id="quick-access-card-compact-button">
+                <img src="/assets/Menu.png" alt="" />
+              </button>
             </div>
-
-            <button>Create new file</button>
           </div>
+
+          <div class="heading">
+            <span>Name</span>
+            <span>Date received</span>
+            <span>Date modified</span>
+          </div>
+
+          <div class="quick-access-container" id="quick-access-container"></div>
+
+          <div
+            class="quick-access-container-compact"
+            id="quick-access-container-compact"
+          ></div>
+
+          <div class="title-div">
+            <h3>Recent</h3>
+            <div>
+              <button id="toggleButtonGrid">
+                <img src="/assets/darhboard.png" alt="icon" />
+              </button>
+
+              <button id="toggleButtonList">
+                <img src="/assets/Menu.png" alt="icon" />
+              </button>
+            </div>
+          </div>
+
+          <div class="file-container" id="file-container"></div>
+
+          <div class="heading" id="heading">
+            <span>Name</span>
+            <span>Date received</span>
+            <span>Date modified</span>
+          </div>
+          <div class="quick-access-container-compact" id="compact-list"></div>
           <div class="bottom-space"></div>
         </main>
       </section>

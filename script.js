@@ -46,6 +46,14 @@ $(function () {
   $('#my-file').on('click', function (event) {
     event.preventDefault();
     $('#sub-dropdown').toggle();
+
+    if ($('#sub-dropdown').is(':visible')) {
+      $('#fa-play').hide();
+      $('#fa-caret-down').show();
+    } else {
+      $('#fa-play').show();
+      $('#fa-caret-down').hide();
+    }
   });
 });
 
@@ -148,36 +156,53 @@ $(function () {
 
   $('#toggleButtonGrid').on('click', function () {
     showFileContainer();
+    $('#toggleButtonGrid i').attr('data-active', '');
+    $('#toggleButtonList i').removeAttr('data-active');
   });
 
   $('#toggleButtonList').on('click', function () {
     showCompactList();
+    $('#toggleButtonGrid i').removeAttr('data-active');
+    $('#toggleButtonList i').attr('data-active', '');
   });
 
-  data.forEach((element) => {
+  data.forEach((element, i) => {
     const fileCardHTML = `<div class="file-card">
+    <i class="fa fa-ellipsis-v" id=${`ellipsis-${i}`} aria-hidden="true"></i>
+
       <img src="${element.img}" alt="${element.name}">
       <div class="file-text">
         <p>${element.name.substring(0, 11) + '...'}</p> 
         <p>${element.date}</p>  
       </div>
-    </div>`;
+      <div class="share-card-small" id=${`share-card-small-${i}`}>
+        <a class="share-link">Open</a>
+        <a class="share-link" id="share-card">Share</a>
+        <a class="share-link">Delete</a>
+      </div>
+    </div>
+    `;
     $fileContainer.append(fileCardHTML);
   });
 
+  $('#quick-access-card-grid-buttun').on('click', function () {
+    $('#quick-access-container').show();
+    $('#quick-access-container-compact').hide();
+
+    $('.heading').hide();
+    $('#quick-access-card-grid-buttun i').attr('data-active', '');
+    $('#quick-access-card-compact-button i').removeAttr('data-active');
+  });
+
+  $('#quick-access-card-compact-button').on('click', function () {
+    $('#quick-access-container').hide();
+    $('#quick-access-container-compact').show();
+    $('.heading').show();
+    $('#quick-access-card-grid-buttun i').removeAttr('data-active');
+    $('#quick-access-card-compact-button i').attr('data-active', '');
+  });
+
   data.forEach((element) => {
-    $('#quick-access-card-grid-buttun').on('click', function () {
-      $('#quick-access-container').show();
-      $('#quick-access-container-compact').hide();
-      $('.heading').show();
-    });
-
-    $('#quick-access-card-compact-button').on('click', function () {
-      $('#quick-access-container').hide();
-      $('#quick-access-container-compact').show();
-      $('.heading').hide();
-    });
-
     const fileCardHTML = `<div class="quick-access-card-compact">
       <div class="icons-compact">
         <img
@@ -336,18 +361,6 @@ $(function () {
 
   $('#quick-access-container-compact').hide();
   $('.heading').hide();
-
-  $('#quick-access-card-grid-buttun').on('click', function () {
-    $('#quick-access-container').show();
-    $('#quick-access-container-compact').hide();
-    $('.heading').hide();
-  });
-
-  $('#quick-access-card-compact-button').on('click', function () {
-    $('#quick-access-container').hide();
-    $('#quick-access-container-compact').show();
-    $('.heading').show();
-  });
 });
 
 $(function () {
@@ -359,5 +372,139 @@ $(function () {
     if (event.target === $('#modal')[0] || event.target === $('.close')[0]) {
       $('#modal').css('display', 'none');
     }
+  });
+});
+
+$(document).ready(function () {
+  var currentPageUrl = window.location.href;
+
+  var sidebarLinks = $('.sidebar_nav__link');
+
+  sidebarLinks.each(function () {
+    var linkUrl = $(this).attr('href');
+    if (currentPageUrl.includes(linkUrl)) {
+      $(this).attr('data-active', '');
+    }
+  });
+});
+
+$(document).ready(function () {
+  $('#select-all').on('click', function () {
+    var isChecked = $(this).prop('checked');
+
+    $('.modal-content input[type="checkbox"]').prop('checked', isChecked);
+  });
+});
+
+$(document).ready(function () {
+  const profiles = [
+    {
+      name: 'Wade Warren',
+      img: 'https://source.unsplash.com/random/50x50/?person',
+    },
+    {
+      name: 'Jenny Wilson',
+      img: 'https://source.unsplash.com/random/50x50/?person',
+    },
+    {
+      name: 'Cameron Williamson',
+      img: 'https://source.unsplash.com/random/50x50/?person',
+    },
+    {
+      name: 'Esther Howard',
+      img: 'https://source.unsplash.com/random/50x50/?person',
+    },
+  ];
+
+  const followers = [
+    {
+      name: 'Mwape John',
+      img: 'https://source.unsplash.com/random/50x50/?person',
+    },
+    {
+      name: 'Dave Samuel',
+      img: 'https://source.unsplash.com/random/50x50/?person',
+    },
+    {
+      name: 'Mercy Gabby',
+      img: 'https://source.unsplash.com/random/50x50/?person',
+    },
+    {
+      name: 'Sharon Mathews',
+      img: 'https://source.unsplash.com/random/50x50/?person',
+    },
+  ];
+
+  function generateProfileCards(cardId, data) {
+    const $card = $(`#${cardId}`);
+    $card.empty();
+    data.forEach((item) => {
+      const cardHtml = `
+        <li>
+          <div class="profile-card">
+            <div class="modal-profile">
+              <img style="border-radius: 50%; height: 1.5rem; width: 1.5rem" loading="lazy" src="${item.img}" />
+              <span>${item.name}</span>
+            </div>
+            <div>
+              <input type="checkbox" />
+            </div>
+          </div>
+        </li>
+      `;
+      $card.append(cardHtml);
+    });
+  }
+
+  // Generate profile cards initially
+  generateProfileCards('modal-profiles', profiles);
+
+  // Handle click on "Following" button
+  $('.menu-nav span:contains("Following")').on('click', function () {
+    generateProfileCards('modal-profiles', profiles);
+  });
+
+  // Handle click on "Followers" button
+  $('.menu-nav span:contains("Followers")').on('click', function () {
+    generateProfileCards('modal-profiles', followers);
+  });
+});
+
+$(document).ready(function () {
+  $('.fa-ellipsis-v').on('click', function (e) {
+    e.stopPropagation();
+    const index = $(this).attr('id').split('-')[1];
+    const shareCard = $(`#share-card-small-${index}`);
+    if (shareCard.css('display') === 'flex') {
+      shareCard.css('display', 'none');
+    } else {
+      shareCard.css('display', 'flex');
+    }
+  });
+
+  $(document).on('click', function (e) {
+    const shareCards = $('.share-card-small');
+    if (!shareCards.is(e.target) && shareCards.has(e.target).length === 0) {
+      shareCards.css('display', 'none');
+    }
+  });
+});
+
+$(function () {
+  $(document).on('click', '.share-link', function () {
+    $('#modal').css('display', 'block');
+  });
+
+  $(document).on('click', function (event) {
+    if (
+      $(event.target).closest('#modal').length === 0 &&
+      !$(event.target).is('.share-link')
+    ) {
+      $('#modal').css('display', 'none');
+    }
+  });
+
+  $('.close').on('click', function () {
+    $('#modal').css('display', 'none');
   });
 });
