@@ -14,15 +14,15 @@
       rel="stylesheet"
     />
     <link
-      rel="stylesheet"
-      href="/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css"
-    />
-    <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
+    <link
+    rel="stylesheet"
+    href="/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css"
+  />
     <!-- external scripts -->
-    <script src="./jquery.js"></script>
+    <script src="jquery.js"></script>
     <script src="./script.js"></script>
     <!-- stylesheets -->
     <link rel="stylesheet" href="./converted.css" />
@@ -190,7 +190,7 @@
 
     <div class="content_area" id="content_area">
       <!-- sidebar -->
-      <aside id="sidebar" aria-expanded="false">
+      <aside class="sidebar" id="sidebar" aria-expanded="true">
         <div class="sidebar_container__bordered">
           <div class="sidebar_nav">
             <ul data-variant="bold">
@@ -389,13 +389,14 @@
           </div>
         </div>
       </aside>
+
       <section class="main-content">
         <aside>
-          <div class="sidebar_container">
+          <div class="sidebar_container" id="inside-nav">
             <div class="inside-nav">
               <ul data-variant="bold" class="sub-menu-items">
                 <li>
-                  <a href="/paper.html" class="sidebar_nav__link">
+                  <a href="/index.html" class="sidebar_nav__link">
                     <i class="fa fa-home" aria-hidden="true"></i>
 
                     <span>Home</span>
@@ -458,77 +459,16 @@
         </aside>
 
         <main class="paper_container">
-          <div class="paper-container">
-            <h3>Template</h3>
-            <div class="items-center overflow-x-auto no-scrollba flex">
-              <div class="flex gap-2">
-                <div class="paper-card">
-                  <img class="paper-img" src="/assets/Rectangle_24.png" />
-                  <p>Blank Document</p>
-                </div>
-
-                <div class="paper-card">
-                  <img class="paper-img" src="/assets/Rectangle_25.png" />
-                  <p>Slides</p>
-                </div>
-
-                <div class="paper-card">
-                  <img class="paper-img" src="/assets/Rectangle_27.png" />
-                  <p>Spread sheet</p>
-                </div>
-
-                <div class="paper-card">
-                  <img class="paper-img" src="/assets/Rectangle_28.png" />
-                  <p>Grid</p>
-                </div>
-
-                <div class="paper-card">
-                  <img class="paper-img" src="/assets/Rectangle_36.png" />
-                  <p>Grid</p>
-                </div>
-
-                <div class="paper-card">
-                  <img class="paper-img" src="/assets/Rectangle_37.png" />
-                  <p>Grid</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="title-div">
-            <h3>Quick Access</h3>
-            <div>
-              <button id="quick-access-card-grid-buttun">
-                <img src="/assets/darhboard.png" alt="icon" />
-              </button>
-              <button id="quick-access-card-compact-button">
-                <img src="/assets/Menu.png" alt="" />
-              </button>
-            </div>
-          </div>
-
-          <div class="heading">
-            <span>Name</span>
-            <span>Date received</span>
-            <span>Date modified</span>
-          </div>
-
-          <div class="quick-access-container" id="quick-access-container"></div>
-
-          <div
-            class="quick-access-container-compact"
-            id="quick-access-container-compact"
-          ></div>
 
           <div class="title-div">
             <h3>Recent</h3>
             <div>
               <button id="toggleButtonGrid">
-                <img src="/assets/darhboard.png" alt="icon" />
+                <i class="fa fa-th" aria-hidden="true" data-active></i>
               </button>
 
               <button id="toggleButtonList">
-                <img src="/assets/Menu.png" alt="icon" />
+                <i class="fa fa-bars" aria-hidden="true"></i>
               </button>
             </div>
           </div>
@@ -889,7 +829,7 @@
               </a>
             </li>
             <li>
-              <a href="/favourite.html" class="sidebar_nav__link">
+              <a href="/output/favourite.html" class="sidebar_nav__link">
                 <svg
                   width="24"
                   height="24"
@@ -907,7 +847,7 @@
               </a>
             </li>
             <li>
-              <a href="/shared.html" class="sidebar_nav__link">
+              <a href="/output/shared.html" class="sidebar_nav__link">
                 <svg
                   width="24"
                   height="24"
@@ -953,5 +893,43 @@
         </li>
       </ul>
     </nav>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-menu">
+          <div class="menu-nav">
+            <span>Following</span>
+            <span>Followers</span>
+          </div>
+
+          <div class="search-container">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search following..."
+            />
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div>
+        </div>
+
+        <div class="modal-select">
+          <div class="profile-card">
+            <div class="modal-profile">
+              <span class="select-text">Select all</span>
+            </div>
+            <div>
+              <input type="checkbox" id="select-all" />
+            </div>
+          </div>
+        </div>
+        <div class="profile-container">
+          <ul data-variant="bold" id="modal-profiles"></ul>
+        </div>
+        <div class="modal-buttons">
+          <button class="cancel-button close">Cancel</button>
+          <button class="send-button">Send</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

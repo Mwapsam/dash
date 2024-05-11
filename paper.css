@@ -2,7 +2,12 @@
 @media (max-width: 767px) {
   .paper-container {
     overflow-x: auto;
-    max-width: 310px;
+    width: 370px;
+    margin: auto;
+
+    h3 {
+      margin: 9px 0;
+    }
   }
 
   .paper-container::-webkit-scrollbar {
@@ -299,22 +304,24 @@
   /* Modal styles */
   .modal {
     display: none;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     left: 0;
-    top: 20;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
     background-color: rgba(0, 0, 0, 0.4);
+    overflow: auto;
+    margin-top: 4rem;
   }
 
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: auto; 
     padding: 20px;
     border: 1px solid #888;
     width: 90%;
+    max-width: 400px; 
   }
 
   .close {
@@ -329,6 +336,22 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .share-card-small {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    width: 179px;
+    height: 105px;
+    background: #ffffff;
+    border: 1px solid rgba(252, 167, 0, 0.5);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    z-index: 1;
   }
 }
 
@@ -925,7 +948,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    /* overflow: auto; */
     background-color: rgba(0, 0, 0, 0.4);
   }
 
@@ -1046,7 +1069,7 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     align-items: baseline;
-    gap: 1rem;
+    gap: 3rem;
 
     .file-card {
       display: flex;
@@ -1070,6 +1093,7 @@
     .share-card-small {
       position: absolute;
       bottom: 12px;
+      left: 0;
       width: 179px;
       height: 105px;
       background: #ffffff;
@@ -1079,6 +1103,7 @@
       flex-direction: column;
       justify-content: center;
       gap: 6px;
+      z-index: 1;
     }
 
     .file-card:hover {
@@ -1231,6 +1256,43 @@
         display: flex;
         align-items: center;
         gap: 6px;
+
+        i {
+          display: none;
+        }
+      }
+
+      .text-container-compact {
+        display: none;
+      }
+    }
+
+    .quick-access-card-compact:hover {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      border: 1px solid rgba(252, 167, 0, 0.5);
+      border-radius: 20px;
+      padding: 1rem 5rem;
+      position: relative;
+
+      .icon-file-compact {
+        width: 35px;
+        height: 46.48px;
+      }
+
+      .icons-compact {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        i {
+          display: block;
+          position: absolute;
+          left: 2rem;
+          cursor: pointer;
+          padding: 5px;
+        }
       }
 
       .text-container-compact {
@@ -1267,6 +1329,7 @@
   .main-content {
     display: grid;
     grid-template-columns: 1fr 5fr;
+    margin-left: 250px;
 
     .inside-nav {
       margin-top: 2rem;
@@ -1435,14 +1498,12 @@
     --tw-border-opacity: 1;
     border-color: rgb(229 231 235 / var(--tw-border-opacity));
     border: 1px solid #eaeaea;
-    position: sticky;
-    top: 0;
-    height: calc(100vh - 70px); 
-    overflow-y: auto; 
-  }
-
-  .sidebar-boundary {
-    overflow-y: auto;
+    position: fixed;
+    margin-top: 0.8rem;
+    left: 18rem;
+    height: calc(100vh - 90px);
+    width: 180px;
+    padding-right: 0.8rem;
   }
 
   .modal-select {
@@ -1453,12 +1514,35 @@
   }
 
   .sidebar {
-    position: sticky;
-    top: 0;
-    height: calc(100vh - 70px); 
-    overflow-y: auto; 
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 70px);
+    border-right: 1px solid #ccc;
   }
-  
+
+  .content_area main {
+    padding: 1rem;
+  }
+
+  .share-card-list {
+    position: absolute;
+    top: 3rem;
+    width: 179px;
+    height: 105px;
+    background: #ffffff;
+    border: 1px solid rgba(252, 167, 0, 0.5);
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    z-index: 1;
+  }
+
+  .main-content {
+    margin-left: 18rem;
+  }
 }
 
 .fa-play {

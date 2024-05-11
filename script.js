@@ -32,6 +32,18 @@ $(document).on('click', '.sidebar_trigger', (event) => {
   const $sidebar = $('#sidebar');
   const isOpen = $sidebar.attr('aria-expanded') === 'true';
   $sidebar.attr('aria-expanded', !isOpen);
+
+  const $mainContent = $('.main-content');
+  const $insideNav = $('#inside-nav');
+  if (isOpen) {
+    $mainContent.css('margin-left', '12rem');
+    $insideNav.css('left', '5rem');
+    $insideNav.css('width', '250px');
+  } else {
+    $insideNav.css('left', '18rem');
+    $mainContent.css('margin-left', '18rem');
+    $insideNav.css('width', '180px');
+  }
 });
 
 $(window).on('resize', () => {
@@ -168,7 +180,7 @@ $(function () {
 
   data.forEach((element, i) => {
     const fileCardHTML = `<div class="file-card">
-    <i class="fa fa-ellipsis-v" id=${`ellipsis-${i}`} aria-hidden="true"></i>
+    <i class="fa fa-ellipsis-v elipsis" id=${`ellipsis-${i}`} aria-hidden="true"></i>
 
       <img src="${element.img}" alt="${element.name}">
       <div class="file-text">
@@ -202,15 +214,20 @@ $(function () {
     $('#quick-access-card-compact-button i').attr('data-active', '');
   });
 
-  data.forEach((element) => {
+  data.forEach((element, i) => {
     const fileCardHTML = `<div class="quick-access-card-compact">
       <div class="icons-compact">
+      <i class="fa fa-ellipsis-v share" id=${`ellipsis-${
+        i + 10
+      }`} aria-hidden="true"></i>
+
         <img
           class="icon-file-compact"
           src="${element.img}"
           alt="${element.name}"
         />
         <h4 class="icons-compact-h4">${element.name}</h4>
+
       </div>
 
       <div class="text-container-compact">
@@ -220,16 +237,21 @@ $(function () {
         </div>
         <span class="toggle-action-card" id="first-action">...</span>
       </div>
-      <div class="action-card">
-        <p class="share-link">Open</p>
-        <p class="share-card" id="share-card">Share</p>
-        <p class="share-link">Delete</p>
+      <div class="share-card-small" id=${`share-card-small-${i + 10}`}>
+        <a class="share-link">Open</a>
+        <a class="share-link" id="share-card">Share</a>
+        <a class="share-link">Delete</a>
       </div>
       <div class="start-date">
         <p>June, 24, 2024</p>
       </div>
       <div class="end-date">
         <p>June, 24, 2024</p>
+      </div>
+      <div class="share-card-list" id=${`share-card-list-${i + 10}`}>
+        <a class="share-link">Open</a>
+        <a class="share-link" id="share-card-list">Share</a>
+        <a class="share-link">Delete</a>
       </div>
     </div>`;
     $compactList.append(fileCardHTML);
@@ -328,7 +350,11 @@ $(function () {
       const cardHTML = `
         <div class="quick-access-card-compact">
           <div class="icons-compact">
-            <img class="icon-file-compact" src="${element.img}" alt="file-img" />
+          <i class="fa fa-ellipsis-v share" id=${`ellipsis-${i}`} aria-hidden="true"></i>
+
+            <img class="icon-file-compact" src="${
+              element.img
+            }" alt="file-img" />
             <h4 class="icons-compact-h4">${element.name}</h4>
           </div>
           <div class="text-container-compact">
@@ -348,6 +374,12 @@ $(function () {
           </div>
           <div class="end-date">
             <p>${element.date}</p>
+          </div>
+
+          <div class="share-card-list" id=${`share-card-list-${i}`}>
+            <a class="share-link">Open</a>
+            <a class="share-link" id="share-card-list">Share</a>
+            <a class="share-link">Delete</a>
           </div>
         </div>
       `;
@@ -459,7 +491,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  $('.fa-ellipsis-v').on('click', function (e) {
+  $('.elipsis').on('click', function (e) {
     e.stopPropagation();
     const index = $(this).attr('id').split('-')[1];
     const shareCard = $(`#share-card-small-${index}`);
@@ -472,6 +504,28 @@ $(document).ready(function () {
 
   $(document).on('click', function (e) {
     const shareCards = $('.share-card-small');
+    if (!shareCards.is(e.target) && shareCards.has(e.target).length === 0) {
+      shareCards.css('display', 'none');
+    }
+  });
+});
+
+$(document).ready(function () {
+  $('.share').on('click', function (e) {
+    e.stopPropagation();
+    const index = $(this).attr('id').split('-')[1];
+    const shareCard = $(`#share-card-list-${index}`);
+    if (shareCard.css('display') === 'flex') {
+      shareCard.css('display', 'none');
+    } else {
+      console.log(index);
+      shareCard.css('display', 'flex');
+      $('.share-card-small').css('display', 'none');
+    }
+  });
+
+  $(document).on('click', function (e) {
+    const shareCards = $('.share-card-list');
     if (!shareCards.is(e.target) && shareCards.has(e.target).length === 0) {
       shareCards.css('display', 'none');
     }
