@@ -661,32 +661,8 @@
 
     <nav class="mobile-nav" id="mobile-nav">
       <ul data-variant="bold" class="menu-items">
-        <li class="sidebar_nav__mobile" id="sidebar_nav__mobile">
-          <a href="#">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M18 6L6 18"
-                stroke="#222222"
-                stroke-linecap="square"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M6 6L18 18"
-                stroke="#222222"
-                stroke-linecap="square"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </a>
-        </li>
         <li>
-          <a href="/paper.html" class="sidebar_nav__link active">
+          <a href="/index.html" class="sidebar_nav__link active">
             <svg
               width="24"
               height="24"
@@ -829,7 +805,7 @@
               </a>
             </li>
             <li>
-              <a href="/output/favourite.html" class="sidebar_nav__link">
+              <a href="/favourite.html" class="sidebar_nav__link">
                 <svg
                   width="24"
                   height="24"
@@ -847,7 +823,7 @@
               </a>
             </li>
             <li>
-              <a href="/output/shared.html" class="sidebar_nav__link">
+              <a href="/shared.html" class="sidebar_nav__link">
                 <svg
                   width="24"
                   height="24"
@@ -912,22 +888,27 @@
           </div>
         </div>
 
-        <div class="modal-select">
-          <div class="profile-card">
-            <div class="modal-profile">
-              <span class="select-text">Select all</span>
+        <div class="modal-main">
+          <div>
+            <div class="modal-select">
+              <div class="profile-card">
+                <div class="modal-profile">
+                  <span class="select-text">Select all</span>
+                </div>
+                <div>
+                  <input type="checkbox" id="select-all" />
+                </div>
+              </div>
             </div>
-            <div>
-              <input type="checkbox" id="select-all" />
+            <div class="profile-container">
+              <ul data-variant="bold" id="modal-profiles"></ul>
             </div>
           </div>
-        </div>
-        <div class="profile-container">
-          <ul data-variant="bold" id="modal-profiles"></ul>
-        </div>
-        <div class="modal-buttons">
-          <button class="cancel-button close">Cancel</button>
-          <button class="send-button">Send</button>
+
+          <div class="modal-buttons">
+            <button class="cancel-button close-modal">Cancel</button>
+            <button class="send-button">Send</button>
+          </div>
         </div>
       </div>
     </div>

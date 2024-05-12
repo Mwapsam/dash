@@ -237,10 +237,10 @@ $(function () {
         </div>
         <span class="toggle-action-card" id="first-action">...</span>
       </div>
-      <div class="share-card-small" id=${`share-card-small-${i + 10}`}>
-        <a class="share-link">Open</a>
-        <a class="share-link" id="share-card">Share</a>
-        <a class="share-link">Delete</a>
+      <div class="action-card">
+        <p class="share-link">Open</p>
+        <p class="share-link" id="share-card">Share</p>
+        <p class="share-link">Delete</p>
       </div>
       <div class="start-date">
         <p>June, 24, 2024</p>
@@ -546,7 +546,7 @@ $(function () {
     }
   });
 
-  $('.close').on('click', function () {
+  $('.close-modal').on('click', function () {
     $('#modal').css('display', 'none');
   });
 });
