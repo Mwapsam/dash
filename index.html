@@ -146,6 +146,12 @@
             </svg>
             <i class="tooltip">Notifications</i>
           </button>
+          <button class="header_action__button mobile_hidden">
+            <svg data-icon="chat-fill" class="!size-8">
+              <use href="./icons/sprite.svg#chat-fill" />
+            </svg>
+            <i class="tooltip">Message</i>
+          </button>
           <button class="header_action__button flex md:hidden">
             <div class="header-menu" id="header-menu">
               <svg
@@ -932,7 +938,11 @@
     </nav>
 
     <div id="modal" class="modal">
+      <div class="close-x close-modal">
+        <i class="fa fa-times " aria-hidden="true"></i>
+      </div>
       <div class="modal-content">
+        
         <div class="modal-menu">
           <div class="menu-nav">
             <span>Following</span>
@@ -976,8 +986,17 @@
 
     <div id="deleteModal" class="delete-modal">
       <div class="modal-content-delete">
-        <span class="close-delete">&times;</span>
-        <p>This is a modal window.</p>
+        <div class="info">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+        </div>
+        <div class="text-card">
+          <h3>Delete Paper</h3>
+          <p>Are you sure you want to Remove this user? This action cannot be undone.</p>
+        </div>
+        <div class="buttons">
+          <button class="close-delete">Cancel</button>
+          <button class="excute-delete" >Delete</button>
+        </div>
       </div>
     </div>
   </body>

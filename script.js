@@ -188,9 +188,18 @@ $(function () {
         <p>${element.date}</p>  
       </div>
       <div class="share-card-small" id=${`share-card-small-${i}`}>
-        <a class="share-link">Open</a>
-        <a class="share-link" id="share-card">Share</a>
-        <a class="share-link" id="openDelete">Delete</a>
+        <div class="share-link">
+          <i class="fa fa-external-link" ></i>
+          <span>Open</span>
+        </div>
+        <div class="share-link" id="share-card">
+          <i class="fa fa-share"></i>
+          <span>Share</span>
+        </div>
+        <div class="share-link share-delete" id="openDelete-${i + 10}">
+          <i class="fa fa-trash"></i>
+          <span>Delete</span>
+        </div>
       </div>
     </div>
     `;
@@ -238,9 +247,18 @@ $(function () {
         <span class="toggle-action-card" id="first-action">...</span>
       </div>
       <div class="action-card">
-        <p class="share-link">Open</p>
-        <p class="share-link" id="share-card">Share</p>
-        <p class="share-link" id="openDelete">Delete</p>
+        <div class="share-link">
+          <i class="fa fa-external-link" ></i>
+          <span>Open</span>
+        </div>
+        <div class="share-link" id="share-card">
+          <i class="fa fa-share"></i>
+          <span>Share</span>
+        </div>
+        <div class="share-link share-delete" id="openDelete-${i + 10}">
+          <i class="fa fa-trash"></i>
+          <span>Delete</span>
+        </div>
       </div>
       <div class="start-date">
         <p>June, 24, 2024</p>
@@ -249,9 +267,18 @@ $(function () {
         <p>June, 24, 2024</p>
       </div>
       <div class="share-card-list" id=${`share-card-list-${i + 10}`}>
-        <a class="share-link">Open</a>
-        <a class="share-link" id="share-card-list">Share</a>
-        <a class="share-link" id="openDelete">Delete</a>
+        <div class="share-link">
+          <i class="fa fa-external-link" ></i>
+          <span>Open</span>
+        </div>
+        <div class="share-link" id="share-card">
+          <i class="fa fa-share"></i>
+          <span>Share</span>
+        </div>
+        <div class="share-link share-delete" id="openDelete-${i + 10}">
+          <i class="fa fa-trash"></i>
+          <span>Delete</span>
+        </div>
       </div>
     </div>`;
     $compactList.append(fileCardHTML);
@@ -330,9 +357,19 @@ $(function () {
             <span class="toggle-action-card" id="action-${i}">...</span>
           </div>
           <div class="action-card">
-            <p class="share-link">Open</p>
-            <p class="share-link" id="share-card">Share</p>
-            <p class="share-link" id="openDelete">Delete</p>
+            <div class="share-link">
+              <i class="fa fa-external-link" ></i>
+              <span>Open</span>
+            </div>
+            <div class="share-link" id="share-card">
+              <i class="fa fa-share"></i>
+              <span>Share</span>
+            </div>
+            <div class="share-link share-delete" id="openDelete-${i}">
+            <i class="fa fa-trash"></i>
+            <span>Delete</span>
+          </div>
+            </div>
           </div>
         </div>
       `;
@@ -365,9 +402,18 @@ $(function () {
             <span class="toggle-action-card" id="action-${i}">...</span>
           </div>
           <div class="action-card">
-            <p class="share-link">Open</p>
-            <p class="share-link" id="share-card">Share</p>
-            <p class="share-link" id="openDelete">Delete</p>
+            <div class="share-link">
+              <i class="fa fa-external-link" ></i>
+              <span>Open</span>
+            </div>
+            <div class="share-link" id="share-card">
+              <i class="fa fa-share"></i>
+              <span>Share</span>
+            </div>
+            <div class="share-link share-delete" id="openDelete-${i}">
+              <i class="fa fa-trash"></i>
+              <span>Delete</span>
+            </div>
           </div>
           <div class="start-date">
             <p>${element.date}</p>
@@ -377,9 +423,18 @@ $(function () {
           </div>
 
           <div class="share-card-list" id=${`share-card-list-${i}`}>
-            <a class="share-link">Open</a>
-            <a class="share-link" id="share-card-list">Share</a>
-            <a class="share-link" id="openDelete">Delete</a>
+            <div class="share-link">
+              <i class="fa fa-external-link" ></i>
+              <span>Open</span>
+            </div>
+            <div class="share-link" id="share-card">
+              <i class="fa fa-share"></i>
+              <span>Share</span>
+            </div>
+            <div class="share-link share-delete" id="openDelete-${i}">
+              <i class="fa fa-trash"></i>
+              <span>Delete</span>
+            </div>
           </div>
         </div>
       `;
@@ -532,11 +587,11 @@ $(document).ready(function () {
 });
 
 $(function () {
-  $(document).on('click', '.share-link', function () {
+  $(document).on('click touchstart', '#share-card', function () {
     $('#modal').css('display', 'block');
   });
 
-  $(document).on('click', function (event) {
+  $(document).on('click touchstart', function (event) {
     if (
       $(event.target).closest('#modal').length === 0 &&
       !$(event.target).is('.share-link')
@@ -545,8 +600,14 @@ $(function () {
     }
   });
 
-  $('.close-modal').on('click', function () {
+  $('.close-modal').on('click touchstart', function () {
     $('#modal').css('display', 'none');
+  });
+
+  $(window).on('click touchstart', function (event) {
+    if ($(event.target).is($('#modal'))) {
+      $('#modal').css('display', 'none');
+    }
   });
 });
 
@@ -559,22 +620,29 @@ $(document).ready(function () {
   });
 });
 
-$(document).ready(function() {
-  var modal = $('#deleteModal');
-  var btn = $('#openDelete');
-  var span = $('.close-delete');
+$(document).ready(function () {
+  $('.share-delete').on('click touchstart', function (e) {
+    e.stopPropagation();
+    const index = $(this).attr('id').split('-')[1];
+    var modal = $('#deleteModal');
+    var btn = $(`#openDelete-${index}`);
+    var span = $('.close-delete');
 
-  btn.on('click', function() {
-      modal.show();
-  });
+    modal.show();
 
-  span.on('click', function() {
+    span.on('click touchstart', function () {
       modal.hide();
+    });
+
+    $(window).on('click touchstart', function (event) {
+      if ($(event.target).is(modal)) {
+        modal.hide();
+      }
+    });
   });
 
-  $(window).on('click', function(event) {
-      if ($(event.target).is(modal)) {
-          modal.hide();
-      }
+  $('.open-delete-modal').on('click touchstart', function () {
+    var modal = $('#deleteModal');
+    modal.show();
   });
 });
