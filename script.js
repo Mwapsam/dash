@@ -36,13 +36,13 @@ $(document).on('click', '.sidebar_trigger', (event) => {
   const $mainContent = $('.main-content');
   const $insideNav = $('#inside-nav');
   if (isOpen) {
-    $mainContent.css('margin-left', '12rem');
+    $mainContent.css('margin-left', '11rem');
     $insideNav.css('left', '5rem');
-    $insideNav.css('width', '250px');
+    $insideNav.css('width', '260px');
   } else {
-    $insideNav.css('left', '18rem');
+    $insideNav.css('left', '17.75rem');
     $mainContent.css('margin-left', '18rem');
-    $insideNav.css('width', '180px');
+    $insideNav.css('width', '185px');
   }
 });
 
@@ -190,7 +190,7 @@ $(function () {
       <div class="share-card-small" id=${`share-card-small-${i}`}>
         <a class="share-link">Open</a>
         <a class="share-link" id="share-card">Share</a>
-        <a class="share-link">Delete</a>
+        <a class="share-link" id="openDelete">Delete</a>
       </div>
     </div>
     `;
@@ -240,7 +240,7 @@ $(function () {
       <div class="action-card">
         <p class="share-link">Open</p>
         <p class="share-link" id="share-card">Share</p>
-        <p class="share-link">Delete</p>
+        <p class="share-link" id="openDelete">Delete</p>
       </div>
       <div class="start-date">
         <p>June, 24, 2024</p>
@@ -251,7 +251,7 @@ $(function () {
       <div class="share-card-list" id=${`share-card-list-${i + 10}`}>
         <a class="share-link">Open</a>
         <a class="share-link" id="share-card-list">Share</a>
-        <a class="share-link">Delete</a>
+        <a class="share-link" id="openDelete">Delete</a>
       </div>
     </div>`;
     $compactList.append(fileCardHTML);
@@ -332,7 +332,7 @@ $(function () {
           <div class="action-card">
             <p class="share-link">Open</p>
             <p class="share-link" id="share-card">Share</p>
-            <p class="share-link">Delete</p>
+            <p class="share-link" id="openDelete">Delete</p>
           </div>
         </div>
       `;
@@ -367,7 +367,7 @@ $(function () {
           <div class="action-card">
             <p class="share-link">Open</p>
             <p class="share-link" id="share-card">Share</p>
-            <p class="share-link">Delete</p>
+            <p class="share-link" id="openDelete">Delete</p>
           </div>
           <div class="start-date">
             <p>${element.date}</p>
@@ -379,7 +379,7 @@ $(function () {
           <div class="share-card-list" id=${`share-card-list-${i}`}>
             <a class="share-link">Open</a>
             <a class="share-link" id="share-card-list">Share</a>
-            <a class="share-link">Delete</a>
+            <a class="share-link" id="openDelete">Delete</a>
           </div>
         </div>
       `;
@@ -518,7 +518,6 @@ $(document).ready(function () {
     if (shareCard.css('display') === 'flex') {
       shareCard.css('display', 'none');
     } else {
-      console.log(index);
       shareCard.css('display', 'flex');
       $('.share-card-small').css('display', 'none');
     }
@@ -548,5 +547,34 @@ $(function () {
 
   $('.close-modal').on('click', function () {
     $('#modal').css('display', 'none');
+  });
+});
+
+$(document).ready(function () {
+  $('.menu-nav span:first').addClass('clicked');
+
+  $('.menu-nav span').on('click', function () {
+    $('.menu-nav span').removeClass('clicked');
+    $(this).addClass('clicked');
+  });
+});
+
+$(document).ready(function() {
+  var modal = $('#deleteModal');
+  var btn = $('#openDelete');
+  var span = $('.close-delete');
+
+  btn.on('click', function() {
+      modal.show();
+  });
+
+  span.on('click', function() {
+      modal.hide();
+  });
+
+  $(window).on('click', function(event) {
+      if ($(event.target).is(modal)) {
+          modal.hide();
+      }
   });
 });
