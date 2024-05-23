@@ -1,0 +1,278 @@
+[
+  {
+    "name": "Sophia Vera",
+    "avatar": "https://via.placeholder.com/40",
+    "messages": [
+      {
+        "sender": {
+          "name": "Sophia Vera",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "recipient": {
+          "name": "Anne Klen",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "messages": [
+          {
+            "time": "11:30am",
+            "message": "Alright let's get started then..."
+          },
+          {
+            "time": "12:01pm",
+            "message": "Can you explain the theory you..."
+          }
+        ]
+      }
+    ],
+    "count": 2
+  },
+  {
+    "name": "Anne Klen",
+    "avatar": "https://via.placeholder.com/40",
+    "messages": [
+      {
+        "sender": {
+          "name": "Sophia Vera",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "recipient": {
+          "name": "Anne Klen",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "messages": [
+          {
+            "time": "11:30am",
+            "message": "Alright let's get started then..."
+          },
+          {
+            "time": "12:01pm",
+            "message": "Can you explain the theory you..."
+          },
+          {
+            "time": "June 15",
+            "message": "Sure! that would be really helpful..."
+          },
+          {
+            "time": "June 16",
+            "message": "I have been able to conclude that..."
+          },
+          {
+            "time": "June 17",
+            "message": "Let's schedule a meeting for next week."
+          },
+          {
+            "time": "June 18",
+            "message": "Sounds good. I'll check my calendar."
+          }
+        ]
+      },
+      {
+        "sender": {
+          "name": "Anne Klen",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "recipient": {
+          "name": "Sophia Vera",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "messages": [
+          {
+            "time": "11:30am",
+            "message": "Alright, let's start discussing it."
+          },
+          {
+            "time": "12:05pm",
+            "message": "Sure! I'll explain the theory now."
+          }
+        ]
+      }
+    ],
+    "count": 2
+  },
+  {
+    "name": "John Doe",
+    "avatar": "https://via.placeholder.com/40",
+    "messages": [
+      {
+        "sender": {
+          "name": "John Doe",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "recipient": {
+          "name": "Vivian Lez",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "messages": [
+          {
+            "time": "June 15",
+            "message": "Sure! that would be really helpful..."
+          },
+          {
+            "time": "June 16",
+            "message": "I have been able to conclude that..."
+          }
+        ]
+      }
+    ],
+    "count": 2
+  },
+  {
+    "name": "Vivian Lez",
+    "avatar": "https://via.placeholder.com/40",
+    "messages": [
+      {
+        "sender": {
+          "name": "John Doe",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "recipient": {
+          "name": "Vivian Lez",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "messages": [
+          {
+            "time": "June 15",
+            "message": "Sure! that would be really helpful..."
+          },
+          {
+            "time": "June 16",
+            "message": "I have been able to conclude that..."
+          }
+        ]
+      }
+    ],
+    "count": 2
+  },
+  {
+    "name": "Tami Lynn",
+    "avatar": "https://via.placeholder.com/40",
+    "messages": [
+      {
+        "sender": {
+          "name": "Tami Lynn",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "recipient": {
+          "name": "John Lynn",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "messages": [
+          {
+            "time": "June 15",
+            "message": "That sounds awesome let's get..."
+          },
+          {
+            "time": "June 16",
+            "message": "Let's finalize the details today."
+          }
+        ]
+      }
+    ],
+    "count": 2
+  },
+  {
+    "name": "John Lynn",
+    "avatar": "https://via.placeholder.com/40",
+    "messages": [
+      {
+        "sender": {
+          "name": "Tami Lynn",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "recipient": {
+          "name": "John Lynn",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "messages": [
+          {
+            "time": "June 15",
+            "message": "That sounds awesome let's get..."
+          },
+          {
+            "time": "June 16",
+            "message": "Let's finalize the details today."
+          },
+          {
+            "time": "June 17",
+            "message": "Sure, I'll bring the documents."
+          },
+          {
+            "time": "June 18",
+            "message": "Great! Looking forward to it."
+          }
+        ]
+      }
+    ],
+    "count": 2
+  },
+  {
+    "name": "Kani Lynn",
+    "avatar": "https://via.placeholder.com/40",
+    "messages": [
+      {
+        "sender": {
+          "name": "Kani Lynn",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "recipient": {
+          "name": "Loren Lynn",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "messages": [
+          {
+            "time": "June 15",
+            "message": "Are you available for a meeting?"
+          },
+          {
+            "time": "June 16",
+            "message": "Yes, I am. Let's discuss the agenda."
+          }
+        ]
+      }
+    ],
+    "count": 2
+  },
+  {
+    "name": "Loren Lynn",
+    "avatar": "https://via.placeholder.com/40",
+    "messages": [
+      {
+        "sender": {
+          "name": "Kani Lynn",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "recipient": {
+          "name": "Loren Lynn",
+          "avatar": "https://via.placeholder.com/40"
+        },
+        "messages": [
+          {
+            "time": "June 15",
+            "message": "Are you available for a meeting?"
+          },
+          {
+            "time": "June 16",
+            "message": "Yes, I am. Let's discuss the agenda."
+          },
+          {
+            "time": "June 15",
+            "message": "Sure! that would be really helpful..."
+          },
+          {
+            "time": "June 16",
+            "message": "I have been able to conclude that..."
+          },
+          {
+            "time": "June 17",
+            "message": "Let's schedule a meeting for next week."
+          },
+          {
+            "time": "June 18",
+            "message": "Sounds good. I'll check my calendar."
+          }
+        ]
+      }
+    ],
+    "count": 2
+  }
+]

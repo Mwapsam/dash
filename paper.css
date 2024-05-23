@@ -344,11 +344,12 @@
     bottom: 0;
     right: 0;
     left: 0;
+    /* display: none; */
   }
 
   .close-x {
     position: fixed;
-    top: 14rem; 
+    top: 8rem; 
     right: 20px; 
     background: #f7f5f5;
     border-radius: 50%;

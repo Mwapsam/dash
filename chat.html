@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sizemug</title>
+    <link rel="shortcut icon" type="image/icon" href="favicon-sizemug.svg" />
+    <!-- inter google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- external scripts -->
+    <script src="./jquery.js"></script>
+    <script src="./chat-script.js"></script>
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="./chat-converted.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="import" href="./icons/sprite.svg" />
+    <link
+      rel="stylesheet"
+      href="./font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- header starts -->
+    <nav class="header">
+      <!-- app-logo -->
+      <div class="header_logo">
+        <button class="sidebar_trigger header_action__button !-ml-4 !mr-1">
+          <svg data-icon="menu">
+            <use href="./icons/sprite.svg#menu" />
+          </svg>
+        </button>
+        <a href="./index.html">
+          <img
+            loading="lazy"
+            src="logo.svg"
+            height="64"
+            width="110"
+            loading="lazy"
+          />
+        </a>
+
+        <button class="popup_trigger" data-popup-target=".header_dropdown">
+          <svg data-icon="expand">
+            <use href="./icons/sprite.svg#expand" />
+          </svg>
+        </button>
+        <dialog class="popup header_dropdown sidebar_nav" data-variant="base">
+          <ul>
+            <li>
+              <h4 class="text-base font-semibold py-2 px-4">Sizemug</h4>
+            </li>
+            <li>
+              <a href="#" class="sidebar_nav__link">
+                <img
+                  loading="lazy"
+                  src="icons/logo-marketplace.svg"
+                  class="size-6"
+                />
+                <span>Marketplace</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar_nav__link">
+                <img
+                  loading="lazy"
+                  src="icons/logo-calender.svg"
+                  class="size-6"
+                />
+                <span>Calender</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar_nav__link">
+                <img
+                  loading="lazy"
+                  src="icons/logo-board-mode.svg"
+                  class="size-6"
+                />
+                <span>Board Mode</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar_nav__link">
+                <img loading="lazy" src="icons/logo-saved.svg" class="size-6" />
+                <span>Saved</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar_nav__link">
+                <img
+                  loading="lazy"
+                  src="icons/logo-dropped.svg"
+                  class="size-6"
+                />
+                <span>Dropped</span>
+              </a>
+            </li>
+          </ul>
+        </dialog>
+      </div>
+      <!-- search-bar -->
+      <div class="md:flex px-10 lg:px-0 hidden col-span-2">
+        <label class="relative flex w-full">
+          <svg
+            data-icon="search"
+            class="absolute top-1/2 -translate-y-1/2 left-3 text-gray-500"
+          >
+            <use href="./icons/sprite.svg#search" />
+          </svg>
+          <input
+            placeholder="Search contents"
+            class="placeholder:text-gray-500 flex-1 font-roboto bg-gray-100 h-10 pr-4 py-3 rounded-xl pl-12"
+          />
+        </label>
+      </div>
+      <!-- action buttons -->
+      <div class="header_action">
+        <div class="flex gap-2 items-center">
+          <button class="header_action__button hidden md:flex">
+            <svg data-icon="create-fill" class="!size-8">
+              <use href="./icons/sprite.svg#create-fill" />
+            </svg>
+            <i class="tooltip">Create</i>
+          </button>
+          <button class="header_action__button">
+            <svg data-icon="chat-fill" class="!size-8">
+              <use href="./icons/sprite.svg#chat-fill" />
+            </svg>
+            <i class="tooltip">Message</i>
+          </button>
+          <button class="header_action__button">
+            <div
+              class="bg-red-500 rounded-full size-1.5 absolute top-2 right-2.5 ring-2 ring-white"
+            ></div>
+            <svg data-icon="bell-fill" class="!size-8">
+              <use href="./icons/sprite.svg#bell-fill" />
+            </svg>
+            <i class="tooltip">Notifications</i>
+          </button>
+          <button class="header_action__button flex md:hidden">
+            <svg data-icon="bell-fill" class="!size-7">
+              <use href="./icons/sprite.svg#search" class="stroke-[3]" />
+            </svg>
+            <i class="tooltip">Search</i>
+          </button>
+        </div>
+        <img
+          loading="lazy"
+          src="https://source.unsplash.com/random/100x100/?person"
+          width="40"
+          height="40"
+          loading="lazy"
+          class="object-cover rounded-full border border-purple-600 shrink-0 hidden md:flex"
+        />
+      </div>
+    </nav>
+
+    <div class="content_area">
+      <!-- sidebar -->
+      <aside id="sidebar" aria-expanded="true">
+        <div class="sidebar_container__bordered">
+          <div>
+            <div class="chat-search-icons">
+              <button>
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+              <button>
+                <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="chat-list" id="chat-list"></div>
+
+          <div>
+            <div class="group-container">
+              <div class="group-list">
+                <h2>Group</h2>
+                <div class="group-item">
+                  <div class="group-avatar">
+                    <img src="./assets/group-chat.png" alt="Group 1" />
+                    <div class="group-count">+3</div>
+                  </div>
+                  <div class="group-info">
+                    <div class="group-name">Finance Group</div>
+                    <div class="group-description">
+                      That sounds awesome lets get...
+                    </div>
+                  </div>
+                </div>
+                <div class="group-item">
+                  <div class="group-avatar">
+                    <img src="./assets/group-chat.png" alt="Group 2" />
+                    <div class="group-count">+3</div>
+                  </div>
+                  <div class="group-info">
+                    <div class="group-name">Behavioral Psyc..</div>
+                    <div class="group-description">That sounds awe...</div>
+                  </div>
+                </div>
+              </div>
+              <div class="light-mode-toggle">
+                <label class="switch">
+                  <input type="checkbox" id="lightModeToggle" />
+                  <span class="slider round"></span>
+                </label>
+                <span class="toggle-label">Light mode</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <main class="chat-layout">
+        <div class="profile-component">
+          <img
+            src="https://via.placeholder.com/40"
+            alt="Profile Picture"
+            class="profile-picture"
+          />
+          <div class="profile-info">
+            <div class="profile-details">
+              <div class="profile-name">Sophia Vera</div>
+              <div class="status">
+                <span class="status-indicator"></span> Online
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <i class="fa fa-phone action-button call" aria-hidden="true"></i>
+            <i
+              class="fa fa-video-camera action-button video"
+              aria-hidden="true"
+            ></i>
+            <button class="action-button more">&#8942;</button>
+          </div>
+        </div>
+        <div class="welcome-text">
+          <div class="empty-chat">
+            <img src="/assets/frame.png" alt="icon" class="img" />
+
+            <h3 class="empty-chat-text">
+              Oops, seems like there are no chats here
+            </h3>
+            <button class="create-button" id="openModal">
+              Create new Chat
+            </button>
+          </div>
+        </div>
+        <div class="chat-container">
+          <div class="chat-box" id="chat-box"></div>
+        </div>
+        <!-- Chat input box -->
+        <div class="chat-input-container">
+          <div class="input-wrapper">
+            <input type="text" class="chat-input" placeholder="Type here..." />
+            <button class="send-button">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="icons">
+            <i
+              class="fa fa-paperclip"
+              aria-hidden="true"
+              id="attachment-icon"
+            ></i>
+            <i class="fa fa-meh-o" aria-hidden="true" id="imoji-attachment"></i>
+            <i class="fa fa-microphone" aria-hidden="true"></i>
+            <i class="fa fa-gift" aria-hidden="true"></i>
+          </div>
+          <div class="popup-menu" id="popup-menu">
+            <div class="popup-item">
+              <i class="fa fa-download" aria-hidden="true"></i> Upload from this
+              computer
+            </div>
+            <div class="popup-item">
+              <i class="fa fa-cloud" aria-hidden="true"></i> Upload from cloud
+            </div>
+            <div class="popup-item">
+              <i class="fa fa-folder" aria-hidden="true"></i> Upload from Files
+            </div>
+          </div>
+
+          <div class="emoji-popup" id="emoji-popup">
+            <div class="emoji-header">
+              <span>Emojis</span
+              ><i class="fa fa-times" aria-hidden="true" id="close-moji"></i>
+            </div>
+            <div class="emoji-grid">
+              <span>😀</span><span>😁</span><span>😂</span><span>🤣</span
+              ><span>😃</span> <span>😄</span><span>😅</span><span>😆</span
+              ><span>😉</span><span>😊</span> <span>😋</span><span>😎</span
+              ><span>😍</span><span>😘</span><span>😗</span> <span>😙</span
+              ><span>😚</span><span>☺️</span><span>🙂</span><span>🤗</span>
+              <span>🤩</span><span>🤔</span><span>🤨</span><span>😐</span
+              ><span>😑</span> <span>😶</span><span>🙄</span><span>😏</span
+              ><span>😣</span><span>😥</span> <span>😮</span><span>🤐</span
+              ><span>😯</span><span>😪</span><span>😫</span> <span>😴</span
+              ><span>😌</span><span>😛</span><span>😜</span><span>😝</span>
+              <span>🤤</span><span>😒</span><span>😓</span><span>😔</span
+              ><span>😕</span> <span>🙃</span><span>🤑</span><span>😲</span
+              ><span>☹️</span><span>🙁</span> <span>😖</span><span>😞</span
+              ><span>😟</span><span>😤</span><span>😢</span> <span>😭</span
+              ><span>😦</span><span>😧</span><span>😨</span><span>😩</span>
+              <span>🤯</span><span>😬</span><span>😰</span><span>😱</span
+              ><span>🥵</span> <span>🥶</span><span>😳</span><span>🤪</span
+              ><span>😵</span><span>🥴</span> <span>😠</span><span>😡</span
+              ><span>🤬</span><span>🤡</span><span>🤠</span> <span>😇</span
+              ><span>🥳</span><span>🥺</span><span>🤥</span><span>🤓</span>
+              <span>😈</span><span>👿</span><span>💀</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2>Create Chat</h2>
+              <input
+                type="text"
+                placeholder="Search followers"
+                class="search-input"
+              />
+            </div>
+            <div class="modal-body">
+              <div class="select-all">
+                <label for="selectAll">Select all</label>
+                <input type="checkbox" id="selectAll" />
+              </div>
+              <ul class="user-list">
+                <li>
+                  <div class="image-card">
+                    <img
+                      src="https://via.placeholder.com/40"
+                      alt="Wade Warren"
+                    />
+                    <span>Wade Warren</span>
+                  </div>
+
+                  <input type="checkbox" class="user-checkbox" />
+                </li>
+                <li>
+                  <div class="image-card">
+                    <img
+                      src="https://via.placeholder.com/40"
+                      alt="Jenny Wilson"
+                    />
+                    <span>Jenny Wilson</span>
+                  </div>
+                  <input type="checkbox" class="user-checkbox" />
+                </li>
+                <li>
+                  <div class="image-card">
+                    <img
+                      src="https://via.placeholder.com/40"
+                      alt="Cameron Williamson"
+                    />
+                    <span>Cameron Williamson</span>
+                  </div>
+                  <input type="checkbox" class="user-checkbox" />
+                </li>
+                <li>
+                  <div class="image-card">
+                    <img
+                      src="https://via.placeholder.com/40"
+                      alt="Esther Howard"
+                    />
+                    <span>Esther Howard</span>
+                  </div>
+                  <input type="checkbox" class="user-checkbox" />
+                </li>
+                <li>
+                  <div class="image-card">
+                    <img
+                      src="https://via.placeholder.com/40"
+                      alt="Eleanor Pena"
+                    />
+                    <span>Eleanor Pena</span>
+                  </div>
+                  <input type="checkbox" class="user-checkbox" />
+                </li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button id="cancelBtn">Cancel</button>
+              <button id="createBtn">Create</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <nav class="navbar">
+      <a href="#" class="navbar_item">
+        <svg data-icon>
+          <use href="./icons/sprite.svg#home" />
+        </svg>
+        <span>Home</span>
+      </a>
+      <a href="#" class="navbar_item tablet_only" data-notification>
+        <svg data-icon>
+          <use href="./icons/sprite.svg#discovery" />
+        </svg>
+        <span>Explore</span>
+      </a>
+      <a href="#" class="navbar_item">
+        <svg data-icon>
+          <use href="./icons/sprite.svg#video" />
+        </svg>
+        <span>Live</span>
+      </a>
+      <a href="#" class="navbar_item navbar_item__bold mobile_only">
+        <svg data-icon>
+          <use href="./icons/sprite.svg#add" />
+        </svg>
+      </a>
+      <a href="#" class="navbar_item" data-notification>
+        <svg data-icon>
+          <use href="./icons/sprite.svg#message" />
+        </svg>
+        <span>Chat</span>
+      </a>
+      <a href="#" class="navbar_item tablet_only">
+        <svg data-icon>
+          <use href="./icons/sprite.svg#edit" />
+        </svg>
+        <span>New Paper</span>
+      </a>
+      <a href="#" class="navbar_item tablet_only">
+        <svg data-icon>
+          <use href="./icons/sprite.svg#share" />
+        </svg>
+        <span>Following</span>
+      </a>
+      <button
+        href="#"
+        class="navbar_item popup_trigger tablet_only"
+        data-popup-target=".navbar_popup"
+      >
+        <svg data-icon>
+          <use href="./icons/sprite.svg#expand" />
+        </svg>
+        <span>More</span>
+      </button>
+      <button href="#" class="navbar_item mobile_only">
+        <img
+          src="https://source.unsplash.com/random/100x100/?person"
+          width="40"
+          height="40"
+          loading="lazy"
+          class="object-cover rounded-full border border-purple-600 shrink-0 size-7 flex"
+        />
+        <span>Profile</span>
+      </button>
+
+      <dialog class="navbar_popup popup">
+        <div class="sidebar_suggestions">
+          <h4>Suggestions</h4>
+          <ul aria-expanded="false">
+            <li>
+              <img
+                loading="lazy"
+                src="https://source.unsplash.com/random/50x50/?person"
+              />
+              <span> Esther Howard </span>
+              <a href="#" class="">Follow</a>
+            </li>
+            <li>
+              <img
+                loading="lazy"
+                src="https://source.unsplash.com/random/50x50/?person"
+              />
+              <span> Jenny Wilson </span>
+              <a href="#">Follow</a>
+            </li>
+            <li>
+              <img
+                loading="lazy"
+                src="https://source.unsplash.com/random/50x50/?person"
+              />
+              <span> Robert Fox </span>
+              <a href="#">Follow</a>
+            </li>
+            <li>
+              <img
+                loading="lazy"
+                src="https://source.unsplash.com/random/50x50/?person"
+              />
+              <span> Darrell Steward </span>
+              <a href="#">
+                <svg data-icon="search">
+                  <use href="./icons/sprite.svg#done" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+          <button class="text-gray-500 mt-2 max-w-max ml-2">
+            See More ...
+          </button>
+        </div>
+        <hr />
+        <div class="sidebar_nav">
+          <h4>Sizemug</h4>
+          <ul data-variant="base">
+            <li>
+              <a href="#" class="sidebar_nav__link">
+                <img
+                  loading="lazy"
+                  src="icons/logo-marketplace.svg"
+                  class="size-6"
+                />
+                <span>Marketplace</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar_nav__link">
+                <img
+                  loading="lazy"
+                  src="icons/logo-calender.svg"
+                  class="size-6"
+                />
+                <span>Calender</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar_nav__link">
+                <img
+                  loading="lazy"
+                  src="icons/logo-board-mode.svg"
+                  class="size-6"
+                />
+                <span>Board Mode</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar_nav__link">
+                <img loading="lazy" src="icons/logo-saved.svg" class="size-6" />
+                <span>Saved</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="sidebar_nav__link">
+                <img
+                  loading="lazy"
+                  src="icons/logo-dropped.svg"
+                  class="size-6"
+                />
+                <span>Dropped</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <hr />
+        <div class="gap-2 text-center sidebar_footer">
+          <div>
+            <a href="#">Contact</a>
+            <a href="#">About</a>
+            <a href="#">Privacy policy</a>
+            <a href="#">Terms</a>
+          </div>
+          <small class="text-xs">© 2024 Sizemug</small>
+        </div>
+      </dialog>
+    </nav>
+  </body>
+</html>
