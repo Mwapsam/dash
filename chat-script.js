@@ -191,7 +191,6 @@ $(document).ready(function () {
   });
 });
 
-
 $(document).ready(function () {
   function checkSidebar() {
     if ($('#sidebar').attr('aria-expanded') === 'false') {
@@ -219,4 +218,26 @@ $(document).ready(function () {
   });
 
   observer.observe(sidebar, { attributes: true });
+});
+
+$(document).ready(function () {
+  var modal = $('#invite-modal');
+
+  var btn = $('.invite-button');
+
+  var span = $('.close');
+
+  btn.click(function () {
+    modal.show();
+  });
+
+  span.click(function () {
+    modal.hide();
+  });
+
+  $(window).click(function (event) {
+    if ($(event.target).is(modal)) {
+      modal.hide();
+    }
+  });
 });
