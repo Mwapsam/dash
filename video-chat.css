@@ -19,6 +19,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative;
   }
 
   .profile-component {
@@ -95,6 +96,8 @@
     display: flex;
     align-items: center;
     gap: 2rem;
+    position: absolute;
+    top: 8px;
   }
 
   .invite-button {
@@ -168,12 +171,28 @@
     margin-right: 10px;
   }
 
-  .controls {
+  .top-controls {
     display: flex;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
     padding: 10px 20px;
     backdrop-filter: blur(10px);
+    width: 17%;
+    position: absolute;
+    top: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    left: calc(50% - 300px / 2);
+  }
+
+  .controls {
+    display: flex;
+    padding: 10px 20px;
+    backdrop-filter: blur(10px);
+    width: 33%;
+    position: absolute;
+    left: calc(50% - 600px / 2 + 44px);
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
   }
   .control-button {
     display: flex;
@@ -191,8 +210,46 @@
     margin-bottom: 5px;
   }
   .end-call {
-    background-color: red;
+    width: 50px;
+    height: 50px;
+    background: #ff0e0e;
+    border-radius: 100px;
+
+    .fa {
+      font-size: large;
+      margin: 18px;
+    }
+  }
+
+  .user-icon {
+    width: 50px;
+    height: 50px;
+    background: #c3c3c3;
+    border-radius: 100px;
+
+    .fa {
+      font-size: medium;
+      text-align: center;
+      margin: 18px;
+    }
+    img {
+      margin: 13px;
+      width: 25px;
+      height: 22px;
+    }
+  }
+
+  .user-card {
+    width: 100%;
+    height: 100%;
+    max-height: 538px;
+    box-sizing: border-box;
     padding: 10px;
-    border-radius: 50%;
+  }
+
+  .user-card img {
+    width: 213px;
+    height: 252px;
+    border-radius: 40px;
   }
 }
