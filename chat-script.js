@@ -371,6 +371,11 @@ $(document).ready(function () {
     });
   });
 
+  $(document).on('change', '.file-checkbox', function () {
+    let selectedCount = $('.file-checkbox:checked').length;
+    $('.file-modal-header span').text(`(${selectedCount} Selected)`);
+  });
+
   $(window).click(function (event) {
     if (!$(event.target).closest('#file-modal, #open-modal-btn').length) {
       $('#file-modal').hide();
@@ -399,8 +404,6 @@ $(document).ready(function () {
       `;
       linkCardsContainer.append(linkCard);
     });
-
-    $('#link-count').text(links.length);
   }
 
   $('#open-link-modal-btn').click(function () {
@@ -411,6 +414,11 @@ $(document).ready(function () {
         $('#link-modal').toggle();
       }
     });
+  });
+
+  $(document).on('change', '.link-checkbox', function () {
+    let selectedCount = $('.link-checkbox:checked').length;
+    $('.link-modal-header span').text(`(${selectedCount} Selected)`);
   });
 
   $(window).click(function (event) {
