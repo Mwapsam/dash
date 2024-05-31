@@ -332,6 +332,11 @@ $(document).ready(function () {
     $('#media-modal').toggle();
   });
 
+  $(document).on('change', '.media-checkbox', function () {
+    let selectedCount = $('.media-checkbox:checked').length;
+    $('.media-modal-header span').text(`(${selectedCount} Selected)`);
+  });
+
   $(window).click(function (event) {
     if (!$(event.target).closest('#media-modal, #toggle-media-modal').length) {
       $('#media-modal').hide();
