@@ -629,7 +629,7 @@ svg[data-icon] {
 }
 .content_area main {
   overflow: hidden;
-  padding: 1.5rem;
+  padding: 0.8rem;
 }
 .header {
   height: var(--header-nav-height);

@@ -210,12 +210,21 @@
                   </div>
                 </div>
               </div>
-              <div class="light-mode-toggle">
-                <label class="switch">
-                  <input type="checkbox" id="lightModeToggle" />
-                  <span class="slider round"></span>
-                </label>
-                <span class="toggle-label">Light mode</span>
+              <div class="footer">
+                <div class="light-mode-toggle">
+                  <label class="switch">
+                    <input type="checkbox" id="lightModeToggle" />
+                    <span class="slider round"></span>
+                  </label>
+                  <span class="toggle-label">Light mode</span>
+                </div>
+
+                <div class="footer-box"></div>
+
+                <div class="footer-text">
+                  <p>Contact About Privacy policy Terms</p>
+                  <span>© 2024 Sizemug</span>
+                </div>
               </div>
             </div>
           </div>
@@ -230,9 +239,28 @@
           />
           <div class="profile-info">
             <div class="profile-details">
-              <div class="profile-name">Sophia Vera</div>
-              <div class="status">
-                <span class="status-indicator"></span> Online
+              <div class="profile-name">
+                <span>Sophia Vera</span>
+                <div class="status">
+                  Online <span class="status-indicator"></span>
+                </div>
+              </div>
+              <div class="file-icons">
+                <i
+                  id="toggle-media-modal"
+                  class="fa fa-picture-o"
+                  aria-hidden="true"
+                ></i>
+                <i
+                  id="open-modal-btn"
+                  class="fa fa-file-text-o"
+                  aria-hidden="true"
+                ></i>
+                <i
+                  class="fa fa-link"
+                  id="open-link-modal-btn"
+                  aria-hidden="true"
+                ></i>
               </div>
             </div>
           </div>
@@ -261,8 +289,47 @@
           </div>
         </div>
         <div class="chat-container">
-          <div class="chat-box" id="chat-box"></div>
+          <div class="chat-card">
+            <div class="chat-box" id="chat-box"></div>
+            <div id="media-modal" class="media-modal">
+              <div class="media-modal-content">
+                <div class="media-modal-header">
+                  <h3>Media</h3>
+                  <span>(4 Selected)</span>
+                </div>
+                <div class="media-files-container"></div>
+              </div>
+              <button class="select-button">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="file-modal" id="file-modal">
+              <div class="file-modal-content">
+                <div class="file-modal-header">
+                  <h3>Document</h3>
+                  <span>(4 Selected)</span>
+                </div>
+                <div
+                  class="file-cards-container"
+                  id="file-cards-container"
+                ></div>
+              </div>
+            </div>
+            <div class="link-modal" id="link-modal">
+              <div class="link-modal-content">
+                <div class="link-modal-header">
+                  <h3>Link</h3>
+                  <span>(<span id="link-count">0</span> Selected)</span>
+                </div>
+                <div
+                  class="link-cards-container"
+                  id="link-cards-container"
+                ></div>
+              </div>
+            </div>
+          </div>
         </div>
+
         <!-- Chat input box -->
         <div class="chat-input-container">
           <div class="input-wrapper">

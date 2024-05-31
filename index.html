@@ -40,13 +40,15 @@
             <use href="./icons/sprite.svg#menu" />
           </svg>
         </button>
-        <img
-          loading="lazy"
-          src="logo.svg"
-          height="64"
-          width="110"
-          loading="lazy"
-        />
+        <a href="./index.html">
+          <img
+            loading="lazy"
+            src="logo.svg"
+            height="64"
+            width="110"
+            loading="lazy"
+          />
+        </a>
 
         <button class="popup_trigger" data-popup-target=".header_dropdown">
           <svg data-icon="expand">
@@ -131,11 +133,11 @@
             </svg>
             <i class="tooltip">Create</i>
           </button>
-          <button class="header_action__button flex md:hidden">
-            <svg data-icon="bell-fill" class="!size-7">
-              <use href="./icons/sprite.svg#search" class="stroke-[3]" />
+          <button class="header_action__button">
+            <svg data-icon="chat-fill" class="!size-8">
+              <use href="./icons/sprite.svg#chat-fill" />
             </svg>
-            <i class="tooltip">Search</i>
+            <i class="tooltip">Message</i>
           </button>
           <button class="header_action__button">
             <div
@@ -146,41 +148,11 @@
             </svg>
             <i class="tooltip">Notifications</i>
           </button>
-          <button class="header_action__button mobile_hidden">
-            <svg data-icon="chat-fill" class="!size-8">
-              <use href="./icons/sprite.svg#chat-fill" />
-            </svg>
-            <i class="tooltip">Message</i>
-          </button>
           <button class="header_action__button flex md:hidden">
-            <div class="header-menu" id="header-menu">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 7H19"
-                  stroke="#33363F"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M5 12H19"
-                  stroke="#33363F"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M5 17H19"
-                  stroke="#33363F"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </div>
+            <svg data-icon="bell-fill" class="!size-7">
+              <use href="./icons/sprite.svg#search" class="stroke-[3]" />
+            </svg>
+            <i class="tooltip">Search</i>
           </button>
         </div>
         <img

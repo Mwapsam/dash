@@ -197,7 +197,7 @@
         <div class="video-container">
           <div class="invite-buttons">
             <div class="users-icon">
-              <span>
+              <span id="status-button">
                 <i class="fa fa-users" aria-hidden="true"></i>
                 2
               </span>
@@ -206,12 +206,7 @@
             <button class="invite-button">Invite +</button>
           </div>
 
-          <div class="container">
-            <div class="user-card">
-              <img src="./assets/first-user.png" alt="First User">
-            </div>
-          </div>
-          
+          <div class="container"></div>
 
           <div class="top-controls">
             <div class="control-button">
@@ -273,7 +268,7 @@
           </div>
         </div>
 
-        <div id="invite-modal" class="invite-modal">
+        <div id="user-status-modal" class="invite-modal">
           <div class="modal-content">
             <span class="close">&times;</span>
             <h2>People</h2>
@@ -284,6 +279,30 @@
             <div class="person">
               <img src="https://via.placeholder.com/40" alt="Jade Lynn" />
               <span>Jade Lynn</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="invite-modal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2>Create Chat</h2>
+              <input
+                type="text"
+                placeholder="Search followers"
+                class="search-input"
+              />
+            </div>
+            <div class="modal-body">
+              <div class="select-all">
+                <label for="selectAll">Select all</label>
+                <input type="checkbox" id="selectAll" />
+              </div>
+              <ul class="user-list"></ul>
+            </div>
+            <div class="modal-footer">
+              <button class="close" id="cancelBtn">Cancel</button>
+              <button id="createBtn">Create</button>
             </div>
           </div>
         </div>
