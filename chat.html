@@ -182,7 +182,26 @@
           </div>
 
           <div class="chat-list" id="chat-list"></div>
-
+          <div id="optionsModal" class="options-modal">
+            <button class="options-modal-close">
+              <i class="fa fa-times close" aria-hidden="true"></i>
+            </button>
+            <div class="options-modal-content">
+              <ul>
+                <li>
+                  <span class="icon"
+                    ><i class="fa fa-heart-o" aria-hidden="true"></i
+                  ></span>
+                  Favourite
+                </li>
+                <li><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
+                <li><span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> Video call</li>
+                <li><span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span> Unread</li>
+                <li><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
+                <li><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
+              </ul>
+            </div>
+          </div>
           <div>
             <div class="group-container">
               <div class="group-list">
@@ -246,21 +265,27 @@
                 </div>
               </div>
               <div class="file-icons">
-                <i
-                  id="toggle-media-modal"
-                  class="fa fa-picture-o"
-                  aria-hidden="true"
-                ></i>
-                <i
-                  id="open-modal-btn"
-                  class="fa fa-file-text-o"
-                  aria-hidden="true"
-                ></i>
-                <i
-                  class="fa fa-link"
-                  id="open-link-modal-btn"
-                  aria-hidden="true"
-                ></i>
+                <li class="file-icon-card" data-icon="picture">
+                  <i
+                    id="toggle-media-modal"
+                    class="fa fa-picture-o"
+                    aria-hidden="true"
+                  ></i>
+                </li>
+                <li class="file-icon-card" data-icon="file">
+                  <i
+                    id="open-modal-btn"
+                    class="fa fa-file-text-o"
+                    aria-hidden="true"
+                  ></i>
+                </li>
+                <li class="file-icon-card" data-icon="link">
+                  <i
+                    id="open-link-modal-btn"
+                    class="fa fa-link"
+                    aria-hidden="true"
+                  ></i>
+                </li>
               </div>
             </div>
           </div>
@@ -327,11 +352,47 @@
                 ></div>
               </div>
             </div>
+
+            <!-- <div class="call-modal">
+              <div class="call-modal-content">
+                <img src="./assets/user2.png" alt="user-profile">
+
+                <div class="controls">
+                  <div class="control-button">
+                    <div class="user-icon green">
+                      <img src="./assets/Phone_fill.png" alt="">
+                    </div>
+                  </div>
+                  <div class="control-button">
+                    <div class="user-icon">
+                      <i class="fa fa-microphone" aria-hidden="true"></i>
+                    </div>
+                  </div>
+
+                  <div class="control-button">
+                    <div class="end-call">
+                      <i class="fa fa-phone" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div> -->
           </div>
         </div>
 
         <!-- Chat input box -->
         <div class="chat-input-container">
+          <div
+            class="chat-input-image-container"
+            id="chat-input-image-container"
+          ></div>
+
+          <div
+            class="chat-input-file-container"
+            id="chat-input-file-container"
+          ></div>
+
           <div class="input-wrapper">
             <input type="text" class="chat-input" placeholder="Type here..." />
             <button class="send-button">
@@ -410,10 +471,7 @@
               <ul class="user-list">
                 <li>
                   <div class="image-card">
-                    <img
-                      src="https://via.placeholder.com/40"
-                      alt="Wade Warren"
-                    />
+                    <img src="./assets/user1.png" alt="Wade Warren" />
                     <span>Wade Warren</span>
                   </div>
 
@@ -421,40 +479,28 @@
                 </li>
                 <li>
                   <div class="image-card">
-                    <img
-                      src="https://via.placeholder.com/40"
-                      alt="Jenny Wilson"
-                    />
+                    <img src="./assets/user2.png" alt="Jenny Wilson" />
                     <span>Jenny Wilson</span>
                   </div>
                   <input type="checkbox" class="user-checkbox" />
                 </li>
                 <li>
                   <div class="image-card">
-                    <img
-                      src="https://via.placeholder.com/40"
-                      alt="Cameron Williamson"
-                    />
+                    <img src="./assets/user3.png" alt="Cameron Williamson" />
                     <span>Cameron Williamson</span>
                   </div>
                   <input type="checkbox" class="user-checkbox" />
                 </li>
                 <li>
                   <div class="image-card">
-                    <img
-                      src="https://via.placeholder.com/40"
-                      alt="Esther Howard"
-                    />
+                    <img src="./assets/user4.png" alt="Esther Howard" />
                     <span>Esther Howard</span>
                   </div>
                   <input type="checkbox" class="user-checkbox" />
                 </li>
                 <li>
                   <div class="image-card">
-                    <img
-                      src="https://via.placeholder.com/40"
-                      alt="Eleanor Pena"
-                    />
+                    <img src="./assets/user5.png" alt="Eleanor Pena" />
                     <span>Eleanor Pena</span>
                   </div>
                   <input type="checkbox" class="user-checkbox" />

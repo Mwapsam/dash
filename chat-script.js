@@ -96,6 +96,9 @@ $(document).ready(function () {
             <div class="chat-message-side">
               <div class="chat-message">${latestMessage.message}</div>
             </div>
+            <span id='options-modal'>
+              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+            </span>
           </div>
         </div>
       `;
@@ -140,6 +143,22 @@ $(document).ready(function () {
     $('.chat-container').css('display', 'flex');
   }
 
+  function createOptionsModal() {
+    $('#options-modal').click(function () {
+      $('#optionsModal').css('display', 'block');
+    });
+
+    $('.close').click(function () {
+      $('#optionsModal').css('display', 'none');
+    });
+
+    $(window).click(function (event) {
+      if (event.target == $('#optionsModal')[0]) {
+        $('#optionsModal').css('display', 'none');
+      }
+    });
+  }
+
   $.getJSON('chats.json', function (data) {
     var $chatList = $('#chat-list');
     $chatList.empty();
@@ -157,10 +176,13 @@ $(document).ready(function () {
         createChatConversation(chat);
       }
     });
+
+    createOptionsModal();
   });
 
   $('#chat-box').hide();
 });
+
 
 $(document).ready(function () {
   $('#openModal').click(function () {
@@ -299,8 +321,9 @@ $(document).ready(function () {
   });
 });
 
+const storedMediaFiles = [];
+
 $(document).ready(function () {
-  // Function to render the media modal dynamically
   function renderMediaModal() {
     const mediaFiles = [
       './assets/user1.png',
@@ -311,19 +334,37 @@ $(document).ready(function () {
     ];
 
     let mediaModalContent = '';
-
     for (let i = 0; i < 10; i++) {
       mediaFiles.forEach((file) => {
         mediaModalContent += `
           <div class="media-file-card">
             <img src="${file}" alt="image" />
-            <input type="checkbox" class="media-checkbox" />
+            <input type="checkbox" class="media-checkbox" data-file="${file}" />
           </div>
         `;
       });
     }
 
     $('.media-files-container').html(mediaModalContent);
+  }
+
+  function updateSelectedMedia() {
+    const selectedCount = $('.media-checkbox:checked').length;
+    $('.media-modal-header span').text(`(${selectedCount} Selected)`);
+  }
+
+  function renderSelectedMedia(selectedFiles) {
+    let selectedMediaContent = '';
+    selectedFiles.forEach((file, index) => {
+      selectedMediaContent += `
+        <div class="chat-input-image-card" data-file="${file}">
+          <img src="${file}" alt="Selected image" />
+          <i class="fa fa-times-circle remove-icon" aria-hidden="true" data-index="${index}"></i>
+        </div>
+      `;
+    });
+
+    $('#chat-input-image-container').html(selectedMediaContent);
   }
 
   renderMediaModal();
@@ -333,8 +374,32 @@ $(document).ready(function () {
   });
 
   $(document).on('change', '.media-checkbox', function () {
-    let selectedCount = $('.media-checkbox:checked').length;
-    $('.media-modal-header span').text(`(${selectedCount} Selected)`);
+    const file = $(this).data('file');
+
+    if ($(this).is(':checked')) {
+      storedMediaFiles.push(file);
+    } else {
+      const index = storedMediaFiles.indexOf(file);
+      if (index > -1) {
+        storedMediaFiles.splice(index, 1);
+      }
+    }
+
+    updateSelectedMedia();
+    renderSelectedMedia(storedMediaFiles);
+  });
+
+  $(document).on('click', '.remove-icon', function () {
+    const file = $(this).closest('.chat-input-image-card').data('file');
+    const index = storedMediaFiles.indexOf(file);
+    if (index > -1) {
+      storedMediaFiles.splice(index, 1);
+    }
+
+    $(`.media-checkbox[data-file="${file}"]`).prop('checked', false);
+
+    updateSelectedMedia();
+    renderSelectedMedia(storedMediaFiles);
   });
 
   $(window).click(function (event) {
@@ -343,6 +408,8 @@ $(document).ready(function () {
     }
   });
 });
+
+const selectedFiles = [];
 
 $(document).ready(function () {
   function fetchFiles() {
@@ -353,20 +420,43 @@ $(document).ready(function () {
     const fileCardsContainer = $('#file-cards-container');
     fileCardsContainer.empty();
 
-    files.forEach((file) => {
+    files.forEach((file, index) => {
       const fileCard = `
         <div class="file-card">
           <div class="file-content">
             <img src="${file.icon}" alt="file" />
             <span>${file.name}</span>
           </div>
-          <input type="checkbox" class="file-checkbox" />
+          <input type="checkbox" class="file-checkbox" data-index="${index}" data-name="${file.name}" data-icon="${file.icon}" />
         </div>
       `;
       fileCardsContainer.append(fileCard);
     });
 
     $('#file-count').text(files.length);
+  }
+
+  function renderSelectedFiles() {
+    const fileContainer = $('#chat-input-file-container');
+    fileContainer.empty();
+
+    selectedFiles.forEach((file, index) => {
+      const isActive = $('.chat-input-file-card')
+        .eq(index)
+        .hasClass('active-file-card');
+      const activeClass = isActive ? 'active-file-card' : '';
+
+      const fileCard = `
+        <div class="chat-input-file-card ${activeClass}" data-index="${index}">
+          <div>
+            <img src="${file.icon}" alt="file" />
+            <span>${file.name}</span>
+          </div>
+          <i class="fa fa-times-circle remove-file-icon" aria-hidden="true"></i>
+        </div>
+      `;
+      fileContainer.append(fileCard);
+    });
   }
 
   $('#open-modal-btn').click(function () {
@@ -377,12 +467,52 @@ $(document).ready(function () {
   });
 
   $(document).on('change', '.file-checkbox', function () {
-    let selectedCount = $('.file-checkbox:checked').length;
-    $('.file-modal-header span').text(`(${selectedCount} Selected)`);
+    const fileName = $(this).data('name');
+    const fileIcon = $(this).data('icon');
+    const fileCard = $(this).closest('.file-card');
+
+    if ($(this).is(':checked')) {
+      selectedFiles.push({ name: fileName, icon: fileIcon });
+      fileCard.addClass('selected-file-card');
+    } else {
+      const index = selectedFiles.findIndex((file) => file.name === fileName);
+      if (index > -1) {
+        selectedFiles.splice(index, 1);
+      }
+      fileCard.removeClass('selected-file-card');
+    }
+
+    $('.file-modal-header span').text(`(${selectedFiles.length} Selected)`);
+    renderSelectedFiles();
+  });
+
+  $(document).on('click', '.remove-file-icon', function (event) {
+    event.stopPropagation();
+
+    const $fileCard = $(this).closest('.chat-input-file-card');
+    const fileName = $fileCard.find('span').text();
+    const index = selectedFiles.findIndex((file) => file.name === fileName);
+    if (index > -1) {
+      selectedFiles.splice(index, 1);
+    }
+
+    $(`.file-checkbox[data-name="${fileName}"]`).prop('checked', false);
+
+    $('.file-modal-header span').text(`(${selectedFiles.length} Selected)`);
+    renderSelectedFiles();
+  });
+
+  $(document).on('click', '.chat-input-file-card', function (event) {
+    event.stopPropagation();
+    $(this).toggleClass('active-file-card');
   });
 
   $(window).click(function (event) {
-    if (!$(event.target).closest('#file-modal, #open-modal-btn').length) {
+    if (
+      !$(event.target).closest(
+        '#file-modal, #open-modal-btn, .remove-file-icon'
+      ).length
+    ) {
       $('#file-modal').hide();
     }
   });
@@ -432,3 +562,13 @@ $(document).ready(function () {
     }
   });
 });
+
+
+$(document).ready(function() {
+  $('.file-icon-card').click(function() {
+    $('.file-icon-card').removeClass('active');
+    $(this).addClass('active');
+  });
+});
+
+

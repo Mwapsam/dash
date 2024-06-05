@@ -1,16 +1,16 @@
 [
   {
     "name": "Sophia Vera",
-    "avatar": "https://via.placeholder.com/40",
+    "avatar": "./assets/user1.png",
     "messages": [
       {
         "sender": {
           "name": "Sophia Vera",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user2.png"
         },
         "recipient": {
           "name": "Anne Klen",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user1.png"
         },
         "messages": [
           {
@@ -28,16 +28,16 @@
   },
   {
     "name": "Anne Klen",
-    "avatar": "https://via.placeholder.com/40",
+    "avatar": "./assets/user3.png",
     "messages": [
       {
         "sender": {
           "name": "Sophia Vera",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user4.png"
         },
         "recipient": {
           "name": "Anne Klen",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user3.png"
         },
         "messages": [
           {
@@ -69,11 +69,11 @@
       {
         "sender": {
           "name": "Anne Klen",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user5.png"
         },
         "recipient": {
           "name": "Sophia Vera",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user1.png"
         },
         "messages": [
           {
@@ -91,16 +91,16 @@
   },
   {
     "name": "John Doe",
-    "avatar": "https://via.placeholder.com/40",
+    "avatar": "./assets/user5.png",
     "messages": [
       {
         "sender": {
           "name": "John Doe",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user3.png"
         },
         "recipient": {
           "name": "Vivian Lez",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user5.png"
         },
         "messages": [
           {
@@ -118,16 +118,16 @@
   },
   {
     "name": "Vivian Lez",
-    "avatar": "https://via.placeholder.com/40",
+    "avatar": "./assets/user2.png",
     "messages": [
       {
         "sender": {
           "name": "John Doe",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user4.png"
         },
         "recipient": {
           "name": "Vivian Lez",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user2.png"
         },
         "messages": [
           {
@@ -145,16 +145,16 @@
   },
   {
     "name": "Tami Lynn",
-    "avatar": "https://via.placeholder.com/40",
+    "avatar": "./assets/user1.png",
     "messages": [
       {
         "sender": {
           "name": "Tami Lynn",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user5.png"
         },
         "recipient": {
           "name": "John Lynn",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user1.png"
         },
         "messages": [
           {
@@ -172,16 +172,16 @@
   },
   {
     "name": "John Lynn",
-    "avatar": "https://via.placeholder.com/40",
+    "avatar": "./assets/user4.png",
     "messages": [
       {
         "sender": {
           "name": "Tami Lynn",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user3.png"
         },
         "recipient": {
           "name": "John Lynn",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user4.png"
         },
         "messages": [
           {
@@ -207,16 +207,16 @@
   },
   {
     "name": "Kani Lynn",
-    "avatar": "https://via.placeholder.com/40",
+    "avatar": "./assets/user3.png",
     "messages": [
       {
         "sender": {
           "name": "Kani Lynn",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user5.png"
         },
         "recipient": {
           "name": "Loren Lynn",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user3.png"
         },
         "messages": [
           {
@@ -234,16 +234,16 @@
   },
   {
     "name": "Loren Lynn",
-    "avatar": "https://via.placeholder.com/40",
+    "avatar": "./assets/user5.png",
     "messages": [
       {
         "sender": {
           "name": "Kani Lynn",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user1.png"
         },
         "recipient": {
           "name": "Loren Lynn",
-          "avatar": "https://via.placeholder.com/40"
+          "avatar": "./assets/user5.png"
         },
         "messages": [
           {
