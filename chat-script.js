@@ -741,8 +741,8 @@ $(document).ready(function () {
         $('.welcome-text').hide();
         $('.profile-component').css('display', 'flex');
         $('.chat-layout').css('display', 'block');
-        $('.chat-card').css('display', 'none');
-        $('.chat-container').css('display', 'none');
+        // $('.chat-card').css('display', 'none');
+        $('.chat-container').hide();
         $('#chat-box').hide();
       });
 
