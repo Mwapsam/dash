@@ -1005,6 +1005,7 @@
 
   .profile-component {
     display: none;
+    /* display: flex; */
     align-items: center;
     padding: 10px 20px;
     margin-bottom: 0.5rem;
@@ -1215,6 +1216,7 @@
     align-items: center;
     padding: 10px 20px;
     border-bottom: 1px solid #ddd;
+    cursor: pointer;
   }
 
   .group-avatar {
@@ -2069,5 +2071,118 @@
 
   .tab-link:hover {
     background-color: #f1f1f1;
+  }
+
+  .groups-container {
+    display: none;
+    background: #ffffff;
+    border: 1px solid rgba(195, 195, 195, 0.5);
+    border-radius: 16px;
+
+    .groups-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 16px;
+      gap: 8px;
+      border-bottom: 1px solid #eaecf0;
+
+      .search {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px;
+        gap: 8px;
+        width: 307px;
+        height: 40px;
+      }
+
+      .member-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        gap: 24px;
+        width: 195px;
+        height: 40px;
+        background: #ffffff;
+        border: 1px solid #eaecf0;
+        backdrop-filter: blur(15px);
+        border-radius: 16px;
+      }
+    }
+
+    .members-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 80vh;
+      max-height: 50vh;
+      overflow-y: auto;
+      scrollbar-gutter: stable;
+
+      .member-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+        gap: 8px;
+        width: 487px;
+        height: 112px;
+        border-radius: 24px;
+
+        .image-content {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .name-content {
+          span {
+            display: none;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 150%;
+            color: #282828;
+          }
+        }
+
+        img {
+          width: 80px;
+          height: 80px;
+          border-radius: 24px;
+        }
+
+        h3 {
+          font-weight: 700;
+        }
+
+        button {
+          padding: 0px;
+          gap: 24px;
+          width: 40px;
+          height: 40px;
+          background: #ffffff;
+          border: 1px solid #eaecf0;
+          backdrop-filter: blur(15px);
+          border-radius: 16px;
+        }
+      }
+      .member-item:hover {
+        background: #f8f8f8;
+        border-radius: 24px;
+
+        span {
+          display: block;
+        }
+      }
+    }
+
+    .members-list::-webkit-scrollbar {
+      width: 0.25rem;
+    }
   }
 }
