@@ -32,6 +32,12 @@ $(document).on('click', '.sidebar_trigger', (event) => {
   const $sidebar = $('#sidebar');
   const isOpen = $sidebar.attr('aria-expanded') === 'true';
   $sidebar.attr('aria-expanded', !isOpen);
+
+  if (isOpen) {
+    $('.chat-search-icons').css('display', 'none');
+  } else {
+    $('.chat-search-icons').css('display', 'flex');
+  }
 });
 
 $(window).on('resize', () => {
@@ -643,7 +649,7 @@ $(document).ready(function () {
         reader.onload = function (e) {
           var img = $('<img>').attr('src', e.target.result);
           imagePreview.append(img);
-        }
+        };
         reader.readAsDataURL(file);
       });
       imagePreview.show();

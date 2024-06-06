@@ -852,7 +852,7 @@ svg[data-icon] {
 #sidebar .sidebar_container__bordered > * {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   gap: 0.5rem;
   transition-property: all;
