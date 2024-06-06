@@ -175,31 +175,58 @@
               <button>
                 <i class="fa fa-search" aria-hidden="true"></i>
               </button>
-              <button>
+              <button id="openGroupModal">
                 <i class="fa fa-plus-square-o" aria-hidden="true"></i>
               </button>
             </div>
           </div>
 
           <div class="chat-list" id="chat-list"></div>
-          <div id="optionsModal" class="options-modal">
-            <button class="options-modal-close">
-              <i class="fa fa-times close" aria-hidden="true"></i>
-            </button>
-            <div class="options-modal-content">
-              <ul>
-                <li>
-                  <span class="icon"
-                    ><i class="fa fa-heart-o" aria-hidden="true"></i
-                  ></span>
-                  Favourite
-                </li>
-                <li><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
-                <li><span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> Video call</li>
-                <li><span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span> Unread</li>
-                <li><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
-                <li><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
-              </ul>
+          <div>
+            <div id="optionsModal" class="options-modal">
+              <button class="options-modal-close">
+                <i class="fa fa-times close" aria-hidden="true"></i>
+              </button>
+              <div class="options-modal-content">
+                <ul>
+                  <li>
+                    <span class="icon"
+                      ><i class="fa fa-heart-o" aria-hidden="true"></i
+                    ></span>
+                    Favourite
+                  </li>
+                  <li>
+                    <span class="icon"
+                      ><i class="fa fa-phone" aria-hidden="true"></i
+                    ></span>
+                    Voice call
+                  </li>
+                  <li>
+                    <span class="icon"
+                      ><i class="fa fa-video-camera" aria-hidden="true"></i
+                    ></span>
+                    Video call
+                  </li>
+                  <li>
+                    <span class="icon"
+                      ><i class="fa fa-envelope" aria-hidden="true"></i
+                    ></span>
+                    Unread
+                  </li>
+                  <li>
+                    <span class="icon"
+                      ><i class="fa fa-trash-o" aria-hidden="true"></i
+                    ></span>
+                    Delete
+                  </li>
+                  <li>
+                    <span class="icon"
+                      ><i class="fa fa-ban" aria-hidden="true"></i
+                    ></span>
+                    Block
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <div>
@@ -250,7 +277,7 @@
         </div>
       </aside>
       <main class="chat-layout">
-        <div class="profile-component">
+        <div class="profile-component" id="profile-component">
           <img
             src="https://via.placeholder.com/40"
             alt="Profile Picture"
@@ -514,6 +541,48 @@
           </div>
         </div>
       </main>
+
+      <div id="createGroupModal" class="groupModal">
+        <div class="group-modal-content">
+          <span class="close">&times;</span>
+          <h2 class="groupName">Create Group</h2>
+          <form id="createGroupForm">
+            <div class="form-group">
+              <label for="groupName">Group name</label>
+              <input
+                type="text"
+                id="groupName"
+                name="groupName"
+                placeholder="Title"
+              />
+            </div>
+            <div class="form-group">
+              <label for="groupImage">Image</label>
+              <div class="upload-container" id="uploadContainer">
+                <span>
+                  <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                </span>
+                <input
+                  type="file"
+                  id="groupImage"
+                  name="groupImage"
+                  accept="image/*"
+                  multiple
+                />
+                <label for="groupImage" class="upload-label"
+                  >Click to upload or drag and drop</label
+                >
+                <small>SVG, PNG, JPG or GIF (max. 800x400px)</small>
+              </div>
+              <div class="image-preview" id="imagePreview"></div>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="cancel">Cancel</button>
+              <button type="submit" class="next">Next</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
 
     <nav class="navbar">

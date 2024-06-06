@@ -141,6 +141,8 @@ $(document).ready(function () {
     $('#chat-box').show();
     $('.welcome-text').hide();
     $('.chat-container').css('display', 'flex');
+    $('.profile-component').css('display', 'flex');
+    $('.chat-layout').css('display', 'grid');
   }
 
   function createOptionsModal() {
@@ -182,7 +184,6 @@ $(document).ready(function () {
 
   $('#chat-box').hide();
 });
-
 
 $(document).ready(function () {
   $('#openModal').click(function () {
@@ -563,12 +564,89 @@ $(document).ready(function () {
   });
 });
 
-
-$(document).ready(function() {
-  $('.file-icon-card').click(function() {
+$(document).ready(function () {
+  $('.file-icon-card').click(function () {
     $('.file-icon-card').removeClass('active');
     $(this).addClass('active');
   });
 });
 
+$(document).ready(function () {
+  var modal = $('#createGroupModal');
+  var btn = $('#openGroupModal');
+  var span = $('.close');
+  var cancelBtn = $('.cancel');
+  var uploadContainer = $('#uploadContainer');
+  var fileInput = $('#groupImage');
+  var imagePreview = $('#imagePreview');
 
+  // Open the modal
+  btn.click(function () {
+    modal.show();
+  });
+
+  // Close the modal when the user clicks on <span> (x)
+  span.click(function () {
+    modal.hide();
+  });
+
+  // Close the modal when the user clicks on "Cancel" button
+  cancelBtn.click(function () {
+    modal.hide();
+  });
+
+  // Close the modal when the user clicks anywhere outside of the modal
+  $(window).click(function (event) {
+    if ($(event.target).is(modal)) {
+      modal.hide();
+    }
+  });
+
+  // Form submission handler (for demonstration purposes)
+  $('#createGroupForm').submit(function (event) {
+    event.preventDefault();
+    alert('Group created!');
+    modal.hide();
+  });
+
+  // Drag and Drop functionality
+  uploadContainer.on('dragover', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    $(this).addClass('dragover');
+  });
+
+  uploadContainer.on('dragleave', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    $(this).removeClass('dragover');
+  });
+
+  uploadContainer.on('drop', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    $(this).removeClass('dragover');
+    var files = event.originalEvent.dataTransfer.files;
+    fileInput.prop('files', files);
+
+    // Trigger the file input change event
+    fileInput.change();
+  });
+
+  // Handle file input change
+  fileInput.change(function () {
+    var files = this.files;
+    imagePreview.empty(); // Clear previous previews
+    if (files.length > 0) {
+      $.each(files, function (index, file) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          var img = $('<img>').attr('src', e.target.result);
+          imagePreview.append(img);
+        }
+        reader.readAsDataURL(file);
+      });
+      imagePreview.show();
+    }
+  });
+});
