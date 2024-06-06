@@ -79,6 +79,8 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+  var chatsData;
+
   function createChatItem(chat) {
     if (chat.messages && chat.messages.length > 0) {
       let latestConversation = chat.messages[chat.messages.length - 1];
@@ -86,7 +88,7 @@ $(document).ready(function () {
         latestConversation.messages[latestConversation.messages.length - 1];
 
       return `
-        <div class="chat-item" data-name="${chat.name}">
+        <div class="chat-item" data-name="${chat.name}" data-unread="${chat.unread}" data-favourite="${chat.favourite}">
           <img src="${chat.avatar}" alt="${chat.name}" class="avatar" />
           <div class="chat-details">
             <div class="chat-header">
@@ -152,7 +154,7 @@ $(document).ready(function () {
   }
 
   function createOptionsModal() {
-    $('#options-modal').click(function () {
+    $('#chat-list').on('click', '#options-modal', function () {
       $('#optionsModal').css('display', 'block');
     });
 
@@ -167,7 +169,32 @@ $(document).ready(function () {
     });
   }
 
+  function filterChats(filter) {
+    $('#chat-list .chat-item').each(function () {
+      var unread = $(this).data('unread');
+      var favourite = $(this).data('favourite');
+
+      if (filter === 'all') {
+        $(this).show();
+      } else if (filter === 'unread' && unread) {
+        $(this).show();
+      } else if (filter === 'favourites' && favourite) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
+  }
+
+  $('.tab-link').click(function () {
+    $('.tab-link').removeClass('active');
+    $(this).addClass('active');
+    var filter = $(this).data('tab');
+    filterChats(filter);
+  });
+
   $.getJSON('chats.json', function (data) {
+    chatsData = data;
     var $chatList = $('#chat-list');
     $chatList.empty();
     data.forEach(function (chat) {
@@ -586,29 +613,24 @@ $(document).ready(function () {
   var fileInput = $('#groupImage');
   var imagePreview = $('#imagePreview');
 
-  // Open the modal
   btn.click(function () {
     modal.show();
   });
 
-  // Close the modal when the user clicks on <span> (x)
   span.click(function () {
     modal.hide();
   });
 
-  // Close the modal when the user clicks on "Cancel" button
   cancelBtn.click(function () {
     modal.hide();
   });
 
-  // Close the modal when the user clicks anywhere outside of the modal
   $(window).click(function (event) {
     if ($(event.target).is(modal)) {
       modal.hide();
     }
   });
 
-  // Form submission handler (for demonstration purposes)
   $('#createGroupForm').submit(function (event) {
     event.preventDefault();
     alert('Group created!');
@@ -635,14 +657,12 @@ $(document).ready(function () {
     var files = event.originalEvent.dataTransfer.files;
     fileInput.prop('files', files);
 
-    // Trigger the file input change event
     fileInput.change();
   });
 
-  // Handle file input change
   fileInput.change(function () {
     var files = this.files;
-    imagePreview.empty(); // Clear previous previews
+    imagePreview.empty();
     if (files.length > 0) {
       $.each(files, function (index, file) {
         var reader = new FileReader();
@@ -653,6 +673,31 @@ $(document).ready(function () {
         reader.readAsDataURL(file);
       });
       imagePreview.show();
+    }
+  });
+});
+
+$(document).ready(function () {
+  var modal = $('#callModal');
+  var btn = $('#openCallModal');
+  var span = $('.close');
+  var endCall = $('.end-call');
+
+  btn.click(function () {
+    modal.show();
+  });
+
+  span.click(function () {
+    modal.hide();
+  });
+
+  endCall.click(function () {
+    modal.hide();
+  });
+
+  $(window).click(function (event) {
+    if ($(event.target).is(modal)) {
+      modal.hide();
     }
   });
 });

@@ -180,6 +180,13 @@
               </button>
             </div>
           </div>
+          <div>
+            <div class="tabs">
+              <button class="tab-link active" data-tab="all">All</button>
+              <button class="tab-link" data-tab="unread">Unread</button>
+              <button class="tab-link" data-tab="favourites">Favourites</button>
+            </div>
+          </div>
 
           <div class="chat-list" id="chat-list"></div>
           <div>
@@ -317,7 +324,10 @@
             </div>
           </div>
           <div class="actions">
-            <i class="fa fa-phone action-button call" aria-hidden="true"></i>
+            <span id="openCallModal">
+              <i class="fa fa-phone action-button call" aria-hidden="true"></i>
+            </span>
+
             <a href="./video-chat.html">
               <i
                 class="fa fa-video-camera action-button video"
@@ -380,14 +390,14 @@
               </div>
             </div>
 
-            <!-- <div class="call-modal">
+            <div class="call-modal" id="callModal">
               <div class="call-modal-content">
-                <img src="./assets/user2.png" alt="user-profile">
+                <img src="./assets/user2.png" alt="user-profile" />
 
                 <div class="controls">
                   <div class="control-button">
                     <div class="user-icon green">
-                      <img src="./assets/Phone_fill.png" alt="">
+                      <img src="./assets/Phone_fill.png" alt="" />
                     </div>
                   </div>
                   <div class="control-button">
@@ -403,8 +413,7 @@
                   </div>
                 </div>
               </div>
-              
-            </div> -->
+            </div>
           </div>
         </div>
 

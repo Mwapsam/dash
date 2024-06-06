@@ -1639,6 +1639,7 @@
   }
 
   .call-modal {
+    display: none;
     position: absolute;
     top: 0;
     right: 12rem;
@@ -1887,7 +1888,7 @@
   }
 
   .group-modal-content {
-    margin: 10% auto;
+    margin: 7% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 40%;
@@ -2044,5 +2045,29 @@
       text-align: center;
       color: #000000;
     }
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .tab-link {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+    transition: background-color 0.3s;
+  }
+
+  .tab-link.active {
+    border-bottom: 2px solid #000;
+    font-weight: bold;
+  }
+
+  .tab-link:hover {
+    background-color: #f1f1f1;
   }
 }
