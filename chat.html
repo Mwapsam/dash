@@ -242,15 +242,28 @@
                 <h2>Group</h2>
               </div>
               <div class="footer">
-                <div class="light-mode-toggle">
-                  <label class="switch">
-                    <input type="checkbox" id="lightModeToggle" />
-                    <span class="slider round"></span>
-                  </label>
-                  <span class="toggle-label">Light mode</span>
+                <div>
+                  <div class="light-mode-toggle">
+                    <label class="switch">
+                      <input type="checkbox" id="lightModeToggle" />
+                      <span class="slider round"></span>
+                    </label>
+                    <span class="toggle-label">Light mode</span>
+                  </div>
+
+                  <div class="footer-box">
+                    <div class="crypto-icon">
+                      <i class="fa fa-database" aria-hidden="true"></i>
+                    </div>
+                    <div class="crypto-text">
+                      Get Sizemug Coins Use for purchases & send
+                    </div>
+                    <button class="crypto-arrow">
+                      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                  </div>
                 </div>
 
-                <div class="footer-box"></div>
 
                 <div class="footer-text">
                   <p>Contact About Privacy policy Terms</p>
@@ -565,7 +578,21 @@
             ></i>
             <i class="fa fa-meh-o" aria-hidden="true" id="imoji-attachment"></i>
             <i class="fa fa-microphone" aria-hidden="true"></i>
-            <i class="fa fa-gift" aria-hidden="true"></i>
+            <button class="send-coin-button">
+              <div class="send-coin-icon">
+                  <i class="fa fa-database" aria-hidden="true"></i>
+              </div>
+
+              <span>Send Coin</span>
+            </button>
+
+            <button class="send-gift-button">
+              <div class="send-gift-icon">
+                <i class="fa fa-gift" aria-hidden="true"></i>
+              </div>
+            
+              <span>Send Gift</span>
+            </button>
           </div>
           <div class="popup-menu" id="popup-menu">
             <div class="popup-item">
@@ -610,6 +637,40 @@
             </div>
           </div>
         </div>
+
+            <div id="sendCoinModal" class="send-coin-modal">
+              <div class="send-coin-modal-content">
+                <div class="modal-header">
+                  <div style="display: flex; align-items: center;">
+                    <div class="send-coin-icon">
+                      <i class="fa fa-database" aria-hidden="true"></i>
+                    </div>
+                    <span class="header-text">Send Coin</span>
+                  </div>
+
+                  <span class="your-coins">Your coins: 100</span>
+                </div>
+                <div class="modal-body">
+                  <div class="user-info">
+                    <img src="./assets/user1.png" alt="User Image" class="user-image">
+                    <span>Sophia Vera</span>
+                  </div>
+                  <div class="coin-options">
+                    <button class="coin-button">1</button>
+                    <button class="coin-button">2</button>
+                    <button class="coin-button">5</button>
+                    <button class="coin-button">10</button>
+                    <button class="coin-button">20</button>
+                    <button class="coin-button selected">100</button>
+                  </div>
+                  <div class="coin-summary">100 coins to Sophia Vera</div>
+                </div>
+                <div class="modal-footer">
+                  <button class="cancel-button">Cancel</button>
+                  <button class="send-coin-button">Send</button>
+                </div>
+              </div>
+            </div>
 
         <div id="myModal" class="modal">
           <div class="modal-content">
@@ -668,6 +729,47 @@
             <div class="modal-footer">
               <button id="cancelBtn">Cancel</button>
               <button id="createBtn">Create</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="sendGiftModal" class="gift-modal">
+          <div class="gift-modal-content">
+            <div class="gift-modal-header">
+              <div style="display: flex; align-items: center;">
+                <div class="send-gift-icon">
+                  <i class="fa fa-gift" aria-hidden="true"></i>
+                </div>
+                <span>Send Gift</span>
+              </div>
+
+            </div>
+            <div class="modal-body">
+              <div class="user-info">
+                <img src="./assets/user1.png" alt="User Image" class="user-image">
+                <span>Sophia Vera</span>
+              </div>
+              <div class="category">
+                <span>Christmas</span>
+              </div>
+              <div class="gift-options">
+                <button class="gift-button"><img src="./assets/Peer.png" alt="Gift"></button>
+                <button class="gift-button"><img src="./assets/Peer1.png" alt="Gift"></button>
+                <button class="gift-button selected"><img src="./assets/Peer10.png" alt="Gift"></button>
+                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
+                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
+                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
+                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
+                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
+                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
+                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
+                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
+                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="cancel-button">Cancel</button>
+              <button class="send-gift-button">Send</button>
             </div>
           </div>
         </div>

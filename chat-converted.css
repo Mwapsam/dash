@@ -601,7 +601,11 @@ body {
   min-height: 100dvh;
   flex-direction: column;
   font-family: Inter, sans-serif;
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+
+body::-webkit-scrollbar {
+  width: 0.05px;
 }
 img {
   -o-object-fit: cover;

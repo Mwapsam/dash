@@ -754,15 +754,55 @@ $(document).ready(function () {
 });
 
 
-// $(document).ready(function() {
-//   function setWelcomeTextHeight() {
-//     var windowHeight = $(window).height();
-//     $('#welcomeText').height(windowHeight * 0.7);
-//   }
+$(document).ready(function() {
+    var modal = $('#sendCoinModal');
+    var btn = $('.send-coin-button');
+    var span = $('.cancel-button');
 
-//   setWelcomeTextHeight();
+    btn.on('click', function() {
+        modal.show();
+    });
 
-//   $(window).resize(function() {
-//     setWelcomeTextHeight();
-//   });
-// });
+    span.on('click', function() {
+        modal.hide();
+    });
+
+    $(window).on('click', function(event) {
+        if ($(event.target).is(modal)) {
+            modal.hide();
+        }
+    });
+
+    $('.coin-button').on('click', function() {
+        $('.coin-button').removeClass('selected');
+        $(this).addClass('selected');
+        var amount = $(this).text();
+        $('.coin-summary').text(amount + ' coins to Sophia Vera');
+    });
+});
+
+
+$(document).ready(function() {
+    var modal = $('#sendGiftModal');
+    var btn = $('.send-gift-button');
+    var span = $('.cancel-button');
+
+    btn.on('click', function() {
+        modal.show();
+    });
+
+    span.on('click', function() {
+        modal.hide();
+    });
+
+    $(window).on('click', function(event) {
+        if ($(event.target).is(modal)) {
+            modal.hide();
+        }
+    });
+
+    $('.gift-button').on('click', function() {
+        $('.gift-button').removeClass('selected');
+        $(this).addClass('selected');
+    });
+});
