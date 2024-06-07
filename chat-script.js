@@ -256,7 +256,7 @@ $(document).ready(function () {
       });
     } else {
       $('.welcome-text .img').css({
-        'max-width': '20%',
+        'max-width': '40%',
         height: 'auto',
       });
     }
@@ -752,3 +752,17 @@ $(document).ready(function () {
 
   renderGroups(groups);
 });
+
+
+// $(document).ready(function() {
+//   function setWelcomeTextHeight() {
+//     var windowHeight = $(window).height();
+//     $('#welcomeText').height(windowHeight * 0.7);
+//   }
+
+//   setWelcomeTextHeight();
+
+//   $(window).resize(function() {
+//     setWelcomeTextHeight();
+//   });
+// });

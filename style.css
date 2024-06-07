@@ -665,11 +665,12 @@
   }
 
   .chat-layout {
-    grid-template-rows: 0.7fr 4fr 1fr;
+    grid-template-rows: 0.7fr 5fr 1fr;
+    height: 100vh;
   }
 
   .welcome-text {
-    display: block;
+    display: flex;
     overflow-y: scroll;
     background: rgba(255, 255, 253, 0.988235);
     border-width: 1px;
@@ -678,13 +679,9 @@
     border-radius: 40px;
     scrollbar-gutter: stable;
     padding: 20px;
+    align-items: center;
     box-sizing: border-box;
-    height: 83%;
-
-    img {
-      max-width: 20%;
-      height: auto;
-    }
+    justify-content: center;
   }
 
   .welcome-text::-webkit-scrollbar {
@@ -786,12 +783,11 @@
   }
 
   .chat-container {
-    height: 100vh;
-    max-height: 60vh;
+    height: 90%;
 
     display: none;
     flex-direction: column;
-    overflow: hidden;
+    overflow: auto;
     background: rgba(255, 255, 253, 0.988235);
     border-width: 1px 1px 1px 1px;
     border-style: solid;
