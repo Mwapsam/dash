@@ -264,7 +264,6 @@
                   </div>
                 </div>
 
-
                 <div class="footer-text">
                   <p>Contact About Privacy policy Terms</p>
                   <span>© 2024 Sizemug</span>
@@ -348,142 +347,12 @@
               <span><i class="fa fa-search" aria-hidden="true"></i></span>
               <p>Search members</p>
             </div>
-
-            <button class="member-button">
+            <button class="member-button" id="openGroupModal">
               <i class="fa fa-plus" aria-hidden="true"></i>
               <span>Add Member</span>
             </button>
           </div>
-          <div class="members-list">
-            <div class="member-item">
-              <div class="image-content">
-                <img src="./assets/user1.png" alt="image" />
-                <div class="name-content">
-                  <h3>Jenny Wilson</h3>
-                  <span
-                    >Visit Profile
-                    <i class="fa fa-angle-right" aria-hidden="true"></i
-                  ></span>
-                </div>
-              </div>
-
-              <button>
-                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div class="member-item">
-              <div class="image-content">
-                <img src="./assets/user2.png" alt="image" />
-                <div class="name-content">
-                  <h3>Jenny Wilson</h3>
-                  <span
-                    >Visit Profile
-                    <i class="fa fa-angle-right" aria-hidden="true"></i
-                  ></span>
-                </div>
-              </div>
-
-              <button>
-                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div class="member-item">
-              <div class="image-content">
-                <img src="./assets/user3.png" alt="image" />
-                <div class="name-content">
-                  <h3>Jenny Wilson</h3>
-                  <span
-                    >Visit Profile
-                    <i class="fa fa-angle-right" aria-hidden="true"></i
-                  ></span>
-                </div>
-              </div>
-
-              <button>
-                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div class="member-item">
-              <div class="image-content">
-                <img src="./assets/user4.png" alt="image" />
-                <div class="name-content">
-                  <h3>Jenny Wilson</h3>
-                  <span
-                    >Visit Profile
-                    <i class="fa fa-angle-right" aria-hidden="true"></i
-                  ></span>
-                </div>
-              </div>
-
-              <button>
-                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div class="member-item">
-              <div class="image-content">
-                <img src="./assets/user1.png" alt="image" />
-                <div class="name-content">
-                  <h3>Jenny Wilson</h3>
-                  <span
-                    >Visit Profile
-                    <i class="fa fa-angle-right" aria-hidden="true"></i
-                  ></span>
-                </div>
-              </div>
-
-              <button>
-                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div class="member-item">
-              <div class="image-content">
-                <img src="./assets/user2.png" alt="image" />
-                <div class="name-content">
-                  <h3>Jenny Wilson</h3>
-                  <span
-                    >Visit Profile
-                    <i class="fa fa-angle-right" aria-hidden="true"></i
-                  ></span>
-                </div>
-              </div>
-
-              <button>
-                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div class="member-item">
-              <div class="image-content">
-                <img src="./assets/user3.png" alt="image" />
-                <div class="name-content">
-                  <h3>Jenny Wilson</h3>
-                  <span
-                    >Visit Profile
-                    <i class="fa fa-angle-right" aria-hidden="true"></i
-                  ></span>
-                </div>
-              </div>
-
-              <button>
-                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-              </button>
-            </div>
-            <div class="member-item">
-              <div class="image-content">
-                <img src="./assets/user4.png" alt="image" />
-                <div class="name-content">
-                  <h3>Jenny Wilson</h3>
-                  <span
-                    >Visit Profile
-                    <i class="fa fa-angle-right" aria-hidden="true"></i
-                  ></span>
-                </div>
-              </div>
-
-              <button>
-                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-              </button>
-            </div>
-          </div>
+          <div class="members-list" id="members-list"></div>
         </div>
         <div class="chat-container">
           <div class="chat-card">
@@ -580,7 +449,7 @@
             <i class="fa fa-microphone" aria-hidden="true"></i>
             <button class="send-coin-button">
               <div class="send-coin-icon">
-                  <i class="fa fa-database" aria-hidden="true"></i>
+                <i class="fa fa-database" aria-hidden="true"></i>
               </div>
 
               <span>Send Coin</span>
@@ -590,7 +459,7 @@
               <div class="send-gift-icon">
                 <i class="fa fa-gift" aria-hidden="true"></i>
               </div>
-            
+
               <span>Send Gift</span>
             </button>
           </div>
@@ -638,39 +507,43 @@
           </div>
         </div>
 
-            <div id="sendCoinModal" class="send-coin-modal">
-              <div class="send-coin-modal-content">
-                <div class="modal-header">
-                  <div style="display: flex; align-items: center;">
-                    <div class="send-coin-icon">
-                      <i class="fa fa-database" aria-hidden="true"></i>
-                    </div>
-                    <span class="header-text">Send Coin</span>
-                  </div>
-
-                  <span class="your-coins">Your coins: 100</span>
+        <div id="sendCoinModal" class="send-coin-modal">
+          <div class="send-coin-modal-content">
+            <div class="modal-header">
+              <div style="display: flex; align-items: center">
+                <div class="send-coin-icon">
+                  <i class="fa fa-database" aria-hidden="true"></i>
                 </div>
-                <div class="modal-body">
-                  <div class="user-info">
-                    <img src="./assets/user1.png" alt="User Image" class="user-image">
-                    <span>Sophia Vera</span>
-                  </div>
-                  <div class="coin-options">
-                    <button class="coin-button">1</button>
-                    <button class="coin-button">2</button>
-                    <button class="coin-button">5</button>
-                    <button class="coin-button">10</button>
-                    <button class="coin-button">20</button>
-                    <button class="coin-button selected">100</button>
-                  </div>
-                  <div class="coin-summary">100 coins to Sophia Vera</div>
-                </div>
-                <div class="modal-footer">
-                  <button class="cancel-button">Cancel</button>
-                  <button class="send-coin-button">Send</button>
-                </div>
+                <span class="header-text">Send Coin</span>
               </div>
+
+              <span class="your-coins">Your coins: 100</span>
             </div>
+            <div class="modal-body">
+              <div class="user-info">
+                <img
+                  src="./assets/user1.png"
+                  alt="User Image"
+                  class="user-image"
+                />
+                <span>Sophia Vera</span>
+              </div>
+              <div class="coin-options">
+                <button class="coin-button">1</button>
+                <button class="coin-button">2</button>
+                <button class="coin-button">5</button>
+                <button class="coin-button">10</button>
+                <button class="coin-button">20</button>
+                <button class="coin-button selected">100</button>
+              </div>
+              <div class="coin-summary">100 coins to Sophia Vera</div>
+            </div>
+            <div class="modal-footer">
+              <button class="cancel-button">Cancel</button>
+              <button class="send-coin-button">Send</button>
+            </div>
+          </div>
+        </div>
 
         <div id="myModal" class="modal">
           <div class="modal-content">
@@ -736,35 +609,62 @@
         <div id="sendGiftModal" class="gift-modal">
           <div class="gift-modal-content">
             <div class="gift-modal-header">
-              <div style="display: flex; align-items: center;">
+              <div style="display: flex; align-items: center">
                 <div class="send-gift-icon">
                   <i class="fa fa-gift" aria-hidden="true"></i>
                 </div>
                 <span>Send Gift</span>
               </div>
-
             </div>
             <div class="modal-body">
               <div class="user-info">
-                <img src="./assets/user1.png" alt="User Image" class="user-image">
+                <img
+                  src="./assets/user1.png"
+                  alt="User Image"
+                  class="user-image"
+                />
                 <span>Sophia Vera</span>
               </div>
               <div class="category">
                 <span>Christmas</span>
               </div>
               <div class="gift-options">
-                <button class="gift-button"><img src="./assets/Peer.png" alt="Gift"></button>
-                <button class="gift-button"><img src="./assets/Peer1.png" alt="Gift"></button>
-                <button class="gift-button selected"><img src="./assets/Peer10.png" alt="Gift"></button>
-                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
-                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
-                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
-                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
-                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
-                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
-                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
-                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
-                <button class="gift-button"><img src="./assets/Peer2.png" alt="Gift"></button>
+                <button class="gift-button">
+                  <img src="./assets/Peer.png" alt="Gift" />
+                </button>
+                <button class="gift-button">
+                  <img src="./assets/Peer1.png" alt="Gift" />
+                </button>
+                <button class="gift-button selected">
+                  <img src="./assets/Peer10.png" alt="Gift" />
+                </button>
+                <button class="gift-button">
+                  <img src="./assets/Peer2.png" alt="Gift" />
+                </button>
+                <button class="gift-button">
+                  <img src="./assets/Peer3.png" alt="Gift" />
+                </button>
+                <button class="gift-button">
+                  <img src="./assets/Peer4.png" alt="Gift" />
+                </button>
+                <button class="gift-button">
+                  <img src="./assets/Peer75.png" alt="Gift" />
+                </button>
+                <button class="gift-button">
+                  <img src="./assets/Peer5.png" alt="Gift" />
+                </button>
+                <button class="gift-button">
+                  <img src="./assets/Peer6.png" alt="Gift" />
+                </button>
+                <button class="gift-button">
+                  <img src="./assets/Peer8.png" alt="Gift" />
+                </button>
+                <button class="gift-button">
+                  <img src="./assets/Peer9.png" alt="Gift" />
+                </button>
+                <button class="gift-button">
+                  <img src="./assets/Peer10.png" alt="Gift" />
+                </button>
               </div>
             </div>
             <div class="modal-footer">
@@ -774,50 +674,48 @@
           </div>
         </div>
       </main>
-
-      <div id="createGroupModal" class="groupModal">
-        <div class="group-modal-content">
-          <span class="close">&times;</span>
-          <h2 class="groupName">Create Group</h2>
-          <form id="createGroupForm">
-            <div class="form-group">
-              <label for="groupName">Group name</label>
+    </div>
+    <div id="createGroupModal" class="groupModal">
+      <div class="group-modal-content">
+        <span class="close">&times;</span>
+        <h2 class="groupName">Create Group</h2>
+        <form id="createGroupForm">
+          <div class="form-group">
+            <label for="groupName">Group name</label>
+            <input
+              type="text"
+              id="groupName"
+              name="groupName"
+              placeholder="Title"
+            />
+          </div>
+          <div class="form-group">
+            <label for="groupImage">Image</label>
+            <div class="upload-container" id="uploadContainer">
+              <span>
+                <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+              </span>
               <input
-                type="text"
-                id="groupName"
-                name="groupName"
-                placeholder="Title"
+                type="file"
+                id="groupImage"
+                name="groupImage"
+                accept="image/*"
+                multiple
               />
+              <label for="groupImage" class="upload-label"
+                >Click to upload or drag and drop</label
+              >
+              <small>SVG, PNG, JPG or GIF (max. 800x400px)</small>
             </div>
-            <div class="form-group">
-              <label for="groupImage">Image</label>
-              <div class="upload-container" id="uploadContainer">
-                <span>
-                  <i class="fa fa-cloud-upload" aria-hidden="true"></i>
-                </span>
-                <input
-                  type="file"
-                  id="groupImage"
-                  name="groupImage"
-                  accept="image/*"
-                  multiple
-                />
-                <label for="groupImage" class="upload-label"
-                  >Click to upload or drag and drop</label
-                >
-                <small>SVG, PNG, JPG or GIF (max. 800x400px)</small>
-              </div>
-              <div class="image-preview" id="imagePreview"></div>
-            </div>
-            <div class="form-actions">
-              <button type="button" class="cancel">Cancel</button>
-              <button type="submit" class="next">Next</button>
-            </div>
-          </form>
-        </div>
+            <div class="image-preview" id="imagePreview"></div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="cancel">Cancel</button>
+            <button type="submit" class="next">Next</button>
+          </div>
+        </form>
       </div>
     </div>
-
     <nav class="navbar">
       <a href="#" class="navbar_item">
         <svg data-icon>

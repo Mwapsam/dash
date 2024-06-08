@@ -36,7 +36,7 @@
   }
 
   .empty-chat-text {
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -364,7 +364,7 @@
   }
 
   .empty-chat-text {
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -696,7 +696,7 @@
   }
 
   .empty-chat-text {
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -783,7 +783,7 @@
   }
 
   .chat-container {
-    height: 90%;
+    height: 59vh;
 
     display: none;
     flex-direction: column;
@@ -867,8 +867,8 @@
     width: -moz-available;
     width: -webkit-fill-available;
     margin-right: 1.3rem;
-    padding: 0 15px 5px 15px;
-    gap: 10px;
+    padding: 0 15px 1px 15px;
+    gap: 5px;
     background: #ffffff;
     border: 1px solid rgba(195, 195, 195, 0.5);
     border-radius: 40px;
@@ -898,7 +898,7 @@
     height: 43px;
     background: rgba(126, 124, 124, 0.2);
     border-radius: 100px;
-    bottom: 55px;
+    bottom: 46px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1130,7 +1130,7 @@
     align-items: center;
 
     label {
-      font-family: 'Inter';
+      font-family: "Inter";
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
@@ -1202,7 +1202,7 @@
 
   .group-list h2 {
     margin: 0 0 10px 20px;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -1242,7 +1242,7 @@
   }
 
   .group-name {
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -1280,7 +1280,7 @@
       margin: 0.65rem;
       padding: 10px;
       border-radius: 50px;
-      background: linear-gradient(142.29deg, #FFA800 23.25%, #FFC838 79.92%);
+      background: linear-gradient(142.29deg, #ffa800 23.25%, #ffc838 79.92%);
       width: 40px;
       height: 40px;
       text-align: center;
@@ -1292,32 +1292,32 @@
     }
 
     .crypto-text {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 13px;
-        line-height: 18px;
-        background-clip: text;
-        color: #FB9B21BF;
-        margin: 0.65rem 0;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 18px;
+      background-clip: text;
+      color: #fb9b21bf;
+      margin: 0.65rem 0;
     }
 
     .crypto-arrow {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 8px 10px;     
-        width: 44px;
-        height: 40px;
-        background: #FFFFFF;
-        border-radius: 8px;
-        margin: 0.65rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 8px 10px;
+      width: 44px;
+      height: 40px;
+      background: #ffffff;
+      border-radius: 8px;
+      margin: 0.65rem;
     }
   }
 
   .footer-text {
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
@@ -1358,7 +1358,7 @@
 
   .slider:before {
     position: absolute;
-    content: '';
+    content: "";
     height: 12px;
     width: 12px;
     left: 4px;
@@ -1381,7 +1381,7 @@
     color: #666;
   }
 
-  #sidebar[aria-expanded='false'] .chat-list {
+  #sidebar[aria-expanded="false"] .chat-list {
     margin: 0 !important;
     padding: 0 !important;
     height: 100vh !important;
@@ -1410,7 +1410,7 @@
   }
 
   .modal-body {
-    input[type='checkbox'] {
+    input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -1423,13 +1423,13 @@
       position: relative;
     }
 
-    input[type='checkbox']:checked {
+    input[type="checkbox"]:checked {
       background-color: rgb(138 41 239 / 79%);
       border-color: rgb(138 41 239 / 79%);
     }
 
-    input[type='checkbox']:checked::after {
-      content: '\2713';
+    input[type="checkbox"]:checked::after {
+      content: "\2713";
       font-size: 16px;
       color: #fff;
       position: absolute;
@@ -1511,7 +1511,7 @@
     height: 162px;
     position: relative;
 
-    input[type='checkbox'] {
+    input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -1523,13 +1523,13 @@
       cursor: pointer;
     }
 
-    input[type='checkbox']:checked {
+    input[type="checkbox"]:checked {
       background-color: rgb(138 41 239 / 79%);
       border-color: rgb(138 41 239 / 79%);
     }
 
-    input[type='checkbox']:checked::after {
-      content: '\2713';
+    input[type="checkbox"]:checked::after {
+      content: "\2713";
       font-size: 10px;
       color: #fff;
       position: absolute;
@@ -1598,7 +1598,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 
-    input[type='checkbox'] {
+    input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -1611,13 +1611,13 @@
       cursor: pointer;
     }
 
-    input[type='checkbox']:checked {
+    input[type="checkbox"]:checked {
       background-color: rgb(138 41 239 / 79%);
       border-color: rgb(138 41 239 / 79%);
     }
 
-    input[type='checkbox']:checked::after {
-      content: '\2713';
+    input[type="checkbox"]:checked::after {
+      content: "\2713";
       font-size: 10px;
       color: #fff;
       display: flex;
@@ -1825,7 +1825,7 @@
     span {
       margin-right: 10px;
 
-      font-family: 'Inter';
+      font-family: "Inter";
       font-style: normal;
       font-weight: 400;
       font-size: 15px;
@@ -1843,6 +1843,30 @@
   .active-file-card {
     border: 4px solid #8837e9;
     padding: 3px;
+  }
+
+  .options-modal-groups {
+    display: none;
+    position: absolute;
+    z-index: 1111;
+    right: -127px;
+    bottom: -113px;
+  }
+
+  .options-group-modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+    width: 189px;
+    height: 138px;
+
+    background: #ffffff;
+    border: 1px solid #eaecf0;
+    box-shadow: 0px 12px 16px -4px rgba(0, 0, 0, 0.08),
+      0px 4px 6px -2px rgba(0, 0, 0, 0.03);
+    border-radius: 16px;
   }
 
   .options-modal {
@@ -1896,7 +1920,7 @@
     font-size: 18px;
     display: flex;
     align-items: center;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -1975,7 +1999,7 @@
       cursor: pointer;
     }
 
-    input[type='text'] {
+    input[type="text"] {
       width: calc(100% - 2px);
       padding: 10px;
       display: block;
@@ -2017,7 +2041,7 @@
       text-align: center;
     }
 
-    input[type='file'] {
+    input[type="file"] {
       display: none;
     }
 
@@ -2080,7 +2104,7 @@
     }
 
     .groupName {
-      font-family: 'Inter';
+      font-family: "Inter";
       font-style: normal;
       font-weight: 800;
       font-size: 18px;
@@ -2172,6 +2196,7 @@
         width: 487px;
         height: 112px;
         border-radius: 24px;
+        position: relative;
 
         .image-content {
           display: flex;
@@ -2182,7 +2207,7 @@
         .name-content {
           span {
             display: none;
-            font-family: 'Inter';
+            font-family: "Inter";
             font-style: normal;
             font-weight: 400;
             font-size: 13px;
@@ -2228,37 +2253,37 @@
   }
 
   .send-coin-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 8px;
+    background: #f4f4f4;
+    border: 1px solid #eaecf0;
+    border-radius: 8px;
+
+    span {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      color: #ffb00e;
+    }
+
+    .send-coin-icon {
       display: flex;
-      flex-direction: row;
       justify-content: center;
       align-items: center;
+      background: #ffb00e;
+      border-radius: 50px;
       padding: 5px;
-      gap: 8px;
-      background: #F4F4F4;
-      border: 1px solid #EAECF0;
-      border-radius: 8px;
 
-      span {  
-          font-family: 'Inter';
-          font-style: normal;
-          font-weight: 600;
-          font-size: 12px;
-          color: #FFB00E;
+      i {
+        font-size: 10px;
+        color: #fff;
       }
-
-      .send-coin-icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #FFB00E;
-        border-radius: 50px;
-        padding: 5px;
-
-        i {
-          font-size: 10px;
-          color: #fff;
-        }
-      }
+    }
   }
 
   .send-gift-button {
@@ -2266,21 +2291,22 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 5px;
+    padding: 4px 8px;
     gap: 8px;
-    background: #F4F4F4;
-    border: 1px solid #EAECF0;
+    background: #f4f4f4;
+    border: 1px solid #eaecf0;
     border-radius: 8px;
+    margin-bottom: 2px;
 
     i {
-        color: #991B41;
+      color: #991b41;
     }
     span {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 12px;
-        color: #FF2D6C;
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      color: #ff2d6c;
     }
   }
 
@@ -2306,295 +2332,295 @@
     padding: 24px;
     width: 420px;
     height: 482px;
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 16px;
 
-    .modal-header, .modal-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 5px 0;
-      }
-    
-      .send-coin-icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #FFB00E;
-        border-radius: 50%;
-        width: 32px;
-        height: 32px;
-        margin-right: 8px;
-      }
-    
-      .send-coin-icon i {
-        font-size: 16px;
-        color: white;
-      }
-    
-      .close {
-        color: #aaa;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-      }
-    
-      .close:hover,
-      .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-      }
-    
-      .your-coins {
-        font-size: 14px;
-        color: gray;
-      }
-    
-      .user-info {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 16px;
-        gap: 16px;
+    .modal-header,
+    .modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+    }
 
-        width: 372px;
-        height: 56px;
+    .send-coin-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffb00e;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      margin-right: 8px;
+    }
 
-        background: #F4F4F4;
-        border-radius: 8px;
-        margin-bottom: 10px;
-      }
+    .send-coin-icon i {
+      font-size: 16px;
+      color: white;
+    }
 
-      .header-text {
+    .close {
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .your-coins {
+      font-size: 14px;
+      color: gray;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 16px;
+      gap: 16px;
+
+      width: 372px;
+      height: 56px;
+
+      background: #f4f4f4;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .header-text {
+      font-weight: 800;
+      color: #000;
+    }
+
+    .user-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .coin-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .coin-button {
+      padding: 16px;
+      width: 180px;
+      height: 66px;
+      background: #f4f4f4;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .coin-button.selected {
+      border: 2px solid #ffb00e;
+      background-color: white;
+    }
+
+    .coin-summary {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      color: #191b23;
+    }
+
+    .cancel-button,
+    .send-button {
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .cancel-button {
+      padding: 8px 16px;
+      width: 178px;
+      height: 48px;
+      border: 1px solid #eaecf0;
+      border-radius: 8px;
+    }
+
+    .send-coin-button {
+      padding: 8px 16px;
+      width: 178px;
+      height: 48px;
+      background: #f99335;
+      border-radius: 8px;
+      color: #fff;
+    }
+  }
+
+  .gift-modal {
+    display: none;
+    position: fixed;
+    z-index: 1111;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+  }
+
+  .gift-modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+    .modal-header,
+    .modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .send-gift-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffb00e;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      margin-right: 8px;
+    }
+
+    .send-gift-icon i {
+      font-size: 16px;
+      color: white;
+    }
+
+    .close {
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 16px;
+      gap: 16px;
+
+      height: 56px;
+
+      background: #f4f4f4;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .user-image {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .category {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .gift-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .gift-button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      gap: 16px;
+      width: 80px;
+      height: 72px;
+      background: #f4f4f4;
+      border-radius: 8px;
+    }
+
+    .gift-modal-header {
+      margin-bottom: 1rem;
+      span {
         font-weight: 800;
         color: #000;
       }
-    
-      .user-image {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-right: 10px;
-      }
-    
-      .coin-options {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-bottom: 10px;
-      }
-    
-      .coin-button {
-        padding: 16px;
-        width: 180px;
-        height: 66px;
-        background: #F4F4F4;
-        border-radius: 8px;
-        font-weight: 700;
-      }
-    
-      .coin-button.selected {
-        border: 2px solid #FFB00E;
-        background-color: white;
-      }
-    
-      .coin-summary {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        color: #191B23;
-      }
-    
-      .cancel-button,
-      .send-button {
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-    
-      .cancel-button {
-        padding: 8px 16px;
-        width: 178px;
-        height: 48px;
-        border: 1px solid #EAECF0;
-        border-radius: 8px;
-      }
-    
-      .send-coin-button {
-        padding: 8px 16px; 
-        width: 178px;
-        height: 48px;
-        background: #F99335;
-        border-radius: 8px;
-        color: #fff;
-      }
+    }
+
+    .gift-button.selected {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      gap: 16px;
+      background: #f4f4f4;
+      border: 2px solid #ff2d6c;
+      border-radius: 8px;
+    }
+
+    .cancel-button,
+    .send-button {
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .cancel-button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 8px 16px;
+      width: 175px;
+      height: 48px;
+      border: 1px solid #eaecf0;
+      border-radius: 8px;
+    }
+
+    .send-gift-button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 8px 16px;
+      background: #ff2d6c;
+      border-radius: 8px;
+      width: 175px;
+      height: 48px;
+      color: #fff;
+    }
   }
-
-
-    .gift-modal {
-      display: none;
-      position: fixed;
-      z-index: 1111;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgb(0, 0, 0);
-      background-color: rgba(0, 0, 0, 0.4);
-      padding-top: 60px;
-    }
-  
-    .gift-modal-content {
-      background-color: white;
-      margin: 5% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 400px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-
-      .modal-header,
-        .modal-footer {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 10px 0;
-        }
-      
-        .send-gift-icon {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: #FFB00E;
-          border-radius: 50%;
-          width: 32px;
-          height: 32px;
-          margin-right: 8px;
-        }
-      
-        .send-gift-icon i {
-          font-size: 16px;
-          color: white;
-        }
-      
-        .close {
-          color: #aaa;
-          font-size: 28px;
-          font-weight: bold;
-          cursor: pointer;
-        }
-      
-        .close:hover,
-        .close:focus {
-          color: black;
-          text-decoration: none;
-          cursor: pointer;
-        }
-      
-        .user-info {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          padding: 16px;
-          gap: 16px;
-  
-          height: 56px;
-  
-          background: #F4F4F4;
-          border-radius: 8px;
-          margin-bottom: 10px;
-        }
-      
-        .user-image {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          margin-right: 10px;
-        }
-      
-        .category {
-          margin-bottom: 10px;
-          font-weight: bold;
-        }
-      
-        .gift-options {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          margin-bottom: 10px;
-        }
-      
-        .gift-button {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            padding: 16px;
-            gap: 16px;
-            width: 80px;
-            height: 72px;
-            background: #F4F4F4;
-            border-radius: 8px;
-        }
-
-        .gift-modal-header {
-          margin-bottom: 1rem;
-          span {
-            font-weight: 800;
-            color: #000;
-          }
-        }
-      
-        .gift-button.selected {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          padding: 16px;
-          gap: 16px;
-          background: #F4F4F4;
-          border: 2px solid #FF2D6C;
-          border-radius: 8px;
-        }
-      
-        .cancel-button,
-        .send-button {
-          padding: 10px 20px;
-          border: none;
-          cursor: pointer;
-          border-radius: 5px;
-        }
-      
-        .cancel-button {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          padding: 8px 16px;
-          width: 175px;
-          height: 48px;
-          border: 1px solid #EAECF0;
-          border-radius: 8px;
-        }
-      
-        .send-gift-button {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            padding: 8px 16px;       
-            background: #FF2D6C;
-            border-radius: 8px;
-            width: 175px;
-            height: 48px;
-            color: #fff;
-        }
-    }
 }
 
 @media (min-width: 1635px) {
@@ -2636,7 +2662,7 @@
   }
 
   .empty-chat-text {
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -3069,7 +3095,7 @@
     align-items: center;
 
     label {
-      font-family: 'Inter';
+      font-family: "Inter";
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
@@ -3141,7 +3167,7 @@
 
   .group-list h2 {
     margin: 0 0 10px 20px;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -3181,7 +3207,7 @@
   }
 
   .group-name {
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -3212,7 +3238,7 @@
   }
 
   .footer-text {
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
@@ -3253,7 +3279,7 @@
 
   .slider:before {
     position: absolute;
-    content: '';
+    content: "";
     height: 12px;
     width: 12px;
     left: 4px;
@@ -3276,7 +3302,7 @@
     color: #666;
   }
 
-  #sidebar[aria-expanded='false'] .chat-list {
+  #sidebar[aria-expanded="false"] .chat-list {
     margin: 0 !important;
     padding: 0 !important;
     height: 100vh !important;
@@ -3305,7 +3331,7 @@
   }
 
   .modal-body {
-    input[type='checkbox'] {
+    input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -3318,13 +3344,13 @@
       position: relative;
     }
 
-    input[type='checkbox']:checked {
+    input[type="checkbox"]:checked {
       background-color: rgb(138 41 239 / 79%);
       border-color: rgb(138 41 239 / 79%);
     }
 
-    input[type='checkbox']:checked::after {
-      content: '\2713';
+    input[type="checkbox"]:checked::after {
+      content: "\2713";
       font-size: 16px;
       color: #fff;
       position: absolute;
@@ -3406,7 +3432,7 @@
     height: 162px;
     position: relative;
 
-    input[type='checkbox'] {
+    input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -3418,13 +3444,13 @@
       cursor: pointer;
     }
 
-    input[type='checkbox']:checked {
+    input[type="checkbox"]:checked {
       background-color: rgb(138 41 239 / 79%);
       border-color: rgb(138 41 239 / 79%);
     }
 
-    input[type='checkbox']:checked::after {
-      content: '\2713';
+    input[type="checkbox"]:checked::after {
+      content: "\2713";
       font-size: 10px;
       color: #fff;
       position: absolute;
@@ -3493,7 +3519,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 
-    input[type='checkbox'] {
+    input[type="checkbox"] {
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -3506,13 +3532,13 @@
       cursor: pointer;
     }
 
-    input[type='checkbox']:checked {
+    input[type="checkbox"]:checked {
       background-color: rgb(138 41 239 / 79%);
       border-color: rgb(138 41 239 / 79%);
     }
 
-    input[type='checkbox']:checked::after {
-      content: '\2713';
+    input[type="checkbox"]:checked::after {
+      content: "\2713";
       font-size: 10px;
       color: #fff;
       display: flex;
@@ -3720,7 +3746,7 @@
     span {
       margin-right: 10px;
 
-      font-family: 'Inter';
+      font-family: "Inter";
       font-style: normal;
       font-weight: 400;
       font-size: 15px;
@@ -3791,7 +3817,7 @@
     font-size: 18px;
     display: flex;
     align-items: center;
-    font-family: 'Inter';
+    font-family: "Inter";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -3870,7 +3896,7 @@
       cursor: pointer;
     }
 
-    input[type='text'] {
+    input[type="text"] {
       width: calc(100% - 2px);
       padding: 10px;
       display: block;
@@ -3912,7 +3938,7 @@
       text-align: center;
     }
 
-    input[type='file'] {
+    input[type="file"] {
       display: none;
     }
 
@@ -3975,7 +4001,7 @@
     }
 
     .groupName {
-      font-family: 'Inter';
+      font-family: "Inter";
       font-style: normal;
       font-weight: 800;
       font-size: 18px;
@@ -4077,7 +4103,7 @@
         .name-content {
           span {
             display: none;
-            font-family: 'Inter';
+            font-family: "Inter";
             font-style: normal;
             font-weight: 400;
             font-size: 13px;

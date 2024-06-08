@@ -1,48 +1,51 @@
-const $headerDropdown = $('.header_dropdown');
+const $headerDropdown = $(".header_dropdown");
 
-$(document).on('click', '#suggestions_expand', (event) => {
+$(document).on("click", "#suggestions_expand", (event) => {
   const $el = $(event.currentTarget);
 
-  const list = $el.parent().find('ul');
-  const isExpanded = list.attr('aria-expanded') === 'true';
-  list.css('--item-count', list.children().length);
-  list.attr('aria-expanded', isExpanded ? 'false' : 'true');
+  const list = $el.parent().find("ul");
+  const isExpanded = list.attr("aria-expanded") === "true";
+  list.css("--item-count", list.children().length);
+  list.attr("aria-expanded", isExpanded ? "false" : "true");
 });
 
-$(document).on('click', '.popup_trigger', (event) => {
+$(document).on("click", ".popup_trigger", (event) => {
   const $el = $(event.currentTarget);
-  const $target = $($el.attr('data-popup-target'));
+  const $target = $($el.attr("data-popup-target"));
   const dialog = $target.get(0);
 
   if (!dialog) return;
   const isOpen = dialog.open;
 
   if (isOpen) {
-    $target.removeClass('open');
+    $target.removeClass("open");
     setTimeout(() => dialog.close(), 200);
   } else {
     dialog.show();
-    setTimeout(() => $target.addClass('open'), 1);
+    setTimeout(() => $target.addClass("open"), 1);
   }
 
-  $el.attr('data-active', isOpen);
+  $el.attr("data-active", isOpen);
 });
 
-$(document).on('click', '.sidebar_trigger', (event) => {
-  const $sidebar = $('#sidebar');
-  const isOpen = $sidebar.attr('aria-expanded') === 'true';
-  $sidebar.attr('aria-expanded', !isOpen);
+$(document).on("click", ".sidebar_trigger", (event) => {
+  const $sidebar = $("#sidebar");
+  const isOpen = $sidebar.attr("aria-expanded") === "true";
+  $sidebar.attr("aria-expanded", !isOpen);
 
   if (isOpen) {
-    $('.chat-search-icons').css('display', 'none');
+    $(".chat-search-icons").css("display", "none");
+    $(".tabs").css("display", "none");
+    $(".sidebar_container__bordered").css("min-height", "100% !important");
   } else {
-    $('.chat-search-icons').css('display', 'flex');
+    $(".chat-search-icons").css("display", "flex");
+    $(".tabs").css("display", "flex");
   }
 });
 
-$(window).on('resize', () => {
+$(window).on("resize", () => {
   if (window.innerWidth > 768) {
-    $('.popup').each((_, el) => {
+    $(".popup").each((_, el) => {
       el.close();
     });
   }
@@ -50,31 +53,31 @@ $(window).on('resize', () => {
 
 // File upload popup
 $(document).ready(function () {
-  $('#attachment-icon').click(function () {
-    $('#popup-menu').toggle();
+  $("#attachment-icon").click(function () {
+    $("#popup-menu").toggle();
   });
 
   $(document).click(function (event) {
-    if (!$(event.target).closest('#popup-menu, #attachment-icon').length) {
-      $('#popup-menu').hide();
+    if (!$(event.target).closest("#popup-menu, #attachment-icon").length) {
+      $("#popup-menu").hide();
     }
   });
 });
 
 // Imoji popup
 $(document).ready(function () {
-  $('#imoji-attachment').click(function () {
-    $('#emoji-popup').toggle();
+  $("#imoji-attachment").click(function () {
+    $("#emoji-popup").toggle();
   });
 
   $(document).click(function (event) {
-    if (!$(event.target).closest('#emoji-popup, #imoji-attachment').length) {
-      $('#emoji-popup').hide();
+    if (!$(event.target).closest("#emoji-popup, #imoji-attachment").length) {
+      $("#emoji-popup").hide();
     }
   });
 
-  $('#close-moji').click(function () {
-    $('#emoji-popup').hide();
+  $("#close-moji").click(function () {
+    $("#emoji-popup").hide();
   });
 });
 
@@ -111,7 +114,7 @@ $(document).ready(function () {
         </div>
       `;
     }
-    return '';
+    return "";
   }
 
   function createChatConversation(chat) {
@@ -121,7 +124,7 @@ $(document).ready(function () {
           .map((message, index) => {
             const isSender =
               index % 2 === 0 || (index === 0 && !conversation.recipient);
-            const messageClass = isSender ? 'sender' : 'recipient';
+            const messageClass = isSender ? "sender" : "recipient";
             const avatar = isSender
               ? conversation.sender?.avatar || chat.avatar
               : conversation.recipient?.avatar || chat.avatar;
@@ -141,45 +144,45 @@ $(document).ready(function () {
               </div>
             `;
           })
-          .join('')
+          .join("")
       )
-      .join('');
+      .join("");
 
-    $('#chat-box').html(conversationHtml);
-    $('#chat-box').show();
-    $('#groups-container').hide();
-    $('.welcome-text').hide();
-    $('.chat-container').css('display', 'flex');
-    $('.profile-component').css('display', 'flex');
-    $('.chat-layout').css('display', 'grid');
+    $("#chat-box").html(conversationHtml);
+    $("#chat-box").show();
+    $("#groups-container").hide();
+    $(".welcome-text").hide();
+    $(".chat-container").css("display", "flex");
+    $(".profile-component").css("display", "flex");
+    $(".chat-layout").css("display", "grid");
   }
 
   function createOptionsModal() {
-    $('#chat-list').on('click', '#options-modal', function () {
-      $('#optionsModal').css('display', 'block');
+    $("#chat-list").on("click", "#options-modal", function () {
+      $("#optionsModal").css("display", "block");
     });
 
-    $('.close').click(function () {
-      $('#optionsModal').css('display', 'none');
+    $(".close").click(function () {
+      $("#optionsModal").css("display", "none");
     });
 
     $(window).click(function (event) {
-      if (event.target == $('#optionsModal')[0]) {
-        $('#optionsModal').css('display', 'none');
+      if (event.target == $("#optionsModal")[0]) {
+        $("#optionsModal").css("display", "none");
       }
     });
   }
 
   function filterChats(filter) {
-    $('#chat-list .chat-item').each(function () {
-      var unread = $(this).data('unread');
-      var favourite = $(this).data('favourite');
+    $("#chat-list .chat-item").each(function () {
+      var unread = $(this).data("unread");
+      var favourite = $(this).data("favourite");
 
-      if (filter === 'all') {
+      if (filter === "all") {
         $(this).show();
-      } else if (filter === 'unread' && unread) {
+      } else if (filter === "unread" && unread) {
         $(this).show();
-      } else if (filter === 'favourites' && favourite) {
+      } else if (filter === "favourites" && favourite) {
         $(this).show();
       } else {
         $(this).hide();
@@ -187,16 +190,16 @@ $(document).ready(function () {
     });
   }
 
-  $('.tab-link').click(function () {
-    $('.tab-link').removeClass('active');
-    $(this).addClass('active');
-    var filter = $(this).data('tab');
+  $(".tab-link").click(function () {
+    $(".tab-link").removeClass("active");
+    $(this).addClass("active");
+    var filter = $(this).data("tab");
     filterChats(filter);
   });
 
-  $.getJSON('chats.json', function (data) {
+  $.getJSON("chats.json", function (data) {
     chatsData = data;
-    var $chatList = $('#chat-list');
+    var $chatList = $("#chat-list");
     $chatList.empty();
     data.forEach(function (chat) {
       let chatItemHtml = createChatItem(chat);
@@ -205,8 +208,8 @@ $(document).ready(function () {
       }
     });
 
-    $chatList.on('click', '.chat-item', function () {
-      var chatName = $(this).data('name');
+    $chatList.on("click", ".chat-item", function () {
+      var chatName = $(this).data("name");
       var chat = data.find((c) => c.name === chatName);
       if (chat) {
         createChatConversation(chat);
@@ -216,58 +219,58 @@ $(document).ready(function () {
     createOptionsModal();
   });
 
-  $('#chat-box').hide();
+  $("#chat-box").hide();
 });
 
 $(document).ready(function () {
-  $('#openModal').click(function () {
-    $('#myModal').show();
+  $("#openModal").click(function () {
+    $("#myModal").show();
   });
 
-  $('#cancelBtn').click(function () {
-    $('#myModal').hide();
+  $("#cancelBtn").click(function () {
+    $("#myModal").hide();
   });
 
-  $('#createBtn').click(function () {
-    $('#myModal').hide();
+  $("#createBtn").click(function () {
+    $("#myModal").hide();
   });
 
-  $('#selectAll').change(function () {
-    $('.user-checkbox').prop('checked', $(this).prop('checked'));
+  $("#selectAll").change(function () {
+    $(".user-checkbox").prop("checked", $(this).prop("checked"));
   });
 
-  $('.user-checkbox').change(function () {
-    if (!$(this).prop('checked')) {
-      $('#selectAll').prop('checked', false);
+  $(".user-checkbox").change(function () {
+    if (!$(this).prop("checked")) {
+      $("#selectAll").prop("checked", false);
     } else if (
-      $('.user-checkbox:checked').length === $('.user-checkbox').length
+      $(".user-checkbox:checked").length === $(".user-checkbox").length
     ) {
-      $('#selectAll').prop('checked', true);
+      $("#selectAll").prop("checked", true);
     }
   });
 });
 
 $(document).ready(function () {
   function checkSidebar() {
-    if ($('#sidebar').attr('aria-expanded') === 'false') {
-      $('.welcome-text .img').css({
-        'max-width': '15%',
-        height: 'auto',
+    if ($("#sidebar").attr("aria-expanded") === "false") {
+      $(".welcome-text .img").css({
+        "max-width": "15%",
+        height: "auto",
       });
     } else {
-      $('.welcome-text .img').css({
-        'max-width': '40%',
-        height: 'auto',
+      $(".welcome-text .img").css({
+        "max-width": "40%",
+        height: "auto",
       });
     }
   }
 
   checkSidebar();
 
-  const sidebar = document.getElementById('sidebar');
+  const sidebar = document.getElementById("sidebar");
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
-      if (mutation.attributeName === 'aria-expanded') {
+      if (mutation.attributeName === "aria-expanded") {
         checkSidebar();
       }
     });
@@ -280,11 +283,11 @@ let addedUserNames = [];
 
 $(document).ready(function () {
   function fetchUsers() {
-    return $.getJSON('users.json');
+    return $.getJSON("users.json");
   }
 
   function renderUsers(users) {
-    const userList = $('.user-list');
+    const userList = $(".user-list");
     userList.empty();
     users.forEach((user) => {
       const userItem = $(`
@@ -301,7 +304,7 @@ $(document).ready(function () {
   }
 
   function addUserCards(selectedUsers) {
-    const container = $('.container');
+    const container = $(".container");
     selectedUsers.forEach((user) => {
       if (!addedUserNames.includes(user.name)) {
         const userCard = $(`
@@ -315,9 +318,9 @@ $(document).ready(function () {
     });
   }
 
-  const modal = $('#invite-modal');
-  const btn = $('.invite-button');
-  const span = $('.close');
+  const modal = $("#invite-modal");
+  const btn = $(".invite-button");
+  const span = $(".close");
 
   btn.click(function () {
     fetchUsers().done(function (users) {
@@ -336,18 +339,18 @@ $(document).ready(function () {
     }
   });
 
-  $('#selectAll').change(function () {
-    const isChecked = $(this).is(':checked');
-    $('.user-checkbox').prop('checked', isChecked);
+  $("#selectAll").change(function () {
+    const isChecked = $(this).is(":checked");
+    $(".user-checkbox").prop("checked", isChecked);
   });
 
-  $('#createBtn').click(function () {
-    const selectedUsers = $('.user-checkbox:checked')
+  $("#createBtn").click(function () {
+    const selectedUsers = $(".user-checkbox:checked")
       .map(function () {
-        const userCard = $(this).siblings('.image-card');
+        const userCard = $(this).siblings(".image-card");
         return {
-          name: userCard.find('span').text(),
-          img: userCard.find('img').attr('src'),
+          name: userCard.find("span").text(),
+          img: userCard.find("img").attr("src"),
         };
       })
       .get();
@@ -361,14 +364,14 @@ const storedMediaFiles = [];
 $(document).ready(function () {
   function renderMediaModal() {
     const mediaFiles = [
-      './assets/user1.png',
-      './assets/user2.png',
-      './assets/user3.png',
-      './assets/user4.png',
-      './assets/user5.png',
+      "./assets/user1.png",
+      "./assets/user2.png",
+      "./assets/user3.png",
+      "./assets/user4.png",
+      "./assets/user5.png",
     ];
 
-    let mediaModalContent = '';
+    let mediaModalContent = "";
     for (let i = 0; i < 10; i++) {
       mediaFiles.forEach((file) => {
         mediaModalContent += `
@@ -380,16 +383,16 @@ $(document).ready(function () {
       });
     }
 
-    $('.media-files-container').html(mediaModalContent);
+    $(".media-files-container").html(mediaModalContent);
   }
 
   function updateSelectedMedia() {
-    const selectedCount = $('.media-checkbox:checked').length;
-    $('.media-modal-header span').text(`(${selectedCount} Selected)`);
+    const selectedCount = $(".media-checkbox:checked").length;
+    $(".media-modal-header span").text(`(${selectedCount} Selected)`);
   }
 
   function renderSelectedMedia(selectedFiles) {
-    let selectedMediaContent = '';
+    let selectedMediaContent = "";
     selectedFiles.forEach((file, index) => {
       selectedMediaContent += `
         <div class="chat-input-image-card" data-file="${file}">
@@ -399,19 +402,19 @@ $(document).ready(function () {
       `;
     });
 
-    $('#chat-input-image-container').html(selectedMediaContent);
+    $("#chat-input-image-container").html(selectedMediaContent);
   }
 
   renderMediaModal();
 
-  $('#toggle-media-modal').click(function () {
-    $('#media-modal').toggle();
+  $("#toggle-media-modal").click(function () {
+    $("#media-modal").toggle();
   });
 
-  $(document).on('change', '.media-checkbox', function () {
-    const file = $(this).data('file');
+  $(document).on("change", ".media-checkbox", function () {
+    const file = $(this).data("file");
 
-    if ($(this).is(':checked')) {
+    if ($(this).is(":checked")) {
       storedMediaFiles.push(file);
     } else {
       const index = storedMediaFiles.indexOf(file);
@@ -424,22 +427,22 @@ $(document).ready(function () {
     renderSelectedMedia(storedMediaFiles);
   });
 
-  $(document).on('click', '.remove-icon', function () {
-    const file = $(this).closest('.chat-input-image-card').data('file');
+  $(document).on("click", ".remove-icon", function () {
+    const file = $(this).closest(".chat-input-image-card").data("file");
     const index = storedMediaFiles.indexOf(file);
     if (index > -1) {
       storedMediaFiles.splice(index, 1);
     }
 
-    $(`.media-checkbox[data-file="${file}"]`).prop('checked', false);
+    $(`.media-checkbox[data-file="${file}"]`).prop("checked", false);
 
     updateSelectedMedia();
     renderSelectedMedia(storedMediaFiles);
   });
 
   $(window).click(function (event) {
-    if (!$(event.target).closest('#media-modal, #toggle-media-modal').length) {
-      $('#media-modal').hide();
+    if (!$(event.target).closest("#media-modal, #toggle-media-modal").length) {
+      $("#media-modal").hide();
     }
   });
 });
@@ -448,11 +451,11 @@ const selectedFiles = [];
 
 $(document).ready(function () {
   function fetchFiles() {
-    return $.getJSON('files.json');
+    return $.getJSON("files.json");
   }
 
   function renderFileCards(files) {
-    const fileCardsContainer = $('#file-cards-container');
+    const fileCardsContainer = $("#file-cards-container");
     fileCardsContainer.empty();
 
     files.forEach((file, index) => {
@@ -468,18 +471,18 @@ $(document).ready(function () {
       fileCardsContainer.append(fileCard);
     });
 
-    $('#file-count').text(files.length);
+    $("#file-count").text(files.length);
   }
 
   function renderSelectedFiles() {
-    const fileContainer = $('#chat-input-file-container');
+    const fileContainer = $("#chat-input-file-container");
     fileContainer.empty();
 
     selectedFiles.forEach((file, index) => {
-      const isActive = $('.chat-input-file-card')
+      const isActive = $(".chat-input-file-card")
         .eq(index)
-        .hasClass('active-file-card');
-      const activeClass = isActive ? 'active-file-card' : '';
+        .hasClass("active-file-card");
+      const activeClass = isActive ? "active-file-card" : "";
 
       const fileCard = `
         <div class="chat-input-file-card ${activeClass}" data-index="${index}">
@@ -494,72 +497,72 @@ $(document).ready(function () {
     });
   }
 
-  $('#open-modal-btn').click(function () {
+  $("#open-modal-btn").click(function () {
     fetchFiles().done(function (files) {
       renderFileCards(files);
-      $('#file-modal').toggle();
+      $("#file-modal").toggle();
     });
   });
 
-  $(document).on('change', '.file-checkbox', function () {
-    const fileName = $(this).data('name');
-    const fileIcon = $(this).data('icon');
-    const fileCard = $(this).closest('.file-card');
+  $(document).on("change", ".file-checkbox", function () {
+    const fileName = $(this).data("name");
+    const fileIcon = $(this).data("icon");
+    const fileCard = $(this).closest(".file-card");
 
-    if ($(this).is(':checked')) {
+    if ($(this).is(":checked")) {
       selectedFiles.push({ name: fileName, icon: fileIcon });
-      fileCard.addClass('selected-file-card');
+      fileCard.addClass("selected-file-card");
     } else {
       const index = selectedFiles.findIndex((file) => file.name === fileName);
       if (index > -1) {
         selectedFiles.splice(index, 1);
       }
-      fileCard.removeClass('selected-file-card');
+      fileCard.removeClass("selected-file-card");
     }
 
-    $('.file-modal-header span').text(`(${selectedFiles.length} Selected)`);
+    $(".file-modal-header span").text(`(${selectedFiles.length} Selected)`);
     renderSelectedFiles();
   });
 
-  $(document).on('click', '.remove-file-icon', function (event) {
+  $(document).on("click", ".remove-file-icon", function (event) {
     event.stopPropagation();
 
-    const $fileCard = $(this).closest('.chat-input-file-card');
-    const fileName = $fileCard.find('span').text();
+    const $fileCard = $(this).closest(".chat-input-file-card");
+    const fileName = $fileCard.find("span").text();
     const index = selectedFiles.findIndex((file) => file.name === fileName);
     if (index > -1) {
       selectedFiles.splice(index, 1);
     }
 
-    $(`.file-checkbox[data-name="${fileName}"]`).prop('checked', false);
+    $(`.file-checkbox[data-name="${fileName}"]`).prop("checked", false);
 
-    $('.file-modal-header span').text(`(${selectedFiles.length} Selected)`);
+    $(".file-modal-header span").text(`(${selectedFiles.length} Selected)`);
     renderSelectedFiles();
   });
 
-  $(document).on('click', '.chat-input-file-card', function (event) {
+  $(document).on("click", ".chat-input-file-card", function (event) {
     event.stopPropagation();
-    $(this).toggleClass('active-file-card');
+    $(this).toggleClass("active-file-card");
   });
 
   $(window).click(function (event) {
     if (
       !$(event.target).closest(
-        '#file-modal, #open-modal-btn, .remove-file-icon'
+        "#file-modal, #open-modal-btn, .remove-file-icon"
       ).length
     ) {
-      $('#file-modal').hide();
+      $("#file-modal").hide();
     }
   });
 });
 
 $(document).ready(function () {
   function fetchLinks() {
-    return $.getJSON('links.json');
+    return $.getJSON("links.json");
   }
 
   function renderLinkCards(links) {
-    const linkCardsContainer = $('#link-cards-container');
+    const linkCardsContainer = $("#link-cards-container");
     linkCardsContainer.empty();
 
     links.forEach((link) => {
@@ -576,43 +579,45 @@ $(document).ready(function () {
     });
   }
 
-  $('#open-link-modal-btn').click(function () {
+  $("#open-link-modal-btn").click(function () {
     fetchLinks().done(function (links) {
       console.log(links);
       if (links) {
         renderLinkCards(links);
-        $('#link-modal').toggle();
+        $("#link-modal").toggle();
       }
     });
   });
 
-  $(document).on('change', '.link-checkbox', function () {
-    let selectedCount = $('.link-checkbox:checked').length;
-    $('.link-modal-header span').text(`(${selectedCount} Selected)`);
+  $(document).on("change", ".link-checkbox", function () {
+    let selectedCount = $(".link-checkbox:checked").length;
+    $(".link-modal-header span").text(`(${selectedCount} Selected)`);
   });
 
   $(window).click(function (event) {
-    if (!$(event.target).closest('#link-modal, #open-link-modal-btn').length) {
-      $('#link-modal').hide();
+    if (!$(event.target).closest("#link-modal, #open-link-modal-btn").length) {
+      $("#link-modal").hide();
     }
   });
 });
 
 $(document).ready(function () {
-  $('.file-icon-card').click(function () {
-    $('.file-icon-card').removeClass('active');
-    $(this).addClass('active');
+  $(".file-icon-card").click(function () {
+    $(".file-icon-card").removeClass("active");
+    $(this).addClass("active");
   });
 });
 
 $(document).ready(function () {
-  var modal = $('#createGroupModal');
-  var btn = $('#openGroupModal');
-  var span = $('.close');
-  var cancelBtn = $('.cancel');
-  var uploadContainer = $('#uploadContainer');
-  var fileInput = $('#groupImage');
-  var imagePreview = $('#imagePreview');
+  var modal = $("#createGroupModal");
+  var btn = $("#openGroupModal");
+  var span = $(".close");
+  var cancelBtn = $(".cancel");
+  var uploadContainer = $("#uploadContainer");
+  var fileInput = $("#groupImage");
+  var imagePreview = $("#imagePreview");
+
+  console.log("inside");
 
   btn.click(function () {
     modal.show();
@@ -632,31 +637,31 @@ $(document).ready(function () {
     }
   });
 
-  $('#createGroupForm').submit(function (event) {
+  $("#createGroupForm").submit(function (event) {
     event.preventDefault();
-    alert('Group created!');
+    alert("Group created!");
     modal.hide();
   });
 
   // Drag and Drop functionality
-  uploadContainer.on('dragover', function (event) {
+  uploadContainer.on("dragover", function (event) {
     event.preventDefault();
     event.stopPropagation();
-    $(this).addClass('dragover');
+    $(this).addClass("dragover");
   });
 
-  uploadContainer.on('dragleave', function (event) {
+  uploadContainer.on("dragleave", function (event) {
     event.preventDefault();
     event.stopPropagation();
-    $(this).removeClass('dragover');
+    $(this).removeClass("dragover");
   });
 
-  uploadContainer.on('drop', function (event) {
+  uploadContainer.on("drop", function (event) {
     event.preventDefault();
     event.stopPropagation();
-    $(this).removeClass('dragover');
+    $(this).removeClass("dragover");
     var files = event.originalEvent.dataTransfer.files;
-    fileInput.prop('files', files);
+    fileInput.prop("files", files);
 
     fileInput.change();
   });
@@ -668,7 +673,7 @@ $(document).ready(function () {
       $.each(files, function (index, file) {
         var reader = new FileReader();
         reader.onload = function (e) {
-          var img = $('<img>').attr('src', e.target.result);
+          var img = $("<img>").attr("src", e.target.result);
           imagePreview.append(img);
         };
         reader.readAsDataURL(file);
@@ -679,10 +684,10 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  var modal = $('#callModal');
-  var btn = $('#openCallModal');
-  var span = $('.close');
-  var endCall = $('.end-call');
+  var modal = $("#callModal");
+  var btn = $("#openCallModal");
+  var span = $(".close");
+  var endCall = $(".end-call");
 
   btn.click(function () {
     modal.show();
@@ -706,18 +711,18 @@ $(document).ready(function () {
 $(document).ready(function () {
   const groups = [
     {
-      imgSrc: './assets/group-chat.png',
-      altText: 'Group 1',
-      count: '+3',
-      name: 'Finance Group',
-      description: 'That sounds awesome lets get...',
+      imgSrc: "./assets/group-chat.png",
+      altText: "Group 1",
+      count: "+3",
+      name: "Finance Group",
+      description: "That sounds awesome lets get...",
     },
     {
-      imgSrc: './assets/group-chat.png',
-      altText: 'Group 2',
-      count: '+3',
-      name: 'Behavioral Psyc..',
-      description: 'That sounds awe...',
+      imgSrc: "./assets/group-chat.png",
+      altText: "Group 2",
+      count: "+3",
+      name: "Behavioral Psyc..",
+      description: "That sounds awe...",
     },
   ];
 
@@ -736,73 +741,141 @@ $(document).ready(function () {
               </div>
           `);
 
-      groupItem.on('click', function () {
-        $('#groups-container').show();
-        $('.welcome-text').hide();
-        $('.profile-component').css('display', 'flex');
-        $('.chat-layout').css('display', 'block');
+      groupItem.on("click", function () {
+        $("#groups-container").show();
+        $(".welcome-text").hide();
+        $(".profile-component").css("display", "flex");
+        $(".chat-layout").css("display", "block");
         // $('.chat-card').css('display', 'none');
-        $('.chat-container').hide();
-        $('#chat-box').hide();
+        $(".chat-container").hide();
+        $("#chat-box").hide();
       });
 
-      $('#group-list').append(groupItem);
+      $("#group-list").append(groupItem);
     });
   }
 
   renderGroups(groups);
 });
 
+$(document).ready(function () {
+  var modal = $("#sendCoinModal");
+  var btn = $(".send-coin-button");
+  var span = $(".cancel-button");
 
-$(document).ready(function() {
-    var modal = $('#sendCoinModal');
-    var btn = $('.send-coin-button');
-    var span = $('.cancel-button');
+  btn.on("click", function () {
+    modal.show();
+  });
 
-    btn.on('click', function() {
-        modal.show();
-    });
+  span.on("click", function () {
+    modal.hide();
+  });
 
-    span.on('click', function() {
-        modal.hide();
-    });
+  $(window).on("click", function (event) {
+    if ($(event.target).is(modal)) {
+      modal.hide();
+    }
+  });
 
-    $(window).on('click', function(event) {
-        if ($(event.target).is(modal)) {
-            modal.hide();
-        }
-    });
-
-    $('.coin-button').on('click', function() {
-        $('.coin-button').removeClass('selected');
-        $(this).addClass('selected');
-        var amount = $(this).text();
-        $('.coin-summary').text(amount + ' coins to Sophia Vera');
-    });
+  $(".coin-button").on("click", function () {
+    $(".coin-button").removeClass("selected");
+    $(this).addClass("selected");
+    var amount = $(this).text();
+    $(".coin-summary").text(amount + " coins to Sophia Vera");
+  });
 });
 
+$(document).ready(function () {
+  var modal = $("#sendGiftModal");
+  var btn = $(".send-gift-button");
+  var span = $(".cancel-button");
 
-$(document).ready(function() {
-    var modal = $('#sendGiftModal');
-    var btn = $('.send-gift-button');
-    var span = $('.cancel-button');
+  btn.on("click", function () {
+    modal.show();
+  });
 
-    btn.on('click', function() {
-        modal.show();
+  span.on("click", function () {
+    modal.hide();
+  });
+
+  $(window).on("click", function (event) {
+    if ($(event.target).is(modal)) {
+      modal.hide();
+    }
+  });
+
+  $(".gift-button").on("click", function () {
+    $(".gift-button").removeClass("selected");
+    $(this).addClass("selected");
+  });
+});
+
+$(document).ready(function () {
+  const members = [
+    { name: "Jenny Wilson", image: "./assets/user1.png" },
+    { name: "Jenny Wilson", image: "./assets/user2.png" },
+    { name: "Jenny Wilson", image: "./assets/user3.png" },
+    { name: "Jenny Wilson", image: "./assets/user4.png" },
+    { name: "Jenny Wilson", image: "./assets/user1.png" },
+    { name: "Jenny Wilson", image: "./assets/user2.png" },
+    { name: "Jenny Wilson", image: "./assets/user3.png" },
+    { name: "Jenny Wilson", image: "./assets/user4.png" },
+  ];
+
+  function renderMembers() {
+    const membersList = $("#members-list");
+    membersList.empty();
+
+    members.forEach((member, index) => {
+      const memberItem = `
+        <div class="member-item">
+          <div class="image-content">
+            <img src="${member.image}" alt="image" />
+            <div class="name-content">
+              <h3>${member.name}</h3>
+              <span>Visit Profile <i class="fa fa-angle-right" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <button class="ellipsis-button" data-index="${index}">
+            <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+          </button>
+          
+          <div id="optionsGroupsModal-${index}" class="options-modal-groups">
+            <button class="options-modal-close" data-index="${index}">
+              <i class="fa fa-times close" aria-hidden="true"></i>
+            </button>
+            <div class="options-group-modal-content">
+              <ul>            
+                <li>
+                  <span class="icon"><i class="fa fa-arrow-up" aria-hidden="true"></i></span>
+                  Make admin
+                </li>
+                <li>
+                  <span class="icon"><i class="fa fa-minus-square-o" aria-hidden="true"></i></span>
+                  Remove
+                </li>
+                <li>
+                  <span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span>
+                  Block
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      `;
+      membersList.append(memberItem);
     });
 
-    span.on('click', function() {
-        modal.hide();
+    $(".ellipsis-button").on("click", function () {
+      const index = $(this).data("index");
+      $(`#optionsGroupsModal-${index}`).show();
     });
 
-    $(window).on('click', function(event) {
-        if ($(event.target).is(modal)) {
-            modal.hide();
-        }
+    $(".options-modal-close").on("click", function () {
+      const index = $(this).data("index");
+      $(`#optionsGroupsModal-${index}`).hide();
     });
+  }
 
-    $('.gift-button').on('click', function() {
-        $('.gift-button').removeClass('selected');
-        $(this).addClass('selected');
-    });
+  renderMembers();
 });
