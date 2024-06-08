@@ -1025,7 +1025,7 @@ svg[data-icon] {
 }
 #sidebar[aria-expanded='false'] {
   width: 6.5rem;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 #sidebar[aria-expanded='false'] .sidebar_container,
 #sidebar[aria-expanded='false'] .sidebar_container__bordered {

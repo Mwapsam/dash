@@ -254,7 +254,7 @@ $(document).ready(function () {
   function checkSidebar() {
     if ($("#sidebar").attr("aria-expanded") === "false") {
       $(".welcome-text .img").css({
-        "max-width": "15%",
+        "max-width": "55%",
         height: "auto",
       });
     } else {
