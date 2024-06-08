@@ -879,3 +879,58 @@ $(document).ready(function () {
 
   renderMembers();
 });
+
+$(document).ready(function () {
+  $("#openAddMemberModal").click(function () {
+    $("#addMemberModal").show();
+  });
+
+  $("#cancelBtn").click(function () {
+    $("#addMemberModal").hide();
+  });
+
+  $(window).click(function (event) {
+    if ($(event.target).is("#addMemberModal")) {
+      $("#addMemberModal").hide();
+    }
+  });
+
+  $("#addMembersBtn").click(function () {
+    $("#addMemberModal").hide();
+  });
+
+  $(".modal-tabs h2").click(function () {
+    const tab = $(this).data("tab");
+    $(".modal-tabs h2").removeClass("active");
+    $(this).addClass("active");
+
+    if (tab === "following") {
+      $("#searchInput").attr("placeholder", "Search following");
+      $("#followingList").show();
+      $("#followersList").hide();
+    } else {
+      $("#searchInput").attr("placeholder", "Search followers");
+      $("#followingList").hide();
+      $("#followersList").show();
+    }
+  });
+
+  $("#selectAllCheckbox").change(function () {
+    const isChecked = $(this).is(":checked");
+    $(".members-list-modal:visible .member-checkbox").prop(
+      "checked",
+      isChecked
+    );
+  });
+
+  $(".members-list-modal").on("change", ".member-checkbox", function () {
+    if (!$(this).is(":checked")) {
+      $("#selectAllCheckbox").prop("checked", false);
+    } else if (
+      $(".members-list-modal:visible .member-checkbox:checked").length ===
+      $(".members-list-modal:visible .member-checkbox").length
+    ) {
+      $("#selectAllCheckbox").prop("checked", true);
+    }
+  });
+});

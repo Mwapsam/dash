@@ -347,7 +347,7 @@
               <span><i class="fa fa-search" aria-hidden="true"></i></span>
               <p>Search members</p>
             </div>
-            <button class="member-button" id="openGroupModal">
+            <button class="member-button" id="openAddMemberModal">
               <i class="fa fa-plus" aria-hidden="true"></i>
               <span>Add Member</span>
             </button>
@@ -421,6 +421,103 @@
           </div>
         </div>
 
+        <div id="addMemberModal" class="member-modal">
+          <div class="member-modal-content">
+            <div class="modal-header">
+              <div class="modal-tabs">
+                <h2 data-tab="following" class="active">Following</h2>
+                <h2 data-tab="followers">Followers</h2>
+              </div>
+              <div class="search">
+                <span><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input
+                  type="text"
+                  placeholder="Search following"
+                  id="searchInput"
+                />
+              </div>
+            </div>
+            <div class="members-section">
+              <ul class="members-list-modal" id="followingList">
+                <li>
+                  <span class="select-all">Select All</span>
+                  <input type="checkbox" id="selectAllCheckbox" />
+                </li>
+                <li>
+                  <div class="member-card">
+                    <img src="./assets/user1.png" alt="user image" />
+                    <span>Wade Warren</span>
+                  </div>
+                  <input type="checkbox" class="member-checkbox" />
+                </li>
+                <li>
+                  <div class="member-card">
+                    <img src="./assets/user2.png" alt="user image" />
+                    <span>Jenny Wilson</span>
+                  </div>
+                  <input type="checkbox" class="member-checkbox" />
+                </li>
+                <li>
+                  <div class="member-card">
+                    <img src="./assets/user3.png" alt="user image" />
+                    <span>Peter Wilson</span>
+                  </div>
+                  <input type="checkbox" class="member-checkbox" />
+                </li>
+                <li>
+                  <div class="member-card">
+                    <img src="./assets/user4.png" alt="user image" />
+                    <span>John White</span>
+                  </div>
+                  <input type="checkbox" class="member-checkbox" />
+                </li>
+                <li>
+                  <div class="member-card">
+                    <img src="./assets/user5.png" alt="user image" />
+                    <span>John White</span>
+                  </div>
+                  <input type="checkbox" class="member-checkbox" />
+                </li>
+                <li>
+                  <div class="member-card">
+                    <img src="./assets/user1.png" alt="user image" />
+                    <span>John White</span>
+                  </div>
+                  <input type="checkbox" class="member-checkbox" />
+                </li>
+              </ul>
+              <ul
+                class="members-list-modal"
+                id="followersList"
+                style="display: none"
+              >
+                <li>
+                  <span class="select-all">Select All</span>
+                  <input type="checkbox" id="selectAllCheckbox" />
+                </li>
+                <li>
+                  <div class="member-card">
+                    <img src="./assets/user3.png" alt="user image" />
+                    <span>Cameron Williamson</span>
+                  </div>
+                  <input type="checkbox" class="member-checkbox" />
+                </li>
+                <li>
+                  <div class="member-card">
+                    <img src="./assets/user4.png" alt="user image" />
+                    <span>Esther Howard</span>
+                  </div>
+                  <input type="checkbox" class="member-checkbox" />
+                </li>
+              </ul>
+            </div>
+
+            <div class="modal-footer">
+              <button id="cancelBtn">Cancel</button>
+              <button id="addMembersBtn">Add Members</button>
+            </div>
+          </div>
+        </div>
         <!-- Chat input box -->
         <div class="chat-input-container">
           <div
