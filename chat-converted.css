@@ -631,6 +631,7 @@ svg[data-icon] {
   display: grid;
   flex: 1 1 0%;
   grid-template-columns: auto 1fr;
+  background-color: #F9FEFF;
 }
 .content_area main {
   overflow: hidden;
@@ -830,6 +831,7 @@ svg[data-icon] {
 }
 #sidebar .sidebar_container {
   min-height: 100%;
+  background-color: #fff;
 }
 #sidebar .sidebar_container > * {
   margin-top: 1rem;
