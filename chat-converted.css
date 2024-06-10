@@ -866,7 +866,7 @@ svg[data-icon] {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.15s;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .sidebar_nav h4 {
   padding-top: 0.5rem;

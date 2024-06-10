@@ -855,7 +855,7 @@
   .chat-list {
     background-color: #fff;
     height: 20rem;
-    overflow-y: scroll;
+    overflow-y: scroll !important;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -1746,7 +1746,8 @@
     right: 5px;
   }
 
-  .select-button {
+  .select-button,
+  .select-button-files {
     position: fixed;
     bottom: 150px;
     right: 48px;
@@ -1830,6 +1831,12 @@
       display: flex;
       align-items: center;
       gap: 6px;
+
+      img {
+        width: 54.71px;
+        height: 67.17px;
+        object-fit: cover;
+      }
     }
   }
   .file-modal,
@@ -1984,24 +1991,21 @@
     white-space: nowrap;
   }
 
+  .chat-input-file-container::-webkit-scrollbar {
+    width: 0.05px;
+  }
+
   .chat-input-file-card {
     position: relative;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     padding: 8px;
-    gap: 8px;
     margin: 10px;
-
     width: 115px;
     height: 109.17px;
-
     background: #fdfcfc;
     border-radius: 8px;
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 
     img {
       border-radius: 5px;

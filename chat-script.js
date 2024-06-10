@@ -552,15 +552,24 @@ $(document).ready(function () {
     }
   });
 
-  updateImagesToBeSent(); // Initial update after setup
+  updateImagesToBeSent();
 });
 
-
 const selectedFiles = [];
+let allFiles = [];
 
 $(document).ready(function () {
   function fetchFiles() {
     return $.getJSON("files.json");
+  }
+
+  function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+      var truncated = text.substring(0, maxLength) + "...";
+      return truncated;
+    } else {
+      return text;
+    }
   }
 
   function renderFileCards(files) {
@@ -572,9 +581,11 @@ $(document).ready(function () {
         <div class="file-card">
           <div class="file-content">
             <img src="${file.icon}" alt="file" />
-            <span>${file.name}</span>
+            <span>${truncateText(file.name, 48)}</span>
           </div>
-          <input type="checkbox" class="file-checkbox" data-index="${index}" data-name="${file.name}" data-icon="${file.icon}" />
+          <input type="checkbox" class="file-checkbox" data-index="${index}" data-name="${
+        file.name
+      }" data-icon="${file.icon}" />
         </div>
       `;
       fileCardsContainer.append(fileCard);
@@ -585,33 +596,49 @@ $(document).ready(function () {
 
   function renderSelectedFiles() {
     const fileContainer = $("#chat-input-file-container");
-    fileContainer.empty();
-
-    selectedFiles.forEach((file, index) => {
-      const isActive = $(".chat-input-file-card")
-        .eq(index)
-        .hasClass("active-file-card");
-      const activeClass = isActive ? "active-file-card" : "";
-
-      const fileCard = `
-        <div class="chat-input-file-card ${activeClass}" data-index="${index}">
-          <div>
-            <img src="${file.icon}" alt="file" />
-            <span>${file.name}</span>
+    let selectedFilesContent = selectedFiles
+      .map(
+        (file, index) => `
+          <div class="chat-input-file-card" data-index="${index}">
+            <div>
+              <img src="${file.icon}" alt="file" />
+              <span>${truncateText(file.name, 38)}</span>
+            </div>
+            <i class="fa fa-times-circle remove-file-icon" aria-hidden="true"></i>
           </div>
-          <i class="fa fa-times-circle remove-file-icon" aria-hidden="true"></i>
-        </div>
-      `;
-      fileContainer.append(fileCard);
-    });
+        `
+      )
+      .join("");
+
+    fileContainer.html(selectedFilesContent);
   }
 
   $("#open-modal-btn").click(function () {
     fetchFiles().done(function (files) {
-      renderFileCards(files);
+      allFiles = files;
+      renderFileCards(allFiles);
       $("#file-modal").toggle();
     });
   });
+
+  $(document).on("click", ".chat-input-file-card", function (event) {
+    event.stopPropagation();
+    $(this).toggleClass("selected");
+    updateFilesToBeSent();
+  });
+
+  $(document).ready(function () {
+    updateFilesToBeSent();
+  });
+
+  function updateFilesToBeSent() {
+    var filesToBeSent = $(".chat-input-file-card.selected").length;
+    $(".send-button-images")
+      .toggle(filesToBeSent > 0)
+      .html(
+        `Send ${filesToBeSent} <i class="fa fa-paper-plane" aria-hidden="true"></i>`
+      );
+  }
 
   $(document).on("change", ".file-checkbox", function () {
     const fileName = $(this).data("name");
@@ -652,6 +679,32 @@ $(document).ready(function () {
   $(document).on("click", ".chat-input-file-card", function (event) {
     event.stopPropagation();
     $(this).toggleClass("active-file-card");
+  });
+
+  $(".select-button-files").click(function () {
+    $("#upload-files").click();
+  });
+
+  $("#upload-files").change(function (event) {
+    const files = event.target.files;
+    const fileReaders = [];
+
+    for (const file of files) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const fileContent = e.target.result;
+        const uploadedFile = { name: file.name, icon: fileContent };
+        allFiles.unshift(uploadedFile);
+        fileReaders.push(reader);
+        if (fileReaders.length === files.length) {
+          renderFileCards(allFiles);
+        }
+      };
+      reader.onerror = function (e) {
+        console.error("File reading error:", e);
+      };
+      reader.readAsDataURL(file);
+    }
   });
 
   $(window).click(function (event) {
