@@ -84,35 +84,71 @@ $(document).ready(function () {
 $(document).ready(function () {
   var chatsData;
 
-  function createChatItem(chat) {
+  function createChatItem(chat, index) {
     if (chat.messages && chat.messages.length > 0) {
       let latestConversation = chat.messages[chat.messages.length - 1];
       let latestMessage =
         latestConversation.messages[latestConversation.messages.length - 1];
+
+      let uniqueId = `optionsModal${index}`;
+      let uniqueTriggerId = `optionsTrigger${index}`;
 
       return `
         <div class="chat-item" data-name="${chat.name}" data-unread="${chat.unread}" data-favourite="${chat.favourite}">
           <img src="${chat.avatar}" alt="${chat.name}" class="avatar" />
           <div class="chat-details">
             <div class="chat-header">
-            <div class="name-time-card">
-              <span class="chat-name">
-                ${chat.name}
-              </span>
-              <div class="chat-time">${latestMessage.time}</div>
-            </div>
-
+              <div class="name-time-card">
+                <span class="chat-name">${chat.name}</span>
+                <div class="chat-time">${latestMessage.time}</div>
+              </div>
               <span class="chat-count">${chat.count}</span>
             </div>
             <div class="chat-message-side">
               <div class="chat-message">${latestMessage.message}</div>
-                <span class='dots' id='options-modal'>
+                <span class='dots' id='${uniqueTriggerId}'>
                   <span class='dot black-dot'>.</span>
                   <span class='dot yellow-dot'>.</span>
                   <span class='dot blue-dot'>.</span>
                 </span>
             </div>
           </div>
+          <button class="options-hover-button" data-modal-id="${uniqueId}">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </button>
+          <div id="${uniqueId}" class="options-modal">
+              <button class="options-modal-close">
+                <i class="fa fa-times close" aria-hidden="true"></i>
+              </button>
+              <div class="options-modal-content">
+                <ul>
+                  <li>
+                    <span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+                    Favourite
+                  </li>
+                  <li>
+                    <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                    Voice call
+                  </li>
+                  <li>
+                    <span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span>
+                    Video call
+                  </li>
+                  <li>
+                    <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                    Unread
+                  </li>
+                  <li>
+                    <span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                    Delete
+                  </li>
+                  <li>
+                    <span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span>
+                    Block
+                  </li>
+                </ul>
+              </div>
+            </div>
         </div>
       `;
     }
@@ -160,32 +196,42 @@ $(document).ready(function () {
   }
 
   function createOptionsModal() {
-    $("#chat-list").on("click", "#options-modal", function () {
-      $("#optionsModal").css("display", "block");
-    });
+    $("#chat-list").on("click", ".options-hover-button", function () {
+      let modalId = $(this).data("modal-id");
+      $("#" + modalId).css("display", "block");
 
-    $(".close").click(function () {
-      $("#optionsModal").css("display", "none");
-    });
+      $("#" + modalId)
+        .find(".options-modal-close")
+        .click(function () {
+          $("#" + modalId).css("display", "none");
+        });
 
-    $(window).click(function (event) {
-      if (event.target == $("#optionsModal")[0]) {
-        $("#optionsModal").css("display", "none");
-      }
+      $(window).click(function (event) {
+        if (event.target == $("#" + modalId)[0]) {
+          $("#" + modalId).css("display", "none");
+        }
+      });
     });
   }
 
   function filterChats(filter) {
+    let visibleCount = 0;
     $("#chat-list .chat-item").each(function () {
       var unread = $(this).data("unread");
       var favourite = $(this).data("favourite");
+      var shouldShow = false;
 
       if (filter === "all") {
-        $(this).show();
+        shouldShow = true;
       } else if (filter === "unread" && unread) {
-        $(this).show();
+        shouldShow = visibleCount < 3;
       } else if (filter === "favourites" && favourite) {
+        shouldShow = visibleCount < 4;
+      }
+
+      if (shouldShow) {
         $(this).show();
+        visibleCount++;
       } else {
         $(this).hide();
       }
@@ -203,8 +249,8 @@ $(document).ready(function () {
     chatsData = data;
     var $chatList = $("#chat-list");
     $chatList.empty();
-    data.forEach(function (chat) {
-      let chatItemHtml = createChatItem(chat);
+    data.forEach(function (chat, index) {
+      let chatItemHtml = createChatItem(chat, index);
       if (chatItemHtml) {
         $chatList.append(chatItemHtml);
       }

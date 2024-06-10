@@ -2033,12 +2033,33 @@
     border-radius: 16px;
   }
 
+  .options-hover-button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 auto;
+    width: 44px;
+    height: 44px;
+    background: #ffffff;
+    border: 1px solid rgba(195, 195, 195, 0.79);
+    border-radius: 200px;
+    position: absolute;
+    right: 6px;
+    top: 14px;
+  }
+
   .options-modal {
     display: none;
     position: absolute;
     z-index: 1;
-    left: 10rem;
-    top: 6rem;
+    left: 9rem;
+  }
+
+  .chat-item:hover {
+    .options-hover-button {
+      display: flex;
+    }
   }
 
   .options-modal-content {
