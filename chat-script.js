@@ -196,13 +196,15 @@ $(document).ready(function () {
   }
 
   function createOptionsModal() {
-    $("#chat-list").on("click", ".options-hover-button", function () {
+    $("#chat-list").on("click", ".options-hover-button", function (event) {
+      event.stopPropagation();
       let modalId = $(this).data("modal-id");
       $("#" + modalId).css("display", "block");
 
       $("#" + modalId)
         .find(".options-modal-close")
-        .click(function () {
+        .click(function (event) {
+          event.stopPropagation();
           $("#" + modalId).css("display", "none");
         });
 
@@ -408,17 +410,18 @@ $(document).ready(function () {
 });
 
 const storedMediaFiles = [];
+let mediaFiles = [
+  "./assets/user1.png",
+  "./assets/user2.png",
+  "./assets/user3.png",
+  "./assets/user4.png",
+  "./assets/user5.png",
+];
+
+let imagesToBeSent = 0;
 
 $(document).ready(function () {
   function renderMediaModal() {
-    const mediaFiles = [
-      "./assets/user1.png",
-      "./assets/user2.png",
-      "./assets/user3.png",
-      "./assets/user4.png",
-      "./assets/user5.png",
-    ];
-
     let mediaModalContent = "";
     for (let i = 0; i < 10; i++) {
       mediaFiles.forEach((file) => {
@@ -440,17 +443,29 @@ $(document).ready(function () {
   }
 
   function renderSelectedMedia(selectedFiles) {
-    let selectedMediaContent = "";
-    selectedFiles.forEach((file, index) => {
-      selectedMediaContent += `
-        <div class="chat-input-image-card" data-file="${file}">
-          <img src="${file}" alt="Selected image" />
-          <i class="fa fa-times-circle remove-icon" aria-hidden="true" data-index="${index}"></i>
-        </div>
-      `;
-    });
+    let selectedMediaContent = selectedFiles
+      .map(
+        (file, index) => `
+      <div class="chat-input-image-card" data-file="${file}">
+        <img src="${file}" alt="Selected image" class="selectable-image" />
+        <div class="image-overlay"></div>
+        <i class="fa fa-times-circle remove-icon" aria-hidden="true" data-index="${index}"></i>
+      </div>
+    `
+      )
+      .join("");
 
     $("#chat-input-image-container").html(selectedMediaContent);
+    updateImagesToBeSent();
+  }
+
+  function updateImagesToBeSent() {
+    imagesToBeSent = $(".chat-input-image-card.selected").length;
+    $(".send-button-images")
+      .toggle(imagesToBeSent > 0)
+      .html(
+        `Send ${imagesToBeSent} <i class="fa fa-paper-plane" aria-hidden="true"></i>`
+      );
   }
 
   renderMediaModal();
@@ -475,7 +490,8 @@ $(document).ready(function () {
     renderSelectedMedia(storedMediaFiles);
   });
 
-  $(document).on("click", ".remove-icon", function () {
+  $(document).on("click", ".remove-icon", function (event) {
+    event.stopPropagation();
     const file = $(this).closest(".chat-input-image-card").data("file");
     const index = storedMediaFiles.indexOf(file);
     if (index > -1) {
@@ -488,12 +504,57 @@ $(document).ready(function () {
     renderSelectedMedia(storedMediaFiles);
   });
 
+  $(document).on("click", ".selectable-image", function (event) {
+    event.stopPropagation();
+
+    const file = $(this).closest(".chat-input-image-card").data("file");
+    const isSelected = $(this)
+      .closest(".chat-input-image-card")
+      .toggleClass("selected")
+      .hasClass("selected");
+
+    if (isSelected) {
+      storedMediaFiles.push(file);
+    } else {
+      const index = storedMediaFiles.indexOf(file);
+      if (index > -1) {
+        storedMediaFiles.splice(index, 1);
+      }
+    }
+
+    updateSelectedMedia();
+    updateImagesToBeSent();
+  });
+
   $(window).click(function (event) {
     if (!$(event.target).closest("#media-modal, #toggle-media-modal").length) {
       $("#media-modal").hide();
     }
   });
+
+  $(".select-button").click(function () {
+    $("#file-upload").click();
+  });
+
+  $("#file-upload").change(function (event) {
+    const files = event.target.files;
+    for (const file of files) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const fileContent = e.target.result;
+        mediaFiles.unshift(fileContent);
+        renderMediaModal();
+      };
+      reader.onerror = function (e) {
+        console.error("File reading error:", e);
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  updateImagesToBeSent(); // Initial update after setup
 });
+
 
 const selectedFiles = [];
 
@@ -940,7 +1001,8 @@ $(document).ready(function () {
       $(`#optionsGroupsModal-${index}`).show();
     });
 
-    $(".options-modal-close").on("click", function () {
+    $(".options-modal-close").on("click", function (event) {
+      event.stopPropagation();
       const index = $(this).data("index");
       $(`#optionsGroupsModal-${index}`).hide();
     });

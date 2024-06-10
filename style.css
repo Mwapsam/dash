@@ -1028,6 +1028,25 @@
     width: 100%;
   }
 
+  .send-button-images {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    gap: 8px;
+    position: absolute;
+    right: 0.8%;
+    top: 6px;
+    margin: 0 auto;
+    width: 135.94px;
+    height: 40px;
+    background: #8837e9;
+    box-shadow: 0px 24px 48px -12px rgba(0, 0, 0, 0.18);
+    border-radius: 100px;
+    color: #fff;
+  }
+
   .send-button {
     border: none;
     cursor: pointer;
@@ -1952,6 +1971,11 @@
     }
   }
 
+  .chat-input-image-card.selected {
+    border: 4px solid #8837e9;
+    border-radius: 8px;
+  }
+
   .chat-input-file-container {
     display: flex;
     gap: 3px;
@@ -2052,7 +2076,7 @@
   .options-modal {
     display: none;
     position: absolute;
-    z-index: 1;
+    z-index: 9999;
     left: 9rem;
   }
 
