@@ -529,13 +529,21 @@
             class="chat-input-file-container"
             id="chat-input-file-container"
           ></div>
+          <div id="metadata-display"></div>
 
           <div class="input-wrapper">
-            <input type="text" class="chat-input" placeholder="Type here..." />
-            <button class="send-button">
+            <input
+              type="text"
+              class="chat-input"
+              placeholder="Type here..."
+              id="url-input"
+            />
+            <div id="audio-waves"></div>
+            <button class="send-button" id="fetch-button">
               <i class="fa fa-paper-plane" aria-hidden="true"></i>
             </button>
           </div>
+
           <div class="icons">
             <i
               class="fa fa-paperclip"
@@ -543,23 +551,25 @@
               id="attachment-icon"
             ></i>
             <i class="fa fa-meh-o" aria-hidden="true" id="imoji-attachment"></i>
-            <i class="fa fa-microphone" aria-hidden="true"></i>
+
+            <div id="microphone-icon">
+              <i class="fa fa-microphone" aria-hidden="true"></i>
+            </div>
+
             <button class="send-coin-button">
               <div class="send-coin-icon">
                 <i class="fa fa-database" aria-hidden="true"></i>
               </div>
-
               <span>Send Coin</span>
             </button>
-
             <button class="send-gift-button">
               <div class="send-gift-icon">
                 <i class="fa fa-gift" aria-hidden="true"></i>
               </div>
-
               <span>Send Gift</span>
             </button>
           </div>
+
           <div class="popup-menu" id="popup-menu">
             <div class="popup-item">
               <i class="fa fa-download" aria-hidden="true"></i> Upload from this
