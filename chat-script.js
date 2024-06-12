@@ -104,7 +104,7 @@ $(document).ready(function () {
     return `
       <div class="chat-item" data-name="${
         chat.name
-      }" data-unread="${chat.unread}" data-favourite="${chat.favourite}">
+      }" data-unread="${chat.unread}" data-favourite="${chat.favourite}" data-group="${chat.group}">
         <img src="${chat.avatar}" alt="${chat.name}" class="avatar" />
         <div class="chat-details">
           <div class="chat-header">
@@ -287,6 +287,7 @@ $(document).ready(function () {
     $("#chat-list .chat-item").each(function () {
       var unread = $(this).data("unread");
       var favourite = $(this).data("favourite");
+      var group = $(this).data("group");
       var shouldShow = false;
 
       if (filter === "all") {
@@ -295,6 +296,8 @@ $(document).ready(function () {
         shouldShow = visibleCount < 3;
       } else if (filter === "favourites" && favourite) {
         shouldShow = visibleCount < 4;
+      } else if (filter === "groups" && group) {
+        shouldShow = true;
       }
 
       if (shouldShow) {
@@ -308,10 +311,10 @@ $(document).ready(function () {
 
   function initialize() {
     $.getJSON("chats.json", function (data) {
-      var chatsData = data;
+      let chatsData = data;
       var $chatList = $("#chat-list");
       $chatList.empty();
-      data.forEach(function (chat, index) {
+      chatsData.forEach(function (chat, index) {
         let chatItemHtml = createChatItem(chat, index);
         if (chatItemHtml) {
           $chatList.append(chatItemHtml);

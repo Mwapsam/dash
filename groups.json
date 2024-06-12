@@ -1,0 +1,37 @@
+[
+  {
+    "imgSrc": "./assets/group-chat.png",
+    "altText": "Group 1",
+    "count": "+3",
+    "name": "Finance Group",
+    "description": "That sounds awesome lets get..."
+  },
+  {
+    "imgSrc": "./assets/group-chat.png",
+    "altText": "Group 2",
+    "count": "+3",
+    "name": "Behavioral Psyc..",
+    "description": "That sounds awe..."
+  },
+  {
+    "imgSrc": "./assets/group-chat.png",
+    "altText": "Group 2",
+    "count": "+3",
+    "name": "Behavioral Psyc..",
+    "description": "That sounds awe..."
+  },
+  {
+    "imgSrc": "./assets/group-chat.png",
+    "altText": "Group 2",
+    "count": "+3",
+    "name": "Behavioral Psyc..",
+    "description": "That sounds awe..."
+  },
+  {
+    "imgSrc": "./assets/group-chat.png",
+    "altText": "Group 2",
+    "count": "+3",
+    "name": "Behavioral Psyc..",
+    "description": "That sounds awe..."
+  }
+]
