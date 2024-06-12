@@ -82,77 +82,70 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  var chatsData;
+  function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + "...";
+    } else {
+      return text;
+    }
+  }
 
   function createChatItem(chat, index) {
-    if (chat.messages && chat.messages.length > 0) {
-      let latestConversation = chat.messages[chat.messages.length - 1];
-      let latestMessage =
-        latestConversation.messages[latestConversation.messages.length - 1];
-
-      let uniqueId = `optionsModal${index}`;
-      let uniqueTriggerId = `optionsTrigger${index}`;
-
-      return `
-        <div class="chat-item" data-name="${chat.name}" data-unread="${chat.unread}" data-favourite="${chat.favourite}">
-          <img src="${chat.avatar}" alt="${chat.name}" class="avatar" />
-          <div class="chat-details">
-            <div class="chat-header">
-              <div class="name-time-card">
-                <span class="chat-name">${chat.name}</span>
-                <div class="chat-time">${latestMessage.time}</div>
-              </div>
-              <span class="chat-count">${chat.count}</span>
-            </div>
-            <div class="chat-message-side">
-              <div class="chat-message">${latestMessage.message}</div>
-                <span class='dots' id='${uniqueTriggerId}'>
-                  <span class='dot black-dot'>.</span>
-                  <span class='dot yellow-dot'>.</span>
-                  <span class='dot blue-dot'>.</span>
-                </span>
-            </div>
-          </div>
-          <button class="options-hover-button" data-modal-id="${uniqueId}">
-            <i class="fa fa-arrow-right" aria-hidden="true"></i>
-          </button>
-          <div id="${uniqueId}" class="options-modal">
-              <button class="options-modal-close">
-                <i class="fa fa-times close" aria-hidden="true"></i>
-              </button>
-              <div class="options-modal-content">
-                <ul>
-                  <li>
-                    <span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
-                    Favourite
-                  </li>
-                  <li>
-                    <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                    Voice call
-                  </li>
-                  <li>
-                    <span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span>
-                    Video call
-                  </li>
-                  <li>
-                    <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                    Unread
-                  </li>
-                  <li>
-                    <span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                    Delete
-                  </li>
-                  <li>
-                    <span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span>
-                    Block
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </div>
-      `;
+    if (!chat.messages || chat.messages.length === 0) {
+      return "";
     }
-    return "";
+
+    let latestConversation = chat.messages[chat.messages.length - 1];
+    let latestMessage =
+      latestConversation.messages[latestConversation.messages.length - 1];
+    let uniqueId = `optionsModal${index}`;
+    let uniqueTriggerId = `optionsTrigger${index}`;
+
+    return `
+      <div class="chat-item" data-name="${
+        chat.name
+      }" data-unread="${chat.unread}" data-favourite="${chat.favourite}">
+        <img src="${chat.avatar}" alt="${chat.name}" class="avatar" />
+        <div class="chat-details">
+          <div class="chat-header">
+            <div class="name-time-card">
+              <span class="chat-name">${chat.name}</span>
+              <div class="chat-time">${latestMessage.time}</div>
+            </div>
+            <span class="chat-count">${chat.count}</span>
+          </div>
+          <div class="chat-message-side">
+            <div class="chat-message">${truncateText(
+              latestMessage.message,
+              44
+            )}</div>
+            <span class='dots' id='${uniqueTriggerId}'>
+              <span class='dot black-dot'>.</span>
+              <span class='dot yellow-dot'>.</span>
+              <span class='dot blue-dot'>.</span>
+            </span>
+          </div>
+        </div>
+        <button class="options-hover-button" data-modal-id="${uniqueId}">
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </button>
+        <div id="${uniqueId}" class="options-modal">
+          <button class="options-modal-close">
+            <i class="fa fa-times close" aria-hidden="true"></i>
+          </button>
+          <div class="options-modal-content">
+            <ul>
+              <li><span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span> Favourite</li>
+              <li><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
+              <li><span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> Video call</li>
+              <li><span class="icon"><img src="./assets/unread.png" /></span> Unread</li>
+              <li><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
+              <li><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   function createChatConversation(chat) {
@@ -171,16 +164,34 @@ $(document).ready(function () {
               : conversation.recipient?.name || chat.name;
 
             return `
-              <div class="chat-message ${messageClass}">
-                <img src="${avatar}" alt="${name}" class="avatar" />
-                <div>
-                  <div class="message-content">
-                    <p>${message.message}</p>
+            <div class="chat-message ${messageClass}">
+              <img src="${avatar}" alt="${name}" class="avatar" />
+              <div>
+                <div class="message-content">
+                  <p>${message.message}</p>
+                  <div class='message-option-modal'>
+                    <div class="message-options-modal-content">
+                      <ul>
+                        <li><span class="icon"><i class="fa-solid fa-share-from-square"></i></span> Forward</li>
+                        <li><span class="icon"><i class="fa-solid fa-pencil"></i></span> Reply</li>
+                        <li><span class="icon"><img src="./assets/mug.png" /></span> Mug</li>
+                        <li><span class="icon"><i class="fa-regular fa-copy"></i></span> Copy</li>
+                        <li><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
+                        <li><span class="icon"><i class="fa-regular fa-circle-question"></i></span> Report</li>
+                      </ul>
+                    </div>
                   </div>
-                  <span class="message-time">${message.time}</span>
                 </div>
+                <span class="message-time">${message.time}</span>
               </div>
-            `;
+              <button class='message-options-button'>
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              </button>
+              <button class="message-options-modal-close">
+                <i class="fa fa-times close" aria-hidden="true"></i>
+              </button>
+            </div>
+          `;
           })
           .join("")
       )
@@ -216,6 +227,61 @@ $(document).ready(function () {
     });
   }
 
+  function toggleMessageOptionsModal() {
+    $("#chat-box").on("click", ".message-options-button", function (event) {
+      event.stopPropagation();
+      var $thisButton = $(this);
+      var $modal = $thisButton
+        .closest(".chat-message")
+        .find(".message-option-modal");
+      var $closeButton = $thisButton.siblings(".message-options-modal-close");
+
+      $thisButton.hide();
+      $modal.show();
+      $closeButton.show();
+
+      $closeButton.click(function (event) {
+        event.stopPropagation();
+        $modal.hide();
+        $thisButton.show();
+        $closeButton.hide();
+      });
+
+      $(window).click(function (event) {
+        if (
+          $modal.is(":visible") &&
+          !$(event.target).closest(
+            ".message-option-modal, .message-options-button, .message-options-modal-close"
+          ).length
+        ) {
+          $modal.hide();
+          $closeButton.hide();
+          $thisButton.show();
+        }
+      });
+    });
+  }
+
+  function setupEventListeners(chatsData) {
+    $(".tab-link").click(function () {
+      $(".tab-link").removeClass("active");
+      $(this).addClass("active");
+      var filter = $(this).data("tab");
+      filterChats(filter);
+    });
+
+    $("#chat-list").on("click", ".chat-item", function () {
+      var chatName = $(this).data("name");
+      var chat = chatsData.find((c) => c.name === chatName);
+      if (chat) {
+        createChatConversation(chat);
+      }
+    });
+
+    createOptionsModal();
+    toggleMessageOptionsModal();
+  }
+
   function filterChats(filter) {
     let visibleCount = 0;
     $("#chat-list .chat-item").each(function () {
@@ -240,36 +306,25 @@ $(document).ready(function () {
     });
   }
 
-  $(".tab-link").click(function () {
-    $(".tab-link").removeClass("active");
-    $(this).addClass("active");
-    var filter = $(this).data("tab");
-    filterChats(filter);
-  });
+  function initialize() {
+    $.getJSON("chats.json", function (data) {
+      var chatsData = data;
+      var $chatList = $("#chat-list");
+      $chatList.empty();
+      data.forEach(function (chat, index) {
+        let chatItemHtml = createChatItem(chat, index);
+        if (chatItemHtml) {
+          $chatList.append(chatItemHtml);
+        }
+      });
 
-  $.getJSON("chats.json", function (data) {
-    chatsData = data;
-    var $chatList = $("#chat-list");
-    $chatList.empty();
-    data.forEach(function (chat, index) {
-      let chatItemHtml = createChatItem(chat, index);
-      if (chatItemHtml) {
-        $chatList.append(chatItemHtml);
-      }
+      setupEventListeners(chatsData);
     });
 
-    $chatList.on("click", ".chat-item", function () {
-      var chatName = $(this).data("name");
-      var chat = data.find((c) => c.name === chatName);
-      if (chat) {
-        createChatConversation(chat);
-      }
-    });
+    $("#chat-box").hide();
+  }
 
-    createOptionsModal();
-  });
-
-  $("#chat-box").hide();
+  initialize();
 });
 
 $(document).ready(function () {

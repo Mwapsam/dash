@@ -78,11 +78,11 @@
         "messages": [
           {
             "time": "11:30am",
-            "message": "Alright, let's start discussing it."
+            "message": "Alright, let's start discussing it. This approach allows you to rotate an icon inside .message-options-button by 180 degrees when the button is hovered over, providing visual feedback to the user. Adjust the styles and specifics to match your project’s design and icon requirements."
           },
           {
             "time": "12:05pm",
-            "message": "Sure! I'll explain the theory now."
+            "message": "Sure! I'll explain the theory now. Your existing jQuery code is handling file management and interaction quite effectively. If you have any specific changes or enhancements you'd like to make, or if you have questions about how the code works, feel free to let me know!"
           }
         ]
       }
@@ -105,11 +105,11 @@
         "messages": [
           {
             "time": "June 15",
-            "message": "Sure! that would be really helpful..."
+            "message": "Sure! that would be really helpful... Your existing jQuery code is handling file management and interaction quite effectively. If you have any specific changes or enhancements you'd like to make, or if you have questions about how the code works, feel free to let me know!"
           },
           {
             "time": "June 16",
-            "message": "I have been able to conclude that..."
+            "message": "I have been able to conclude that... Your existing jQuery code is handling file management and interaction quite effectively. If you have any specific changes or enhancements you'd like to make, or if you have questions about how the code works, feel free to let me know!"
           }
         ]
       }
@@ -186,19 +186,19 @@
         "messages": [
           {
             "time": "June 15",
-            "message": "That sounds awesome let's get..."
+            "message": "That sounds awesome let's get... Your existing jQuery code is handling file management and interaction quite effectively. If you have any specific changes or enhancements you'd like to make, or if you have questions about how the code works, feel free to let me know!"
           },
           {
             "time": "June 16",
-            "message": "Let's finalize the details today."
+            "message": "Let's finalize the details today. Your existing jQuery code is handling file management and interaction quite effectively. If you have any specific changes or enhancements you'd like to make, or if you have questions about how the code works, feel free to let me know!"
           },
           {
             "time": "June 17",
-            "message": "Sure, I'll bring the documents."
+            "message": "Sure, I'll bring the documents. Amoung these challenges is a smart egg incubator that can withstand the load shedding being experienced. It is an honor for us to present to you a smart incubator that we've developed. This incubator uses IOT to monitor the condition of the eggs namely, temperature and humidity and has a GSM interface which communicates to the user via SMS and periodically sends information to the user. It is further equipped with an automatic motor that automatically turns the eggs after a specialized period of time. All this information is stored on a database."
           },
           {
             "time": "June 18",
-            "message": "Great! Looking forward to it."
+            "message": "Great! Looking forward to it. Amoung these challenges is a smart egg incubator that can withstand the load shedding being experienced. It is an honor for us to present to you a smart incubator that we've developed. This incubator uses IOT to monitor the condition of the eggs namely, temperature and humidity and has a GSM interface which communicates to the user via SMS and periodically sends information to the user. It is further equipped with an automatic motor that automatically turns the eggs after a specialized period of time. All this information is stored on a database."
           }
         ]
       }
@@ -221,11 +221,11 @@
         "messages": [
           {
             "time": "June 15",
-            "message": "Are you available for a meeting?"
+            "message": "Are you available for a meeting? Amoung these challenges is a smart egg incubator that can withstand the load shedding being experienced. It is an honor for us to present to you a smart incubator that we've developed. This incubator uses IOT to monitor the condition of the eggs namely, temperature and humidity and has a GSM interface which communicates to the user via SMS and periodically sends information to the user. It is further equipped with an automatic motor that automatically turns the eggs after a specialized period of time. All this information is stored on a database."
           },
           {
             "time": "June 16",
-            "message": "Yes, I am. Let's discuss the agenda."
+            "message": "Yes, I am. Let's discuss the agenda. Amoung these challenges is a smart egg incubator that can withstand the load shedding being experienced. It is an honor for us to present to you a smart incubator that we've developed. This incubator uses IOT to monitor the condition of the eggs namely, temperature and humidity and has a GSM interface which communicates to the user via SMS and periodically sends information to the user. It is further equipped with an automatic motor that automatically turns the eggs after a specialized period of time. All this information is stored on a database."
           }
         ]
       }
