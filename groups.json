@@ -4,34 +4,164 @@
     "altText": "Group 1",
     "count": "+3",
     "name": "Finance Group",
-    "description": "That sounds awesome lets get..."
+    "description": "That sounds awesome lets get...",
+    "conversations": [
+      {
+        "sender": {
+          "avatar": "./assets/user5.png",
+          "name": "Alice"
+        },
+        "recipient": {
+          "avatar": "./assets/user2.png",
+          "name": "Finance Group"
+        },
+        "messages": [
+          {
+            "message": "Hey, what's up?",
+            "time": "10:00 AM"
+          },
+          {
+            "message": "Not much, just working on the budget.",
+            "time": "10:05 AM"
+          }
+        ]
+      },
+      {
+        "sender": {
+          "avatar": "./assets/user3.png",
+          "name": "Bob"
+        },
+        "recipient": {
+          "avatar": "./assets/user1.png",
+          "name": "Finance Group"
+        },
+        "messages": [
+          {
+            "message": "Do you need any help with that?",
+            "time": "10:10 AM"
+          },
+          {
+            "message": "Yes, could you review these numbers?",
+            "time": "10:15 AM"
+          }
+        ]
+      }
+    ]
   },
   {
     "imgSrc": "./assets/group-chat.png",
     "altText": "Group 2",
     "count": "+3",
-    "name": "Behavioral Psyc..",
-    "description": "That sounds awe..."
+    "name": "Behavioral Psychologists",
+    "description": "That sounds awe...",
+    "conversations": [
+      {
+        "sender": {
+          "avatar": "./assets/user1.png",
+          "name": "Charlie"
+        },
+        "recipient": {
+          "avatar": "./assets/user4.png",
+          "name": "Behavioral Psychologists"
+        },
+        "messages": [
+          {
+            "message": "Has anyone read the new study?",
+            "time": "11:00 AM"
+          },
+          {
+            "message": "Yes, it's fascinating!",
+            "time": "11:05 AM"
+          }
+        ]
+      }
+    ]
   },
   {
     "imgSrc": "./assets/group-chat.png",
     "altText": "Group 2",
     "count": "+3",
-    "name": "Behavioral Psyc..",
-    "description": "That sounds awe..."
+    "name": "Behavioral Psychologists",
+    "description": "That sounds awe...",
+    "conversations": [
+      {
+        "sender": {
+          "avatar": "./assets/user1.png",
+          "name": "Charlie"
+        },
+        "recipient": {
+          "avatar": "./assets/user2.png",
+          "name": "Behavioral Psychologists"
+        },
+        "messages": [
+          {
+            "message": "Has anyone read the new study?",
+            "time": "11:00 AM"
+          },
+          {
+            "message": "Yes, it's fascinating!",
+            "time": "11:05 AM"
+          }
+        ]
+      }
+    ]
   },
   {
     "imgSrc": "./assets/group-chat.png",
     "altText": "Group 2",
     "count": "+3",
-    "name": "Behavioral Psyc..",
-    "description": "That sounds awe..."
+    "name": "Behavioral Psychologists",
+    "description": "That sounds awe...",
+    "conversations": [
+      {
+        "sender": {
+          "avatar": "./assets/user3.png",
+          "name": "Charlie"
+        },
+        "recipient": {
+          "avatar": "./assets/user1.png",
+          "name": "Behavioral Psychologists"
+        },
+        "messages": [
+          {
+            "message": "Has anyone read the new study?",
+            "time": "11:00 AM"
+          },
+          {
+            "message": "Yes, it's fascinating!",
+            "time": "11:05 AM"
+          }
+        ]
+      }
+    ]
   },
   {
     "imgSrc": "./assets/group-chat.png",
     "altText": "Group 2",
     "count": "+3",
-    "name": "Behavioral Psyc..",
-    "description": "That sounds awe..."
+    "name": "Behavioral Psychologists",
+    "description": "That sounds awe...",
+    "conversations": [
+      {
+        "sender": {
+          "avatar": "./assets/user1.png",
+          "name": "Charlie"
+        },
+        "recipient": {
+          "avatar": "./assets/user1.png",
+          "name": "Behavioral Psychologists"
+        },
+        "messages": [
+          {
+            "message": "Has anyone read the new study?",
+            "time": "11:00 AM"
+          },
+          {
+            "message": "Yes, it's fascinating!",
+            "time": "11:05 AM"
+          }
+        ]
+      }
+    ]
   }
 ]

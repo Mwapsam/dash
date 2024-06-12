@@ -206,6 +206,64 @@ $(document).ready(function () {
     $(".chat-layout").css("display", "grid");
   }
 
+  function createGroupConversation(group) {
+    let conversationHtml = group.conversations
+      .map((conversation) =>
+        conversation.messages
+          .map((message, index) => {
+            const isSender =
+              index % 2 === 0 || (index === 0 && !conversation.recipient);
+            const messageClass = isSender ? "sender" : "recipient";
+            const avatar = isSender
+              ? conversation.sender?.avatar || group.imgSrc
+              : conversation.recipient?.avatar || group.imgSrc;
+            const name = isSender
+              ? conversation.sender?.name || group.name
+              : conversation.recipient?.name || group.name;
+
+            return `
+            <div class="chat-message ${messageClass}">
+              <img src="${avatar}" alt="${name}" class="avatar" />
+              <div>
+                <div class="message-content">
+                  <p>${message.message}</p>
+                  <div class='message-option-modal'>
+                    <div class="message-options-modal-content">
+                      <ul>
+                        <li><span class="icon"><i class="fa-solid fa-share-from-square"></i></span> Forward</li>
+                        <li><span class="icon"><i class="fa-solid fa-pencil"></i></span> Reply</li>
+                        <li><span class="icon"><img src="./assets/mug.png" /></span> Mug</li>
+                        <li><span class="icon"><i class="fa-regular fa-copy"></i></span> Copy</li>
+                        <li><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
+                        <li><span class="icon"><i class="fa-regular fa-circle-question"></i></span> Report</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <span class="message-time">${message.time}</span>
+              </div>
+              <button class='message-options-button'>
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              </button>
+              <button class="message-options-modal-close">
+                <i class="fa fa-times close" aria-hidden="true"></i>
+              </button>
+            </div>
+          `;
+          })
+          .join("")
+      )
+      .join("");
+
+    $("#chat-box").html(conversationHtml);
+    $("#chat-box").show();
+    $("#groups-container").hide();
+    $(".welcome-text").hide();
+    $(".chat-container").css("display", "flex");
+    $(".profile-component").css("display", "flex");
+    $(".chat-layout").css("display", "grid");
+  }
+
   function createOptionsModal() {
     $("#chat-list").on("click", ".options-hover-button", function (event) {
       event.stopPropagation();
@@ -262,42 +320,96 @@ $(document).ready(function () {
     });
   }
 
-  function setupEventListeners(chatsData) {
+  function createGroupItem(group, index) {
+    return `
+      <div class="group-item" data-index="${index}">
+        <div class="group-avatar">
+          <img src="${group.imgSrc}" alt="${group.altText}">
+          <div class="group-count">${group.count}</div>
+        </div>
+        <div class="group-info">
+          <div class="group-name">${group.name}</div>
+          <div class="group-description">${group.description}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderGroups(groupsData) {
+    const $chatList = $("#chat-list");
+    $chatList.empty();
+    groupsData.forEach((group, index) => {
+      $chatList.append(createGroupItem(group, index));
+    });
+
+    $chatList
+      .off("click", ".group-item")
+      .on("click", ".group-item", function () {
+        const groupIndex = $(this).data("index");
+        const selectedGroup = groupsData[groupIndex];
+        createGroupConversation(selectedGroup);
+      });
+  }
+
+  function setupEventListeners(chatsData, groupsData) {
     $(".tab-link").click(function () {
       $(".tab-link").removeClass("active");
       $(this).addClass("active");
       var filter = $(this).data("tab");
-      filterChats(filter);
-    });
 
-    $("#chat-list").on("click", ".chat-item", function () {
-      var chatName = $(this).data("name");
-      var chat = chatsData.find((c) => c.name === chatName);
-      if (chat) {
-        createChatConversation(chat);
+      if (filter === "groups") {
+        renderGroups(groupsData);
+      } else {
+        filterChats(filter, chatsData);
       }
     });
+
+    $("#chat-list")
+      .off("click", ".chat-item")
+      .on("click", ".chat-item", function () {
+        var chatName = $(this).data("name");
+        var chat = chatsData.find((c) => c.name === chatName);
+        if (chat) {
+          createChatConversation(chat);
+        }
+      });
 
     createOptionsModal();
     toggleMessageOptionsModal();
   }
 
-  function filterChats(filter) {
+  function filterChats(filter, chatsData) {
     let visibleCount = 0;
-    $("#chat-list .chat-item").each(function () {
-      var unread = $(this).data("unread");
-      var favourite = $(this).data("favourite");
-      var group = $(this).data("group");
-      var shouldShow = false;
 
-      if (filter === "all") {
-        shouldShow = true;
-      } else if (filter === "unread" && unread) {
-        shouldShow = visibleCount < 3;
-      } else if (filter === "favourites" && favourite) {
-        shouldShow = visibleCount < 4;
-      } else if (filter === "groups" && group) {
-        shouldShow = true;
+    $("#chat-list .chat-item").each(function () {
+      const chatName = $(this).data("name");
+      const chat = chatsData.find((c) => c.name === chatName);
+
+      if (!chat) {
+        $(this).hide();
+        return;
+      }
+
+      const unread = $(this).data("unread");
+      const favourite = $(this).data("favourite");
+      const group = $(this).data("group");
+      let shouldShow = false;
+
+      switch (filter) {
+        case "all":
+          shouldShow = true;
+          break;
+        case "unread":
+          shouldShow = unread && visibleCount < 3;
+          break;
+        case "favourites":
+          shouldShow = favourite && visibleCount < 4;
+          break;
+        case "groups":
+          shouldShow = group;
+          break;
+        default:
+          shouldShow = true;
       }
 
       if (shouldShow) {
@@ -310,21 +422,41 @@ $(document).ready(function () {
   }
 
   function initialize() {
-    $.getJSON("chats.json", function (data) {
-      let chatsData = data;
-      var $chatList = $("#chat-list");
-      $chatList.empty();
-      chatsData.forEach(function (chat, index) {
-        let chatItemHtml = createChatItem(chat, index);
-        if (chatItemHtml) {
-          $chatList.append(chatItemHtml);
-        }
-      });
+    let chatsData = [];
+    let groupsData = [];
 
-      setupEventListeners(chatsData);
+    $.when(
+      $.getJSON("chats.json", function (data) {
+        chatsData = data;
+      }),
+      $.getJSON("groups.json", function (data) {
+        groupsData = data;
+      })
+    ).then(function () {
+      renderChats(chatsData);
+      setupEventListeners(chatsData, groupsData);
     });
 
     $("#chat-box").hide();
+  }
+
+  function renderChats(chatsData) {
+    const $chatList = $("#chat-list");
+    $chatList.empty();
+    chatsData.forEach((chat, index) => {
+      let chatItemHtml = createChatItem(chat, index);
+      if (chatItemHtml) {
+        $chatList.append(chatItemHtml);
+      }
+    });
+
+    $chatList.off("click", ".chat-item").on("click", ".chat-item", function () {
+      var chatName = $(this).data("name");
+      var chat = chatsData.find((c) => c.name === chatName);
+      if (chat) {
+        createChatConversation(chat);
+      }
+    });
   }
 
   initialize();
