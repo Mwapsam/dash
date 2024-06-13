@@ -268,6 +268,12 @@
                     aria-hidden="true"
                   ></i>
                 </li>
+                <li class="file-icon-card only-group" data-icon="link">
+                  <i
+                    id="open-group-modal-btn"
+                    class="fa-solid fa-user-group"
+                  ></i>
+                </li>
               </div>
             </div>
           </div>
@@ -299,19 +305,6 @@
           </div>
         </div>
 
-        <div class="groups-container" id="groups-container">
-          <div class="groups-header">
-            <div class="search">
-              <span><i class="fa fa-search" aria-hidden="true"></i></span>
-              <p>Search members</p>
-            </div>
-            <button class="member-button" id="openAddMemberModal">
-              <i class="fa fa-plus" aria-hidden="true"></i>
-              <span>Add Member</span>
-            </button>
-          </div>
-          <div class="members-list" id="members-list"></div>
-        </div>
         <div class="chat-container">
           <div class="chat-card">
             <div class="chat-box" id="chat-box"></div>
@@ -389,6 +382,22 @@
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <div id="group-modal" class="group-modal">
+              <div class="groups-container" >
+                <div class="groups-header">
+                  <div class="search">
+                    <span><i class="fa fa-search" aria-hidden="true"></i></span>
+                    <p>Search members</p>
+                  </div>
+                  <button class="member-button" id="openAddMemberModal">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    <span>Add Member</span>
+                  </button>
+                </div>
+                <div class="members-list" id="members-list"></div>
               </div>
             </div>
           </div>

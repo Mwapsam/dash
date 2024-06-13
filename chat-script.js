@@ -201,7 +201,7 @@ $(document).ready(function () {
 
     $("#chat-box").html(conversationHtml);
     $("#chat-box").show();
-    $("#groups-container").hide();
+    // $("#groups-container").hide();
     $(".welcome-text").hide();
     $(".chat-container").css("display", "flex");
     $(".profile-component").css("display", "flex");
@@ -259,7 +259,7 @@ $(document).ready(function () {
 
     $("#chat-box").html(conversationHtml);
     $("#chat-box").show();
-    $("#groups-container").hide();
+    // $("#groups-container").hide();
     $(".welcome-text").hide();
     $(".chat-container").css("display", "flex");
     $(".profile-component").css("display", "flex");
@@ -278,10 +278,16 @@ $(document).ready(function () {
           event.stopPropagation();
           $("#" + modalId).css("display", "none");
         });
+    });
 
-      $(window).click(function (event) {
-        if (event.target == $("#" + modalId)[0]) {
-          $("#" + modalId).css("display", "none");
+    $(document).click(function (event) {
+      $(".options-modal, .options-modal-group").each(function () {
+        if (
+          $(event.target).closest(".options-modal").length === 0 &&
+          $(event.target).closest(".options-modal-group").length === 0 &&
+          $(event.target).closest(".options-hover-button").length === 0
+        ) {
+          $(this).css("display", "none");
         }
       });
     });
@@ -323,18 +329,45 @@ $(document).ready(function () {
   }
 
   function createGroupItem(group, index) {
+    let uniqueId = `optionsModalGroup${index}`;
+    let uniqueTriggerId = `optionsTriggerGroup${index}`;
+
     return `
-      <div class="group-item" data-index="${index}">
-        <div class="group-avatar">
-          <img src="${group.imgSrc}" alt="${group.altText}">
-          <div class="group-count">${group.count}</div>
-        </div>
-        <div class="group-info">
-          <div class="group-name">${group.name}</div>
-          <div class="group-description">${group.description}</div>
+    <div class="group-item" data-index="${index}">
+      <div class="group-avatar">
+        <img src="${group.imgSrc}" alt="${group.altText}">
+        <div class="group-count">${group.count}</div>
+      </div>
+      <div class="group-info">
+        <div class="group-name">${group.name}</div>
+        <div class="group-description">${group.description}</div>
+        <span class='group-dots' id='${uniqueTriggerId}'>
+          <span class='dot black-dot'>.</span>
+          <span class='dot yellow-dot'>.</span>
+          <span class='dot blue-dot'>.</span>
+        </span>
+      </div>
+      <span class="chat-count">3</span>
+      <button class="options-hover-button" data-modal-id="${uniqueId}">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </button>
+      <div id="${uniqueId}" class="options-modal-group">
+        <button class="options-modal-close">
+          <i class="fa fa-times close" aria-hidden="true"></i>
+        </button>
+        <div class="options-modal-content">
+          <ul>
+            <li><span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span> Favourite</li>
+            <li><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
+            <li><span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> Video call</li>
+            <li><span class="icon"><img src="./assets/unread.png" /></span> Unread</li>
+            <li><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
+            <li><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
+          </ul>
         </div>
       </div>
-    `;
+    </div>
+  `;
   }
 
   function renderGroups(groupsData) {
@@ -344,13 +377,14 @@ $(document).ready(function () {
       $chatList.append(createGroupItem(group, index));
     });
 
-    $chatList
-      .off("click", ".group-item")
-      .on("click", ".group-item", function () {
-        const groupIndex = $(this).data("index");
-        const selectedGroup = groupsData[groupIndex];
-        createGroupConversation(selectedGroup);
-      });
+    $(".group-item").click(function () {
+      const groupIndex = $(this).data("index");
+      const selectedGroup = groupsData[groupIndex];
+      $(".only-group").css("display", "block");
+      createGroupConversation(selectedGroup);
+    });
+
+    createOptionsModal();
   }
 
   function setupEventListeners(chatsData, groupsData) {
@@ -361,7 +395,7 @@ $(document).ready(function () {
       if (filter === "groups") {
         renderGroups(groupsData);
       } else {
-        renderChats(chatsData); // Ensure the chat list is re-rendered
+        renderChats(chatsData);
         filterChats(filter, chatsData);
       }
     });
@@ -433,7 +467,7 @@ $(document).ready(function () {
         groupsData = data;
       })
     ).then(function () {
-      renderChats(chatsData); // Initial rendering of all chats
+      renderChats(chatsData);
       setupEventListeners(chatsData, groupsData);
     });
 
@@ -453,9 +487,22 @@ $(document).ready(function () {
     $(".chat-item").click(function () {
       var chatName = $(this).data("name");
       var chat = chatsData.find((c) => c.name === chatName);
+      $(".only-group").css("display", "none");
       if (chat) {
         createChatConversation(chat);
       }
+    });
+
+    // Add event listener for options modal on chat items
+    $(".options-hover-button").click(function (event) {
+      event.stopPropagation();
+      const modalId = $(this).data("modal-id");
+      $(`#${modalId}`).show();
+    });
+
+    $(".options-modal-close").click(function (event) {
+      event.stopPropagation();
+      $(this).closest(".options-modal").hide();
     });
   }
 
@@ -1397,4 +1444,18 @@ $(document).ready(function () {
 
     isRecording = false;
   }
+});
+
+$(document).ready(function () {
+  var groupModal = $("#group-modal");
+
+  $("#open-group-modal-btn").click(function () {
+    groupModal.toggle();
+  });
+
+  $(window).click(function (event) {
+    if ($(event.target).is(groupModal)) {
+      groupModal.css("display", "none");
+    }
+  });
 });
