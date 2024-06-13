@@ -969,7 +969,7 @@
 
   .chat-message.sender {
     flex-direction: row;
-    align-items: baseline;
+    align-items: start;
     text-align: right;
 
     .message-option-modal {
@@ -1098,6 +1098,13 @@
     padding: 14px 15px;
     max-width: 60%;
     position: relative;
+
+    img {
+      height: 78px;
+      border-radius: 12px;
+      border: 1px solid #c3c3c3;
+      margin-bottom: 1rem;
+    }
   }
 
   .sender .message-content {
@@ -2269,7 +2276,6 @@
   li {
     padding: 6px;
     font-size: 18px;
-    display: flex;
     align-items: center;
     font-family: "Inter";
     font-style: normal;
@@ -2277,13 +2283,23 @@
     font-size: 16px;
     line-height: 24px;
     color: #363853;
+    display: flex;
+    align-items: flex-start;
   }
 
   li .icon {
     margin-right: 10px;
     font-size: 18px;
     display: flex;
+    align-items: center;
     gap: 5px;
+
+    .mug {
+      height: 26px !important;
+      border-radius: 12px;
+      border: none !important;
+      margin-bottom: 1rem;
+    }
   }
 
   li:last-child {

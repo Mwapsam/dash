@@ -172,16 +172,23 @@ $(document).ready(function () {
               <img src="${avatar}" alt="${name}" class="avatar" />
               <div>
                 <div class="message-content">
-                  <p>${message.message}</p>
+                  <p>
+                    ${
+                      index === 0
+                        ? '<img src="./assets/message-file.png" alt="Image description" class="message-img" />'
+                        : ""
+                    }
+                    ${message.message}
+                  </p>
                   <div class='message-option-modal'>
                     <div class="message-options-modal-content">
                       <ul>
                         <li><span class="icon"><i class="fa-solid fa-share-from-square"></i></span> Forward</li>
                         <li><span class="icon"><i class="fa-solid fa-pencil"></i></span> Reply</li>
-                        <li><span class="icon"><img src="./assets/mug.png" /></span> Mug</li>
                         <li><span class="icon"><i class="fa-regular fa-copy"></i></span> Copy</li>
                         <li><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
                         <li><span class="icon"><i class="fa-regular fa-circle-question"></i></span> Report</li>
+                        <li><span class="icon"><img src="./assets/mug.png" class='mug' /></span> Mug</li>
                       </ul>
                     </div>
                   </div>
@@ -195,7 +202,7 @@ $(document).ready(function () {
                 <i class="fa fa-times close" aria-hidden="true"></i>
               </button>
             </div>
-          `;
+            `;
           })
           .join("")
       )
@@ -203,7 +210,6 @@ $(document).ready(function () {
 
     $("#chat-box").html(conversationHtml);
     $("#chat-box").show();
-    // $("#groups-container").hide();
     $(".welcome-text").hide();
     $(".chat-container").css("display", "flex");
     $(".profile-component").css("display", "flex");
@@ -261,7 +267,6 @@ $(document).ready(function () {
 
     $("#chat-box").html(conversationHtml);
     $("#chat-box").show();
-    // $("#groups-container").hide();
     $(".welcome-text").hide();
     $(".chat-container").css("display", "flex");
     $(".profile-component").css("display", "flex");
