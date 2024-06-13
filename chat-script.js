@@ -68,6 +68,8 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#imoji-attachment").click(function () {
     $("#emoji-popup").toggle();
+    var $span = $(this);
+    $span.toggleClass("clicked");
   });
 
   $(document).click(function (event) {
@@ -1384,6 +1386,41 @@ $(document).ready(function () {
   $(window).click(function (event) {
     if ($(event.target).is(groupModal)) {
       groupModal.css("display", "none");
+    }
+  });
+});
+
+$(document).ready(function () {
+  $("#attachment-icon").on("click", function () {
+    var $img = $(this).find(".attachment-icon");
+    var imgSrc = $img.attr("src");
+
+    var $span = $(this);
+    $span.toggleClass("clicked");
+
+    $.ajax({
+      url: imgSrc,
+      type: "GET",
+      dataType: "xml",
+      success: function (data) {
+        var $svg = $(data).find("svg");
+        $svg.attr("class", "attachment-icon clicked");
+        $svg.find("stop").attr("stop-color", "#31C6FE");
+
+        $img.replaceWith($svg);
+      },
+    });
+
+    var icon = $("#svg");
+
+    if (icon) {
+      icon.find("stop").each(function () {
+        if ($(this).attr("stop-color") === "#31C6FE") {
+          $(this).attr("stop-color", "#000");
+        } else {
+          $(this).attr("stop-color", "#31C6FE");
+        }
+      });
     }
   });
 });

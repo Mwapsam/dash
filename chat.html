@@ -383,7 +383,7 @@
             </div>
 
             <div id="group-modal" class="group-modal-inside">
-              <div class="groups-container" >
+              <div class="groups-container">
                 <div class="groups-header">
                   <div class="search">
                     <span><i class="fa fa-search" aria-hidden="true"></i></span>
@@ -526,14 +526,19 @@
           </div>
 
           <div class="icons">
-            <i
-              class="fa fa-paperclip"
-              aria-hidden="true"
-              id="attachment-icon"
-            ></i>
-            <i class="fa fa-meh-o" aria-hidden="true" id="imoji-attachment"></i>
+            <span id="attachment-icon">
+              <img
+                loading="lazy"
+                src="icons/icon-upload.svg"
+                class="attachment-icon"
+              />
+            </span>
 
-            <div id="microphone-icon">
+            <span id="imoji-attachment">
+              <i class="fa fa-meh-o" aria-hidden="true"></i>
+            </span>
+
+            <div id="microphone-icon" class="not-clicked">
               <i class="fa fa-microphone" aria-hidden="true"></i>
             </div>
 
