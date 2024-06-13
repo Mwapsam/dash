@@ -102,50 +102,52 @@ $(document).ready(function () {
     let uniqueTriggerId = `optionsTrigger${index}`;
 
     return `
-      <div class="chat-item" data-name="${
-        chat.name
-      }" data-unread="${chat.unread}" data-favourite="${chat.favourite}" data-group="${chat.group}">
-        <img src="${chat.avatar}" alt="${chat.name}" class="avatar" />
-        <div class="chat-details">
-          <div class="chat-header">
-            <div class="name-time-card">
-              <span class="chat-name">${chat.name}</span>
-              <div class="chat-time">${latestMessage.time}</div>
-            </div>
-            <span class="chat-count">${chat.count}</span>
+    <div class="chat-item" 
+      data-name="${chat.name}" 
+      data-unread="${chat.unread}" 
+      data-favourite="${chat.favourite}" 
+      data-group="${chat.group}">
+      <img src="${chat.avatar}" alt="${chat.name}" class="avatar" />
+      <div class="chat-details">
+        <div class="chat-header">
+          <div class="name-time-card">
+            <span class="chat-name">${chat.name}</span>
+            <div class="chat-time">${latestMessage.time}</div>
           </div>
-          <div class="chat-message-side">
-            <div class="chat-message">${truncateText(
-              latestMessage.message,
-              44
-            )}</div>
-            <span class='dots' id='${uniqueTriggerId}'>
-              <span class='dot black-dot'>.</span>
-              <span class='dot yellow-dot'>.</span>
-              <span class='dot blue-dot'>.</span>
-            </span>
-          </div>
+          <span class="chat-count">${chat.count}</span>
         </div>
-        <button class="options-hover-button" data-modal-id="${uniqueId}">
-          <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        </button>
-        <div id="${uniqueId}" class="options-modal">
-          <button class="options-modal-close">
-            <i class="fa fa-times close" aria-hidden="true"></i>
-          </button>
-          <div class="options-modal-content">
-            <ul>
-              <li><span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span> Favourite</li>
-              <li><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
-              <li><span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> Video call</li>
-              <li><span class="icon"><img src="./assets/unread.png" /></span> Unread</li>
-              <li><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
-              <li><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
-            </ul>
-          </div>
+        <div class="chat-message-side">
+          <div class="chat-message">${truncateText(
+            latestMessage.message,
+            44
+          )}</div>
+          <span class='dots' id='${uniqueTriggerId}'>
+            <span class='dot black-dot'>.</span>
+            <span class='dot yellow-dot'>.</span>
+            <span class='dot blue-dot'>.</span>
+          </span>
         </div>
       </div>
-    `;
+      <button class="options-hover-button" data-modal-id="${uniqueId}">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </button>
+      <div id="${uniqueId}" class="options-modal">
+        <button class="options-modal-close">
+          <i class="fa fa-times close" aria-hidden="true"></i>
+        </button>
+        <div class="options-modal-content">
+          <ul>
+            <li><span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span> Favourite</li>
+            <li><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
+            <li><span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> Video call</li>
+            <li><span class="icon"><img src="./assets/unread.png" /></span> Unread</li>
+            <li><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
+            <li><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  `;
   }
 
   function createChatConversation(chat) {
@@ -356,23 +358,21 @@ $(document).ready(function () {
       $(".tab-link").removeClass("active");
       $(this).addClass("active");
       var filter = $(this).data("tab");
-
       if (filter === "groups") {
         renderGroups(groupsData);
       } else {
+        renderChats(chatsData); // Ensure the chat list is re-rendered
         filterChats(filter, chatsData);
       }
     });
 
-    $("#chat-list")
-      .off("click", ".chat-item")
-      .on("click", ".chat-item", function () {
-        var chatName = $(this).data("name");
-        var chat = chatsData.find((c) => c.name === chatName);
-        if (chat) {
-          createChatConversation(chat);
-        }
-      });
+    $("#chat-list").on("click", ".chat-item", function () {
+      var chatName = $(this).data("name");
+      var chat = chatsData.find((c) => c.name === chatName);
+      if (chat) {
+        createChatConversation(chat);
+      }
+    });
 
     createOptionsModal();
     toggleMessageOptionsModal();
@@ -433,7 +433,7 @@ $(document).ready(function () {
         groupsData = data;
       })
     ).then(function () {
-      renderChats(chatsData);
+      renderChats(chatsData); // Initial rendering of all chats
       setupEventListeners(chatsData, groupsData);
     });
 
@@ -450,7 +450,7 @@ $(document).ready(function () {
       }
     });
 
-    $chatList.off("click", ".chat-item").on("click", ".chat-item", function () {
+    $(".chat-item").click(function () {
       var chatName = $(this).data("name");
       var chat = chatsData.find((c) => c.name === chatName);
       if (chat) {
