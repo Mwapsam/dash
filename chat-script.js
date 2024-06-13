@@ -1016,8 +1016,6 @@ $(document).ready(function () {
   var fileInput = $("#groupImage");
   var imagePreview = $("#imagePreview");
 
-  console.log("inside");
-
   btn.click(function () {
     modal.show();
   });
@@ -1038,8 +1036,9 @@ $(document).ready(function () {
 
   $("#createGroupForm").submit(function (event) {
     event.preventDefault();
-    alert("Group created!");
     modal.hide();
+
+    $("#addMemberModal").show();
   });
 
   // Drag and Drop functionality
@@ -1105,77 +1104,6 @@ $(document).ready(function () {
       modal.hide();
     }
   });
-});
-
-$(document).ready(function () {
-  const groups = [
-    {
-      imgSrc: "./assets/group-chat.png",
-      altText: "Group 1",
-      count: "+3",
-      name: "Finance Group",
-      description: "That sounds awesome lets get...",
-    },
-    {
-      imgSrc: "./assets/group-chat.png",
-      altText: "Group 2",
-      count: "+3",
-      name: "Behavioral Psyc..",
-      description: "That sounds awe...",
-    },
-    {
-      imgSrc: "./assets/group-chat.png",
-      altText: "Group 2",
-      count: "+3",
-      name: "Behavioral Psyc..",
-      description: "That sounds awe...",
-    },
-    {
-      imgSrc: "./assets/group-chat.png",
-      altText: "Group 2",
-      count: "+3",
-      name: "Behavioral Psyc..",
-      description: "That sounds awe...",
-    },
-    {
-      imgSrc: "./assets/group-chat.png",
-      altText: "Group 2",
-      count: "+3",
-      name: "Behavioral Psyc..",
-      description: "That sounds awe...",
-    },
-  ];
-
-  function renderGroups(groups) {
-    groups.forEach((group) => {
-      const groupItem = $(`
-              <div class="group-item">
-                  <div class="group-avatar">
-                      <img src="${group.imgSrc}" alt="${group.altText}" />
-                      <div class="group-count">${group.count}</div>
-                  </div>
-                  <div class="group-info">
-                      <div class="group-name">${group.name}</div>
-                      <div class="group-description">${group.description}</div>
-                  </div>
-              </div>
-          `);
-
-      groupItem.on("click", function () {
-        $("#groups-container").show();
-        $(".welcome-text").hide();
-        $(".profile-component").css("display", "flex");
-        $(".chat-layout").css("display", "block");
-        // $('.chat-card').css('display', 'none');
-        $(".chat-container").hide();
-        $("#chat-box").hide();
-      });
-
-      $("#group-list").append(groupItem);
-    });
-  }
-
-  renderGroups(groups);
 });
 
 $(document).ready(function () {
