@@ -861,7 +861,7 @@
 
   .chat-list {
     background-color: #fff;
-    height: 20rem;
+    height: 25rem;
     overflow-y: scroll !important;
     scrollbar-width: none;
     -ms-overflow-style: none;
