@@ -1424,3 +1424,27 @@ $(document).ready(function () {
     }
   });
 });
+
+$(document).ready(function () {
+  var modal = $("#moreModal");
+  var btn = $(".action-button.more");
+  var span = $("#close-more-action");
+
+  btn.on("click", function () {
+    $("#close-more-action").css("display", "block");
+    modal.show();
+    btn.hide();
+  });
+
+  span.on("click", function () {
+    modal.hide();
+    span.hide();
+    btn.show();
+  });
+
+  $(window).on("click", function (event) {
+    if ($(event.target).is(modal)) {
+      modal.hide();
+    }
+  });
+});

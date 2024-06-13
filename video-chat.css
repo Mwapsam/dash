@@ -20,7 +20,7 @@
     border-style: solid;
     border-color: #c3c3c3;
     border-radius: 40px;
-    background-image: url('./assets/video-background.png');
+    background-image: url("./assets/video-background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -307,7 +307,7 @@
     align-items: center;
 
     label {
-      font-family: 'Inter';
+      font-family: "Inter";
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
@@ -373,7 +373,7 @@
     align-items: center;
   }
 
-  input[type='checkbox'] {
+  input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -386,13 +386,13 @@
     position: relative;
   }
 
-  input[type='checkbox']:checked {
+  input[type="checkbox"]:checked {
     background-color: rgb(138 41 239 / 79%);
     border-color: rgb(138 41 239 / 79%);
   }
 
-  input[type='checkbox']:checked::after {
-    content: '\2713';
+  input[type="checkbox"]:checked::after {
+    content: "\2713";
     font-size: 16px;
     color: #fff;
     position: absolute;
