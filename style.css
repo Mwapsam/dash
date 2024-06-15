@@ -741,7 +741,7 @@
   }
 
   .chat-input-container {
-    display: flex;
+    display: none;
     flex-direction: column;
     position: fixed;
     bottom: 5rem;

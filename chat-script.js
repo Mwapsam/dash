@@ -200,6 +200,7 @@ $(document).ready(function () {
     $(".profile-component").css("display", "flex");
     $(".chat-layout").css("display", "grid");
     $("#sidebar").hide();
+    $(".chat-input-container").css("display", "flex");
   }
 
   function createGroupConversation(group) {
@@ -258,6 +259,7 @@ $(document).ready(function () {
     $(".profile-component").css("display", "flex");
     $(".chat-layout").css("display", "grid");
     $("#sidebar").hide();
+    $(".chat-input-container").css("display", "flex");
   }
 
   function createOptionsModal() {
