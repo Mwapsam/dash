@@ -199,8 +199,12 @@ $(document).ready(function () {
     $(".chat-container").css("display", "flex");
     $(".profile-component").css("display", "flex");
     $(".chat-layout").css("display", "grid");
-    $("#sidebar").hide();
-    $(".chat-input-container").css("display", "flex");
+    $(document).ready(function () {
+      if (window.innerWidth <= 768) {
+        $("#sidebar").hide();
+        $(".chat-input-container").css("display", "flex");
+      }
+    });
   }
 
   function createGroupConversation(group) {
@@ -258,8 +262,13 @@ $(document).ready(function () {
     $(".chat-container").css("display", "flex");
     $(".profile-component").css("display", "flex");
     $(".chat-layout").css("display", "grid");
-    $("#sidebar").hide();
-    $(".chat-input-container").css("display", "flex");
+
+    $(document).ready(function () {
+      if (window.innerWidth <= 768) {
+        $("#sidebar").hide();
+        $(".chat-input-container").css("display", "flex");
+      }
+    });
   }
 
   function createOptionsModal() {
