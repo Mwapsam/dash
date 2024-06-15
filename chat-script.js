@@ -521,12 +521,18 @@ $(document).ready(function () {
     $("#myModal").show();
   });
 
-  $("#cancelBtn").click(function () {
+  $("#cancelBt").click(function () {
     $("#myModal").hide();
   });
 
   $("#createBtn").click(function () {
     $("#myModal").hide();
+  });
+
+  $(window).on("click", function (event) {
+    if ($(event.target).is("#myModal")) {
+      $("#myModal").hide();
+    }
   });
 
   $("#selectAll").change(function () {
@@ -1451,5 +1457,23 @@ $(document).ready(function () {
     if ($(event.target).is(modal)) {
       modal.hide();
     }
+  });
+});
+
+$(document).ready(function () {
+  function addHoverClass(event) {
+    $(event.currentTarget).addClass("hover");
+  }
+
+  function removeHoverClass(event) {
+    $(event.currentTarget).removeClass("hover");
+  }
+
+  $(".chat-item, .group-item").on("touchstart", function (event) {
+    addHoverClass(event);
+  });
+
+  $(".chat-item, .group-item").on("touchend", function (event) {
+    removeHoverClass(event);
   });
 });
