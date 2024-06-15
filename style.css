@@ -3,7 +3,7 @@
   --container-sub: 12rem;
   --container-sub-tablet: 20rem;
   --inside-container: 17.3rem;
-  --inside-container-mobile: 21.3rem;
+  --inside-container-mobile: 22.3rem;
   --inside-container-tablet: 24.3rem;
 }
 
@@ -1464,7 +1464,7 @@
   .select-button,
   .select-button-files {
     position: fixed;
-    bottom: 200px;
+    bottom: 250px;
     right: 48px;
     width: 45px;
     height: 45px;
@@ -2213,6 +2213,7 @@
       font-weight: 600;
       font-size: 12px;
       color: #ffb00e;
+      display: none;
     }
 
     .send-coin-icon {
@@ -2251,6 +2252,7 @@
       font-weight: 600;
       font-size: 12px;
       color: #ff2d6c;
+      display: none;
     }
   }
 
@@ -2333,7 +2335,6 @@
       padding: 16px;
       gap: 16px;
 
-      width: 372px;
       height: 56px;
 
       background: #f4f4f4;
@@ -2358,11 +2359,13 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 10px;
+      align-items: center;
+      justify-content: center;
     }
 
     .coin-button {
       padding: 16px;
-      width: 180px;
+      width: 160px;
       height: 66px;
       background: #f4f4f4;
       border-radius: 8px;
