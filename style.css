@@ -1397,15 +1397,15 @@
   }
 
   .media-files-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     justify-content: space-between;
     padding-bottom: 9rem;
   }
 
   .media-file-card {
-    width: 129.16px;
+    width: 179.16px;
     height: 162px;
     position: relative;
 
