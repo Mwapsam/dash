@@ -1070,7 +1070,7 @@ svg[data-icon] {
   display: grid;
   gap: 1rem;
   padding: 1rem;
-  z-index: 9999;
+  z-index: 999;
 }
 @media (min-width: 768px) {
   .navbar {

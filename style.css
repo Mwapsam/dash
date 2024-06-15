@@ -3,6 +3,7 @@
   --container-sub: 12rem;
   --container-sub-tablet: 20rem;
   --inside-container: 17.3rem;
+  --inside-container-mobile: 21.3rem;
   --inside-container-tablet: 24.3rem;
 }
 
@@ -148,13 +149,17 @@
 
 /* Phone: maximum width of 767px */
 @media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none;
+  }
+
   .chat-list {
     background-color: #fff;
     overflow: hidden;
   }
 
   .welcome-text {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     height: 60vh;
@@ -540,7 +545,7 @@
   }
 
   .chat-container {
-    height: calc(100dvh - var(--inside-container)) !important;
+    height: calc(100dvh - var(--inside-container-mobile)) !important;
 
     display: none;
     flex-direction: column;
@@ -736,7 +741,7 @@
   }
 
   .chat-input-container {
-    display: none;
+    display: flex;
     flex-direction: column;
     position: fixed;
     bottom: 5rem;
@@ -762,6 +767,7 @@
 
   .sidebar_container__bordered {
     position: absolute;
+    width: 100%;
   }
 
   .chat-input {
@@ -911,9 +917,8 @@
 
   .profile-component {
     display: none;
-    /* display: flex; */
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px;
     margin-bottom: 0.5rem;
     background: #ffffff;
     border-width: 1px 1px 1px 1px;
@@ -921,13 +926,24 @@
     border-color: rgba(195, 195, 195, 0.5);
     border-radius: 20px;
     position: relative;
+    margin-top: 0.4rem;
+
+    .img-icon {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      i {
+        cursor: pointer;
+      }
+    }
   }
 
   .profile-picture {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin-right: 15px;
+    margin-right: 10px;
   }
 
   .profile-info {
@@ -937,8 +953,7 @@
   .profile-details {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 61%;
+    justify-content: space-evenly;
   }
 
   .profile-name {
@@ -946,12 +961,13 @@
     font-weight: bold;
     display: flex;
     align-items: baseline;
-    gap: 6px;
+    gap: 2.5rem;
   }
 
   .status {
     font-size: 12px;
     color: #125ff6d1;
+    display: none;
   }
 
   .status-indicator {
@@ -1191,66 +1207,11 @@
   }
 
   .footer-box {
-    height: 62px;
-    background: #000;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin: 10px 1%;
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    gap: 3px;
-    .crypto-icon {
-      margin: 0.65rem;
-      padding: 10px;
-      border-radius: 50px;
-      background: linear-gradient(142.29deg, #ffa800 23.25%, #ffc838 79.92%);
-      width: 40px;
-      height: 40px;
-      text-align: center;
-
-      i {
-        color: #fff;
-        font-size: large;
-      }
-    }
-
-    .crypto-text {
-      font-family: "Inter";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 13px;
-      line-height: 18px;
-      background-clip: text;
-      color: #fb9b21bf;
-      margin: 0.65rem 0;
-    }
-
-    .crypto-arrow {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      padding: 8px 10px;
-      width: 44px;
-      height: 40px;
-      background: #ffffff;
-      border-radius: 8px;
-      margin: 0.65rem;
-    }
+    display: none;
   }
 
   .footer-text {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 16px;
-    color: #7e7c7c;
-    text-align: center;
-
-    p {
-      text-decoration-line: underline;
-    }
+    display: none;
   }
 
   .switch {
@@ -1377,11 +1338,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    padding: 8px;
-
-    width: 152px;
-    height: 52px;
-
+    padding: 10px;
+    width: 130px;
+    height: 43px;
     border: 1px solid #eaecf0;
     border-radius: 24px;
 
@@ -1505,7 +1464,7 @@
   .select-button,
   .select-button-files {
     position: fixed;
-    bottom: 150px;
+    bottom: 200px;
     right: 48px;
     width: 45px;
     height: 45px;
@@ -1536,7 +1495,7 @@
   .file-cards-container,
   .link-cards-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     input[type="checkbox"] {
       appearance: none;
@@ -1629,10 +1588,9 @@
 
   .call-modal {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
-    right: 12rem;
-    z-index: 1000;
+    z-index: 99999;
 
     .call-modal-content {
       position: relative;
@@ -1642,8 +1600,8 @@
         padding: 10px 20px;
         backdrop-filter: blur(10px);
         position: absolute;
-        bottom: 10px;
-        left: 3rem;
+        bottom: 4rem;
+        left: 6rem;
         background: rgba(255, 255, 255, 0.1);
         border-radius: 40px;
         width: 15rem;
@@ -1698,9 +1656,9 @@
     }
 
     img {
-      width: 333px;
-      height: 392px;
-      border-radius: 40px;
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
     }
   }
 
@@ -1944,13 +1902,14 @@
     margin: 7% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 40%;
+    width: 100%;
     border-radius: 16px;
-    position: relative;
+    position: fixed;
     background: #ffffff;
     border: 1px solid #eaecf0;
     box-shadow: 0px 32px 64px -12px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(100px);
+    bottom: -39px;
 
     .close {
       color: #aaa;
@@ -2167,9 +2126,9 @@
 
     .members-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       height: 80vh;
-      max-height: 50vh;
+      max-height: 58vh;
       overflow-y: auto;
       scrollbar-gutter: stable;
 
@@ -2179,7 +2138,6 @@
         justify-content: space-between;
         padding: 16px;
         gap: 8px;
-        width: 487px;
         height: 112px;
         border-radius: 24px;
         position: relative;
@@ -2311,15 +2269,19 @@
   }
 
   .send-coin-modal-content {
-    margin: 5% auto;
     border: 1px solid #888;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    padding: 24px;
-    width: 420px;
+    padding: 16px;
+    width: 100%;
     height: 482px;
     background: #ffffff;
-    border-radius: 16px;
+    position: fixed;
+    bottom: 0;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 
     .modal-header,
     .modal-footer {
@@ -2463,12 +2425,16 @@
   .gift-modal-content {
     background-color: white;
     margin: 5% auto;
-    padding: 20px;
+    padding: 28px;
     border: 1px solid #888;
-    width: 80%;
-    max-width: 400px;
-    border-radius: 10px;
+    width: 100%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    bottom: -22px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 
     .modal-header,
     .modal-footer {
@@ -2627,10 +2593,12 @@
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 100%;
     max-width: 600px;
     border-radius: 10px;
-    position: relative;
+    position: absolute;
+    bottom: -32px;
+    z-index: 9999;
 
     .members-section {
       height: 300px;
@@ -3822,7 +3790,8 @@
     margin-top: 20px;
   }
 
-  #cancelBtn, #cancelBt {
+  #cancelBtn,
+  #cancelBt {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 12px;

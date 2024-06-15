@@ -28,21 +28,6 @@ $(document).on("click", ".popup_trigger", (event) => {
   $el.attr("data-active", isOpen);
 });
 
-$(document).on("click", ".sidebar_trigger", (event) => {
-  const $sidebar = $("#sidebar");
-  const isOpen = $sidebar.attr("aria-expanded") === "true";
-  $sidebar.attr("aria-expanded", !isOpen);
-
-  if (isOpen) {
-    $(".chat-search-icons").css("display", "none");
-    $(".tabs").css("display", "none");
-    $(".sidebar_container__bordered").css("min-height", "100% !important");
-  } else {
-    $(".chat-search-icons").css("display", "flex");
-    $(".tabs").css("display", "flex");
-  }
-});
-
 $(window).on("resize", () => {
   if (window.innerWidth > 768) {
     $(".popup").each((_, el) => {
@@ -214,6 +199,7 @@ $(document).ready(function () {
     $(".chat-container").css("display", "flex");
     $(".profile-component").css("display", "flex");
     $(".chat-layout").css("display", "grid");
+    $("#sidebar").hide();
   }
 
   function createGroupConversation(group) {
@@ -271,6 +257,7 @@ $(document).ready(function () {
     $(".chat-container").css("display", "flex");
     $(".profile-component").css("display", "flex");
     $(".chat-layout").css("display", "grid");
+    $("#sidebar").hide();
   }
 
   function createOptionsModal() {
@@ -299,6 +286,11 @@ $(document).ready(function () {
       });
     });
   }
+
+  $(".profile-component").on("click", "#close-chat", function () {
+    $(".chat-layout").css("display", "none");
+    $("#sidebar").show();
+  });
 
   function toggleMessageOptionsModal() {
     $("#chat-box").on("click", ".message-options-button", function (event) {
