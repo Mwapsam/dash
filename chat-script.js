@@ -1514,3 +1514,19 @@ $(document).ready(function () {
     $(".video-container").toggleClass("full-screen");
   });
 });
+
+$(document).ready(function () {
+  $("#openHomeModalBtn").click(function () {
+    $("#homModal").fadeIn();
+  });
+
+  $("#home-close-btn").click(function () {
+    $("#homModal").fadeOut();
+  });
+
+  $(window).click(function (event) {
+    if ($(event.target).is("#homModal")) {
+      $("#homModal").fadeOut();
+    }
+  });
+});

@@ -324,7 +324,9 @@
                 </li>
 
                 <li class="grid-item">
-                  <span class="icon"><i class="fa-solid fa-envelope-open-text"></i></span>
+                  <span class="icon"
+                    ><i class="fa-solid fa-envelope-open-text"></i
+                  ></span>
                   Unread
                 </li>
                 <li class="grid-item">
@@ -344,7 +346,9 @@
                   Voice Call
                 </li>
                 <li class="grid-item">
-                  <a href="/video-chat.html" class="icon"><i class="fa-solid fa-video"></i></a>
+                  <a href="/video-chat.html" class="icon"
+                    ><i class="fa-solid fa-video"></i
+                  ></a>
                   Video Call
                 </li>
               </ul>
@@ -886,8 +890,49 @@
         </form>
       </div>
     </div>
+
+    <div id="homModal" class="home-modal">
+      <button class="home-close-btn" id="home-close-btn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="home-modal-content">
+        <ul class="grid-container">
+          <li class="grid-item">
+            <span class="icon"><i class="fa-solid fa-list-check"></i></span>
+            Create Tasks
+          </li>
+
+          <li class="grid-item">
+            <span class="icon"
+              ><i class="fa-solid fa-users-viewfinder"></i
+            ></span>
+            Find collaboration
+          </li>
+          <li class="grid-item">
+            <span class="icon"><i class="fa-solid fa-feather"></i></span>
+            Make post
+          </li>
+          <li class="grid-item">
+            <span class="icon"><i class="fa-solid fa-arrow-trend-up"></i></span>
+            Go live
+          </li>
+          <li class="grid-item">
+            <span class="icon"
+              ><i class="fa-solid fa-chalkboard-user"></i
+            ></span>
+            New Board
+          </li>
+          <li class="grid-item">
+            <a href="/video-chat.html" class="icon"
+              ><i class="fa-solid fa-paste"></i
+            ></a>
+            New Paper
+          </li>
+        </ul>
+      </div>
+    </div>
     <nav class="navbar">
-      <a href="#" class="navbar_item">
+      <a href="./index.html" class="navbar_item">
         <svg data-icon>
           <use href="./icons/sprite.svg#home" />
         </svg>
@@ -905,12 +950,12 @@
         </svg>
         <span>Live</span>
       </a>
-      <a href="#" class="navbar_item navbar_item__bold mobile_only">
+      <a href="#" class="navbar_item navbar_item__bold mobile_only" id="openHomeModalBtn">
         <svg data-icon>
           <use href="./icons/sprite.svg#add" />
         </svg>
       </a>
-      <a href="#" class="navbar_item" data-notification>
+      <a href="./chat.html" class="navbar_item" data-notification>
         <svg data-icon>
           <use href="./icons/sprite.svg#message" />
         </svg>
