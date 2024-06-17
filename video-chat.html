@@ -28,6 +28,10 @@
       rel="stylesheet"
       href="./font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css"
     />
+    <script
+      src="https://kit.fontawesome.com/cbfa24e26c.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
@@ -196,18 +200,18 @@
         </div>
         <div class="video-container">
           <div class="invite-buttons">
-            <div class="users-icon">
-              <span id="status-button">
+            <div class="users-icon" id="openModalBtn">
+              <span>
                 <i class="fa fa-users" aria-hidden="true"></i>
                 2
               </span>
             </div>
-
-            <button class="invite-button">Invite +</button>
+            <button class="invite-button">
+              <span> Invite </span>
+              <i class="fa-solid fa-plus"></i>
+            </button>
           </div>
-
           <div class="container"></div>
-
           <div class="top-controls">
             <div class="control-button">
               <div class="user-icon">
@@ -216,16 +220,18 @@
             </div>
             <div class="control-button">
               <div class="user-icon">
-                <i class="fa fa-th-large" aria-hidden="true"></i>
+                <i class="fa-solid fa-grip"></i>
               </div>
             </div>
-            <div class="control-button">
+            <div class="control-button" id="expandBtn">
               <div class="user-icon">
-                <img src="./assets/corner.png" alt="coner-icon" />
+                <i
+                  class="fa-solid fa-up-right-and-down-left-from-center"
+                  aria-hidden="true"
+                ></i>
               </div>
             </div>
           </div>
-
           <div class="controls">
             <div class="control-button">
               <div class="user-icon">
@@ -237,14 +243,12 @@
               <div class="user-icon">
                 <i class="fa fa-microphone" aria-hidden="true"></i>
               </div>
-
               <span>Mute</span>
             </div>
             <div class="control-button">
               <div class="user-icon">
                 <img src="./assets/repeat.png" alt="Flip" />
               </div>
-
               <span>Flip</span>
             </div>
             <div class="control-button">
@@ -260,25 +264,89 @@
               <span>Background</span>
             </div>
             <div class="control-button">
-              <div class="end-call">
+              <a href="./chat.html" class="end-call">
                 <i class="fa fa-phone" aria-hidden="true"></i>
-              </div>
+              </a>
               <span>End</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="invite-modal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2>Create Chat</h2>
+              <input
+                type="text"
+                placeholder="Search followers"
+                class="search-input"
+              />
+            </div>
+            <div class="modal-body">
+              <div class="select-all">
+                <label for="selectAll">Select all</label>
+                <input type="checkbox" id="selectAll" />
+              </div>
+              <ul class="user-list"></ul>
+            </div>
+            <div class="modal-footer">
+              <button class="close" id="cancelBtn">Cancel</button>
+              <button id="createBtn">Create</button>
             </div>
           </div>
         </div>
 
         <div id="user-status-modal" class="invite-modal">
           <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>People</h2>
-            <div class="person">
-              <img src="https://via.placeholder.com/40" alt="Sophia Vera" />
-              <span>Sophia Vera</span>
+            <div class="modal-header-f">
+              <h2>People</h2>
+              <span class="close" id="close-invite-modal">
+                <i class="fa-solid fa-xmark"></i>
+              </span>
             </div>
-            <div class="person">
-              <img src="https://via.placeholder.com/40" alt="Jade Lynn" />
-              <span>Jade Lynn</span>
+
+            <div class="person-card">
+              <div class="person">
+                <img src="./assets/user1.png" alt="Jade Lynn" />
+                <span>Jade Lynn</span>
+              </div>
+              <input type="checkbox" class="user-checkbox" />
+            </div>
+
+            <div class="person-card">
+              <div class="person">
+                <img src="./assets/user2.png" alt="Jade Lynn" />
+                <span>Jade Lynn</span>
+              </div>
+              <input type="checkbox" class="user-checkbox" />
+            </div>
+            <div class="person-card">
+              <div class="person">
+                <img src="./assets/user3.png" alt="Jade Lynn" />
+                <span>Jade Lynn</span>
+              </div>
+              <input type="checkbox" class="user-checkbox" />
+            </div>
+            <div class="person-card">
+              <div class="person">
+                <img src="./assets/user4.png" alt="Jade Lynn" />
+                <span>Jade Lynn</span>
+              </div>
+              <input type="checkbox" class="user-checkbox" />
+            </div>
+            <div class="person-card">
+              <div class="person">
+                <img src="./assets/user5.png" alt="Jade Lynn" />
+                <span>Jade Lynn</span>
+              </div>
+              <input type="checkbox" class="user-checkbox" />
+            </div>
+            <div class="person-card">
+              <div class="person">
+                <img src="./assets/user1.png" alt="Jade Lynn" />
+                <span>Jade Lynn</span>
+              </div>
+              <input type="checkbox" class="user-checkbox" />
             </div>
           </div>
         </div>

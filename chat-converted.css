@@ -858,8 +858,6 @@ svg[data-icon] {
   background-color: #fff !important;
 }
 #sidebar .sidebar_container__bordered > * {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   display: flex !important;
   flex-direction: column;
   gap: 0.5rem;

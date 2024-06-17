@@ -42,6 +42,12 @@ $(document).ready(function () {
     $("#popup-menu").toggle();
   });
 
+  var btn = $(".close-more-action-mobile");
+
+  btn.on("click", function () {
+    $("#popup-menu").hide();
+  });
+
   $(document).click(function (event) {
     if (!$(event.target).closest("#popup-menu, #attachment-icon").length) {
       $("#popup-menu").hide();
@@ -117,19 +123,21 @@ $(document).ready(function () {
       </div>
       <button class="options-hover-button" data-modal-id="${uniqueId}">
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
+
+        <i class="fa-solid fa-ellipsis"></i>
       </button>
       <div id="${uniqueId}" class="options-modal">
         <button class="options-modal-close">
           <i class="fa fa-times close" aria-hidden="true"></i>
         </button>
         <div class="options-modal-content">
-          <ul>
-            <li><span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span> Favourite</li>
-            <li><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
-            <li><span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> Video call</li>
-            <li><span class="icon"><img src="./assets/unread.png" /></span> Unread</li>
-            <li><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
-            <li><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
+          <ul class="grid-container">
+            <li class="grid-item"><span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span> Favourite</li>
+            <li class="grid-item"><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
+            <li class="grid-item"><span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> Video call</li>
+            <li class="grid-item"><span class="icon"><img src="./assets/unread.png" /></span> Unread</li>
+            <li class="grid-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
+            <li class="grid-item"><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
           </ul>
         </div>
       </div>
@@ -166,14 +174,17 @@ $(document).ready(function () {
                     ${message.message}
                   </p>
                   <div class='message-option-modal'>
+                    <button class="message-options-modal-close">
+                      <i class="fa fa-times close" aria-hidden="true"></i>
+                    </button>
                     <div class="message-options-modal-content">
-                      <ul>
-                        <li><span class="icon"><i class="fa-solid fa-share-from-square"></i></span> Forward</li>
-                        <li><span class="icon"><i class="fa-solid fa-pencil"></i></span> Reply</li>
-                        <li><span class="icon"><i class="fa-regular fa-copy"></i></span> Copy</li>
-                        <li><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
-                        <li><span class="icon"><i class="fa-regular fa-circle-question"></i></span> Report</li>
-                        <li><span class="icon"><img src="./assets/mug.png" class='mug' /></span> Mug</li>
+                      <ul class="grid-container">
+                        <li class="grid-item"><span class="icon"><i class="fa-solid fa-share-from-square"></i></span> Forward</li>
+                        <li class="grid-item"><span class="icon"><i class="fa-solid fa-pencil"></i></span> Reply</li>
+                        <li class="grid-item"><span class="icon"><i class="fa-regular fa-copy"></i></span> Copy</li>
+                        <li class="grid-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
+                        <li class="grid-item"><span class="icon"><i class="fa-regular fa-circle-question"></i></span> Report</li>
+                        <li class="grid-item"><span class="icon"><img src="./assets/mug.png" class='mug' /></span> Mug</li>
                       </ul>
                     </div>
                   </div>
@@ -1443,17 +1454,18 @@ $(document).ready(function () {
   var modal = $("#moreModal");
   var btn = $(".action-button.more");
   var span = $("#close-more-action");
+  var closeBtn = $(".close-more-action-mobile");
 
   btn.on("click", function () {
-    $("#close-more-action").css("display", "block");
     modal.show();
-    btn.hide();
+  });
+
+  closeBtn.on("click", function () {
+    modal.hide();
   });
 
   span.on("click", function () {
     modal.hide();
-    span.hide();
-    btn.show();
   });
 
   $(window).on("click", function (event) {
@@ -1478,5 +1490,27 @@ $(document).ready(function () {
 
   $(".chat-item, .group-item").on("touchend", function (event) {
     removeHoverClass(event);
+  });
+});
+
+$(document).ready(function () {
+  $("#openModalBtn").click(function () {
+    $(".invite-modal").fadeIn();
+
+    console.log("Here again");
+  });
+
+  $("#close-invite-modal").click(function () {
+    $(".invite-modal").fadeOut();
+  });
+
+  $(window).click(function (event) {
+    if ($(event.target).is(".invite-modal")) {
+      $(".invite-modal").fadeOut();
+    }
+  });
+
+  $("#expandBtn").click(function () {
+    $(".video-container").toggleClass("full-screen");
   });
 });

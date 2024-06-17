@@ -174,14 +174,28 @@
       <!-- sidebar -->
       <aside id="sidebar" aria-expanded="true">
         <div class="sidebar_container__bordered">
-          <div>
+          <div class="mobile_only_sidebar">
             <div class="chat-search-icons">
-              <button>
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-              <button id="openGroupModal">
-                <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-              </button>
+              <div class="header-profile">
+                <img src="./assets/user5.png" alt="" />
+                <span>
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </span>
+              </div>
+
+              <div class="mobile_only_title">
+                <h1>Chat</h1>
+              </div>
+
+              <div class="header-icons">
+                <span>
+                  <i class="fa-regular fa-circle-play"></i>
+                </span>
+
+                <span id="openGroupModal">
+                  <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                </span>
+              </div>
             </div>
           </div>
           <div>
@@ -291,36 +305,47 @@
             </a>
 
             <button class="action-button more">&#8942;</button>
-            <button id="close-more-action">
+            <button id="close-more-action" class="close-more-action">
               <i class="fa-regular fa-circle-xmark"></i>
             </button>
           </div>
 
           <div id="moreModal" class="more-actions-modal">
+            <button class="close-more-action-mobile" id="close-more-action">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
             <div class="more-actions-modal-content">
-              <ul>
-                <li>
+              <ul class="grid-container">
+                <li class="grid-item">
                   <span class="icon"
                     ><i class="fa fa-heart-o" aria-hidden="true"></i
                   ></span>
                   Favourite
                 </li>
 
-                <li>
-                  <span class="icon"><img src="./assets/unread.png" /></span>
+                <li class="grid-item">
+                  <span class="icon"><i class="fa-solid fa-envelope-open-text"></i></span>
                   Unread
                 </li>
-                <li>
+                <li class="grid-item">
                   <span class="icon"
                     ><i class="fa fa-trash-o" aria-hidden="true"></i
                   ></span>
                   Delete
                 </li>
-                <li>
+                <li class="grid-item">
                   <span class="icon"
                     ><i class="fa fa-ban" aria-hidden="true"></i
                   ></span>
                   Block
+                </li>
+                <li class="grid-item">
+                  <span class="icon"><i class="fa-solid fa-phone"></i></span>
+                  Voice Call
+                </li>
+                <li class="grid-item">
+                  <a href="/video-chat.html" class="icon"><i class="fa-solid fa-video"></i></a>
+                  Video Call
                 </li>
               </ul>
             </div>
@@ -594,45 +619,60 @@
           </div>
 
           <div class="popup-menu" id="popup-menu">
-            <div class="popup-item">
-              <i class="fa fa-download" aria-hidden="true"></i> Upload from this
-              computer
-            </div>
-            <div class="popup-item">
-              <i class="fa fa-cloud" aria-hidden="true"></i> Upload from cloud
-            </div>
-            <div class="popup-item">
-              <i class="fa fa-folder" aria-hidden="true"></i> Upload from Files
+            <button class="close-more-action-mobile">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="popup-menu-content">
+              <div class="popup-item">
+                <span>
+                  <i class="fa fa-download" aria-hidden="true"></i>
+                </span>
+                Upload from computer
+              </div>
+              <div class="popup-item">
+                <span>
+                  <i class="fa fa-cloud" aria-hidden="true"></i>
+                </span>
+                Upload from cloud
+              </div>
+              <div class="popup-item">
+                <span>
+                  <i class="fa fa-folder" aria-hidden="true"></i>
+                </span>
+                Upload from Files
+              </div>
             </div>
           </div>
 
           <div class="emoji-popup" id="emoji-popup">
-            <div class="emoji-header">
-              <span>Emojis</span
-              ><i class="fa fa-times" aria-hidden="true" id="close-moji"></i>
-            </div>
-            <div class="emoji-grid">
-              <span>😀</span><span>😁</span><span>😂</span><span>🤣</span
-              ><span>😃</span> <span>😄</span><span>😅</span><span>😆</span
-              ><span>😉</span><span>😊</span> <span>😋</span><span>😎</span
-              ><span>😍</span><span>😘</span><span>😗</span> <span>😙</span
-              ><span>😚</span><span>☺️</span><span>🙂</span><span>🤗</span>
-              <span>🤩</span><span>🤔</span><span>🤨</span><span>😐</span
-              ><span>😑</span> <span>😶</span><span>🙄</span><span>😏</span
-              ><span>😣</span><span>😥</span> <span>😮</span><span>🤐</span
-              ><span>😯</span><span>😪</span><span>😫</span> <span>😴</span
-              ><span>😌</span><span>😛</span><span>😜</span><span>😝</span>
-              <span>🤤</span><span>😒</span><span>😓</span><span>😔</span
-              ><span>😕</span> <span>🙃</span><span>🤑</span><span>😲</span
-              ><span>☹️</span><span>🙁</span> <span>😖</span><span>😞</span
-              ><span>😟</span><span>😤</span><span>😢</span> <span>😭</span
-              ><span>😦</span><span>😧</span><span>😨</span><span>😩</span>
-              <span>🤯</span><span>😬</span><span>😰</span><span>😱</span
-              ><span>🥵</span> <span>🥶</span><span>😳</span><span>🤪</span
-              ><span>😵</span><span>🥴</span> <span>😠</span><span>😡</span
-              ><span>🤬</span><span>🤡</span><span>🤠</span> <span>😇</span
-              ><span>🥳</span><span>🥺</span><span>🤥</span><span>🤓</span>
-              <span>😈</span><span>👿</span><span>💀</span>
+            <div class="emoji-popup-content">
+              <div class="emoji-header">
+                <span>Emojis</span
+                ><i class="fa fa-times" aria-hidden="true" id="close-moji"></i>
+              </div>
+              <div class="emoji-grid">
+                <span>😀</span><span>😁</span><span>😂</span><span>🤣</span
+                ><span>😃</span> <span>😄</span><span>😅</span><span>😆</span
+                ><span>😉</span><span>😊</span> <span>😋</span><span>😎</span
+                ><span>😍</span><span>😘</span><span>😗</span> <span>😙</span
+                ><span>😚</span><span>☺️</span><span>🙂</span><span>🤗</span>
+                <span>🤩</span><span>🤔</span><span>🤨</span><span>😐</span
+                ><span>😑</span> <span>😶</span><span>🙄</span><span>😏</span
+                ><span>😣</span><span>😥</span> <span>😮</span><span>🤐</span
+                ><span>😯</span><span>😪</span><span>😫</span> <span>😴</span
+                ><span>😌</span><span>😛</span><span>😜</span><span>😝</span>
+                <span>🤤</span><span>😒</span><span>😓</span><span>😔</span
+                ><span>😕</span> <span>🙃</span><span>🤑</span><span>😲</span
+                ><span>☹️</span><span>🙁</span> <span>😖</span><span>😞</span
+                ><span>😟</span><span>😤</span><span>😢</span> <span>😭</span
+                ><span>😦</span><span>😧</span><span>😨</span><span>😩</span>
+                <span>🤯</span><span>😬</span><span>😰</span><span>😱</span
+                ><span>🥵</span> <span>🥶</span><span>😳</span><span>🤪</span
+                ><span>😵</span><span>🥴</span> <span>😠</span><span>😡</span
+                ><span>🤬</span><span>🤡</span><span>🤠</span> <span>😇</span
+                ><span>🥳</span><span>🥺</span><span>🤥</span><span>🤓</span>
+                <span>😈</span><span>👿</span><span>💀</span>
+              </div>
             </div>
           </div>
         </div>

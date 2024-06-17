@@ -474,39 +474,39 @@ $(document).ready(function () {
 $(document).ready(function () {
   const profiles = [
     {
-      name: 'Wade Warren',
-      img: 'https://source.unsplash.com/random/50x50/?person',
+      name: "Wade Warren",
+      img: "./assets/user4.png",
     },
     {
-      name: 'Jenny Wilson',
-      img: 'https://source.unsplash.com/random/50x50/?person',
+      name: "Jenny Wilson",
+      img: "./assets/user5.png",
     },
     {
-      name: 'Cameron Williamson',
-      img: 'https://source.unsplash.com/random/50x50/?person',
+      name: "Cameron Williamson",
+      img: "./assets/user3.png",
     },
     {
-      name: 'Esther Howard',
-      img: 'https://source.unsplash.com/random/50x50/?person',
+      name: "Esther Howard",
+      img: "./assets/user2.png",
     },
   ];
 
   const followers = [
     {
-      name: 'Mwape John',
-      img: 'https://source.unsplash.com/random/50x50/?person',
+      name: "Mwape John",
+      img: "./assets/user1.png",
     },
     {
-      name: 'Dave Samuel',
-      img: 'https://source.unsplash.com/random/50x50/?person',
+      name: "Dave Samuel",
+      img: "./assets/user2.png",
     },
     {
-      name: 'Mercy Gabby',
-      img: 'https://source.unsplash.com/random/50x50/?person',
+      name: "Mercy Gabby",
+      img: "./assets/user3.png",
     },
     {
-      name: 'Sharon Mathews',
-      img: 'https://source.unsplash.com/random/50x50/?person',
+      name: "Sharon Mathews",
+      img: "./assets/user5.png",
     },
   ];
 
