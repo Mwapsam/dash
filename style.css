@@ -565,7 +565,7 @@
     border-bottom: 1px solid #e6e6e6;
     position: relative;
     cursor: pointer;
-    padding: 3px 3px 12px 3px;
+    padding: 11px 3px 12px 3px;
   }
 
   .chat-item:last-child {
@@ -1803,7 +1803,7 @@
     height: 44px;
     position: absolute;
     right: 6px;
-    top: -14px;
+    top: -4px;
     z-index: 999;
 
     .fa-arrow-right {
@@ -1941,9 +1941,13 @@
     padding: 0;
     margin: 11px 143px;
     position: absolute;
-    top: 17rem;
+    top: 24rem;
     right: -125px;
     z-index: 9999;
+  }
+
+  .small {
+    top: 36rem !important;
   }
 
   .options-modal-close {
@@ -5824,7 +5828,7 @@
     border-bottom: 1px solid #e6e6e6;
     position: relative;
     cursor: pointer;
-    padding: 3px 3px 12px 3px;
+    padding: 11px 3px 12px 3px;
   }
 
   .chat-item:last-child {
