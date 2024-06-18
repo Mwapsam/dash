@@ -292,6 +292,7 @@ $(document).ready(function () {
     $("#quick-access-card-grid-button i").removeAttr("data-active");
     $("#quick-access-card-compact-button i").attr("data-active", "");
   });
+  
 });
 
 $(document).ready(function () {
@@ -655,33 +656,6 @@ $(document).ready(function () {
   $(".menu-nav span").on("click", function () {
     $(".menu-nav span").removeClass("clicked");
     $(this).addClass("clicked");
-  });
-});
-
-$(document).ready(function () {
-  $(".share-delete").on("click touchstart", function (e) {
-    e.stopPropagation();
-    const index = $(this).attr("id").split("-")[1];
-    var modal = $("#deleteModal");
-    var btn = $(`#openDelete-${index}`);
-    var span = $(".close-delete");
-
-    modal.show();
-
-    span.on("click touchstart", function () {
-      modal.hide();
-    });
-
-    $(window).on("click touchstart", function (event) {
-      if ($(event.target).is(modal)) {
-        modal.hide();
-      }
-    });
-  });
-
-  $(".open-delete-modal").on("click touchstart", function () {
-    var modal = $("#deleteModal");
-    modal.show();
   });
 });
 
