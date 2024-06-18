@@ -1,6 +1,6 @@
 [
   {
-    "imgSrc": "./assets/group-chat.png",
+    "imgSrc": "./assets/user1.png",
     "altText": "Group 1",
     "count": "+3",
     "name": "Finance Group",
@@ -49,7 +49,7 @@
     ]
   },
   {
-    "imgSrc": "./assets/group-chat.png",
+    "imgSrc": "./assets/user2.png",
     "altText": "Group 2",
     "count": "+3",
     "name": "Behavioral Psychologists",
@@ -78,7 +78,7 @@
     ]
   },
   {
-    "imgSrc": "./assets/group-chat.png",
+    "imgSrc": "./assets/user3.png",
     "altText": "Group 2",
     "count": "+3",
     "name": "Behavioral Psychologists",
@@ -107,7 +107,7 @@
     ]
   },
   {
-    "imgSrc": "./assets/group-chat.png",
+    "imgSrc": "./assets/user4.png",
     "altText": "Group 2",
     "count": "+3",
     "name": "Behavioral Psychologists",
@@ -136,7 +136,7 @@
     ]
   },
   {
-    "imgSrc": "./assets/group-chat.png",
+    "imgSrc": "./assets/user5.png",
     "altText": "Group 2",
     "count": "+3",
     "name": "Behavioral Psychologists",

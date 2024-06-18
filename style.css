@@ -187,7 +187,7 @@
   }
 
   #openCallModal {
-    display: none;
+    /* display: none; */
   }
 
   .actions {
@@ -312,7 +312,6 @@
 
   .chat-container {
     height: 80vh;
-    max-height: 600px;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -590,6 +589,7 @@
     justify-content: space-between;
     align-items: center;
     margin-right: 1rem;
+    gap: 8px;
   }
 
   .chat-name {
@@ -926,7 +926,9 @@
     }
 
     span {
-      font-weight: bold;
+      font-weight: bolder;
+      font-size: 20px;
+      padding-left: 0.3rem;
     }
   }
 
@@ -1420,6 +1422,7 @@
     gap: 10px;
     justify-content: space-between;
     padding-bottom: 9rem;
+    background: #fff;
   }
 
   .media-file-card {
@@ -1827,7 +1830,7 @@
   .options-modal-content {
     padding: 7px 8px;
     /* height: 252px; */
-    background: #ffffff;
+    background: #f0f0f0;
     border: 1px solid #eaecf0;
     box-shadow: 0px 12px 16px -4px rgba(0, 0, 0, 0.08),
       0px 4px 6px -2px rgba(0, 0, 0, 0.03);
@@ -1875,6 +1878,7 @@
     color: #fff;
     width: 40px;
     height: 40px;
+    cursor: pointer;
 
     background: #192232;
     border-radius: 200px;
@@ -1949,6 +1953,10 @@
     top: 36rem !important;
   }
 
+  .imoji {
+    top: -90px !important;
+  }
+
   .options-modal-close {
     background: #ffffff;
     border: 1px solid rgba(195, 195, 195, 0.79);
@@ -1958,7 +1966,7 @@
     padding: 0;
     margin: 11px 143px;
     position: absolute;
-    top: 20rem;
+    top: 25rem;
     right: -125px;
     z-index: 9999;
   }
@@ -2960,6 +2968,10 @@
     }
   }
 
+  .home-modal {
+    display: none;
+  }
+
   .header-profile,
   .mobile_only_title {
     img {
@@ -3334,7 +3346,7 @@
 
   .chat-list {
     background-color: #fff;
-    height: 25rem;
+    height: 35rem;
     overflow-y: scroll !important;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -3349,7 +3361,8 @@
     border-bottom: 1px solid #e6e6e6;
     position: relative;
     cursor: pointer;
-    padding: 3px 3px 12px 3px;
+    padding: 11px 3px 12px 3px;
+    align-items: flex-start;
   }
 
   .chat-item:last-child {
@@ -3374,6 +3387,7 @@
     justify-content: space-between;
     align-items: center;
     margin-right: 1rem;
+    gap: 8px;
   }
 
   .chat-name {
@@ -3984,12 +3998,13 @@
 
   .group-item {
     display: flex;
-    align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
+    border-bottom: 1px solid #e6e6e6;
     position: relative;
+    cursor: pointer;
+    padding: 22px 3px 28px 3px;
+    align-items: flex-start;
   }
+  
 
   .group-avatar {
     position: relative;
@@ -3997,13 +4012,16 @@
   }
 
   .group-avatar img {
-    width: 50px;
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%;
   }
 
   .group-count {
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: -10px;
     background-color: #bcbcbc;
     border: #007bff solid 1px;
     color: white;
@@ -4671,27 +4689,29 @@
   }
 
   .options-hover-button {
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     margin: 0 auto;
     width: 44px;
     height: 44px;
-    background: #ffffff;
-    border: 1px solid rgba(195, 195, 195, 0.79);
-    border-radius: 200px;
     position: absolute;
     right: 6px;
-    top: 14px;
-    z-index: 9999;
+    top: -4px;
+    z-index: 999;
+
+    .fa-arrow-right {
+      display: none;
+    }
   }
 
   .options-modal {
     display: none;
     position: absolute;
     z-index: 9999;
-    left: 9rem;
+    left: 5rem;
+    top: 0;
   }
 
   .options-modal-group {
@@ -4715,7 +4735,7 @@
     display: flex;
     flex-direction: row;
     position: absolute;
-    top: 43px;
+    top: 36px;
   }
 
   .options-modal-content {
@@ -4974,6 +4994,12 @@
     justify-content: space-between;
     border-bottom: 1px solid #ccc;
     overflow-x: auto;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
+  }
+
+  .tabs::-webkit-scrollbar {
+     display: none;
   }
 
   .tab-link {
@@ -5741,6 +5767,12 @@
   .sidebar_container__bordered {
     border: 1px solid rgba(195, 195, 195, 0.5) !important;
     border-radius: 40px !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .home-modal {
+    display: none;
   }
 
   .header-profile,
@@ -6662,6 +6694,10 @@
     }
   }
 
+  #sidebar[aria-expanded="false"] .options-hover-button {
+    display: none;
+  }
+
   .chat-search-icons {
     display: flex;
     align-items: center;
@@ -6777,6 +6813,7 @@
     gap: 10px;
     justify-content: space-between;
     padding-bottom: 9rem;
+    background: #ffff;
   }
 
   .media-file-card {
@@ -7176,8 +7213,10 @@
     display: none;
     position: absolute;
     z-index: 9999;
-    left: 9rem;
+    left: 9.24rem;
+    top: 3px;
   }
+  
 
   .options-modal-group {
     display: none;

@@ -627,11 +627,11 @@ svg[data-icon] {
 :root {
   --header-nav-height: 4rem;
 }
-.content_area {
+/* .content_area {
   display: grid;
   flex: 1 1 0%;
   grid-template-columns: auto 1fr;
-}
+} */
 .content_area main {
   overflow: hidden;
   /* padding: 0.5rem; */

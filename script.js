@@ -54,28 +54,36 @@ $(window).on("resize", () => {
   }
 });
 
-$(function () {
-  $("#my-file").on("click", function (event) {
-    event.preventDefault();
-    $("#sub-dropdown").toggle();
+$(document).ready(function () {
+  $(function () {
+    $("#my-file").on("click", function (event) {
+      event.preventDefault();
+      $("#sub-dropdown").toggle();
 
-    if ($("#sub-dropdown").is(":visible")) {
-      $("#fa-play").hide();
-      $("#fa-caret-down").show();
-    } else {
-      $("#fa-play").show();
-      $("#fa-caret-down").hide();
-    }
+      if ($("#sub-dropdown").is(":visible")) {
+        $("#fa-play").hide();
+        $("#fa-caret-down").show();
+      } else {
+        $("#fa-play").show();
+        $("#fa-caret-down").hide();
+      }
+    });
   });
 });
 
-$(function () {
-  $("#file-mobile").on("click", function (event) {
-    event.preventDefault();
-    $("#sub-dropdown-mobile").toggle();
-  });
-  $("#sub-dropdown-mobile").on("click", ".sidebar_nav__link", function (event) {
-    event.stopPropagation();
+$(document).ready(function () {
+  $(function () {
+    $("#file-mobile").on("click", function (event) {
+      event.preventDefault();
+      $("#sub-dropdown-mobile").toggle();
+    });
+    $("#sub-dropdown-mobile").on(
+      "click",
+      ".sidebar_nav__link",
+      function (event) {
+        event.stopPropagation();
+      }
+    );
   });
 });
 
@@ -101,12 +109,12 @@ const data = [
     date: "June, 20, 2023",
   },
   {
-    name: "Artificial Inteligence.pdf",
+    name: "Artificial Intelligence.pdf",
     img: "/assets/files/docx1.png",
     date: "June, 20, 2023",
   },
   {
-    name: "Robotic Fundamentals.docx1",
+    name: "Robotic Fundamentals.docx",
     img: "/assets/files/pdf1.png",
     date: "June, 20, 2023",
   },
@@ -142,7 +150,7 @@ const data = [
   },
 ];
 
-$(function () {
+$(document).ready(function () {
   const $fileContainer = $("#file-container");
   const $compactList = $("#compact-list");
   const $heading = $("#heading");
@@ -178,40 +186,102 @@ $(function () {
     $("#toggleButtonList i").attr("data-active", "");
   });
 
-  data.forEach((element, i) => {
-    const fileCardHTML = `<div class="file-card">
-    <i class="fa fa-ellipsis-v elipsis" id=${`ellipsis-${i}`} aria-hidden="true"></i>
+  function createFileCard(element, index, isCompact) {
+    const fileCardHTML = isCompact
+      ? `<div class="quick-access-card-compact">
+          <div class="icons-compact">
+            <i class="fa fa-ellipsis-v share" id="ellipsis-${
+              index + 10
+            }" aria-hidden="true"></i>
+            <img class="icon-file-compact" src="${element.img}" alt="${
+          element.name
+        }" />
+            <h4 class="icons-compact-h4">${element.name}</h4>
+          </div>
+          <div class="text-container-compact">
+            <div class="card-text-compact">
+              <h4>${element.name}</h4>
+              <p>${element.date}</p>
+            </div>
+            <span class="toggle-action-card" id="first-action">...</span>
+          </div>
+          <div class="action-card">
+            <div class="share-link">
+              <i class="fa fa-external-link"></i>
+              <span>Open</span>
+            </div>
+            <div class="share-link share-modal" id="share-card">
+              <i class="fa fa-share"></i>
+              <span>Share</span>
+            </div>
+            <div class="share-link share-delete-modal" id="openDelete-${
+              index + 10
+            }">
+              <i class="fa fa-trash"></i>
+              <span>Delete</span>
+            </div>
+          </div>
+          <div class="start-date">
+            <p>${element.date}</p>
+          </div>
+          <div class="end-date">
+            <p>${element.date}</p>
+          </div>
+          <div class="share-card-list" id="share-card-list-${index + 10}">
+            <div class="share-link">
+              <i class="fa fa-external-link"></i>
+              <span>Open</span>
+            </div>
+            <div class="share-link share-modal" id="share-card">
+              <i class="fa fa-share"></i>
+              <span>Share</span>
+            </div>
+            <div class="share-link share-delete-modal" id="openDelete-${
+              index + 10
+            }">
+              <i class="fa fa-trash"></i>
+              <span>Delete</span>
+            </div>
+          </div>
+        </div>`
+      : `<div class="file-card">
+          <i class="fa fa-ellipsis-v elipsis" id="ellipsis-${index}" aria-hidden="true"></i>
+          <img src="${element.img}" alt="${element.name}">
+          <div class="file-text">
+            <p>${element.name.substring(0, 11) + "..."}</p> 
+            <p>${element.date}</p>  
+          </div>
+          <div class="share-card-small" id="share-card-small-${index}">
+            <div class="share-link">
+              <i class="fa fa-external-link"></i>
+              <span>Open</span>
+            </div>
+            <div class="share-link share-modal" id="share-card">
+              <i class="fa fa-share"></i>
+              <span>Share</span>
+            </div>
+            <div class="share-link share-delete-modal" id="openDelete-${
+              index + 10
+            }">
+              <i class="fa fa-trash"></i>
+              <span>Delete</span>
+            </div>
+          </div>
+        </div>`;
 
-      <img src="${element.img}" alt="${element.name}">
-      <div class="file-text">
-        <p>${element.name.substring(0, 11) + "..."}</p> 
-        <p>${element.date}</p>  
-      </div>
-      <div class="share-card-small" id=${`share-card-small-${i}`}>
-        <div class="share-link">
-          <i class="fa fa-external-link" ></i>
-          <span>Open</span>
-        </div>
-        <div class="share-link" id="share-card">
-          <i class="fa fa-share"></i>
-          <span>Share</span>
-        </div>
-        <div class="share-link share-delete" id="openDelete-${i + 10}">
-          <i class="fa fa-trash"></i>
-          <span>Delete</span>
-        </div>
-      </div>
-    </div>
-    `;
-    $fileContainer.append(fileCardHTML);
+    return fileCardHTML;
+  }
+
+  data.forEach((element, index) => {
+    $fileContainer.append(createFileCard(element, index, false));
+    $compactList.append(createFileCard(element, index, true));
   });
 
-  $("#quick-access-card-grid-buttun").on("click", function () {
+  $("#quick-access-card-grid-button").on("click", function () {
     $("#quick-access-container").show();
     $("#quick-access-container-compact").hide();
-
     $(".heading").hide();
-    $("#quick-access-card-grid-buttun i").attr("data-active", "");
+    $("#quick-access-card-grid-button i").attr("data-active", "");
     $("#quick-access-card-compact-button i").removeAttr("data-active");
   });
 
@@ -219,131 +289,77 @@ $(function () {
     $("#quick-access-container").hide();
     $("#quick-access-container-compact").show();
     $(".heading").show();
-    $("#quick-access-card-grid-buttun i").removeAttr("data-active");
+    $("#quick-access-card-grid-button i").removeAttr("data-active");
     $("#quick-access-card-compact-button i").attr("data-active", "");
   });
-
-  data.forEach((element, i) => {
-    const fileCardHTML = `<div class="quick-access-card-compact">
-      <div class="icons-compact">
-      <i class="fa fa-ellipsis-v share" id=${`ellipsis-${
-        i + 10
-      }`} aria-hidden="true"></i>
-
-        <img
-          class="icon-file-compact"
-          src="${element.img}"
-          alt="${element.name}"
-        />
-        <h4 class="icons-compact-h4">${element.name}</h4>
-
-      </div>
-
-      <div class="text-container-compact">
-        <div class="card-text-compact">
-          <h4>${element.name}</h4>
-          <p>June, 24, 2024</p>
-        </div>
-        <span class="toggle-action-card" id="first-action">...</span>
-      </div>
-      <div class="action-card">
-        <div class="share-link">
-          <i class="fa fa-external-link" ></i>
-          <span>Open</span>
-        </div>
-        <div class="share-link" id="share-card">
-          <i class="fa fa-share"></i>
-          <span>Share</span>
-        </div>
-        <div class="share-link share-delete" id="openDelete-${i + 10}">
-          <i class="fa fa-trash"></i>
-          <span>Delete</span>
-        </div>
-      </div>
-      <div class="start-date">
-        <p>June, 24, 2024</p>
-      </div>
-      <div class="end-date">
-        <p>June, 24, 2024</p>
-      </div>
-      <div class="share-card-list" id=${`share-card-list-${i + 10}`}>
-        <div class="share-link">
-          <i class="fa fa-external-link" ></i>
-          <span>Open</span>
-        </div>
-        <div class="share-link" id="share-card">
-          <i class="fa fa-share"></i>
-          <span>Share</span>
-        </div>
-        <div class="share-link share-delete" id="openDelete-${i + 10}">
-          <i class="fa fa-trash"></i>
-          <span>Delete</span>
-        </div>
-      </div>
-    </div>`;
-    $compactList.append(fileCardHTML);
-  });
 });
 
-$(function () {
-  $(document).on("click", ".toggle-action-card", function (event) {
-    event.stopPropagation();
+$(document).ready(function () {
+  $(function () {
+    $(document).on("click", ".toggle-action-card", function (event) {
+      event.stopPropagation();
 
-    const clickedIndex = $(this).index(".toggle-action-card");
-    const targetedSpans = $(".action-card");
+      const clickedIndex = $(this).index(".toggle-action-card");
+      const targetedSpans = $(".action-card");
 
-    if (targetedSpans.length > 0) {
-      const targetedSpan = targetedSpans.eq(clickedIndex);
-      targetedSpan.toggle();
-    }
-  });
-
-  $(document).on("click", function (event) {
-    const targetedSpans = $(".action-card");
-
-    if (targetedSpans.length > 0) {
-      const isClickedInsideCard =
-        $(event.target).closest(".action-card").length > 0;
-
-      if (!isClickedInsideCard) {
-        targetedSpans.hide();
+      if (targetedSpans.length > 0) {
+        const targetedSpan = targetedSpans.eq(clickedIndex);
+        targetedSpan.toggle();
       }
-    }
+    });
+
+    $(document).on("click", function (event) {
+      const targetedSpans = $(".action-card");
+
+      if (targetedSpans.length > 0) {
+        const isClickedInsideCard =
+          $(event.target).closest(".action-card").length > 0;
+
+        if (!isClickedInsideCard) {
+          targetedSpans.hide();
+        }
+      }
+    });
   });
 });
 
-$(function () {
-  $("#header-menu").on("click", function (event) {
-    event.preventDefault();
-    $("#mobile-nav").toggle();
-    if ($("#mobile-nav").is(":visible")) {
-      $("#content_area").css("filter", "blur(5px)");
-    } else {
-      $("#content_area").css("filter", "none");
-    }
+$(document).ready(function () {
+  $(function () {
+    $("#header-menu").on("click", function (event) {
+      event.preventDefault();
+      $("#mobile-nav").toggle();
+      if ($("#mobile-nav").is(":visible")) {
+        $("#content_area").css("filter", "blur(5px)");
+      } else {
+        $("#content_area").css("filter", "none");
+      }
+    });
   });
 });
 
-$(function () {
-  $("#sidebar_nav__mobile").on("click", function (event) {
-    event.preventDefault();
-    $("#mobile-nav").toggle();
-    if ($("#mobile-nav").is(":visible")) {
-      $("#content_area").css("filter", "blur(5px)");
-    } else {
-      $("#content_area").css("filter", "none");
-    }
+$(document).ready(function () {
+  $(function () {
+    $("#sidebar_nav__mobile").on("click", function (event) {
+      event.preventDefault();
+      $("#mobile-nav").toggle();
+      if ($("#mobile-nav").is(":visible")) {
+        $("#content_area").css("filter", "blur(5px)");
+      } else {
+        $("#content_area").css("filter", "none");
+      }
+    });
   });
 });
 
-$(function () {
-  function renderQuickAccessCards(data, containerId) {
-    const $quickAccessContainer = $(`#${containerId}`);
-    $quickAccessContainer.empty();
+$(document).ready(function () {
+  $(function () {
+    function renderQuickAccessCards(data, containerId) {
+      const $quickAccessContainer = $(`#${containerId}`);
+      $quickAccessContainer.empty();
 
-    for (let i = 0; i < 3 && i < data.length; i++) {
-      const element = data[i];
-      const cardHTML = `
+      for (let i = 0; i < 3 && i < data.length; i++) {
+        const element = data[i];
+        const cardHTML = `
         <div class="quick-access-card">
           <div class="icons">
             <img class="icon-file" src="${element.img}" alt="file-img" />
@@ -374,17 +390,17 @@ $(function () {
         </div>
       `;
 
-      $quickAccessContainer.append(cardHTML);
+        $quickAccessContainer.append(cardHTML);
+      }
     }
-  }
 
-  function renderQuickAccessCardsCompact(data, containerId) {
-    const $quickAccessContainerCompact = $(`#${containerId}`);
-    $quickAccessContainerCompact.empty();
+    function renderQuickAccessCardsCompact(data, containerId) {
+      const $quickAccessContainerCompact = $(`#${containerId}`);
+      $quickAccessContainerCompact.empty();
 
-    for (let i = 0; i < 3 && i < data.length; i++) {
-      const element = data[i];
-      const cardHTML = `
+      for (let i = 0; i < 3 && i < data.length; i++) {
+        const element = data[i];
+        const cardHTML = `
         <div class="quick-access-card-compact">
           <div class="icons-compact">
           <i class="fa fa-ellipsis-v share" id=${`ellipsis-${i}`} aria-hidden="true"></i>
@@ -439,15 +455,16 @@ $(function () {
         </div>
       `;
 
-      $quickAccessContainerCompact.append(cardHTML);
+        $quickAccessContainerCompact.append(cardHTML);
+      }
     }
-  }
 
-  renderQuickAccessCards(data, "quick-access-container");
-  renderQuickAccessCardsCompact(data, "quick-access-container-compact");
+    renderQuickAccessCards(data, "quick-access-container");
+    renderQuickAccessCardsCompact(data, "quick-access-container-compact");
 
-  $("#quick-access-container-compact").hide();
-  $(".heading").hide();
+    $("#quick-access-container-compact").hide();
+    $(".heading").hide();
+  });
 });
 
 $(document).ready(function () {
@@ -586,28 +603,49 @@ $(document).ready(function () {
   });
 });
 
-$(function () {
-  $(document).on("click touchstart", "#share-card", function () {
-    $("#modal").css("display", "block");
+$(document).ready(function () {
+  const $modal = $("#modal");
+  const $deleteModal = $("#deleteModal");
+  const $overlay = $("<div class='overlay'></div>");
+
+  function showModal() {
+    $modal.show();
+    $("body").append($overlay);
+    $("body").addClass("body-no-scroll");
+  }
+
+  function hideModal() {
+    $modal.hide();
+    $overlay.remove();
+    $("body").removeClass("body-no-scroll");
+  }
+
+  function showDeleteModal() {
+    $deleteModal.show();
+    $("body").append($overlay);
+    $("body").addClass("body-no-scroll");
+  }
+
+  function hideDeleteModal() {
+    $deleteModal.hide();
+    $overlay.remove();
+    $("body").removeClass("body-no-scroll");
+  }
+
+  $(document).on("click", ".share-modal", function () {
+    showModal();
   });
 
-  $(document).on("click touchstart", function (event) {
-    if (
-      $(event.target).closest("#modal").length === 0 &&
-      !$(event.target).is(".share-link")
-    ) {
-      $("#modal").css("display", "none");
-    }
+  $(document).on("click", ".close-modal", function () {
+    hideModal();
   });
 
-  $(".close-modal").on("click touchstart", function () {
-    $("#modal").css("display", "none");
+  $(document).on("click", ".share-delete-modal", function () {
+    showDeleteModal();
   });
 
-  $(window).on("click touchstart", function (event) {
-    if ($(event.target).is($("#modal"))) {
-      $("#modal").css("display", "none");
-    }
+  $(document).on("click", ".close-delete", function () {
+    hideDeleteModal();
   });
 });
 
@@ -649,16 +687,16 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $("#openHomeModalBtn").click(function () {
-    $("#homModal").fadeIn();
+    $("#homModal").show();
   });
 
   $("#home-close-btn").click(function () {
-    $("#homModal").fadeOut();
+    $("#homModal").hide();
   });
 
   $(window).click(function (event) {
     if ($(event.target).is("#homModal")) {
-      $("#homModal").fadeOut();
+      $("#homModal").hide();
     }
   });
 });

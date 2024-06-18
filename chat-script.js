@@ -28,6 +28,25 @@ $(document).on("click", ".popup_trigger", (event) => {
   $el.attr("data-active", isOpen);
 });
 
+$(document).on("click", ".sidebar_trigger", (event) => {
+  const $sidebar = $("#sidebar");
+  const isOpen = $sidebar.attr("aria-expanded") === "true";
+  $sidebar.attr("aria-expanded", !isOpen);
+
+  const $tabs = $(".tabs");
+  const $header = $(".chat-search-icons");
+  const $btn = $(".options-hover-button");
+  if (isOpen) {
+    $tabs.hide();
+    $header.hide();
+    $btn.addClass("no-hover");
+  } else {
+    $tabs.show();
+    $header.show();
+    $btn.removeClass("no-hover");
+  }
+});
+
 $(window).on("resize", () => {
   if (window.innerWidth > 768) {
     $(".popup").each((_, el) => {
@@ -514,7 +533,6 @@ $(document).ready(function () {
       }
     });
 
-    // Add event listener for options modal on chat items
     $(".options-hover-button").click(function (event) {
       event.stopPropagation();
       const modalId = $(this).data("modal-id");
@@ -1111,11 +1129,14 @@ $(document).ready(function () {
 $(document).ready(function () {
   var modal = $("#callModal");
   var btn = $("#openCallModal");
+  var moreModal = $("#moreModal");
   var span = $(".close");
   var endCall = $(".end-call");
 
   btn.click(function () {
     modal.show();
+    moreModal.hide();
+    console.log('Call me!');
   });
 
   span.click(function () {
