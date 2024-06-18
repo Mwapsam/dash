@@ -1136,7 +1136,7 @@ $(document).ready(function () {
   btn.click(function () {
     modal.show();
     moreModal.hide();
-    console.log('Call me!');
+    console.log("Call me!");
   });
 
   span.click(function () {
@@ -1479,19 +1479,27 @@ $(document).ready(function () {
 
   btn.on("click", function () {
     modal.show();
+    $("#close-more-action").show();
+    btn.css('color', '#fff');
   });
 
   closeBtn.on("click", function () {
     modal.hide();
+    $("#close-more-action").hide();
+    btn.css("color", "#000");
   });
 
   span.on("click", function () {
     modal.hide();
+    btn.css("color", "#000");
+    $("#close-more-action").hide();
   });
 
   $(window).on("click", function (event) {
     if ($(event.target).is(modal)) {
       modal.hide();
+      btn.css("color", "#000");
+      $("#close-more-action").hide();
     }
   });
 });
