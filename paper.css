@@ -801,10 +801,20 @@
   }
 
   .paper-container::-webkit-scrollbar {
-    display: none;
+    width: 0.01px;
   }
 
-  .paper-container {
+  .paper-cards::-webkit-scrollbar {
+    width: 0.01px;
+  }
+
+  .paper-container,
+  .paper-cards {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollba {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
@@ -833,6 +843,7 @@
       #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
+    max-width: 7rem !important;
   }
 
   .title-div {
@@ -1406,6 +1417,7 @@
   .paper-img {
     border-radius: 20px;
     border: 1px solid black;
+    max-width: 10rem;
   }
 
   .paper-icons {
