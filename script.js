@@ -206,20 +206,28 @@ $(document).ready(function () {
             <span class="toggle-action-card" id="first-action">...</span>
           </div>
           <div class="action-card">
-            <div class="share-link">
-              <i class="fa fa-external-link"></i>
-              <span>Open</span>
+            <div class='action-card-box'>
+              <button class='close-button'>
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              <div class='action-card-content'>
+                <div class="share-link">
+                  <i class="fa fa-external-link"></i>
+                  <span>Open</span>
+                </div>
+                <div class="share-link share-modal" id="share-card">
+                  <i class="fa fa-share"></i>
+                  <span>Share</span>
+                </div>
+                <div class="share-link share-delete-modal" id="openDelete-${
+                  index + 10
+                }">
+                  <i class="fa fa-trash"></i>
+                  <span>Delete</span>
+                </div>
+              </div>
             </div>
-            <div class="share-link share-modal" id="share-card">
-              <i class="fa fa-share"></i>
-              <span>Share</span>
-            </div>
-            <div class="share-link share-delete-modal" id="openDelete-${
-              index + 10
-            }">
-              <i class="fa fa-trash"></i>
-              <span>Delete</span>
-            </div>
+         
           </div>
           <div class="start-date">
             <p>${element.date}</p>
@@ -252,20 +260,35 @@ $(document).ready(function () {
             <p>${element.date}</p>  
           </div>
           <div class="share-card-small" id="share-card-small-${index}">
-            <div class="share-link">
-              <i class="fa fa-external-link"></i>
-              <span>Open</span>
+            <div class='modal-box'>
+              <button class='close-button'>
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              <div class='share-card-small-content'>
+                <div class="share-link">
+                  <span class='share-icon'>
+                    <i class="fa fa-external-link"></i>
+                  </span>
+                  
+                  <span>Open</span>
+                </div>
+                <div class="share-link share-modal" id="share-card">
+                  <span class='share-icon'>
+                    <i class="fa fa-share"></i>
+                  </span>
+                  <span>Share</span>
+                </div>
+                <div class="share-link share-delete-modal" id="openDelete-${
+                  index + 10
+                }">
+                  <span class='share-icon'>
+                    <i class="fa fa-trash"></i>
+                  </span>
+                  <span>Delete</span>
+                </div>
+              </div>
             </div>
-            <div class="share-link share-modal" id="share-card">
-              <i class="fa fa-share"></i>
-              <span>Share</span>
-            </div>
-            <div class="share-link share-delete-modal" id="openDelete-${
-              index + 10
-            }">
-              <i class="fa fa-trash"></i>
-              <span>Delete</span>
-            </div>
+
           </div>
         </div>`;
 
@@ -306,6 +329,10 @@ $(document).ready(function () {
         const targetedSpan = targetedSpans.eq(clickedIndex);
         targetedSpan.toggle();
       }
+    });
+
+    $(".close-button").click(function () {
+      $(".action-card").hide();
     });
 
     $(document).on("click", function (event) {
@@ -373,17 +400,24 @@ $(document).ready(function () {
             <span class="toggle-action-card" id="action-${i}">...</span>
           </div>
           <div class="action-card">
-            <div class="share-link">
-              <i class="fa fa-external-link" ></i>
-              <span>Open</span>
+            <div class='action-card-box'>
+              <button class='close-button'>
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              <div class='action-card-content'>
+                <div class="share-link">
+                  <i class="fa fa-external-link" ></i>
+                  <span>Open</span>
+                </div>
+                <div class="share-link" id="share-card">
+                  <i class="fa fa-share"></i>
+                  <span>Share</span>
+                </div>
+                <div class="share-link share-delete" id="openDelete-${i}">
+                  <i class="fa fa-trash"></i>
+                  <span>Delete</span>
+                </div>
             </div>
-            <div class="share-link" id="share-card">
-              <i class="fa fa-share"></i>
-              <span>Share</span>
-            </div>
-            <div class="share-link share-delete" id="openDelete-${i}">
-            <i class="fa fa-trash"></i>
-            <span>Delete</span>
           </div>
             </div>
           </div>
@@ -418,17 +452,24 @@ $(document).ready(function () {
             <span class="toggle-action-card" id="action-${i}">...</span>
           </div>
           <div class="action-card">
-            <div class="share-link">
-              <i class="fa fa-external-link" ></i>
-              <span>Open</span>
-            </div>
-            <div class="share-link" id="share-card">
-              <i class="fa fa-share"></i>
-              <span>Share</span>
-            </div>
-            <div class="share-link share-delete" id="openDelete-${i}">
-              <i class="fa fa-trash"></i>
-              <span>Delete</span>
+            <div class='action-card-box'>
+              <button class='close-button'>
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              <div class='action-card-content'>
+                <div class="share-link">
+                  <i class="fa fa-external-link" ></i>
+                  <span>Open</span>
+                </div>
+                <div class="share-link" id="share-card">
+                  <i class="fa fa-share"></i>
+                  <span>Share</span>
+                </div>
+                <div class="share-link share-delete" id="openDelete-${i}">
+                  <i class="fa fa-trash"></i>
+                  <span>Delete</span>
+                </div>
+              </div>
             </div>
           </div>
           <div class="start-date">
@@ -462,6 +503,10 @@ $(document).ready(function () {
     renderQuickAccessCards(data, "quick-access-container");
     renderQuickAccessCardsCompact(data, "quick-access-container-compact");
 
+    $(".close-button").click(function () {
+      $(".action-card").hide();
+    });
+    
     $("#quick-access-container-compact").hide();
     $(".heading").hide();
   });
@@ -572,6 +617,10 @@ $(document).ready(function () {
     } else {
       shareCard.css("display", "flex");
     }
+  });
+
+  $(".close-button").click(function () {
+    $(".share-card-small").css("display", "none");
   });
 
   $(document).on("click", function (e) {
