@@ -3612,10 +3612,15 @@
 
   .sender .message-content {
     max-width: 358px;
-    background: #ffffff;
-    border: 1px solid rgba(195, 195, 195, 0.79);
+    background: #f0f0f0;
+    border: 1px solid rgba(11, 36, 246, 0.66);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
     border-radius: 0px 20px 20px 20px;
     text-align: justify;
+    border-width: 0 0 7px;
   }
 
   .recipient .message-content {
