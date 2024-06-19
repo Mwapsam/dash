@@ -11,6 +11,14 @@
   display: none;
 }
 
+.my-camera {
+  position: absolute;
+  right: 1rem;
+  top: 67%;
+  transform: translateY(-50%);
+  font-size: larger;
+}
+
 .group-dots {
   display: flex;
   flex-direction: row;
