@@ -3029,6 +3029,10 @@
     }
   }
 
+  .close-message {
+    display: none !important;
+  }
+
   .home-modal {
     display: none;
   }
@@ -5827,6 +5831,10 @@
     border-radius: 40px !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
+  }
+
+  .close-message {
+    display: none !important;
   }
 
   .home-modal {

@@ -219,7 +219,7 @@ $(document).ready(function () {
                   </p>
                   <div class='message-option-modal'>
                     <div class='message-option-modal-box'>
-                      <button class="message-options-modal-close">
+                      <button class="message-options-modal-close close-message">
                         <i class="fa fa-times close" aria-hidden="true"></i>
                       </button>
                       <div class="message-options-modal-content">
@@ -364,44 +364,40 @@ $(document).ready(function () {
   function toggleMessageOptionsModal() {
     $("#chat-box").on("click", ".message-options-button", function (event) {
       event.stopPropagation();
+
       var $thisButton = $(this);
-      var $modal = $thisButton
-        .closest(".chat-message")
-        .find(".message-option-modal");
-      var $closeButton = $thisButton.siblings(".message-options-modal-close");
+      var $chatMessage = $thisButton.closest(".chat-message");
+      var $modal = $chatMessage.find(".message-option-modal");
+      var $closeButton = $chatMessage.find(".message-options-modal-close");
 
       $thisButton.hide();
       $modal.show();
       $closeButton.show();
-      $(".message-options-modal-close").css("display", "block");
 
-      $closeButton.click(function (event) {
+      function hideModal() {
+        $modal.hide();
+        $thisButton.show();
+        $closeButton.hide();
+      }
+
+      $closeButton.one("click", function (event) {
         event.stopPropagation();
-        $modal.hide();
-        $thisButton.show();
-        $closeButton.hide();
-        $(".message-options-modal-close").hide();
+        hideModal();
       });
 
-      $(".message-options-modal-close").click(() => {
-        $modal.hide();
-        $thisButton.show();
-        $closeButton.hide();
-        $(".message-options-modal-close").hide();
-      });
-
-      $(window).click(function (event) {
+      $(window).one("click", function (event) {
         if (
           $modal.is(":visible") &&
           !$(event.target).closest(
             ".message-option-modal, .message-options-button, .message-options-modal-close"
           ).length
         ) {
-          $modal.hide();
-          $closeButton.hide();
-          $thisButton.show();
-          $(".message-options-modal-close").hide();
+          hideModal();
         }
+      });
+
+      $modal.click(function (event) {
+        event.stopPropagation();
       });
     });
   }
