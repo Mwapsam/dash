@@ -113,6 +113,11 @@ $(document).ready(function () {
     let uniqueId = `optionsModal${index}`;
     let uniqueTriggerId = `optionsTrigger${index}`;
 
+    let chatCountOrCameraIcon =
+      latestConversation.messages.length > 2
+        ? '<i class="fa-solid fa-camera my-camera"></i>'
+        : `<span class="chat-count">${chat.count}</span>`;
+
     return `
     <div class="chat-item" 
       data-name="${chat.name}" 
@@ -126,7 +131,7 @@ $(document).ready(function () {
             <span class="chat-name">${chat.name}</span>
             <div class="chat-time">${latestMessage.time}</div>
           </div>
-          <span class="chat-count">${chat.count}</span>
+          ${chatCountOrCameraIcon}
         </div>
         <div class="chat-message-side">
           <div class="chat-message">${truncateText(
@@ -142,30 +147,47 @@ $(document).ready(function () {
       </div>
       <button class="options-hover-button" data-modal-id="${uniqueId}">
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
-
         <i class="fa-solid fa-ellipsis"></i>
       </button>
       <div id="${uniqueId}" class="options-modal">
         <div class="options-modal-box">
-        <button class="options-modal-close">
-          <i class="fa fa-times close" aria-hidden="true"></i>
-        </button>
-        <div class="options-modal-content">
-          <ul class="grid-container">
-            <li class="grid-item"><span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span> Favourite</li>
-            <li class="grid-item"><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
-            <li class="grid-item"><span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> Video call</li>
-            <li class="grid-item"><span class="icon"><img src="./assets/unread.png" /></span> Unread</li>
-            <li class="grid-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
-            <li class="grid-item"><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
-          </ul>
+          <button class="options-modal-close">
+            <i class="fa fa-times close" aria-hidden="true"></i>
+          </button>
+          <div class="options-modal-content">
+            <ul class="grid-container">
+              <li class="grid-item"><span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span> Favourite</li>
+              <li class="grid-item"><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
+              <li class="grid-item"><span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> Video call</li>
+              <li class="grid-item"><span class="icon"><img src="./assets/unread.png" /></span> Unread</li>
+              <li class="grid-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
+              <li class="grid-item"><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
+            </ul>
+          </div>
         </div>
-        </div>
-
       </div>
     </div>
   `;
   }
+
+  $(document).ready(function () {
+    $(document).on("click", ".options-hover-button", function (event) {
+      event.stopPropagation();
+      const modalId = $(this).data("modal-id");
+      $(`#${modalId}`).toggle();
+    });
+
+    $(document).on("click", ".options-modal-close", function (event) {
+      event.stopPropagation();
+      $(this).closest(".options-modal").hide();
+    });
+
+    $(document).on("click", function (event) {
+      if (!$(event.target).closest(".chat-item").length) {
+        $(".options-modal").hide();
+      }
+    });
+  });
 
   function createChatConversation(chat) {
     let conversationHtml = chat.messages
@@ -1070,25 +1092,30 @@ $(document).ready(function () {
 
   btn.click(function () {
     modal.show();
+    btn.addClass("clicked");
   });
 
   span.click(function () {
     modal.hide();
+    btn.removeClass("clicked");
   });
 
   cancelBtn.click(function () {
     modal.hide();
+    btn.removeClass("clicked");
   });
 
   $(window).click(function (event) {
     if ($(event.target).is(modal)) {
       modal.hide();
+      btn.removeClass("clicked");
     }
   });
 
   $("#createGroupForm").submit(function (event) {
     event.preventDefault();
     modal.hide();
+    btn.removeClass("clicked");
 
     $("#addMemberModal").show();
   });
@@ -1269,15 +1296,19 @@ $(document).ready(function () {
       membersList.append(memberItem);
     });
 
-    $(".ellipsis-button").on("click", function () {
+    $(".ellipsis-button").on("click", function (event) {
       const index = $(this).data("index");
       $(`#optionsGroupsModal-${index}`).show();
+      $(event.target).closest(".options-hover-button").addClass("hide-button");
     });
 
     $(".options-modal-close").on("click", function (event) {
       event.stopPropagation();
       const index = $(this).data("index");
       $(`#optionsGroupsModal-${index}`).hide();
+      $(event.target)
+        .closest(".options-hover-button")
+        .removeClass("hide-button");
     });
   }
 

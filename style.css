@@ -43,6 +43,14 @@
   span {
     font-size: large;
     cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  span.clicked {
+    background-color: #f0f0f0;
   }
 }
 
@@ -2245,6 +2253,10 @@
         gap: 8px;
         width: 307px;
         height: 40px;
+
+        p {
+          font-size: medium;
+        }
       }
 
       .member-button {
@@ -2260,6 +2272,8 @@
         border: 1px solid #eaecf0;
         backdrop-filter: blur(15px);
         border-radius: 16px;
+        font-size: 10px;
+        font-weight: bold;
       }
     }
 
@@ -5944,6 +5958,14 @@
     right: 1rem;
     top: 67%;
     transform: translateY(-50%);
+  }
+
+  .my-camera {
+    position: absolute;
+    right: 1rem;
+    top: 67%;
+    transform: translateY(-50%);
+    font-size: larger;
   }
 
   .chat-container {
