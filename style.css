@@ -207,7 +207,7 @@
   }
 
   #openCallModal {
-    /* display: none; */
+    display: none;
   }
 
   .actions {

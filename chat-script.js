@@ -1584,16 +1584,16 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $("#openHomeModalBtn").click(function () {
-    $("#homModal").fadeIn();
+    $("#homModal").show();
   });
 
   $("#home-close-btn").click(function () {
-    $("#homModal").fadeOut();
+    $("#homModal").hide();
   });
 
   $(window).click(function (event) {
     if ($(event.target).is("#homModal")) {
-      $("#homModal").fadeOut();
+      $("#homModal").hide();
     }
   });
 });
