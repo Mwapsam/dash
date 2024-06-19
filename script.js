@@ -413,7 +413,7 @@ $(document).ready(function () {
                   <i class="fa fa-share"></i>
                   <span>Share</span>
                 </div>
-                <div class="share-link share-delete" id="openDelete-${i}">
+                <div class="share-link share-delete share-delete-modal" id="openDelete-${i}">
                   <i class="fa fa-trash"></i>
                   <span>Delete</span>
                 </div>
@@ -451,7 +451,7 @@ $(document).ready(function () {
             </div>
             <span class="toggle-action-card" id="action-${i}">...</span>
           </div>
-          <div class="action-card-f" id='action-card-${i} action-card'>
+          <div class="action-card-f" id='action-card-${i}'>
             <div class='action-card-box'>
               <button class='close-button'>
                 <i class="fa-solid fa-xmark"></i>
@@ -465,7 +465,7 @@ $(document).ready(function () {
                   <i class="fa fa-share"></i>
                   <span>Share</span>
                 </div>
-                <div class="share-link share-delete" id="openDelete-${i}">
+                <div class="share-link share-delete share-delete-modal" id="openDelete-${i}">
                   <i class="fa fa-trash"></i>
                   <span>Delete</span>
                 </div>
@@ -499,7 +499,7 @@ $(document).ready(function () {
         $quickAccessContainerCompact.append(cardHTML);
 
         $(`#ellipsis-${i}`).on("click", function () {
-          console.log("Click");
+          console.log(`#action-card-${i}`);
           $(`#action-card-${i}`).css("display", "flex");
         });
 
