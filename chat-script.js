@@ -218,19 +218,22 @@ $(document).ready(function () {
                     ${message.message}
                   </p>
                   <div class='message-option-modal'>
-                    <button class="message-options-modal-close">
-                      <i class="fa fa-times close" aria-hidden="true"></i>
-                    </button>
-                    <div class="message-options-modal-content">
-                      <ul class="grid-container">
-                        <li class="grid-item"><span class="icon"><i class="fa-solid fa-share-from-square"></i></span> Forward</li>
-                        <li class="grid-item"><span class="icon"><i class="fa-solid fa-pencil"></i></span> Reply</li>
-                        <li class="grid-item"><span class="icon"><i class="fa-regular fa-copy"></i></span> Copy</li>
-                        <li class="grid-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
-                        <li class="grid-item"><span class="icon"><i class="fa-regular fa-circle-question"></i></span> Report</li>
-                        <li class="grid-item"><span class="icon"><img src="./assets/mug.png" class='mug' /></span> Mug</li>
-                      </ul>
+                    <div class='message-option-modal-box'>
+                      <button class="message-options-modal-close">
+                        <i class="fa fa-times close" aria-hidden="true"></i>
+                      </button>
+                      <div class="message-options-modal-content">
+                        <ul class="grid-container">
+                          <li class="grid-item"><span class="icon"><i class="fa-solid fa-share-from-square"></i></span> Forward</li>
+                          <li class="grid-item"><span class="icon"><i class="fa-solid fa-pencil"></i></span> Reply</li>
+                          <li class="grid-item"><span class="icon"><i class="fa-regular fa-copy"></i></span> Copy</li>
+                          <li class="grid-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
+                          <li class="grid-item"><span class="icon"><i class="fa-regular fa-circle-question"></i></span> Report</li>
+                          <li class="grid-item"><span class="icon"><img src="./assets/mug.png" class='mug' /></span> Mug</li>
+                        </ul>
+                      </div>
                     </div>
+ 
                   </div>
                 </div>
                 <span class="message-time">${message.time}</span>
