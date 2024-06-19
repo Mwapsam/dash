@@ -540,11 +540,15 @@ $(document).ready(function () {
       event.stopPropagation();
       const modalId = $(this).data("modal-id");
       $(`#${modalId}`).show();
+      $(event.target).closest(".options-hover-button").addClass("hide-button");
     });
 
     $(".options-modal-close").click(function (event) {
       event.stopPropagation();
       $(this).closest(".options-modal").hide();
+      $(event.target)
+        .closest(".options-hover-button")
+        .removeClass("hide-button");
     });
   }
 
@@ -1483,7 +1487,7 @@ $(document).ready(function () {
   btn.on("click", function () {
     modal.show();
     $("#close-more-action").show();
-    btn.css('color', '#fff');
+    btn.css("color", "#fff");
   });
 
   closeBtn.on("click", function () {
