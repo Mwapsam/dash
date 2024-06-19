@@ -803,6 +803,7 @@ svg[data-icon] {
 @media (min-width: 768px) and (max-width: 1024px) {
   #sidebar {
     display: block;
+    height: calc(90dvh - var(--header-nav-height));
   }
 
   #sidebar:has(.sidebar_container__bordered) {

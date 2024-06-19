@@ -311,47 +311,54 @@
           </div>
 
           <div id="moreModal" class="more-actions-modal">
-            <button class="close-more-action-mobile big" id="close-more-action">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="more-actions-modal-content">
-              <ul class="grid-container">
-                <li class="grid-item">
-                  <span class="icon"
-                    ><i class="fa fa-heart-o" aria-hidden="true"></i
-                  ></span>
-                  Favourite
-                </li>
+            <div class="more-actions-modal-box">
+              <button
+                class="close-more-action-mobile big"
+                id="close-more-action"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              <div class="more-actions-modal-content">
+                <ul class="grid-container">
+                  <li class="grid-item">
+                    <span class="icon"
+                      ><i class="fa fa-heart-o" aria-hidden="true"></i
+                    ></span>
+                    Favourite
+                  </li>
 
-                <li class="grid-item">
-                  <span class="icon"
-                    ><i class="fa-solid fa-envelope-open-text"></i
-                  ></span>
-                  Unread
-                </li>
-                <li class="grid-item">
-                  <span class="icon"
-                    ><i class="fa fa-trash-o" aria-hidden="true"></i
-                  ></span>
-                  Delete
-                </li>
-                <li class="grid-item">
-                  <span class="icon"
-                    ><i class="fa fa-ban" aria-hidden="true"></i
-                  ></span>
-                  Block
-                </li>
-                <li class="grid-item">
-                  <span class="icon" id="openCallModal"><i class="fa-solid fa-phone"></i></span>
-                  Voice Call
-                </li>
-                <li class="grid-item">
-                  <a href="/video-chat.html" class="icon"
-                    ><i class="fa-solid fa-video"></i
-                  ></a>
-                  Video Call
-                </li>
-              </ul>
+                  <li class="grid-item">
+                    <span class="icon"
+                      ><i class="fa-solid fa-envelope-open-text"></i
+                    ></span>
+                    Unread
+                  </li>
+                  <li class="grid-item">
+                    <span class="icon"
+                      ><i class="fa fa-trash-o" aria-hidden="true"></i
+                    ></span>
+                    Delete
+                  </li>
+                  <li class="grid-item">
+                    <span class="icon"
+                      ><i class="fa fa-ban" aria-hidden="true"></i
+                    ></span>
+                    Block
+                  </li>
+                  <li class="grid-item">
+                    <span class="icon" id="openCallModal"
+                      ><i class="fa-solid fa-phone"></i
+                    ></span>
+                    Voice Call
+                  </li>
+                  <li class="grid-item">
+                    <a href="/video-chat.html" class="icon"
+                      ><i class="fa-solid fa-video"></i
+                    ></a>
+                    Video Call
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -623,27 +630,29 @@
           </div>
 
           <div class="popup-menu" id="popup-menu">
-            <button class="close-more-action-mobile small">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="popup-menu-content">
-              <div class="popup-item">
-                <span>
-                  <i class="fa fa-download" aria-hidden="true"></i>
-                </span>
-                Upload from computer
-              </div>
-              <div class="popup-item">
-                <span>
-                  <i class="fa fa-cloud" aria-hidden="true"></i>
-                </span>
-                Upload from cloud
-              </div>
-              <div class="popup-item">
-                <span>
-                  <i class="fa fa-folder" aria-hidden="true"></i>
-                </span>
-                Upload from Files
+            <div class="popup-menu-box">
+              <button class="close-more-action-mobile small">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+              <div class="popup-menu-content">
+                <div class="popup-item">
+                  <span>
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                  </span>
+                  Upload from computer
+                </div>
+                <div class="popup-item">
+                  <span>
+                    <i class="fa fa-cloud" aria-hidden="true"></i>
+                  </span>
+                  Upload from cloud
+                </div>
+                <div class="popup-item">
+                  <span>
+                    <i class="fa fa-folder" aria-hidden="true"></i>
+                  </span>
+                  Upload from Files
+                </div>
               </div>
             </div>
           </div>
@@ -651,12 +660,10 @@
           <div class="emoji-popup" id="emoji-popup">
             <div class="emoji-popup-content">
               <div class="emoji-header">
-                <span>Emojis</span
-                >
+                <span>Emojis</span>
                 <button class="close-more-action-mobile imoji" id="close-moji">
-                  <i class="fa fa-times" aria-hidden="true" ></i>
+                  <i class="fa fa-times" aria-hidden="true"></i>
                 </button>
-                
               </div>
               <div class="emoji-grid">
                 <span>😀</span><span>😁</span><span>😂</span><span>🤣</span
@@ -896,43 +903,47 @@
     </div>
 
     <div id="homModal" class="home-modal">
-      <button class="home-close-btn" id="home-close-btn">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      <div class="home-modal-content">
-        <ul class="grid-container">
-          <li class="grid-item">
-            <span class="icon"><i class="fa-solid fa-list-check"></i></span>
-            Create Tasks
-          </li>
+      <div class="home-modal-box">
+        <button class="home-close-btn" id="home-close-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="home-modal-content">
+          <ul class="grid-container">
+            <li class="grid-item">
+              <span class="icon"><i class="fa-solid fa-list-check"></i></span>
+              Create Tasks
+            </li>
 
-          <li class="grid-item">
-            <span class="icon"
-              ><i class="fa-solid fa-users-viewfinder"></i
-            ></span>
-            Find collaboration
-          </li>
-          <li class="grid-item">
-            <span class="icon"><i class="fa-solid fa-feather"></i></span>
-            Make post
-          </li>
-          <li class="grid-item">
-            <span class="icon"><i class="fa-solid fa-arrow-trend-up"></i></span>
-            Go live
-          </li>
-          <li class="grid-item">
-            <span class="icon"
-              ><i class="fa-solid fa-chalkboard-user"></i
-            ></span>
-            New Board
-          </li>
-          <li class="grid-item">
-            <a href="/video-chat.html" class="icon"
-              ><i class="fa-solid fa-paste"></i
-            ></a>
-            New Paper
-          </li>
-        </ul>
+            <li class="grid-item">
+              <span class="icon"
+                ><i class="fa-solid fa-users-viewfinder"></i
+              ></span>
+              Find collaboration
+            </li>
+            <li class="grid-item">
+              <span class="icon"><i class="fa-solid fa-feather"></i></span>
+              Make post
+            </li>
+            <li class="grid-item">
+              <span class="icon"
+                ><i class="fa-solid fa-arrow-trend-up"></i
+              ></span>
+              Go live
+            </li>
+            <li class="grid-item">
+              <span class="icon"
+                ><i class="fa-solid fa-chalkboard-user"></i
+              ></span>
+              New Board
+            </li>
+            <li class="grid-item">
+              <a href="/video-chat.html" class="icon"
+                ><i class="fa-solid fa-paste"></i
+              ></a>
+              New Paper
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <nav class="navbar">
@@ -954,7 +965,11 @@
         </svg>
         <span>Live</span>
       </a>
-      <a href="#" class="navbar_item navbar_item__bold mobile_only" id="openHomeModalBtn">
+      <a
+        href="#"
+        class="navbar_item navbar_item__bold mobile_only"
+        id="openHomeModalBtn"
+      >
         <svg data-icon>
           <use href="./icons/sprite.svg#add" />
         </svg>

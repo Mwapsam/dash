@@ -292,7 +292,6 @@ $(document).ready(function () {
     $("#quick-access-card-grid-button i").removeAttr("data-active");
     $("#quick-access-card-compact-button i").attr("data-active", "");
   });
-  
 });
 
 $(document).ready(function () {

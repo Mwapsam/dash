@@ -146,6 +146,7 @@ $(document).ready(function () {
         <i class="fa-solid fa-ellipsis"></i>
       </button>
       <div id="${uniqueId}" class="options-modal">
+        <div class="options-modal-box">
         <button class="options-modal-close">
           <i class="fa fa-times close" aria-hidden="true"></i>
         </button>
@@ -159,6 +160,8 @@ $(document).ready(function () {
             <li class="grid-item"><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
           </ul>
         </div>
+        </div>
+
       </div>
     </div>
   `;
