@@ -373,12 +373,21 @@ $(document).ready(function () {
       $thisButton.hide();
       $modal.show();
       $closeButton.show();
+      $(".message-options-modal-close").css("display", "block");
 
       $closeButton.click(function (event) {
         event.stopPropagation();
         $modal.hide();
         $thisButton.show();
         $closeButton.hide();
+        $(".message-options-modal-close").hide();
+      });
+
+      $(".message-options-modal-close").click(() => {
+        $modal.hide();
+        $thisButton.show();
+        $closeButton.hide();
+        $(".message-options-modal-close").hide();
       });
 
       $(window).click(function (event) {
@@ -391,6 +400,7 @@ $(document).ready(function () {
           $modal.hide();
           $closeButton.hide();
           $thisButton.show();
+          $(".message-options-modal-close").hide();
         }
       });
     });
