@@ -519,7 +519,8 @@
   }
 
   .share-card-small,
-  .action-card {
+  .action-card,
+  .action-card-f {
     display: none;
     position: fixed;
     top: 0;
@@ -1253,6 +1254,92 @@
     z-index: 1;
     padding: 23px;
   }
+
+  .delete-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+    z-index: 9999;
+
+    .modal-content-delete {
+      padding: 24px;
+      position: absolute;
+      width: 400px;
+      height: 268px;
+      left: calc(50% - 400px / 2 + 0.5px);
+      top: calc(50% - 268px / 2 + 8.5px);
+      background: #ffffff;
+      box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08),
+        0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+      border-radius: 12px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .text-card {
+      h3 {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 28px;
+        color: #101828;
+      }
+
+      p {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: #667085;
+      }
+    }
+
+    .buttons {
+      .close-delete {
+        width: 170px;
+        height: 44px;
+        border-radius: 8px;
+        border: 1px solid gainsboro;
+      }
+
+      .excute-delete {
+        width: 170px;
+        height: 44px;
+        border-radius: 8px;
+        border: 1px solid #d92d20;
+        background-color: #d92d20;
+        color: #fff;
+      }
+    }
+
+    .info {
+      width: 48px;
+      height: 48px;
+      background: #fee4e2;
+      border: 8px solid #fef3f2;
+      border-radius: 28px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .fa-info-circle {
+        color: #d92d20;
+      }
+    }
+  }
 }
 
 /* Desktop Styles */
@@ -1294,6 +1381,7 @@
   .paper-cards {
     display: flex;
     gap: 10px;
+    align-items: baseline;
   }
 
   .no-scrollba {
@@ -1536,6 +1624,27 @@
       color: #6f4af2;
     }
   }
+
+  .action-card-f {
+    position: absolute;
+    left: 60px;
+    top: 65px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 179px;
+    height: 115px;
+    background: #ffffff;
+    border: 1px solid rgba(252, 167, 0, 0.5);
+    border-radius: 10px;
+    padding: 1rem;
+    z-index: 9999;
+
+    .action-card p {
+      padding: 8px 0;
+    }
+  }
+
   .action-card {
     position: absolute;
     right: 0;

@@ -451,7 +451,7 @@ $(document).ready(function () {
             </div>
             <span class="toggle-action-card" id="action-${i}">...</span>
           </div>
-          <div class="action-card">
+          <div class="action-card-f" id='action-card-${i} action-card'>
             <div class='action-card-box'>
               <button class='close-button'>
                 <i class="fa-solid fa-xmark"></i>
@@ -497,6 +497,21 @@ $(document).ready(function () {
       `;
 
         $quickAccessContainerCompact.append(cardHTML);
+
+        $(`#ellipsis-${i}`).on("click", function () {
+          console.log("Click");
+          $(`#action-card-${i}`).css("display", "flex");
+        });
+
+        $(`#close-button-${i}`).on("click", function () {
+          $(`#action-card-${i}`).hide();
+        });
+
+        $(document).on("click", function (event) {
+          if (!$(event.target).closest(".quick-access-card-compact").length) {
+            $(".action-card-f").hide();
+          }
+        });
       }
     }
 
@@ -506,7 +521,7 @@ $(document).ready(function () {
     $(".close-button").click(function () {
       $(".action-card").hide();
     });
-    
+
     $("#quick-access-container-compact").hide();
     $(".heading").hide();
   });
@@ -680,6 +695,10 @@ $(document).ready(function () {
     $overlay.remove();
     $("body").removeClass("body-no-scroll");
   }
+
+  $(document).on("click", "#share-card", function () {
+    showModal();
+  });
 
   $(document).on("click", ".share-modal", function () {
     showModal();
