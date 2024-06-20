@@ -1229,6 +1229,7 @@ svg[data-icon] {
 }
 
 
+
 .app_notification {
   position: fixed;
   top: 0px;
@@ -1353,6 +1354,26 @@ svg[data-icon] {
   border-radius: 0.375rem;
   -o-object-fit: cover;
   object-fit: cover;
+}
+
+.confirm-following {
+    order: 1;
+    display: flex;
+    height: 2rem;
+    width: 5rem;
+    flex: none;
+    flex-grow: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    --tw-bg-opacity: 1;
+    background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .app_notification_body_items > li .app_notification_m_content {

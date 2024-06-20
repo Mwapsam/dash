@@ -1360,7 +1360,7 @@
     flex-direction: column;
     flex-grow: 1;
     width: 100%;
-    padding: 16px;
+    padding: 18px 32px;
     box-sizing: border-box;
   }
 
@@ -1368,10 +1368,14 @@
     display: none;
   }
 
+  .inner-sidebar {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .paper-container {
     display: flex;
     flex-direction: column;
-    width: 100vw;
 
     h3 {
       margin: 1rem 0;
@@ -1393,7 +1397,6 @@
     display: flex;
     gap: 10px;
     align-items: baseline;
-    margin-right: 33rem;
   }
 
   .no-scrollba {
@@ -1410,6 +1413,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    min-width: 10rem;
     p {
       font-weight: 400;
     }
@@ -1418,7 +1422,7 @@
   .paper-img {
     border-radius: 20px;
     border: 1px solid black;
-    max-width: 10rem;
+    max-width: 100%;
   }
 
   .paper-icons {
@@ -1489,7 +1493,7 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     align-items: baseline;
-    gap: 3rem;
+    gap: 1rem;
 
     .file-card {
       display: flex;
@@ -1497,6 +1501,7 @@
       align-items: center;
       gap: 1rem;
       position: relative;
+      min-width: 4rem;
 
       .elipsis {
         position: absolute;
@@ -1772,7 +1777,6 @@
   .main-content {
     display: grid;
     grid-template-columns: 1fr 5fr;
-    margin-left: 18rem;
 
     .inside-nav {
       margin-top: 1rem;
@@ -2015,10 +2019,6 @@
     border-right: 1px solid #ccc;
   }
 
-  .content_area main {
-    padding-right: 1.3rem;
-  }
-
   .share-card-list {
     position: absolute;
     top: 47px;
@@ -2138,4 +2138,11 @@
 .fa-caret-down {
   display: none;
   font-size: 20px;
+}
+
+@media (min-width: 1630px) {
+  .main-content {
+    display: grid;
+    grid-template-columns: 0.6fr 5fr;
+  }
 }

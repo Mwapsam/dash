@@ -25,13 +25,30 @@
       src="https://kit.fontawesome.com/cbfa24e26c.js"
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <!-- external scripts -->
     <script src="jquery.js"></script>
     <script src="./script.js"></script>
     <!-- stylesheets -->
     <link rel="stylesheet" href="./converted.css" />
     <link rel="stylesheet" href="./paper.css" />
+    <!-- <link rel="stylesheet" href="styles/output.css" /> -->
     <link rel="import" href="./icons/sprite.svg" />
+
+    <style>
+      .confirm-cancel,
+      .confirm-done {
+        width: 24px;
+        height: 24px;
+      }
+    </style>
   </head>
 
   <body
@@ -592,8 +609,8 @@
                 <span
                   class="material-symbols-outlined back"
                   @click="push__top=''"
-                  ><i class="fa-solid fa-chevron-left"></i
-                ></span>
+                  >chevron_left</span
+                >
                 <span class="label">Notifications</span>
               </div>
               <div class="app_notification_header_tab">
@@ -969,208 +986,210 @@
 
     <div class="content_area" id="content_area">
       <!-- sidebar -->
-      <aside class="sidebar" id="sidebar" aria-expanded="true">
-        <div class="sidebar_container__bordered">
-          <div class="sidebar_nav">
-            <ul data-variant="bold">
-              <li>
-                <a href="#" class="sidebar_nav__link">
-                  <svg data-icon>
-                    <use href="./icons/sprite.svg#home" />
-                  </svg>
-                  <span>Home</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="sidebar_nav__link">
-                  <svg data-icon>
-                    <use href="./icons/sprite.svg#discovery" />
-                  </svg>
-                  <span>Explore</span>
-                  <small class="sidebar_nav__badge ml-auto">New</small>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="sidebar_nav__link">
-                  <svg data-icon>
-                    <use href="./icons/sprite.svg#video" />
-                  </svg>
-                  <span>Live</span>
-                </a>
-              </li>
-              <li>
-                <a href="./chat.html" class="sidebar_nav__link">
-                  <svg data-icon>
-                    <use href="./icons/sprite.svg#message" />
-                  </svg>
-                  <span>Chat</span>
-                  <small class="sidebar_nav__badge ml-auto">10</small>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="sidebar_nav__link" data-active>
-                  <svg data-icon>
-                    <use href="./icons/sprite.svg#edit" />
-                  </svg>
-                  <span>New Paper</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="sidebar_nav__link">
-                  <svg data-icon>
-                    <use href="./icons/sprite.svg#share" />
-                  </svg>
-                  <span>Following</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <hr />
-          <div class="sidebar_suggestions">
-            <h4>Suggestions</h4>
-            <ul aria-expanded="false">
-              <li>
-                <img
-                  loading="lazy"
-                  src="https://source.unsplash.com/random/50x50/?person"
-                />
-                <span> Esther Howard </span>
-                <a href="#" class="">Follow</a>
-              </li>
-              <li>
-                <img
-                  loading="lazy"
-                  src="https://source.unsplash.com/random/50x50/?person"
-                />
-                <span> Jenny Wilson </span>
-                <a href="#">Follow</a>
-              </li>
-              <li>
-                <img
-                  loading="lazy"
-                  src="https://source.unsplash.com/random/50x50/?person"
-                />
-                <span> Robert Fox </span>
-                <a href="#">Follow</a>
-              </li>
-              <li>
-                <img
-                  loading="lazy"
-                  src="https://source.unsplash.com/random/50x50/?person"
-                />
-                <span> Darrell Steward </span>
-                <a href="#">
-                  <svg data-icon="search">
-                    <use href="./icons/sprite.svg#done" />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <img
-                  loading="lazy"
-                  src="https://source.unsplash.com/random/50x50/?person"
-                />
-                <span> Charles Gilbert </span>
-                <a href="#">Follow</a>
-              </li>
-              <li>
-                <img
-                  loading="lazy"
-                  src="https://source.unsplash.com/random/50x50/?person"
-                />
-                <span> Hettie Clark </span>
-                <a href="#">
-                  <svg data-icon="search">
-                    <use href="./icons/sprite.svg#done" />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <img
-                  loading="lazy"
-                  src="https://source.unsplash.com/random/50x50/?person"
-                />
-                <span> Beatrice Grant </span>
-                <a href="#">
-                  <svg data-icon="search">
-                    <use href="./icons/sprite.svg#done" />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-            <button id="suggestions_expand"></button>
-          </div>
-          <hr />
-          <div class="sidebar_nav">
-            <h4>Sizemug</h4>
-            <ul data-variant="base">
-              <li>
-                <a href="#" class="sidebar_nav__link">
-                  <img
-                    loading="lazy"
-                    src="icons/logo-marketplace.svg"
-                    class="size-6"
-                  />
-                  <span>Marketplace</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="sidebar_nav__link">
-                  <img
-                    loading="lazy"
-                    src="icons/logo-calender.svg"
-                    class="size-6"
-                  />
-                  <span>Calender</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="sidebar_nav__link">
-                  <img
-                    loading="lazy"
-                    src="icons/logo-board-mode.svg"
-                    class="size-6"
-                  />
-                  <span>Board Mode</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="sidebar_nav__link">
-                  <img
-                    loading="lazy"
-                    src="icons/logo-saved.svg"
-                    class="size-6"
-                  />
-                  <span>Saved</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" class="sidebar_nav__link">
-                  <img
-                    loading="lazy"
-                    src="icons/logo-dropped.svg"
-                    class="size-6"
-                  />
-                  <span>Dropped</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <hr />
-          <div class="gap-2 text-center sidebar_footer">
-            <div>
-              <a href="#">Contact</a>
-              <a href="#">About</a>
-              <a href="#">Privacy policy</a>
-              <a href="#">Terms</a>
+      <div class="sidebar-wrappe">
+        <aside class="sidebar" id="sidebar" aria-expanded="true">
+          <div class="sidebar_container__bordered">
+            <div class="sidebar_nav">
+              <ul data-variant="bold">
+                <li>
+                  <a href="#" class="sidebar_nav__link">
+                    <svg data-icon>
+                      <use href="./icons/sprite.svg#home" />
+                    </svg>
+                    <span>Home</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar_nav__link">
+                    <svg data-icon>
+                      <use href="./icons/sprite.svg#discovery" />
+                    </svg>
+                    <span>Explore</span>
+                    <small class="sidebar_nav__badge ml-auto">New</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar_nav__link">
+                    <svg data-icon>
+                      <use href="./icons/sprite.svg#video" />
+                    </svg>
+                    <span>Live</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="./chat.html" class="sidebar_nav__link">
+                    <svg data-icon>
+                      <use href="./icons/sprite.svg#message" />
+                    </svg>
+                    <span>Chat</span>
+                    <small class="sidebar_nav__badge ml-auto">10</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar_nav__link" data-active>
+                    <svg data-icon>
+                      <use href="./icons/sprite.svg#edit" />
+                    </svg>
+                    <span>New Paper</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar_nav__link">
+                    <svg data-icon>
+                      <use href="./icons/sprite.svg#share" />
+                    </svg>
+                    <span>Following</span>
+                  </a>
+                </li>
+              </ul>
             </div>
-            <small class="text-xs">© 2024 Sizemug</small>
+            <hr />
+            <div class="sidebar_suggestions">
+              <h4>Suggestions</h4>
+              <ul aria-expanded="false">
+                <li>
+                  <img
+                    loading="lazy"
+                    src="https://source.unsplash.com/random/50x50/?person"
+                  />
+                  <span> Esther Howard </span>
+                  <a href="#" class="">Follow</a>
+                </li>
+                <li>
+                  <img
+                    loading="lazy"
+                    src="https://source.unsplash.com/random/50x50/?person"
+                  />
+                  <span> Jenny Wilson </span>
+                  <a href="#">Follow</a>
+                </li>
+                <li>
+                  <img
+                    loading="lazy"
+                    src="https://source.unsplash.com/random/50x50/?person"
+                  />
+                  <span> Robert Fox </span>
+                  <a href="#">Follow</a>
+                </li>
+                <li>
+                  <img
+                    loading="lazy"
+                    src="https://source.unsplash.com/random/50x50/?person"
+                  />
+                  <span> Darrell Steward </span>
+                  <a href="#">
+                    <svg data-icon="search">
+                      <use href="./icons/sprite.svg#done" />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <img
+                    loading="lazy"
+                    src="https://source.unsplash.com/random/50x50/?person"
+                  />
+                  <span> Charles Gilbert </span>
+                  <a href="#">Follow</a>
+                </li>
+                <li>
+                  <img
+                    loading="lazy"
+                    src="https://source.unsplash.com/random/50x50/?person"
+                  />
+                  <span> Hettie Clark </span>
+                  <a href="#">
+                    <svg data-icon="search">
+                      <use href="./icons/sprite.svg#done" />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <img
+                    loading="lazy"
+                    src="https://source.unsplash.com/random/50x50/?person"
+                  />
+                  <span> Beatrice Grant </span>
+                  <a href="#">
+                    <svg data-icon="search">
+                      <use href="./icons/sprite.svg#done" />
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+              <button id="suggestions_expand"></button>
+            </div>
+            <hr />
+            <div class="sidebar_nav">
+              <h4>Sizemug</h4>
+              <ul data-variant="base">
+                <li>
+                  <a href="#" class="sidebar_nav__link">
+                    <img
+                      loading="lazy"
+                      src="icons/logo-marketplace.svg"
+                      class="size-6"
+                    />
+                    <span>Marketplace</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar_nav__link">
+                    <img
+                      loading="lazy"
+                      src="icons/logo-calender.svg"
+                      class="size-6"
+                    />
+                    <span>Calender</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar_nav__link">
+                    <img
+                      loading="lazy"
+                      src="icons/logo-board-mode.svg"
+                      class="size-6"
+                    />
+                    <span>Board Mode</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar_nav__link">
+                    <img
+                      loading="lazy"
+                      src="icons/logo-saved.svg"
+                      class="size-6"
+                    />
+                    <span>Saved</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="sidebar_nav__link">
+                    <img
+                      loading="lazy"
+                      src="icons/logo-dropped.svg"
+                      class="size-6"
+                    />
+                    <span>Dropped</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <hr />
+            <div class="gap-2 text-center sidebar_footer">
+              <div>
+                <a href="#">Contact</a>
+                <a href="#">About</a>
+                <a href="#">Privacy policy</a>
+                <a href="#">Terms</a>
+              </div>
+              <small class="text-xs">© 2024 Sizemug</small>
+            </div>
           </div>
-        </div>
-      </aside>
+        </aside>
+      </div>
 
       <section class="main-content">
-        <aside>
+        <div class="inner-sidebar">
           <div class="sidebar_container" id="inside-nav">
             <div class="inside-nav">
               <ul data-variant="bold" class="sub-menu-items">
@@ -1235,7 +1254,7 @@
               </ul>
             </div>
           </div>
-        </aside>
+        </div>
 
         <main class="paper_container">
           <div class="paper-container" id="paper-container">
