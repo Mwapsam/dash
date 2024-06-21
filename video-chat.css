@@ -424,6 +424,12 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  .person-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
   .video-layout {
     height: 1057px;
     background: #c3c3c3;
@@ -585,13 +591,16 @@
   .person img {
     border-radius: 50%;
     margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
   }
 
   .top-controls {
     display: flex;
     padding: 10px 20px;
     backdrop-filter: blur(10px);
-    width: 17%;
+    width: 31%;
     position: fixed;
     top: 155px;
     background: rgba(255, 255, 255, 0.1);
@@ -619,6 +628,8 @@
     color: white;
     font-size: 12px;
     cursor: pointer;
+    text-align: center;
+    padding-top: 1px;
   }
   .control-button img {
     width: 30px;
@@ -637,11 +648,16 @@
     }
   }
 
+  .down {
+    padding-top: 10px;
+  }
+
   .user-icon {
     width: 50px;
     height: 50px;
     background: #c3c3c3;
     border-radius: 100px;
+    font-size: 20px;
 
     .fa {
       font-size: medium;
@@ -693,7 +709,7 @@
   }
 
   .modal-content {
-    margin: 15% auto;
+    margin: 31% auto;
     padding: 20px;
     width: 619px;
     max-width: 400px;
@@ -824,6 +840,26 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  .modal-header-f {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    h2 {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+      color: #000000;
+    }
+
+    .close {
+      cursor: pointer;
+    }
   }
 }
 
@@ -1106,11 +1142,12 @@
 
   .modal {
     display: none;
-    position: relative;
+    position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
     overflow: auto;
   }
 
@@ -1128,6 +1165,9 @@
     top: -76px;
   }
 
+  .modal-content.invite {
+    left: 17rem;
+  }
   .modal-header-f {
     display: flex;
     justify-content: space-between;

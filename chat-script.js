@@ -112,11 +112,21 @@ $(document).ready(function () {
       latestConversation.messages[latestConversation.messages.length - 1];
     let uniqueId = `optionsModal${index}`;
     let uniqueTriggerId = `optionsTrigger${index}`;
+    let chatCountOrCameraIcon;
 
-    let chatCountOrCameraIcon =
-      latestConversation.messages.length > 2
-        ? '<i class="fa-solid fa-camera my-camera"></i>'
-        : `<span class="chat-count">${chat.count}</span>`;
+    if (window.innerWidth <= 768) {
+      chatCountOrCameraIcon =
+        latestConversation.messages.length > 2
+          ? '<i class="fa-solid fa-camera my-camera"></i>'
+          : `<span class="chat-count">${chat.count}</span>`;
+    } else {
+      chatCountOrCameraIcon = `
+        <div>
+          <i class="fa-solid fa-camera my-camera"></i>
+          <span class="chat-count">${chat.count}</span>
+        </div>
+    `;
+    }
 
     return `
     <div class="chat-item" 
@@ -157,8 +167,8 @@ $(document).ready(function () {
           <div class="options-modal-content">
             <ul class="grid-container">
               <li class="grid-item"><span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span> Favourite</li>
-              <li class="grid-item"><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
-              <li class="grid-item"><span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> Video call</li>
+              <li class="grid-item" id="openCallModalOut"><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
+              <li class="grid-item"><a href="./video-chat.html" class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></a> Video call</li>
               <li class="grid-item"><span class="icon"><img src="./assets/unread.png" /></span> Unread</li>
               <li class="grid-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
               <li class="grid-item"><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
@@ -175,6 +185,11 @@ $(document).ready(function () {
       event.stopPropagation();
       const modalId = $(this).data("modal-id");
       $(`#${modalId}`).toggle();
+    });
+    $(document).on("click", "#openCallModalOut", function (event) {
+      event.stopPropagation();
+      $("#callModal").show();
+      $("#media-modal").hide();
     });
 
     $(document).on("click", ".options-modal-close", function (event) {
@@ -709,9 +724,15 @@ $(document).ready(function () {
     modal.hide();
   });
 
+  // $(window).click(function (event) {
+  //   if ($(event.target).is(modal)) {
+  //     modal.hide();
+  //   }
+  // });
+
   $(window).click(function (event) {
-    if ($(event.target).is(modal)) {
-      modal.hide();
+    if ($(event.target).is("#invite-modal")) {
+      $("#invite-modal").hide();
     }
   });
 
@@ -742,6 +763,19 @@ let mediaFiles = [
   "./assets/user3.png",
   "./assets/user4.png",
   "./assets/user5.png",
+  "./assets/user1.png",
+  "./assets/user2.png",
+  "./assets/user3.png",
+  "./assets/user4.png",
+  "./assets/user5.png",
+  "./assets/user1.png",
+  "./assets/user2.png",
+  "./assets/user3.png",
+  "./assets/user4.png",
+  "./assets/user5.png",
+  "./assets/user1.png",
+  "./assets/user2.png",
+  "./assets/user3.png",
 ];
 
 let imagesToBeSent = 0;
@@ -749,7 +783,7 @@ let imagesToBeSent = 0;
 $(document).ready(function () {
   function renderMediaModal() {
     let mediaModalContent = "";
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 1; i++) {
       mediaFiles.forEach((file) => {
         mediaModalContent += `
           <div class="media-file-card">
@@ -868,8 +902,14 @@ $(document).ready(function () {
       const reader = new FileReader();
       reader.onload = function (e) {
         const fileContent = e.target.result;
-        mediaFiles.unshift(fileContent);
-        renderMediaModal();
+        if (!mediaFiles.includes(fileContent)) {
+          let i = 0;
+          mediaFiles = [fileContent, ...mediaFiles];
+          i++;
+          renderMediaModal();
+
+          console.log(mediaFiles.length);
+        }
       };
       reader.onerror = function (e) {
         console.error("File reading error:", e);
@@ -1185,7 +1225,6 @@ $(document).ready(function () {
   btn.click(function () {
     modal.show();
     moreModal.hide();
-    console.log("Call me!");
   });
 
   span.click(function () {
@@ -1578,8 +1617,6 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#openModalBtn").click(function () {
     $(".invite-modal").fadeIn();
-
-    console.log("Here again");
   });
 
   $("#close-invite-modal").click(function () {
@@ -1588,6 +1625,7 @@ $(document).ready(function () {
 
   $(window).click(function (event) {
     if ($(event.target).is(".invite-modal")) {
+      console.log("new here");
       $(".invite-modal").fadeOut();
     }
   });

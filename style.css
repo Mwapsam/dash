@@ -799,16 +799,27 @@
       height: 78px;
       border-radius: 12px;
       border: 1px solid #c3c3c3;
+      border-top-width: 1px;
+      border-right-width: 1px;
+      border-bottom-width: 1px;
+      border-left-width: 1px;
       margin-bottom: 1rem;
+      border-width: 1px 1px 6px 6px;
     }
   }
 
   .sender .message-content {
     max-width: 358px;
-    background: #ffffff;
-    border: 1px solid rgba(195, 195, 195, 0.79);
+    background: #f0f0f0f0;
+    border: 1px solid rgb(7 77 242 / 73%);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
     border-radius: 0px 20px 20px 20px;
+    border-width: 0 0 7px;
     text-align: justify;
+    color: #000;
   }
 
   .recipient .message-content {
@@ -1518,8 +1529,8 @@
   .select-button,
   .select-button-files {
     position: fixed;
-    bottom: 250px;
-    right: 48px;
+    bottom: 228px;
+    right: 23px;
     width: 45px;
     height: 45px;
     background: #000000;
@@ -2070,14 +2081,22 @@
     bottom: -39px;
 
     .close {
-      color: #aaa;
+      color: #000;
       float: right;
       font-size: 28px;
       font-weight: bold;
       cursor: pointer;
       position: absolute;
-      right: 20px;
-      top: 20px;
+      right: 0;
+      top: -50px;
+      background: #ffffff;
+      border: 1px solid rgba(195, 195, 195, 0.79);
+      border-radius: 200px;
+      height: 44px;
+      width: 44px;
+      padding: 0;
+      margin-right: 10px;
+      text-align: center;
     }
 
     .close:hover,
@@ -5981,8 +6000,8 @@
 
   .my-camera {
     position: absolute;
-    right: 1rem;
-    top: 67%;
+    right: 10rem;
+    top: 23%;
     transform: translateY(-50%);
     font-size: larger;
   }
@@ -7070,6 +7089,8 @@
     top: 0;
     width: 100%;
     z-index: 10;
+    height: 70rem;
+    background: white;
   }
 
   .file-modal-content,
