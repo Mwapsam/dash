@@ -350,31 +350,25 @@ $(document).ready(function () {
   }
 
   function createOptionsModal() {
-    $("#chat-list").on("click", ".options-hover-button", function (event) {
+    $(document).on("click", ".options-hover-button", function (event) {
       event.stopPropagation();
       let modalId = $(this).data("modal-id");
-      $("#" + modalId).css("display", "block");
-
-      console.log($("#" + modalId));
-
-      $("#" + modalId)
-        .find(".options-modal-close")
-        .click(function (event) {
-          event.stopPropagation();
-          $("#" + modalId).css("display", "none");
-        });
+      $(`#${modalId}`).toggle();
     });
 
-    $(document).click(function (event) {
-      $(".options-modal, .options-modal-group").each(function () {
-        if (
-          $(event.target).closest(".options-modal").length === 0 &&
-          $(event.target).closest(".options-modal-group").length === 0 &&
-          $(event.target).closest(".options-hover-button").length === 0
-        ) {
-          $(this).css("display", "none");
-        }
-      });
+    $(document).on("click", ".options-modal-close", function (event) {
+      event.stopPropagation();
+      $(this).closest(".options-modal-group").hide();
+    });
+
+    $(document).on("click", ".message-options-button", function (event) {
+      event.stopPropagation();
+      $(this).siblings(".message-option-modal").toggle();
+    });
+
+    $(document).on("click", ".message-options-modal-close", function (event) {
+      event.stopPropagation();
+      $(this).closest(".message-option-modal").hide();
     });
   }
 
@@ -425,8 +419,31 @@ $(document).ready(function () {
   }
 
   function createGroupItem(group, index) {
+    if (!group.conversations || group.conversations.length === 0) {
+      return "";
+    }
+
+    let latestConversation =
+      group.conversations[group.conversations.length - 1];
+
     let uniqueId = `optionsModalGroup${index}`;
     let uniqueTriggerId = `optionsTriggerGroup${index}`;
+
+    let chatCountOrCameraIcon;
+
+    if (window.innerWidth <= 768) {
+      chatCountOrCameraIcon =
+        latestConversation.messages.length > 2
+          ? '<i class="fa-solid fa-camera my-camera-group"></i>'
+          : `<span class="chat-count">3</span>`;
+    } else {
+      chatCountOrCameraIcon = `
+        <div>
+          <i class="fa-solid fa-camera my-camera-group"></i>
+          <span class="chat-count">3</span>
+        </div>
+    `;
+    }
 
     return `
     <div class="group-item" data-index="${index}">
@@ -443,25 +460,28 @@ $(document).ready(function () {
           <span class='dot blue-dot'>.</span>
         </span>
       </div>
-      <span class="chat-count">3</span>
+      ${chatCountOrCameraIcon}
       <button class="options-hover-button" data-modal-id="${uniqueId}">
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
         <i class="fa-solid fa-ellipsis"></i>
       </button>
       <div id="${uniqueId}" class="options-modal-group">
+       <div class="options-modal-group-box">
         <button class="options-modal-close">
           <i class="fa fa-times close" aria-hidden="true"></i>
         </button>
         <div class="options-modal-content">
-          <ul>
-            <li><span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span> Favourite</li>
-            <li><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
-            <li><span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> Video call</li>
-            <li><span class="icon"><img src="./assets/unread.png" /></span> Unread</li>
-            <li><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
-            <li><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
+          <ul class='grid-container'>
+            <li class='grid-item'><span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span> Favourite</li>
+            <li class='grid-item'><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
+            <li class='grid-item'><span class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></span> Video call</li>
+            <li class='grid-item'><span class="icon"><img src="./assets/unread.png" /></span> Unread</li>
+            <li class='grid-item'><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
+            <li class='grid-item'><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
           </ul>
         </div>
+       </div>
+
       </div>
     </div>
   `;
@@ -557,10 +577,10 @@ $(document).ready(function () {
     let groupsData = [];
 
     $.when(
-      $.getJSON("chats.json", function (data) {
+      $.getJSON("data/chats.json", function (data) {
         chatsData = data;
       }),
-      $.getJSON("groups.json", function (data) {
+      $.getJSON("data/groups.json", function (data) {
         groupsData = data;
       })
     ).then(function () {
@@ -676,7 +696,7 @@ let addedUserNames = [];
 
 $(document).ready(function () {
   function fetchUsers() {
-    return $.getJSON("users.json");
+    return $.getJSON("data/users.json");
   }
 
   function renderUsers(users) {
@@ -940,7 +960,7 @@ let allFiles = [];
 
 $(document).ready(function () {
   function fetchFiles() {
-    return $.getJSON("files.json");
+    return $.getJSON("data/files.json");
   }
 
   function truncateText(text, maxLength) {
@@ -1100,7 +1120,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   function fetchLinks() {
-    return $.getJSON("links.json");
+    return $.getJSON("data/links.json");
   }
 
   function renderLinkCards(links) {

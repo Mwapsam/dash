@@ -206,6 +206,14 @@
     display: none;
   }
 
+  .my-camera-group {
+    position: absolute;
+    right: 3rem;
+    top: 28%;
+    transform: translateY(-50%);
+    font-size: larger;
+  }
+
   #openCallModal {
     display: none;
   }
@@ -1823,14 +1831,6 @@
     padding: 3px;
   }
 
-  .options-modal-groups {
-    display: block;
-    position: absolute;
-    z-index: 1111;
-    right: -127px;
-    bottom: -113px;
-  }
-
   .options-group-modal-content {
     display: flex;
     flex-direction: column;
@@ -1868,7 +1868,8 @@
     }
   }
 
-  .options-modal {
+  .options-modal,
+  .options-modal-group {
     display: none;
     position: fixed;
     top: 0;
@@ -1877,9 +1878,11 @@
     height: 100%;
     background: #344054b2;
     opacity: 1;
+    left: 0;
   }
 
-  .options-modal-box {
+  .options-modal-box,
+  .options-modal-group-box {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -1898,14 +1901,6 @@
       0px 4px 6px -2px rgba(0, 0, 0, 0.03);
     width: 100%;
     border-radius: 16px 16px 0 0;
-  }
-
-  .options-modal-group {
-    display: none;
-    position: absolute;
-    z-index: 9999;
-    top: 0.23rem;
-    left: 9rem;
   }
 
   .grid-container {
@@ -5859,6 +5854,14 @@
     padding-bottom: 2rem !important;
   }
 
+  .my-camera-group {
+    position: absolute;
+    right: 3rem;
+    top: 36%;
+    transform: translateY(-50%);
+    font-size: larger;
+  }
+
   .close-message {
     display: none !important;
   }
@@ -6001,7 +6004,7 @@
     border-radius: 50%;
     position: absolute;
     right: 1rem;
-    top: 67%;
+    top: 38%;
     transform: translateY(-50%);
   }
 

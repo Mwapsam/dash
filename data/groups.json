@@ -3,7 +3,7 @@
     "imgSrc": "./assets/user1.png",
     "altText": "Group 1",
     "count": "+3",
-    "name": "Finance Group",
+    "name": "Finance Group 2024",
     "description": "That sounds awesome lets get...",
     "conversations": [
       {
@@ -19,6 +19,22 @@
           {
             "message": "Hey, what's up? Dwag!",
             "time": "10:00 AM"
+          },
+          {
+            "message": "Not much, just working on the budget.",
+            "time": "10:05 AM"
+          },
+          {
+            "message": "Not much, just working on the budget.",
+            "time": "10:05 AM"
+          },
+          {
+            "message": "Not much, just working on the budget.",
+            "time": "10:05 AM"
+          },
+          {
+            "message": "Not much, just working on the budget.",
+            "time": "10:05 AM"
           },
           {
             "message": "Not much, just working on the budget.",
@@ -43,6 +59,18 @@
           {
             "message": "Yes, could you review these numbers?",
             "time": "10:15 AM"
+          },
+          {
+            "message": "Not much, just working on the budget.",
+            "time": "10:05 AM"
+          },
+          {
+            "message": "Not much, just working on the budget.",
+            "time": "10:05 AM"
+          },
+          {
+            "message": "Not much, just working on the budget.",
+            "time": "10:05 AM"
           }
         ]
       }
@@ -101,6 +129,26 @@
           {
             "message": "Yes, it's fascinating!",
             "time": "11:05 AM"
+          },
+          {
+            "message": "Not much, just working on the budget.",
+            "time": "10:05 AM"
+          },
+          {
+            "message": "Not much, just working on the budget.",
+            "time": "10:05 AM"
+          },
+          {
+            "message": "Not much, just working on the budget.",
+            "time": "10:05 AM"
+          },
+          {
+            "message": "Not much, just working on the budget.",
+            "time": "10:05 AM"
+          },
+          {
+            "message": "Not much, just working on the budget.",
+            "time": "10:05 AM"
           }
         ]
       }
