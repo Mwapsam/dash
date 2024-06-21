@@ -36,13 +36,16 @@ $(document).on("click", ".sidebar_trigger", (event) => {
   const $tabs = $(".tabs");
   const $header = $(".chat-search-icons");
   const $btn = $(".options-hover-button");
+  const $icon = $(".my-camera-group");
   if (isOpen) {
     $tabs.hide();
     $header.hide();
+    $icon.hide();
     $btn.addClass("no-hover");
   } else {
     $tabs.show();
     $header.show();
+    $icon.show();
     $btn.removeClass("no-hover");
   }
 });
