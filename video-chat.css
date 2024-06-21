@@ -906,7 +906,6 @@
 
 @media (min-width: 1025px) {
   .video-layout {
-    height: 1157px;
     background: #344054b2;
     position: relative;
     display: grid;
@@ -915,7 +914,7 @@
 
   .video-container {
     width: 95%;
-    height: 1057px;
+    height: 100vh;
     background: rgba(255, 255, 255, 0.1);
     border-width: 1px 0px 0px 1px;
     border-style: solid;
@@ -1103,7 +1102,7 @@
     width: 33%;
     position: fixed;
     left: calc(50% - 600px / 2 + 44px);
-    bottom: 1rem;
+    bottom: 4rem;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 40px;
   }

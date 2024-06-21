@@ -219,6 +219,7 @@
   .chat-list {
     background-color: #fff;
     overflow: hidden;
+    margin-bottom: 4rem;
   }
 
   .welcome-text {
@@ -1222,6 +1223,7 @@
     border-bottom: 1px solid #ddd;
     cursor: pointer;
     position: relative;
+    gap: 0.6rem;
   }
 
   .group-avatar {
@@ -1728,6 +1730,10 @@
     }
   }
 
+  /* .fa-ellipsis {
+    display: block;
+  } */
+
   .chat-input-image-container {
     display: flex;
     gap: 3px;
@@ -1818,7 +1824,7 @@
   }
 
   .options-modal-groups {
-    display: none;
+    display: block;
     position: absolute;
     z-index: 1111;
     right: -127px;
@@ -4080,6 +4086,7 @@
     cursor: pointer;
     padding: 22px 3px 28px 3px;
     align-items: flex-start;
+    gap: 0.4rem;
   }
 
   .group-avatar {
@@ -6598,6 +6605,7 @@
     border-bottom: 1px solid #ddd;
     cursor: pointer;
     position: relative;
+    gap: 0.6rem;
   }
 
   .group-avatar {
@@ -8357,6 +8365,12 @@
   }
 
   .close-more-action-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 1530px) {
+  .footer {
     display: none;
   }
 }

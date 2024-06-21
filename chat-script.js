@@ -244,7 +244,6 @@ $(document).ready(function () {
                           <li class="grid-item"><span class="icon"><i class="fa-regular fa-copy"></i></span> Copy</li>
                           <li class="grid-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
                           <li class="grid-item"><span class="icon"><i class="fa-regular fa-circle-question"></i></span> Report</li>
-                          <li class="grid-item"><span class="icon"><img src="./assets/mug.png" class='mug' /></span> Mug</li>
                         </ul>
                       </div>
                     </div>
@@ -356,6 +355,8 @@ $(document).ready(function () {
       let modalId = $(this).data("modal-id");
       $("#" + modalId).css("display", "block");
 
+      console.log($("#" + modalId));
+
       $("#" + modalId)
         .find(".options-modal-close")
         .click(function (event) {
@@ -445,6 +446,7 @@ $(document).ready(function () {
       <span class="chat-count">3</span>
       <button class="options-hover-button" data-modal-id="${uniqueId}">
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        <i class="fa-solid fa-ellipsis"></i>
       </button>
       <div id="${uniqueId}" class="options-modal-group">
         <button class="options-modal-close">
