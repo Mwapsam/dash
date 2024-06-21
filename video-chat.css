@@ -2,6 +2,48 @@
   display: none;
 }
 
+.background-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-modal-content {
+  padding: 1rem;
+  position: relative;
+  width: 600px;
+  height: 333px;
+  background: #ffffff;
+  box-shadow: 0px 32px 64px -12px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(100px);
+  border-radius: 20px;
+}
+
+.background-modal-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.background-modal-modal-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-item {
+  text-align: center;
+}
+
 @media (max-width: 767px) {
   .video-layout {
     height: 100vh;
@@ -9,6 +51,21 @@
     position: relative;
     display: grid;
     place-items: center;
+  }
+
+  .background-modal-content {
+    width: 100%;
+    height: auto;
+    bottom: -123px;
+  }
+
+  .background-modal-modal-body {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .modal-item {
+    font-size: 0.9rem;
   }
 
   .video-container {
@@ -23,6 +80,7 @@
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+    padding-right: 2rem;
   }
 
   .profile-component {
@@ -231,28 +289,27 @@
 
   .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
     width: 100%;
     box-sizing: border-box;
-    justify-items: center;
+    justify-items: end;
     align-items: center;
     direction: rtl;
+    margin-top: 6rem;
   }
 
   .user-card {
     box-sizing: border-box;
     padding: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
-    direction: ltr;
   }
 
   .user-card img {
-    width: 450px;
-    height: 290px;
-    border-radius: 40px;
+    width: 166px;
+    height: 239px;
+    border-radius: 12px;
     margin: 17px;
   }
 
@@ -431,26 +488,16 @@
     flex-direction: row;
   }
   .video-layout {
-    height: 1057px;
-    background: #c3c3c3;
+    background: #656464;
     position: relative;
     display: grid;
     place-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-width: 1px 0px 0px 1px;
-    border-style: solid;
-    border-color: #c3c3c3;
-    border-radius: 40px;
+    height: 100vh;
   }
 
   .video-container {
-    width: 95%;
-    height: 1057px;
-    background: rgba(255, 255, 255, 0.1);
-    border-width: 1px 0px 0px 1px;
-    border-style: solid;
-    border-color: #c3c3c3;
-    border-radius: 40px;
+    width: 100%;
+    height: 100%;
     background-image: url("./assets/video-background.png");
     background-size: cover;
     background-position: center;
@@ -459,16 +506,7 @@
   }
 
   .profile-component {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    margin: 0.5rem 0;
-    background: #ffffff;
-    border-width: 1px 1px 1px 1px;
-    border-style: solid;
-    border-color: rgba(195, 195, 195, 0.5);
-    border-radius: 20px;
-    width: 95%;
+    display: none;
   }
 
   .profile-picture {
@@ -533,7 +571,9 @@
     align-items: center;
     gap: 2rem;
     position: fixed;
-    top: 100px;
+    top: 33px;
+    justify-content: space-between;
+    width: 94%;
   }
 
   .invite-button {
@@ -602,7 +642,7 @@
     backdrop-filter: blur(10px);
     width: 31%;
     position: fixed;
-    top: 155px;
+    top: 47px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 40px;
     left: calc(50% - 300px / 2);
@@ -612,13 +652,14 @@
     display: flex;
     padding: 10px 20px;
     backdrop-filter: blur(10px);
-    width: 33%;
+    width: 60%;
     position: fixed;
     left: calc(50% - 600px / 2 + 44px);
-    bottom: 0;
+    bottom: 60px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 40px;
   }
+
   .control-button {
     display: flex;
     flex-direction: column;
@@ -677,14 +718,13 @@
     gap: 20px;
     width: 100%;
     box-sizing: border-box;
-    justify-items: center;
+    justify-items: end;
     align-items: center;
-    direction: rtl;
+    margin-top: 6rem;
   }
 
   .user-card {
     box-sizing: border-box;
-    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -692,10 +732,11 @@
   }
 
   .user-card img {
-    width: 450px;
     height: 290px;
-    border-radius: 40px;
+    border-radius: 20px;
     margin: 17px;
+    width: 232px;
+    object-fit: cover;
   }
 
   .modal {
@@ -1119,9 +1160,8 @@
     gap: 20px;
     width: 100%;
     box-sizing: border-box;
-    justify-items: center;
+    justify-items: end;
     align-items: center;
-    direction: rtl;
   }
 
   .user-card {
@@ -1134,10 +1174,11 @@
   }
 
   .user-card img {
-    width: 450px;
-    height: 290px;
+    width: 256px;
+    height: 340px;
     border-radius: 40px;
     margin: 17px;
+    object-fit: cover;
   }
 
   .modal {
@@ -1305,5 +1346,40 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  .background-modal {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+  }
+
+  .background-modal-content {
+    padding: 1rem;
+    position: fixed;
+    width: 600px;
+    height: 333px;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    box-shadow: 0px 32px 64px -12px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(100px);
+    border-radius: 20px;
+  }
+
+  .background-modal-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+
+  .background-modal-modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
   }
 }

@@ -679,18 +679,32 @@ $(document).ready(function () {
 
   function renderUsers(users) {
     const userList = $(".user-list");
+    const container = $(".container");
     userList.empty();
-    users.forEach((user) => {
+
+    users.forEach((user, index) => {
+      const isChecked = index === 0 ? "checked" : ""; // Check the first user by default
       const userItem = $(`
-        <li>
-          <div class="image-card">
-            <img src="${user.img}" alt="${user.name}" />
-            <span>${user.name}</span>
-          </div>
-          <input type="checkbox" class="user-checkbox" />
-        </li>
-      `);
+          <li>
+            <div class="image-card">
+              <img src="${user.img}" alt="${user.name}" />
+              <span>${user.name}</span>
+            </div>
+            <input type="checkbox" class="user-checkbox" ${isChecked} />
+          </li>
+        `);
       userList.append(userItem);
+
+      // Add the first user to the container by default
+      if (index === 0 && !addedUserNames.includes(user.name)) {
+        const userCard = $(`
+            <div class="user-card">
+              <img src="${user.img}" alt="${user.name}" />
+            </div>
+          `);
+        container.append(userCard);
+        addedUserNames.push(user.name);
+      }
     });
   }
 
@@ -699,10 +713,10 @@ $(document).ready(function () {
     selectedUsers.forEach((user) => {
       if (!addedUserNames.includes(user.name)) {
         const userCard = $(`
-          <div class="user-card">
-            <img src="${user.img}" alt="${user.name}" />
-          </div>
-        `);
+            <div class="user-card">
+              <img src="${user.img}" alt="${user.name}" />
+            </div>
+          `);
         container.append(userCard);
         addedUserNames.push(user.name);
       }
@@ -720,19 +734,17 @@ $(document).ready(function () {
     });
   });
 
+  fetchUsers().done(function (users) {
+    renderUsers(users);
+  });
+
   span.click(function () {
     modal.hide();
   });
 
-  // $(window).click(function (event) {
-  //   if ($(event.target).is(modal)) {
-  //     modal.hide();
-  //   }
-  // });
-
   $(window).click(function (event) {
     if ($(event.target).is("#invite-modal")) {
-      $("#invite-modal").hide();
+      modal.hide();
     }
   });
 
@@ -1647,6 +1659,34 @@ $(document).ready(function () {
   $(window).click(function (event) {
     if ($(event.target).is("#homModal")) {
       $("#homModal").hide();
+    }
+  });
+});
+
+$(document).ready(function () {
+  function openModal() {
+    $("#background-modal").css("display", "flex");
+  }
+
+  function closeModal() {
+    $("#background-modal").hide();
+  }
+
+  $("#open-modal-button").on("click", function () {
+    openModal();
+  });
+
+  $("#close-modal-button").on("click", function (event) {
+    closeModal();
+  });
+
+  $(".background-modal-content").on("click", function (event) {
+    event.stopPropagation();
+  });
+
+  $(window).click(function (event) {
+    if ($(event.target).is("#background-modal")) {
+      $("#background-modal").hide();
     }
   });
 });
