@@ -33,16 +33,15 @@ $(document).on("click", ".sidebar_trigger", (event) => {
   const isOpen = $sidebar.attr("aria-expanded") === "true";
   $sidebar.attr("aria-expanded", !isOpen);
 
-  const $mainContent = $(".main-content");
-  const $insideNav = $("#inside-nav");
+  const $mainContent = $(".content_area");
   if (isOpen) {
-    $mainContent.css("margin-left", "11rem");
-    $insideNav.css("left", "5rem");
-    $insideNav.css("width", "260px");
+    $mainContent.css("grid-template-columns", "1fr 20fr");
   } else {
-    $insideNav.css("left", "17.75rem");
-    $mainContent.css("margin-left", "18rem");
-    $insideNav.css("width", "185px");
+    if (window.innerWidth > 3000) {
+      $mainContent.css("grid-template-columns", "1fr 7fr");
+    } else {
+      $mainContent.css("grid-template-columns", "1fr 4fr");
+    }
   }
 });
 
@@ -499,7 +498,6 @@ $(document).ready(function () {
         $quickAccessContainerCompact.append(cardHTML);
 
         $(`#ellipsis-${i}`).on("click", function () {
-          console.log(`#action-card-${i}`);
           $(`#action-card-${i}`).css("display", "flex");
         });
 
@@ -520,6 +518,12 @@ $(document).ready(function () {
 
     $(".close-button").click(function () {
       $(".action-card").hide();
+    });
+
+    $(window).click(function (event) {
+      if ($(event.target).is(".action-card")) {
+        $(".action-card").hide();
+      }
     });
 
     $("#quick-access-container-compact").hide();
@@ -638,6 +642,12 @@ $(document).ready(function () {
     $(".share-card-small").css("display", "none");
   });
 
+  $(window).click(function (event) {
+    if ($(event.target).is(".share-card-small")) {
+      $(".share-card-small").hide();
+    }
+  });
+
   $(document).on("click", function (e) {
     const shareCards = $(".share-card-small");
     if (!shareCards.is(e.target) && shareCards.has(e.target).length === 0) {
@@ -686,6 +696,8 @@ $(document).ready(function () {
 
   function showDeleteModal() {
     $deleteModal.show();
+    $(".share-card-small").hide();
+
     $("body").append($overlay);
     $("body").addClass("body-no-scroll");
   }
@@ -714,6 +726,18 @@ $(document).ready(function () {
 
   $(document).on("click", ".close-delete", function () {
     hideDeleteModal();
+  });
+
+  $(window).click(function (event) {
+    if ($(event.target).is($modal)) {
+      $modal.hide();
+    }
+  });
+
+  $(window).click(function (event) {
+    if ($(event.target).is($deleteModal)) {
+      $deleteModal.hide();
+    }
   });
 });
 

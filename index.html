@@ -182,7 +182,6 @@
           </button>
           <!--top-message-->
           <div
-            style="display: none"
             x-transition:enter="transition ease-out duration-150"
             x-transition:enter-start="opacity-60 transform scale-95"
             x-transition:enter-end="opacity-100 transform scale-100"
@@ -195,10 +194,9 @@
             class="top-message modal-wrapper z-52"
           >
             <div class="top-message-title">
-              <span
-                class="material-symbols-outlined back"
-                @click="push__top=''"
-              ></span>
+              <span class="material-symbols-outlined back" @click="push__top=''"
+                >chevron_left</span
+              >
               <span class="label">Messages</span>
             </div>
             <div class="top-message-content">
@@ -593,7 +591,6 @@
 
           <!-- top notification -->
           <div
-            style="display: none"
             x-show="push__top=='notification'"
             x-transition:enter="transition ease-out duration-150"
             x-transition:enter-start="opacity-60 transform scale-95"
@@ -603,6 +600,7 @@
             x-transition:leave-start="opacity-100 x-translate-100 transform scale-100"
             @click.away="push__top=''"
             class="app_notification"
+            style=""
           >
             <header class="app_notification_header">
               <div class="app_notification_header_title">
@@ -622,7 +620,7 @@
                     type="radio"
                     x-bind:checked="notification_tab=='notifications'"
                     name="notification_tab"
-                    hidden
+                    hidden=""
                   />
                   <div>Notifications</div>
                 </label>
@@ -631,7 +629,8 @@
                     type="radio"
                     x-bind:checked="notification_tab=='requests'"
                     name="notification_tab"
-                    hidden
+                    hidden=""
+                    checked="checked"
                   />
                   <div>Requests</div>
                 </label>
@@ -641,9 +640,10 @@
               <ul
                 class="app_notification_body_items y-thin-scroll"
                 x-show="notification_tab=='notifications'"
+                style="display: none"
               >
                 <li>
-                  <img src="./assets/user2.png" alt="avater" />
+                  <img src="./assets/user1.png" alt="avater" />
                   <div class="app_notification_m_content">
                     <ul class="notification_">
                       <li class="notification_sender">
@@ -682,7 +682,7 @@
                   </div>
                 </li>
                 <li>
-                  <img src="./assets/user2.png" alt="avater" />
+                  <img src="./assets/user3.png" alt="avater" />
                   <div class="app_notification_m_content">
                     <ul class="notification_">
                       <li class="notification_sender">
@@ -702,9 +702,10 @@
               <ul
                 class="app_notification_body_items req"
                 x-show="notification_tab=='requests'"
+                style=""
               >
                 <li>
-                  <img src="./assets/user2.png" alt="avater" />
+                  <img src="./assets/user1.png" alt="avater" />
                   <div class="app_notification_m_content">
                     <ul class="notification_">
                       <li class="notification_sender">
@@ -728,10 +729,11 @@
                       x-show="!follow"
                       @click="follow=!follow"
                       x-text="confirm ? 'Following' : 'Follow back'"
+                      style="display: none"
                     >
                       Follow back
                     </button>
-                    <div class="confirm-following" x-show="follow">
+                    <div class="confirm-following" x-show="follow" style="">
                       <div class="confirm-following-group">
                         <button
                           title="cancel"
@@ -759,7 +761,7 @@
                     <ul class="notification_">
                       <li class="notification_sender">
                         <span class="sender__ ellipsis"
-                          >Sky News (247 comments)</span
+                          >Sky News</span
                         >
                         <span class="dot__separator"
                           ><small class="dot__separator_sm ind-gray"></small>
@@ -783,7 +785,11 @@
                     >
                       Follow back
                     </button>
-                    <div class="confirm-following" x-show="follow">
+                    <div
+                      class="confirm-following"
+                      x-show="follow"
+                      style="display: none"
+                    >
                       <div class="confirm-following-group">
                         <button
                           title="cancel"
@@ -806,7 +812,7 @@
                   </div>
                 </li>
                 <li>
-                  <img src="./assets/user2.png" alt="avater" />
+                  <img src="./assets/user3.png" alt="avater" />
                   <div class="app_notification_m_content">
                     <ul class="notification_">
                       <li class="notification_sender">
@@ -833,7 +839,11 @@
                     >
                       Follow back
                     </button>
-                    <div class="confirm-following" x-show="follow">
+                    <div
+                      class="confirm-following"
+                      x-show="follow"
+                      style="display: none"
+                    >
                       <div class="confirm-following-group">
                         <button
                           title="cancel"
@@ -856,7 +866,7 @@
                   </div>
                 </li>
                 <li>
-                  <img src="./assets/user2.png" alt="avater" />
+                  <img src="./assets/user4.png" alt="avater" />
                   <div class="app_notification_m_content">
                     <ul class="notification_">
                       <li class="notification_sender">
@@ -885,7 +895,11 @@
                     >
                       Follow back
                     </button>
-                    <div class="confirm-following" x-show="follow">
+                    <div
+                      class="confirm-following"
+                      x-show="follow"
+                      style="display: none"
+                    >
                       <div class="confirm-following-group">
                         <button
                           title="cancel"
@@ -908,7 +922,7 @@
                   </div>
                 </li>
                 <li>
-                  <img src="./assets/user2.png" alt="avater" />
+                  <img src="./assets/user5.png" alt="avater" />
                   <div class="app_notification_m_content">
                     <ul class="notification_">
                       <li class="notification_sender">
@@ -935,7 +949,11 @@
                     >
                       Follow back
                     </button>
-                    <div class="confirm-following" x-show="follow">
+                    <div
+                      class="confirm-following"
+                      x-show="follow"
+                      style="display: none"
+                    >
                       <div class="confirm-following-group">
                         <button
                           title="cancel"

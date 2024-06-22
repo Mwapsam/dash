@@ -19,7 +19,7 @@
           },
           {
             "time": "12:01pm",
-            "message": "Can you explain the theory you..."
+            "message": "Can you explain the theory you. Can you explain the theory you.."
           }
         ]
       }
@@ -46,7 +46,7 @@
           },
           {
             "time": "12:01pm",
-            "message": "Can you explain the theory you..."
+            "message": "Can you explain the theory you. Can you explain the theory you.."
           },
           {
             "time": "June 15",
@@ -163,7 +163,7 @@
           },
           {
             "time": "June 16",
-            "message": "Let's finalize the details today."
+            "message": "Let's finalize the details today. Let's finalize the details today"
           }
         ]
       }

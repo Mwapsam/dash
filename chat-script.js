@@ -142,14 +142,16 @@ $(document).ready(function () {
         <div class="chat-header">
           <div class="name-time-card">
             <span class="chat-name">${chat.name}</span>
-            <div class="chat-time">${latestMessage.time}</div>
+            <div class='time-card'>
+              <div class="chat-time">${latestMessage.time}</div>
+            </div>
           </div>
           ${chatCountOrCameraIcon}
         </div>
         <div class="chat-message-side">
           <div class="chat-message">${truncateText(
             latestMessage.message,
-            44
+            54
           )}</div>
           <span class='dots' id='${uniqueTriggerId}'>
             <span class='dot black-dot'>.</span>
@@ -438,12 +440,12 @@ $(document).ready(function () {
       chatCountOrCameraIcon =
         latestConversation.messages.length > 2
           ? '<i class="fa-solid fa-camera my-camera-group"></i>'
-          : `<span class="chat-count">3</span>`;
+          : `<span class="chat-count group">3</span>`;
     } else {
       chatCountOrCameraIcon = `
         <div>
           <i class="fa-solid fa-camera my-camera-group"></i>
-          <span class="chat-count">3</span>
+          <span class="chat-count group">3</span>
         </div>
     `;
     }
@@ -464,7 +466,7 @@ $(document).ready(function () {
         </span>
       </div>
       ${chatCountOrCameraIcon}
-      <button class="options-hover-button" data-modal-id="${uniqueId}">
+      <button class="options-hover-button group" data-modal-id="${uniqueId}">
         <i class="fa fa-arrow-right" aria-hidden="true"></i>
         <i class="fa-solid fa-ellipsis"></i>
       </button>
@@ -557,6 +559,12 @@ $(document).ready(function () {
           shouldShow = unread && visibleCount < 3;
           break;
         case "favourites":
+          if (!$(".time-card").find(".fa-heart").length) {
+            $(".time-card").append(`
+            <i class="fa-solid fa-heart"></i>
+          `);
+          }
+
           shouldShow = favourite && visibleCount < 4;
           break;
         case "groups":
@@ -1713,5 +1721,43 @@ $(document).ready(function () {
     if ($(event.target).is("#background-modal")) {
       $("#background-modal").hide();
     }
+  });
+});
+
+$(document).ready(function () {
+  var btn = $(".action-button.more");
+  var span = $("#close-more-action");
+
+  $("#openModalDelete").click(function () {
+    $("#deleteModal").css("display", "flex");
+    $("#moreModal").hide();
+    span.hide();
+    btn.css("color", "#000");
+  });
+
+  $("#openModalBlock").click(function () {
+    $("#deleteModal").css("display", "flex");
+    $("#moreModal").hide();
+    span.hide();
+    btn.css("color", "#000");
+  });
+
+  $(".close-delete, .delete-modal").click(function (event) {
+    if (
+      $(event.target).is(".close-delete") ||
+      $(event.target).is(".delete-modal")
+    ) {
+      $("#deleteModal").hide();
+    }
+  });
+
+  $(".modal-content-delete").click(function (event) {
+    event.stopPropagation();
+  });
+});
+
+$(document).ready(function () {
+  $(".mobile").click(() => {
+    $("#callModal").show();
   });
 });

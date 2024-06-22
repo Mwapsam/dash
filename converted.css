@@ -606,6 +606,7 @@ body {
   min-height: 100dvh;
   flex-direction: column;
   font-family: Inter, sans-serif;
+  overflow-y: hidden;
 }
 img {
   -o-object-fit: cover;
@@ -633,7 +634,7 @@ svg[data-icon] {
   grid-template-columns: auto 1fr;
 } */
 .content_area main {
-  overflow: hidden;
+  /* overflow: hidden; */
   /* padding: 0.5rem; */
 }
 .header {
@@ -791,7 +792,7 @@ svg[data-icon] {
 }
 #sidebar {
   height: calc(100dvh - var(--header-nav-height));
-  width: 17rem;
+  width: 100%;
   scrollbar-gutter: stable;
   display: none;
   flex-shrink: 0;
@@ -1029,6 +1030,7 @@ svg[data-icon] {
 #sidebar[aria-expanded='false'] {
   width: 4.25rem;
   overflow: hidden;
+  /* grid-template-columns: fr 8fr; */
 }
 #sidebar[aria-expanded='false'] .sidebar_container,
 #sidebar[aria-expanded='false'] .sidebar_container__bordered {
@@ -1227,8 +1229,6 @@ svg[data-icon] {
     padding-right: 0;
   }
 }
-
-
 
 .app_notification {
   position: fixed;
@@ -1833,3 +1833,52 @@ svg[data-icon] {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
+
+.following-link {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    --tw-text-opacity: 1;
+    color: rgb(59 130 246 / var(--tw-text-opacity));
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.confirm-following-group {
+    order: 0;
+    display: flex;
+    height: 1.5rem;
+    width: 3.5rem;
+    flex: none;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0px;
+}
+
+.confirm-cancel {
+    width: 2rem;
+    height: 2rem;
+    cursor: help;
+    --tw-text-opacity: 1;
+    color: rgb(239 68 68 / var(--tw-text-opacity));
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.confirm-done {
+    order: 1;
+    width: 2rem;
+    height: 2rem;
+    --tw-text-opacity: 1;
+    color: rgb(34 197 94 / var(--tw-text-opacity));
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+

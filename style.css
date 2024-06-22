@@ -7,6 +7,20 @@
   --inside-container-tablet: 24.3rem;
 }
 
+#sidebar .sidebar_container__bordered > * {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.fa-heart {
+  color: red;
+}
+
+.time-card {
+  display: flex;
+  gap: 5px;
+}
+
 .hide-button {
   display: none;
 }
@@ -66,7 +80,7 @@
   display: flex;
   flex-direction: row;
   position: absolute;
-  top: 4px;
+  top: 30px;
 }
 
 .dot {
@@ -206,16 +220,23 @@
     display: none;
   }
 
+  .dots {
+    top: 20px !important;
+  }
+
   .my-camera-group {
     position: absolute;
-    right: 3rem;
-    top: 28%;
+    right: 7rem;
+    top: 37%;
     transform: translateY(-50%);
-    font-size: larger;
   }
 
   #openCallModal {
     display: none;
+  }
+
+  #openCallModal.mobile {
+    display: block;
   }
 
   .actions {
@@ -226,8 +247,9 @@
 
   .chat-list {
     background-color: #fff;
-    overflow: hidden;
+    overflow: auto;
     margin-bottom: 4rem;
+    height: 100vh;
   }
 
   .welcome-text {
@@ -602,6 +624,7 @@
     position: relative;
     cursor: pointer;
     padding: 11px 3px 12px 3px;
+    height: 7rem;
   }
 
   .chat-item:last-child {
@@ -676,6 +699,7 @@
     display: flex;
     align-items: flex-end;
     margin-bottom: 10px;
+    margin-right: 3rem;
   }
 
   .chat-message .avatar {
@@ -1267,6 +1291,10 @@
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .group-description {
@@ -3039,6 +3067,99 @@
     border-radius: 16px 16px 0 0;
     width: 100%;
   }
+
+  .delete-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+  }
+
+  .modal-content-delete {
+    padding: 24px;
+    position: absolute;
+    width: 100%;
+    height: 268px;
+    bottom: 0;
+    background: #ffffff;
+    box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08),
+      0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .delete-modal {
+    & .info {
+      width: 48px;
+      height: 48px;
+      background: #fee4e2;
+      border: 8px solid #fef3f2;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .fa-info-circle {
+        color: #d92d20;
+      }
+    }
+  }
+
+  .text-card {
+    & h3 {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 28px;
+      color: #101828;
+      text-align: center;
+    }
+
+    p {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #667085;
+      text-align: center;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 6px;
+    margin-top: 1rem;
+
+    & .close-delete {
+      width: 300px;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid gainsboro;
+    }
+
+    & .excute-delete {
+      width: 300px;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid #d92d20;
+      background-color: #d92d20;
+      color: #fff;
+    }
+  }
 }
 
 /* Tablet: minimum width of 768px and maximum width of 1024px */
@@ -3081,10 +3202,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-
     height: calc(100dvh - var(--container-sub-tablet)) !important;
     overflow-y: scroll;
     scrollbar-gutter: stable;
+    border: 1px #e6e3e3 solid;
+    border-radius: 40px;
+    background: #fff;
 
     img {
       max-width: 85%;
@@ -3189,10 +3312,13 @@
 
   .chat-container {
     height: 90vh;
-    max-height: 753px;
+    /* max-height: 753px; */
     display: none;
     flex-direction: column;
     overflow: hidden;
+    border: 1px #e4e4e4 solid;
+    border-radius: 30px;
+    background: #fff;
   }
 
   .chat-box {
@@ -3490,8 +3616,18 @@
     border-radius: 50%;
     position: absolute;
     right: 1rem;
-    top: 67%;
+    top: 36%;
     transform: translateY(-50%);
+  }
+
+  .chat-count.group {
+    top: 57px;
+  }
+
+  .my-camera-group {
+    position: absolute;
+    top: 26px;
+    right: 6rem;
   }
 
   .chat-container {
@@ -3514,6 +3650,7 @@
     display: flex;
     align-items: flex-end;
     margin-bottom: 28px;
+    margin-right: 0.6rem;
   }
 
   .chat-message .avatar {
@@ -4055,6 +4192,10 @@
     background-color: #fff;
   }
 
+  .footer {
+    margin-top: 8rem;
+  }
+
   .group-list {
     height: 200px;
     overflow-y: auto;
@@ -4117,6 +4258,10 @@
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .group-description {
@@ -4788,6 +4933,10 @@
     .fa-arrow-right {
       display: none;
     }
+  }
+
+  .options-hover-button.group {
+    top: 10px;
   }
 
   .options-modal {
@@ -5843,6 +5992,87 @@
     margin: 0;
     display: none;
   }
+
+  .delete-modal {
+    display: none;
+    position: fixed;
+    z-index: 1111;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .info {
+    width: 48px;
+    height: 48px;
+    background: #fee4e2;
+    border: 8px solid #fef3f2;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fa-info-circle {
+    color: #d92d20;
+  }
+
+  .text-card {
+    & h3 {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 28px;
+      color: #101828;
+    }
+
+    p {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #667085;
+    }
+  }
+
+  .buttons {
+    & .close-delete {
+      width: 170px;
+      height: 44px;
+      border-radius: 8px;
+      border: 1px solid gainsboro;
+    }
+    .excute-delete {
+      width: 170px;
+      height: 44px;
+      border-radius: 8px;
+      border: 1px solid #d92d20;
+      background-color: #d92d20;
+      color: #fff;
+    }
+  }
+
+  .modal-content-delete {
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    height: 268px;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid #eaecf0;
+    box-shadow: 0px 32px 64px -12px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 
 /* PC: minimum width of 1025px */
@@ -5856,10 +6086,9 @@
 
   .my-camera-group {
     position: absolute;
-    right: 3rem;
+    right: 5.4rem;
     top: 36%;
     transform: translateY(-50%);
-    font-size: larger;
   }
 
   .close-message {
@@ -5954,7 +6183,8 @@
     border-bottom: 1px solid #e6e6e6;
     position: relative;
     cursor: pointer;
-    padding: 11px 3px 12px 3px;
+    padding: 11px 3px 15px 3px;
+    min-height: 6rem;
   }
 
   .chat-item:last-child {
@@ -5979,6 +6209,7 @@
     justify-content: space-between;
     align-items: center;
     margin-right: 1rem;
+    margin-bottom: 5px;
   }
 
   .chat-name {
@@ -6004,14 +6235,14 @@
     border-radius: 50%;
     position: absolute;
     right: 1rem;
-    top: 38%;
+    top: 65%;
     transform: translateY(-50%);
   }
 
   .my-camera {
     position: absolute;
     right: 10rem;
-    top: 23%;
+    top: 15%;
     transform: translateY(-50%);
     font-size: larger;
   }
@@ -6041,6 +6272,7 @@
     display: flex;
     align-items: flex-end;
     margin-bottom: 10px;
+    margin-right: 3.5rem;
   }
 
   .chat-message .avatar {
@@ -6662,6 +6894,10 @@
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .group-description {
@@ -7323,14 +7559,14 @@
     justify-content: center;
     gap: 10px;
     margin: 0 auto;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     background: #ffffff;
     border: 1px solid rgba(195, 195, 195, 0.79);
     border-radius: 200px;
     position: absolute;
     right: 6px;
-    top: 14px;
+    top: 30px;
     z-index: 9999;
 
     .fa-ellipsis {
@@ -7431,6 +7667,87 @@
   li:hover {
     background-color: #f1f1f1;
     cursor: pointer;
+  }
+
+  .delete-modal {
+    display: none;
+    position: fixed;
+    z-index: 1111;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .info {
+    width: 48px;
+    height: 48px;
+    background: #fee4e2;
+    border: 8px solid #fef3f2;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fa-info-circle {
+    color: #d92d20;
+  }
+
+  .text-card {
+    & h3 {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 28px;
+      color: #101828;
+    }
+
+    p {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #667085;
+    }
+  }
+
+  .buttons {
+    & .close-delete {
+      width: 170px;
+      height: 44px;
+      border-radius: 8px;
+      border: 1px solid gainsboro;
+    }
+    .excute-delete {
+      width: 170px;
+      height: 44px;
+      border-radius: 8px;
+      border: 1px solid #d92d20;
+      background-color: #d92d20;
+      color: #fff;
+    }
+  }
+
+  .modal-content-delete {
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    height: 268px;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid #eaecf0;
+    box-shadow: 0px 32px 64px -12px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .groupModal {
@@ -7607,12 +7924,12 @@
 
   .tabs {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     border-bottom: 1px solid #ccc;
   }
 
   .tab-link {
-    padding: 10px 15px;
+    padding: 10px 5px;
     cursor: pointer;
     border: none;
     background: none;
