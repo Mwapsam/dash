@@ -2,9 +2,10 @@
   --header-nav-height: 4rem;
   --container-sub: 12rem;
   --container-sub-tablet: 20rem;
-  --inside-container: 17.3rem;
+  --inside-container: 19.3rem;
   --inside-container-mobile: 22.3rem;
   --inside-container-tablet: 24.3rem;
+  --inside-container-big: 22rem;
 }
 
 #sidebar .sidebar_container__bordered > * {
@@ -3626,8 +3627,8 @@
 
   .my-camera-group {
     position: absolute;
-    top: 26px;
-    right: 6rem;
+    top: 73px;
+    right: 1.2rem;
   }
 
   .chat-container {
@@ -4190,11 +4191,14 @@
 
   .group-container {
     background-color: #fff;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
   }
 
-  .footer {
-    margin-top: 8rem;
-  }
+  /* .footer {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  } */
 
   .group-list {
     height: 200px;
@@ -6117,7 +6121,7 @@
   }
 
   .chat-layout {
-    grid-template-rows: 0.7fr 5fr 1fr;
+    grid-template-rows: 0.3fr 5fr 1fr;
   }
 
   .welcome-text {
@@ -6196,7 +6200,8 @@
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
-    margin-left: 1rem;
+    margin-left: 5px;
+    min-width: 40px;
   }
 
   .chat-details {
@@ -6248,7 +6253,7 @@
   }
 
   .chat-container {
-    height: calc(100dvh - var(--inside-container)) !important;
+    height: calc(100dvh - var(--inside-container));
 
     display: none;
     flex-direction: column;
@@ -6272,7 +6277,10 @@
     display: flex;
     align-items: flex-end;
     margin-bottom: 10px;
-    margin-right: 3.5rem;
+  }
+
+  .chat-message-side {
+    width: 14rem;
   }
 
   .chat-message .avatar {
@@ -7579,7 +7587,7 @@
     position: absolute;
     z-index: 9999;
     left: 9.24rem;
-    top: 3px;
+    top: 17px;
   }
 
   .options-modal-group {
@@ -8691,6 +8699,20 @@
 
 @media (min-width: 1530px) {
   .footer {
-    display: none;
+    margin-top: 15rem;
+  }
+}
+
+@media (min-width: 2300px) {
+  .chat-container {
+    height: calc(100dvh - var(--inside-container-big));
+  }
+
+  .chat-list {
+    background-color: #fff;
+    height: 78rem;
+    overflow-y: scroll !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 }

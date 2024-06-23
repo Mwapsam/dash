@@ -175,8 +175,11 @@ $(document).ready(function () {
               <li class="grid-item" id="openCallModalOut"><span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span> Voice call</li>
               <li class="grid-item"><a href="./video-chat.html" class="icon"><i class="fa fa-video-camera" aria-hidden="true"></i></a> Video call</li>
               <li class="grid-item"><span class="icon"><img src="./assets/unread.png" /></span> Unread</li>
-              <li class="grid-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
-              <li class="grid-item"><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
+              <li class="grid-item" id="openModalDelete">
+                    <span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                    Delete
+                  </li>
+              <li class="grid-item" id='openModalBlock'><span class="icon"><i class="fa fa-ban" aria-hidden="true"></i></span> Block</li>
             </ul>
           </div>
         </div>
@@ -186,11 +189,6 @@ $(document).ready(function () {
   }
 
   $(document).ready(function () {
-    $(document).on("click", ".options-hover-button", function (event) {
-      event.stopPropagation();
-      const modalId = $(this).data("modal-id");
-      $(`#${modalId}`).toggle();
-    });
     $(document).on("click", "#openCallModalOut", function (event) {
       event.stopPropagation();
       $("#callModal").show();
@@ -247,8 +245,8 @@ $(document).ready(function () {
                           <li class="grid-item"><span class="icon"><i class="fa-solid fa-share-from-square"></i></span> Forward</li>
                           <li class="grid-item"><span class="icon"><i class="fa-solid fa-pencil"></i></span> Reply</li>
                           <li class="grid-item"><span class="icon"><i class="fa-regular fa-copy"></i></span> Copy</li>
-                          <li class="grid-item"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
-                          <li class="grid-item"><span class="icon"><i class="fa-regular fa-circle-question"></i></span> Report</li>
+                          <li class="grid-item" id="openModalDelete"><span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span> Delete</li>
+                          <li class="grid-item" id="openModalBlock"><span class="icon"><i class="fa-regular fa-circle-question"></i></span> Report</li>
                         </ul>
                       </div>
                     </div>
@@ -355,11 +353,12 @@ $(document).ready(function () {
   }
 
   function createOptionsModal() {
-    $(document).on("click", ".options-hover-button", function (event) {
-      event.stopPropagation();
-      let modalId = $(this).data("modal-id");
-      $(`#${modalId}`).toggle();
-    });
+    // $(document).on("click", ".options-hover-button", function (event) {
+    //   event.stopPropagation();
+    //   let modalId = $(this).data("modal-id");
+    //   $(`#${modalId}`).toggle();
+
+    // });
 
     $(document).on("click", ".options-modal-close", function (event) {
       event.stopPropagation();
@@ -390,6 +389,24 @@ $(document).ready(function () {
       var $chatMessage = $thisButton.closest(".chat-message");
       var $modal = $chatMessage.find(".message-option-modal");
       var $closeButton = $chatMessage.find(".message-options-modal-close");
+      var $openDelete = $modal.find("#openModalDelete");
+      var $openBlock = $modal.find("#openModalBlock");
+
+      $($openDelete).click(function (e) {
+        e.stopPropagation();
+        $("#deleteModal").css("display", "flex");
+        $modal.hide();
+        $thisButton.show();
+        $closeButton.hide();
+      });
+
+      $($openBlock).click(function (e) {
+        e.stopPropagation();
+        $("#deleteModal").css("display", "flex");
+        $modal.hide();
+        $thisButton.show();
+        $closeButton.hide();
+      });
 
       $thisButton.hide();
       $modal.show();
@@ -625,6 +642,20 @@ $(document).ready(function () {
       event.stopPropagation();
       const modalId = $(this).data("modal-id");
       $(`#${modalId}`).show();
+
+      var $openDelete = $(`#${modalId}`).find("#openModalDelete");
+      var $openBlock = $(`#${modalId}`).find("#openModalBlock");
+
+      $($openDelete).click(() => {
+        $("#deleteModal").css("display", "flex");
+        $(`#${modalId}`).hide();
+      });
+
+      $($openBlock).click(() => {
+        $("#deleteModal").css("display", "flex");
+        $(`#${modalId}`).hide();
+      });
+
       $(event.target).closest(".options-hover-button").addClass("hide-button");
     });
 
