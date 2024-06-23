@@ -576,8 +576,8 @@ $(document).ready(function () {
           shouldShow = unread && visibleCount < 3;
           break;
         case "favourites":
-          if (!$(".time-card").find(".fa-heart").length) {
-            $(".time-card").append(`
+          if (!$(".chat-name").find(".fa-heart").length) {
+            $(".chat-name").append(`
             <i class="fa-solid fa-heart"></i>
           `);
           }

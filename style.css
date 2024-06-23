@@ -6250,7 +6250,7 @@
 
   .my-camera {
     position: absolute;
-    right: 10rem;
+    right: 9.5rem;
     top: 15%;
     transform: translateY(-50%);
     font-size: larger;
