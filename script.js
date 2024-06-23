@@ -684,6 +684,7 @@ $(document).ready(function () {
 
   function showModal() {
     $modal.show();
+    $(".share-card-small").hide();
     $("body").append($overlay);
     $("body").addClass("body-no-scroll");
   }

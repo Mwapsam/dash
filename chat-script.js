@@ -1222,7 +1222,7 @@ $(document).ready(function () {
   var imagePreview = $("#imagePreview");
 
   btn.click(function () {
-    modal.show();
+    modal.css('display', 'flex')
     btn.addClass("clicked");
   });
 
@@ -1248,7 +1248,7 @@ $(document).ready(function () {
     modal.hide();
     btn.removeClass("clicked");
 
-    $("#addMemberModal").show();
+    $("#addMemberModal").css('display', 'flex')
   });
 
   // Drag and Drop functionality
