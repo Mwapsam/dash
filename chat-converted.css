@@ -1387,6 +1387,12 @@ svg[data-icon] {
   flex-direction: column;
 }
 
+.notification_ {
+  li {
+    padding: 0;
+  }
+}
+
 .app_notification_body_items
   > li
   .app_notification_m_content
@@ -1471,17 +1477,12 @@ svg[data-icon] {
   > li
   .app_notification_m_content
   .notification_message {
-  /* width: 100%; */
+  width: 100%;
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
-  display: block;
-  width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .app_notification_body_items > li .notification_follow_back {
