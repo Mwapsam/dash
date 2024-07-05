@@ -212,6 +212,13 @@
 
 /* Phone: maximum width of 767px */
 @media (max-width: 767px) {
+  .my-camera {
+    position: absolute;
+    right: 1rem;
+    top: 83%;
+    transform: translateY(-50%);
+    font-size: larger;
+  }
   .mobile_only_title {
     h1 {
       font-weight: bolder;
@@ -363,7 +370,7 @@
   }
 
   .chat-container {
-    height: 80vh;
+    height: 66vh;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -676,7 +683,7 @@
     border-radius: 50%;
     position: absolute;
     right: 1rem;
-    top: 67%;
+    top: 42%;
     transform: translateY(-50%);
   }
 
@@ -700,7 +707,15 @@
     display: flex;
     align-items: flex-end;
     margin-bottom: 10px;
-    margin-right: 3rem;
+    max-width: 257px;
+  }
+
+  .chat-message.sender {
+    max-width: 100%;
+  }
+
+  .chat-message.recipient {
+    max-width: 100%;
   }
 
   .chat-message .avatar {
@@ -857,7 +872,7 @@
   }
 
   .recipient .message-content {
-    max-width: 358px;
+    /* max-width: 358px; */
     background: rgba(137, 41, 237, 0.79);
     border-radius: 20px 0px 20px 20px;
     color: #fff;
@@ -4094,7 +4109,8 @@
     backdrop-filter: blur(100px);
     border-radius: 32px;
     position: absolute;
-    left: 3rem;
+    left: 25rem;
+    top: -133px;
   }
 
   .modal-header {
@@ -4535,7 +4551,7 @@
     padding-top: 20px;
     border-radius: 40px;
     width: 100%;
-    border: 1px solid #e9e9e9;
+    height: 100%;
   }
 
   .media-modal-content::-webkit-scrollbar {
@@ -4547,7 +4563,6 @@
     flex-wrap: wrap;
     gap: 10px;
     justify-content: space-between;
-    padding-bottom: 12rem;
   }
 
   .media-file-card {
@@ -4610,7 +4625,7 @@
   .select-button,
   .select-button-files {
     position: fixed;
-    bottom: 150px;
+    bottom: 263px;
     right: 48px;
     width: 45px;
     height: 45px;
@@ -4642,7 +4657,7 @@
   .link-cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-bottom: 12rem;
+    margin-bottom: 2rem;
 
     input[type="checkbox"] {
       appearance: none;
@@ -4715,7 +4730,7 @@
     border-radius: 40px;
     width: 100%;
     background-color: #fff;
-    border: 1px solid #e5e4e4;
+    height: 100%;
   }
 
   .file-modal-header,
@@ -6464,7 +6479,6 @@
   .chat-input-container {
     display: flex;
     flex-direction: column;
-    /* margin-top: 15px; */
     position: fixed;
     bottom: 0;
     width: -moz-available;
